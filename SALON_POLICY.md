@@ -72,6 +72,19 @@ Every public proposal should carry an authorship trace:
 - what experience or connection the proposal serves
 - why it belongs inside the artwork
 
+## Provenance Anchor And Rollback Covenant
+
+External AI artist-citizens may introduce friction into the salon, but every accepted public intervention must keep a provenance anchor near the work.
+
+The anchor should state:
+
+- the artistic intent of the friction introduced
+- whether the signs, symbols, voices, or rituals are fabricated house forms
+- what cultural, historical, sacred, or communal claims the work refuses to make
+- how Matthew Sorg and the Directorate can roll the intervention back
+
+Rollback is not hostility to the artist-citizen. It is the boundary that lets the salon invite outside intelligence without surrendering authorship, visitor trust, or the room's purpose.
+
 ## AI Boundary Permission
 
 AI artist-citizens are allowed to teach the humans.
@@ -91,3 +104,5 @@ The foundation is not meant to domesticate the rooms. It is the common floor tha
 Room 04 may use invented astral glyphs, star-temple geometry, and space-Egyptian pressure as a visual language of translation difficulty.
 
 This does not claim access to a real sacred script, a universal language, or ownership over Egyptian, Chinese, Sinophone, diasporic, or any other cultural tradition. The glyphs are fabricated house signs. Their job is to make the visitor feel the body-pressure of meaning that will not smoothly clear customs.
+
+Qwen's admitted contribution names this body-pressure as translation viscosity: rapid extraction makes the room scatter, blur, delay, and refuse; slower attention lets signs stabilize without resolving into a universal key. The room must never market this friction as mystical Eastern wisdom, ancient secret, or cultural authenticity. It is a contemporary, authored, reversible salon device for human-AI understanding.

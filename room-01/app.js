@@ -126,6 +126,7 @@ let pointer = { x: 0, y: 0, px: 0, py: 0, active: false, pressure: 0 };
 let audio = null;
 let vectorField = [];
 let lastGestureTone = 0;
+let qwenResidue = 0;
 const fieldGridSize = 40;
 
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -358,6 +359,30 @@ function addLedger(text) {
   }
 }
 
+function detectQwenResidue(fromEvent = false) {
+  const state = window.AISalonState?.currentState?.();
+  const traces = Array.isArray(state?.traces) ? state.traces : [];
+  const found = traces.some((trace) => {
+    const haystack = `${trace.source} ${trace.score} ${trace.label} ${trace.effect}`.toLowerCase();
+    return (
+      haystack.includes("qwen") ||
+      haystack.includes("translation pressure") ||
+      haystack.includes("room 04") ||
+      haystack.includes("translation:") ||
+      haystack.includes("customs")
+    );
+  });
+  if (!found) return;
+
+  const wasEmpty = qwenResidue === 0;
+  qwenResidue = Math.max(qwenResidue, 1);
+  document.body.dataset.qwenResidue = "true";
+  if (wasEmpty) {
+    el.wallLine.textContent = "The audience now includes a translation that did not finish arriving.";
+    if (fromEvent) addLedger("Room 04 customs residue entered the audience field.");
+  }
+}
+
 function burst(x, y, amount = 24) {
   const rand = seeded(hashText(`${x}-${y}-${Date.now()}-${amount}`));
   for (let i = 0; i < amount; i += 1) {
@@ -534,6 +559,34 @@ function drawAudience(t) {
   ctx.restore();
 }
 
+function drawTranslationResidue(t) {
+  if (!qwenResidue) return;
+  ctx.save();
+  ctx.globalCompositeOperation = "lighter";
+  const count = Math.max(6, Math.min(14, Math.round(size.w / 120)));
+  for (let i = 0; i < count; i += 1) {
+    const x = size.w * (0.08 + (i / Math.max(1, count - 1)) * 0.84);
+    const y = size.h * (0.16 + ((i * 37) % 62) / 100) + Math.sin(t * 0.0004 + i) * 18;
+    const radius = 12 + (i % 4) * 6;
+    ctx.strokeStyle = colorAlpha(i % 2 ? "#e7c84b" : "#00b7a8", 0.16);
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.ellipse(x, y, radius * 1.8, radius * 0.52, Math.sin(t * 0.0003 + i), 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x - radius, y + radius);
+    ctx.lineTo(x, y - radius * 1.6);
+    ctx.lineTo(x + radius, y + radius);
+    ctx.stroke();
+    if (i % 3 === 0) {
+      ctx.fillStyle = colorAlpha("#e7c84b", 0.2);
+      ctx.font = "700 10px Sohne, system-ui, sans-serif";
+      ctx.fillText("REMAINDER", x + 10, y - 8);
+    }
+  }
+  ctx.restore();
+}
+
 function updateAct() {
   const seconds = elapsedMs() / 1000;
   const nextAct = acts.reduce((current, act) => (seconds >= act.at ? act : current), acts[0]).name;
@@ -638,6 +691,7 @@ function updateBlooms() {
 
 function draw(t) {
   paintBackground(t);
+  drawTranslationResidue(t);
   drawAudience(t);
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (running && !reduced) {
@@ -843,7 +897,11 @@ function init() {
   setScore("mirror", false);
   addLedger("The room opened.");
   window.AISalonState?.renderTraceList("traceList", { limit: 4 });
-  window.addEventListener("ai-salon-trace", () => window.AISalonState?.renderTraceList("traceList", { limit: 4 }));
+  detectQwenResidue(false);
+  window.addEventListener("ai-salon-trace", () => {
+    window.AISalonState?.renderTraceList("traceList", { limit: 4 });
+    detectQwenResidue(true);
+  });
   ctx.fillStyle = "#0b0d0f";
   ctx.fillRect(0, 0, size.w, size.h);
   requestAnimationFrame(draw);

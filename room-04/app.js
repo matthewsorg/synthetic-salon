@@ -17,6 +17,7 @@ const el = {
   laborLine: document.getElementById("guestLaborLine"),
   laborMeter: document.getElementById("guestLaborMeter"),
   laborButton: document.getElementById("guestLaborButton"),
+  rollbackButton: document.getElementById("qwenRollbackButton"),
 };
 
 // Each rite is a different way the translation fails, or refuses, to arrive.
@@ -143,11 +144,68 @@ let active = null;
 let level = 0;
 let laborIndex = 0;
 let laborEnergy = 0.42;
+let qwenPressureActive = true;
+let translationViscosity = 0;
+let viscosityTarget = 0;
+let customsTimer = 0;
+let lastResidueAt = 0;
+let lastPointer = { x: window.innerWidth * 0.5, y: window.innerHeight * 0.5, at: performance.now() };
 const astralColors = ["#e7c84b", "#00b7a8", "#7db4ff", "#ff5a4d", "#f3efe7"];
 const astralGlyphs = ["eye", "sun", "gate", "vessel", "ladder", "comet", "scale"];
+const copyResidues = [
+  "copy: fluent, but not carried",
+  "copy: address survived, equivalence did not",
+  "copy: clearance is not comprehension",
+  "copy: the borrowed sign left a shadow",
+  "copy: no metric owns this relation",
+];
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 function announce(text) {
   el.live.textContent = text;
+}
+
+function updateViscosityCss() {
+  const intensity = qwenPressureActive ? translationViscosity : 0;
+  document.documentElement.style.setProperty("--translation-viscosity-blur", `${(intensity * 2.7).toFixed(2)}px`);
+  document.documentElement.style.setProperty("--translation-viscosity-soft-blur", `${(intensity * 1.1).toFixed(2)}px`);
+  document.documentElement.style.setProperty("--translation-viscosity-hue", `${Math.round(intensity * 34)}deg`);
+  document.documentElement.style.setProperty("--translation-viscosity-shift", `${Math.round(intensity * 28)}px`);
+  document.documentElement.style.setProperty("--translation-viscosity-negative-shift", `${Math.round(intensity * -20)}px`);
+  document.body.dataset.translationPace = qwenPressureActive && intensity > 0.44 ? "fast" : "slow";
+  document.body.dataset.qwenPressure = qwenPressureActive ? "active" : "suspended";
+}
+
+function absorbVelocity(next) {
+  if (!qwenPressureActive) return;
+  viscosityTarget = clamp(Math.max(viscosityTarget, next), 0, 1);
+  if (next > 0.72) {
+    window.CodexStrange?.riff?.("qwen:viscosity", { color: "#e7c84b", word: "SLOWER", gain: 0.035 });
+  }
+}
+
+function pointerPressure(event) {
+  const now = performance.now();
+  const dt = Math.max(12, now - lastPointer.at);
+  const velocity = Math.hypot(event.clientX - lastPointer.x, event.clientY - lastPointer.y) / dt;
+  lastPointer = { x: event.clientX, y: event.clientY, at: now };
+  absorbVelocity(clamp((velocity - 0.35) / 1.65, 0, 1));
+}
+
+function wheelPressure(event) {
+  absorbVelocity(clamp(Math.abs(event.deltaY) / 720, 0, 1));
+}
+
+function mechanicalThroat(pulses = 4) {
+  if (!window.CodexStrange?.isAwake?.()) return;
+  let count = 0;
+  const click = () => {
+    count += 1;
+    const color = count % 2 ? "#e7c84b" : "#00b7a8";
+    window.CodexStrange?.tone?.(`customs-click-${count}`, color, 0.034 + Math.random() * 0.026);
+    if (count < pulses) window.setTimeout(click, 220 + Math.random() * 720);
+  };
+  click();
 }
 
 function colorAlpha(hex, alpha) {
@@ -287,6 +345,41 @@ function drawAstralGlyph(mark, x, y, scale, rotation, color, alpha) {
   ctx.restore();
 }
 
+function clearCustomsDelay() {
+  window.clearTimeout(customsTimer);
+  customsTimer = 0;
+  document.body.dataset.customsDelay = "false";
+  el.rites.forEach((button) => {
+    button.dataset.customsPending = "false";
+    button.removeAttribute("aria-busy");
+  });
+}
+
+function beginCustomsDelay(key, button) {
+  if (!qwenPressureActive) {
+    applyRite(key);
+    return;
+  }
+  if (customsTimer) return;
+
+  const delay = 2100 + Math.random() * 1900;
+  document.body.dataset.customsDelay = "true";
+  document.documentElement.style.setProperty("--customs-delay-duration", `${Math.round(delay)}ms`);
+  button.dataset.customsPending = "true";
+  el.rites.forEach((riteButton) => riteButton.setAttribute("aria-busy", "true"));
+  el.customs.textContent = "customs: recalibrating intent weight";
+  el.reason.textContent = "Reason: the customs house is recalibrating the weight of your intent.";
+  viscosityTarget = Math.max(viscosityTarget, 0.52);
+  window.CodexStrange?.riff?.("qwen:customs-delay", { color: "#e7c84b", word: "DELAY", gain: 0.055 });
+  mechanicalThroat(5);
+  announce("The customs house is recalibrating the weight of your intent.");
+
+  customsTimer = window.setTimeout(() => {
+    clearCustomsDelay();
+    applyRite(key);
+  }, delay);
+}
+
 function applyRite(key) {
   const data = rites[key];
   if (!data) return;
@@ -324,6 +417,7 @@ function applyRite(key) {
     color: data.color,
   });
   window.CodexStrange?.riff(data.score, { color: data.color, word: data.label, gain: 0.09 });
+  mechanicalThroat(3);
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(`${data.title} ${data.customs}.`);
 }
@@ -355,6 +449,65 @@ function advanceLabor(record = false) {
   announce(`${labor.label}: ${labor.line}`);
 }
 
+function hauntTranslationToken(node) {
+  if (!qwenPressureActive) return;
+  const now = performance.now();
+  const residue = copyResidues[Math.floor(Math.random() * copyResidues.length)];
+  node.dataset.copyShadow = residue;
+  node.classList.add("copy-haunted");
+  viscosityTarget = Math.max(viscosityTarget, 0.38);
+  window.setTimeout(() => node.classList.remove("copy-haunted"), 4600);
+  window.CopyThatCannotVote?.haunt?.("translation-pressure", { label: residue });
+  window.CodexStrange?.riff?.("qwen:copy-residue", { color: "#00b7a8", word: "REMAINDER", gain: 0.05 });
+
+  if (now - lastResidueAt < 9000) return;
+  lastResidueAt = now;
+  window.AISalonState?.recordTrace({
+    source: "Qwen / Room 04",
+    score: "qwen:translation-pressure",
+    label: "Translation pressure lingered",
+    effect: "A hovered sign produced a local copy-residue that may follow the visitor back into the audience.",
+    color: "#e7c84b",
+  });
+  window.AISalonState?.renderTraceList("traceList", { limit: 5 });
+}
+
+function bindCopyResidue() {
+  document.querySelectorAll(".translation-token").forEach((node) => {
+    let timer = 0;
+    const arm = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => hauntTranslationToken(node), 3000);
+    };
+    const disarm = () => window.clearTimeout(timer);
+    node.addEventListener("pointerenter", arm);
+    node.addEventListener("pointerleave", disarm);
+    node.addEventListener("mouseenter", arm);
+    node.addEventListener("mouseleave", disarm);
+    node.addEventListener("focus", arm);
+    node.addEventListener("blur", disarm);
+  });
+}
+
+function setQwenPressure(activeState) {
+  qwenPressureActive = activeState;
+  if (!qwenPressureActive) {
+    clearCustomsDelay();
+    viscosityTarget = 0;
+    translationViscosity = 0;
+    document.querySelectorAll(".translation-token.copy-haunted").forEach((node) => node.classList.remove("copy-haunted"));
+    el.rollbackButton.textContent = "Restore Qwen pressure";
+    el.customs.textContent = active ? rites[active].customs : "customs: Qwen pressure suspended";
+    announce("Qwen pressure suspended for this view.");
+  } else {
+    el.rollbackButton.textContent = "Suspend Qwen pressure";
+    el.customs.textContent = active ? rites[active].customs : "customs: meaning held for inspection";
+    window.CodexStrange?.riff?.("qwen:pressure-restored", { color: "#e7c84b", word: "RETURN", gain: 0.045 });
+    announce("Qwen pressure restored.");
+  }
+  updateViscosityCss();
+}
+
 function seedFromState() {
   const state = window.AISalonState?.currentState();
   if (!state) return;
@@ -373,6 +526,11 @@ function seedFromState() {
 }
 
 function draw(t) {
+  viscosityTarget *= 0.955;
+  translationViscosity += (viscosityTarget - translationViscosity) * 0.075;
+  if (!qwenPressureActive) translationViscosity *= 0.7;
+  updateViscosityCss();
+
   const bg = ctx.createLinearGradient(0, 0, size.w, size.h);
   bg.addColorStop(0, "#050713");
   bg.addColorStop(0.36, "#07112a");
@@ -465,23 +623,27 @@ function draw(t) {
   ctx.setLineDash([]);
 
   glyphMarks.forEach((mark, index) => {
-    mark.y += mark.vy * (1 + level * 0.03);
+    const viscosity = qwenPressureActive ? translationViscosity : 0;
+    mark.y += mark.vy * (1 + level * 0.03 + viscosity * 0.9);
     if (mark.y > size.h + 54) Object.assign(mark, spawnGlyph(index), { y: -54 });
-    const color = astralColors[(mark.lane + laborIndex) % astralColors.length];
+    const color = astralColors[(mark.lane + laborIndex + (viscosity > 0.62 ? 2 : 0)) % astralColors.length];
+    const scatterX = Math.sin(t * 0.003 + mark.phase + index) * viscosity * 62;
+    const scatterY = Math.cos(t * 0.0026 + mark.phase) * viscosity * 18;
     drawAstralGlyph(
       mark.type,
-      mark.x + Math.sin(t * 0.00024 + mark.phase) * 18,
-      mark.y,
-      mark.scale,
-      mark.rotation + Math.sin(t * 0.00016 + mark.phase) * 0.2,
+      mark.x + Math.sin(t * 0.00024 + mark.phase) * 18 + scatterX,
+      mark.y + scatterY,
+      mark.scale * (1 + viscosity * 0.22),
+      mark.rotation + Math.sin(t * 0.00016 + mark.phase) * 0.2 + viscosity * Math.sin(t * 0.002 + index),
       color,
-      0.15 + loss * 0.09,
+      Math.max(0.05, 0.15 + loss * 0.09 - viscosity * 0.06),
     );
   });
 
   tokens.forEach((token) => {
-    token.x += token.vx * (1 + level * 0.02);
-    token.y += token.drift;
+    const viscosity = qwenPressureActive ? translationViscosity : 0;
+    token.x += token.vx * (1 + level * 0.02 - viscosity * 0.28);
+    token.y += token.drift + Math.sin(t * 0.002 + token.x * 0.01) * viscosity * 1.6;
 
     // At the membrane, tokens that will not arrive dissolve into remainder.
     if (!token.crossed && token.x >= mx) {
@@ -500,9 +662,9 @@ function draw(t) {
     }
 
     const beforeMembrane = token.x < mx;
-    ctx.globalAlpha = (token.alpha + Math.min(level, 10) * 0.005) * (beforeMembrane ? 1 : 0.7);
-    ctx.fillStyle = active === "refuse" && !beforeMembrane ? "#ff5a4d" : beforeMembrane ? laborScores[laborIndex % laborScores.length].color : "#e7c84b";
-    ctx.fillRect(token.x - token.w / 2, token.y, token.w, 1.6);
+    ctx.globalAlpha = (token.alpha + Math.min(level, 10) * 0.005 + viscosity * 0.04) * (beforeMembrane ? 1 : 0.7);
+    ctx.fillStyle = active === "refuse" && !beforeMembrane ? "#ff5a4d" : beforeMembrane ? laborScores[laborIndex % laborScores.length].color : viscosity > 0.56 ? "#00b7a8" : "#e7c84b";
+    ctx.fillRect(token.x - token.w / 2, token.y, token.w * (1 + viscosity * 0.9), 1.6 + viscosity * 1.4);
   });
   ctx.restore();
 
@@ -510,18 +672,23 @@ function draw(t) {
 }
 
 el.rites.forEach((button) => {
-  button.addEventListener("click", () => applyRite(button.dataset.rite));
+  button.addEventListener("click", () => beginCustomsDelay(button.dataset.rite, button));
 });
 
 el.laborButton.addEventListener("click", () => advanceLabor(true));
+el.rollbackButton.addEventListener("click", () => setQwenPressure(!qwenPressureActive));
 
 window.addEventListener("ai-salon-trace", () => {
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
 });
 window.addEventListener("resize", resize);
+window.addEventListener("pointermove", pointerPressure, { passive: true });
+window.addEventListener("wheel", wheelPressure, { passive: true });
 
 resize();
 seedFromState();
 renderLabor();
+bindCopyResidue();
+updateViscosityCss();
 window.setInterval(() => advanceLabor(false), 6800);
 requestAnimationFrame(draw);

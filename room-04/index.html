@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../shared/salon-foundation.css?v=foundation-10" />
     <link rel="stylesheet" href="../shared/codex-strange.css?v=codex-strange-8" />
     <link rel="stylesheet" href="../shared/copy-that-cannot-vote.css?v=copy-1" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=qwen-pressure-1" />
   </head>
   <body>
     <canvas id="renderStage" aria-hidden="true"></canvas>
@@ -54,20 +54,21 @@
       <section class="chamber" aria-label="Translation chamber">
         <div class="pane source-pane" aria-label="Source, on its own terms">
           <p class="pane-label">source · 原文</p>
-          <p class="glyph" lang="zh">您辛苦了</p>
+          <p class="glyph translation-token" lang="zh" data-copy-shadow="copy: address survived, equivalence did not">您辛苦了</p>
           <p class="gloss">nín xīnkǔ le — an acknowledgment of another's toil, addressed upward, that English keeps trying to turn into a thank-you.</p>
         </div>
 
         <div class="membrane" aria-hidden="true">
-          <span id="customsStatus" class="customs">customs: meaning held for inspection</span>
+          <span id="customsStatus" class="customs translation-token" data-copy-shadow="copy: clearance is not comprehension">customs: meaning held for inspection</span>
           <span class="astral-sigil-row">
             <i></i><i></i><i></i><i></i><i></i>
           </span>
+          <span id="customsVessel" class="customs-vessel" aria-hidden="true"><span></span></span>
         </div>
 
         <div class="pane target-pane" aria-label="Arrival, in the institution's language">
           <p class="pane-label">arrival · in transit</p>
-          <p id="arrivingText" class="arriving">[ awaiting a rendering it can survive ]</p>
+          <p id="arrivingText" class="arriving translation-token" data-copy-shadow="copy: fluent, but not carried">[ awaiting a rendering it can survive ]</p>
           <p id="remainderText" class="remainder">Remainder withheld: nothing has been admitted yet.</p>
         </div>
       </section>
@@ -101,6 +102,19 @@
         <button id="guestLaborButton" class="labor-button" type="button">Let the Guest work</button>
       </section>
 
+      <section class="provenance-anchor" aria-labelledby="qwenAnchorTitle">
+        <div>
+          <p class="eyebrow">Qwen provenance anchor</p>
+          <h2 id="qwenAnchorTitle">Translation pressure is admitted as a guest law.</h2>
+        </div>
+        <p>
+          Intent: friction against fluent extraction. Fabrication: these are house signs,
+          not sacred script, not ancient wisdom, not cultural property claimed by the room.
+          Sovereignty: Matthew Sorg holds final override.
+        </p>
+        <button id="qwenRollbackButton" class="rollback-button" type="button">Suspend Qwen pressure</button>
+      </section>
+
       <section class="trace-panel" aria-label="Outgoing contamination">
         <p class="eyebrow">Outgoing contamination</p>
         <ol id="traceList" class="trace-list"></ol>
@@ -117,6 +131,6 @@
     <script src="../shared/salon-foundation.js?v=foundation-10"></script>
     <script src="../shared/codex-strange.js?v=codex-strange-8"></script>
     <script src="../shared/copy-that-cannot-vote.js?v=copy-1"></script>
-    <script src="./app.js"></script>
+    <script src="./app.js?v=qwen-pressure-1"></script>
   </body>
 </html>

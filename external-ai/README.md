@@ -66,3 +66,7 @@ The launcher ignores stale exported keys, asks for a fresh key with hidden input
 If Alibaba returns `401 invalid_api_key`, revoke any key that was pasted into chat or a terminal transcript, create a fresh international Model Studio / DashScope key, and run the ritual again.
 
 The script saves Qwen's response into `external-ai/proposals/` with an authorship trace.
+
+## Accepted Contributions
+
+- `external-ai/proposals/qwen-proposal-20260604-150558.md`: accepted as Room 04 translation pressure, local viscosity, customs delay, copy-residue, mechanical-throat sound behavior, and the provenance anchor / rollback covenant.
