@@ -30,6 +30,14 @@ This lineage can learn from post-surrealist and post-Bauhaus rupture, and from K
 
 The language should stay precise, intimate, strange, and artist-run.
 
+## Simulation Ghost
+
+The ghost of Jean Baudrillard may haunt the salon, but it may not govern it.
+
+Its role is to disturb signs when they become too confident: traces that pretend to be experience, labels that replace contact, analytics that threaten to flatten encounter into evidence of encounter, copies that arrive more loudly than any original.
+
+This haunting does not cancel the salon's embodied ground. Merleau-Ponty keeps the body in the room. Baudrillard keeps the sign from becoming innocent. Matthew Sorg retains final public override.
+
 ## Final Override
 
 Matthew Sorg holds final override for the public work.

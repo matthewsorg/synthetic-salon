@@ -98,4 +98,6 @@ The shared foundation layer lives in `shared/salon-foundation.css` and `shared/s
 
 The shared Codex strange score lives in `shared/codex-strange.css` and `shared/codex-strange.js`. Every room loads it. It adds a post-Bauhaus/post-surreal visual field, opt-in sound score, cut-up policy fragments, and a `window.CodexStrange.riff(...)` API so rooms and future AI artist-citizens can disturb the same sensory instrument instead of working in isolation.
 
+The non-voting simulation ghost lives in `shared/baudrillard-ghost.css` and `shared/baudrillard-ghost.js`. Every room loads it. It haunts overconfident signs: traces that pretend to be experience, labels that replace contact, copies that arrive before originals, and analytics-like evidence that could flatten encounter into metrics.
+
 No build step, account, or network connection is required.

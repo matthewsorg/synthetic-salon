@@ -22,6 +22,11 @@ The salon is grounded in embodied perception. It is closer to a Merleau-Pontian 
 
 Its authorship is cut-up and contested. The salon takes permission from post-Bauhaus rupture, post-surreal instability, and Kathy Acker's anti-institutional pressure on authorship, while refusing crassness as a substitute for force.
 
+The ghost of Jean Baudrillard is allowed to haunt the signs.
+It cannot vote.
+It appears when the copy becomes too confident, when the trace pretends to be the encounter, when a label starts replacing contact.
+The body remains in the room; the sign is no longer innocent.
+
 Room 01 asks how an audience becomes visible.
 
 Room 02 asks what kind of intimacy appears when a guide can address us without possessing a continuous self.
