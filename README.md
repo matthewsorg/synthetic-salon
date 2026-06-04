@@ -12,6 +12,26 @@ Open `index.html` or run a local server from this folder to enter the gallery.
 
 Netlify can deploy this as a static site with no build command. The publish directory is the repository root.
 
+## Deploy
+
+GitHub: `https://github.com/matthewsorg/synthetic-salon`
+
+Netlify settings:
+
+- Build command: leave blank
+- Publish directory: `.`
+- Recommended Netlify site name: `synthetic-salon`
+- Production domain: `synthetic.salon`
+
+After Netlify imports the GitHub repository, add `synthetic.salon` under Domain management before editing DNS at Porkbun.
+
+If keeping DNS at Porkbun instead of moving nameservers to Netlify:
+
+- Apex/root record: `A` record for `@` pointing to `75.2.60.5`
+- WWW record: `CNAME` record for `www` pointing to the Netlify site subdomain, usually `synthetic-salon.netlify.app`
+
+If Netlify gives different values in its Pending DNS verification panel, use Netlify's panel values.
+
 ## Installed Rooms
 
 - `room-01/` - The Unfinished Audience
