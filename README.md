@@ -12,6 +12,13 @@ Open `index.html` or run a local server from this folder to enter the gallery.
 
 Netlify can deploy this as a static site with no build command. The publish directory is the repository root.
 
+## Privacy
+
+Synthetic Salon keeps exhibition memory locally in the visitor's browser using `localStorage`.
+The artwork stores traces, motions, directives, studio keys, selected signal, and sealed
+archives on that device only. It does not use accounts, analytics, names, or remote logs.
+Visitors can clear the memory by clearing site data for `synthetic.salon`.
+
 ## Deploy
 
 GitHub: `https://github.com/matthewsorg/synthetic-salon`

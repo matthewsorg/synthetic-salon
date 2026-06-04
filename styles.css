@@ -234,6 +234,7 @@ h1 {
 }
 
 .manifesto,
+.privacy-note,
 .room-card,
 .labor-board,
 .labor-card {
@@ -247,6 +248,32 @@ h1 {
 .manifesto {
   align-self: start;
   padding: 18px;
+}
+
+.privacy-note {
+  align-self: start;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.5fr) minmax(280px, 1fr);
+  gap: 16px;
+  padding: 16px 18px;
+  border-color: rgba(0, 183, 168, 0.24);
+  background:
+    linear-gradient(90deg, rgba(0, 183, 168, 0.1), rgba(243, 239, 231, 0.035)),
+    var(--glass);
+}
+
+.privacy-note h2 {
+  margin: 0;
+  color: var(--bone);
+  font-size: clamp(19px, 2.5vw, 30px);
+  line-height: 1.08;
+}
+
+.privacy-note p:last-child {
+  margin: 0;
+  color: var(--paper);
+  font-size: 15px;
 }
 
 .entrance-traces {
@@ -709,7 +736,8 @@ body[data-gallery-shell="open"] {
 @media (max-width: 920px) {
   .entrance,
   .rooms,
-  .labor-grid {
+  .labor-grid,
+  .privacy-note {
     grid-template-columns: 1fr;
   }
 
