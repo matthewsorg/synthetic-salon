@@ -29,6 +29,11 @@
       drone: [82, 123, 164],
       phrase: "translation cuts the grid open",
     },
+    room05: {
+      colors: ["#ff5a4d", "#00b7a8", "#e7c84b", "#7db4ff"],
+      drone: [61, 92, 183],
+      phrase: "dream evidence misfiles the body",
+    },
     salon: {
       colors: ["#e7c84b", "#00b7a8", "#7db4ff", "#ff5a4d"],
       drone: [78, 117, 156],
@@ -103,6 +108,7 @@
     if (path.includes("room-02")) return "room02";
     if (path.includes("room-03")) return "room03";
     if (path.includes("room-04")) return "room04";
+    if (path.includes("room-05")) return "room05";
     if (path.includes("office")) return "office";
     if (path.includes("salon")) return "salon";
     if (path.includes("claude-seat")) return "claude";

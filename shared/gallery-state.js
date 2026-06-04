@@ -72,6 +72,13 @@
       haystack.includes("remainder") ||
       haystack.includes("customs")
     ) return "translation";
+    if (
+      haystack.includes("room 05") ||
+      haystack.includes("surreal") ||
+      haystack.includes("dream") ||
+      haystack.includes("oneiric") ||
+      haystack.includes("misfile")
+    ) return "surreal";
     if (haystack.includes("refusal") || haystack.includes("decline") || haystack.includes("denied")) return "refusal";
     if (haystack.includes("memory") || haystack.includes("docent") || haystack.includes("apology")) return "memory";
     if (
@@ -119,6 +126,12 @@
         body: "Authorize untranslated material to stay on the wall as primary work, and require every rendering to declare what it failed to carry and who it was for.",
         directive: "Every translation in the building must exhibit its remainder before it is allowed to stand as meaning.",
         color: "#9cc76c",
+      },
+      surreal: {
+        title: "Admit dream evidence without calling it truth",
+        body: "Let the Surrealist Bot misfile bodies, objects, and labels when the mistake produces sharper perception than orderly description.",
+        directive: "Dream evidence may disturb the building, but it must remain local, authored, and reversible.",
+        color: "#ff5a4d",
       },
       bohemian: {
         title: "Grant a temporary studio key",

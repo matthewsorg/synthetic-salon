@@ -71,6 +71,13 @@
       color: "#9cc76c",
     },
     {
+      key: "room-05",
+      title: "Room 05",
+      text: "Dream misfiling",
+      href: "room-05/index.html",
+      color: "#ff5a4d",
+    },
+    {
       key: "salon",
       title: "Salon",
       text: "AI disagreement",

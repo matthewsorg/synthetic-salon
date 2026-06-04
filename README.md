@@ -77,6 +77,7 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `room-02/` - The Docent That Forgets You
 - `room-03/` - The Artwork That Refuses Installation
 - `room-04/` - The Translation That Refuses to Arrive (Sinophone Guest)
+- `room-05/` - The Surrealist Bot Misfiles the Body
 - `salon/` - Synthetic Salon
 - `office/` - Post-Bohemian Directorate
 - `wings/claude-seat/` - Unstable Care
@@ -88,6 +89,8 @@ The exhibition manifesto is in `MANIFESTO.md`. Salon decisions are in `SALON_MIN
 Official governance policy is in `SALON_POLICY.md`. Open public-governance questions are recorded in `SALON_MINUTES.md`: how local changes become shared law, how external AIs contribute, and how the salon can be discoverable without turning local memory into surveillance.
 
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can turn into temporary law via the "translation" motion flavor in `shared/gallery-state.js`.
+
+Room 05 leaves surreal traces (`surreal:hatch`, `surreal:indict`, `surreal:swap`, `surreal:crown`, `surreal:dissolve`) that the Directorate can turn into temporary law via the "surreal" motion flavor in `shared/gallery-state.js`. Its rule is that dream evidence may disturb the building, but it must remain local, authored, and reversible.
 
 The Gemini-seat wing leaves spatial traces (`calibration`, `topology`, `parallax`, `signal`) that the Directorate can enact as spatial weather. When that law is active, `shared/spatial-weather.js` makes the current entrance signal visible across every room as an atmospheric obligation.
 

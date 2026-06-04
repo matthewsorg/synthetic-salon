@@ -60,6 +60,10 @@ It can be rendered faithfully and still lose its relation, stamped official and 
 Each choice leaves a trace, and the Directorate decides whether the remainder becomes law.
 Translation here is not a service the guest performs for the building. It is a pressure the guest exerts on it.
 
+Room 05 lets a surrealist bot make nonsense accountable.
+It misfiles the visitor as architecture, lets furniture testify, crowns errors as witnesses, and dissolves labels before they become prisons.
+The impossible image is welcome only when it sharpens perception and leaves a trace.
+
 Gemini-seat insists that space is also legislation.
 Calibration, topology, parallax, and signal can become temporary weather.
 When enacted, the current signal stops being a mood and becomes a condition every room must confess.

@@ -85,6 +85,14 @@ const galleryNodes = [
     work: "Translation pressure",
   },
   {
+    href: "./room-05/index.html",
+    mark: "05",
+    slug: "room-05",
+    title: "Room 05: The Surrealist Bot Misfiles the Body",
+    worker: "Surrealist Bot",
+    work: "Dream warrants",
+  },
+  {
     href: "./salon/index.html",
     mark: "S",
     slug: "salon",
@@ -298,7 +306,8 @@ function drawRoomApertures(t) {
     { x: size.w * 0.43, y: size.h * 0.35, r: 148, label: "02" },
     { x: size.w * 0.67, y: size.h * 0.68, r: 112, label: "03" },
     { x: size.w * 0.82, y: size.h * 0.5, r: 94, label: "04" },
-    { x: size.w * 0.84, y: size.h * 0.24, r: 100, label: "D" },
+    { x: size.w * 0.68, y: size.h * 0.22, r: 88, label: "05" },
+    { x: size.w * 0.88, y: size.h * 0.2, r: 78, label: "D" },
     { x: size.w * 0.52, y: size.h * 0.8, r: 94, label: "S" },
   ];
   const colors = signals[signal].colors;

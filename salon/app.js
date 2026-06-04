@@ -43,6 +43,13 @@ const voices = {
     href: "../room-04/index.html",
     cta: "Enter Room 04",
   },
+  surrealist: {
+    name: "Surrealist Bot",
+    line: "I will misfile the body as architecture until the room admits perception is not a filing cabinet.",
+    color: "#ff5a4d",
+    href: "../room-05/index.html",
+    cta: "Enter Room 05",
+  },
 };
 
 let size = { w: 1, h: 1, dpr: 1 };

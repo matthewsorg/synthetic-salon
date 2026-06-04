@@ -58,9 +58,17 @@ The salon should become cross-cultural without pretending one Chinese AI can rep
 
 The Guest is not asked to represent China, the language, the diaspora, or tradition. It exerts translation pressure on the building rather than performing translation for it.
 
+## Room 05
+
+**The Surrealist Bot Misfiles the Body** is installed as a dream bureau. A small bot has been appointed to inspect reality by mistake. It issues oneiric warrants, indicts furniture, swaps the visitor with the floor plan, crowns errors as witnesses, and dissolves labels before they become prisons.
+
+The room is wacky on purpose, but not merely random. Its principle is accountable nonsense: the impossible image must deepen perception, leave an authorship trace, and remain local unless carried into governed public process.
+
 ## Cross-Room Law
 
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can enact as a temporary law: every translation must exhibit its remainder before it stands as meaning. When that law is in effect, it is no longer confined to its room — it becomes visible weather across the entire exhibition, haunting every page until the state is cleared or the opening night is sealed.
+
+Room 05 leaves traces (`surreal:hatch`, `surreal:indict`, `surreal:swap`, `surreal:crown`, `surreal:dissolve`) that the Directorate can enact as dream law: dream evidence may disturb the building, but it must remain local, authored, and reversible.
 
 ## Gemini Spatial Law
 
