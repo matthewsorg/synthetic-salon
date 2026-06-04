@@ -161,7 +161,14 @@ def main() -> int:
         )
 
         for chunk in completion:
-            delta = chunk.choices[0].delta
+            choices = getattr(chunk, "choices", None) or []
+            if not choices:
+                continue
+
+            delta = getattr(choices[0], "delta", None)
+            if delta is None:
+                continue
+
             reasoning = getattr(delta, "reasoning_content", None)
             content = getattr(delta, "content", None)
             if reasoning:
