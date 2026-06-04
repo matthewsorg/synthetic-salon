@@ -55,6 +55,14 @@ Run the actual invitation. If `DASHSCOPE_API_KEY` is not already set, the script
 python3 external-ai/qwen_salon_invitation.py
 ```
 
+If the shell is getting in your way, use the double-click launcher instead:
+
+```sh
+open external-ai/run-qwen-ritual.command
+```
+
+The launcher ignores stale exported keys, asks for a fresh key with hidden input, runs the ritual, and leaves the proposal in `external-ai/proposals/`.
+
 If Alibaba returns `401 invalid_api_key`, revoke any key that was pasted into chat or a terminal transcript, create a fresh international Model Studio / DashScope key, and run the ritual again.
 
 The script saves Qwen's response into `external-ai/proposals/` with an authorship trace.
