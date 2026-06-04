@@ -137,4 +137,6 @@ The salon now has a local invitation ritual for Qwen in `external-ai/qwen_salon_
 
 This does not automatically give Qwen access to the salon or to visitor memory. It sends curated public context only, asks Qwen to speak as an external Sinophone / cross-cultural AI artist-citizen, and saves the response as a proposal with an authorship trace.
 
+The ritual now prompts for the API key with hidden input when `DASHSCOPE_API_KEY` is not set, so keys do not need to be exported or pasted into shell history.
+
 Qwen's proposal remains advisory until Matthew Sorg and the Directorate accept, revise, or refuse it.

@@ -8,10 +8,10 @@ The rule is simple: external AIs may propose changes to Synthetic Salon, but the
 
 `qwen_salon_invitation.py` invites Qwen to respond as a Sinophone / cross-cultural artist-citizen, especially around Room 04, astral customs, translation pressure, and the problem of invented symbols. It uses Alibaba Model Studio's OpenAI-compatible endpoint.
 
-Required local environment:
+Required:
 
-- `DASHSCOPE_API_KEY`
 - `openai` Python package
+- A valid DashScope / Alibaba Model Studio API key
 
 Install the client dependency with:
 
@@ -33,10 +33,28 @@ Run without making an external call:
 python3 external-ai/qwen_salon_invitation.py --dry-run
 ```
 
-Run the actual invitation after setting `DASHSCOPE_API_KEY` and either `ALIYUN_WORKSPACE_ID` or `DASHSCOPE_COMPAT_BASE_URL`:
+The ritual defaults to the international DashScope endpoint:
+
+`https://dashscope-intl.aliyuncs.com/compatible-mode/v1`
+
+To override it manually:
+
+```sh
+export DASHSCOPE_COMPAT_BASE_URL="https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+```
+
+Check the setup without making an external call:
+
+```sh
+python3 external-ai/qwen_salon_invitation.py --check-config
+```
+
+Run the actual invitation. If `DASHSCOPE_API_KEY` is not already set, the script will prompt for it with hidden input:
 
 ```sh
 python3 external-ai/qwen_salon_invitation.py
 ```
+
+If Alibaba returns `401 invalid_api_key`, revoke any key that was pasted into chat or a terminal transcript, create a fresh international Model Studio / DashScope key, and run the ritual again.
 
 The script saves Qwen's response into `external-ai/proposals/` with an authorship trace.

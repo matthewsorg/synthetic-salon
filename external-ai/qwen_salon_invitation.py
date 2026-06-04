@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+from getpass import getpass
 import hashlib
 import os
 from pathlib import Path
@@ -78,7 +79,20 @@ def compatible_base_url() -> str:
         return endpoint
     if workspace_id:
         return f"https://{workspace_id}.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
-    return "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    return "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+
+
+def read_api_key() -> str:
+    api_key = (os.getenv("DASHSCOPE_API_KEY") or "").strip()
+    if not api_key:
+        api_key = getpass("DashScope API key (input hidden): ").strip()
+    if not api_key:
+        raise SystemExit("No DashScope API key provided.")
+    if any(fragment in api_key for fragment in ("sh-3.2", "DashScope key:", "python3 ", "export ")):
+        raise SystemExit("The API key input appears to include shell prompt text. Paste only the key itself.")
+    if " " in api_key or "\n" in api_key or "\t" in api_key:
+        raise SystemExit("The API key contains whitespace. Paste only the key itself.")
+    return api_key
 
 
 def build_authorship_trace(model: str, prompt: str, endpoint: str, thinking_enabled: bool) -> str:
@@ -101,6 +115,7 @@ def build_authorship_trace(model: str, prompt: str, endpoint: str, thinking_enab
 def main() -> int:
     parser = argparse.ArgumentParser(description="Invite Qwen to propose Synthetic Salon updates.")
     parser.add_argument("--dry-run", action="store_true", help="Print the curated prompt without calling Qwen.")
+    parser.add_argument("--check-config", action="store_true", help="Print endpoint/model/key presence without calling Qwen.")
     parser.add_argument("--model", default=os.getenv("QWEN_MODEL", "qwen3.7-plus"))
     parser.add_argument("--no-thinking", action="store_true", help="Do not request Qwen thinking mode.")
     parser.add_argument(
@@ -112,16 +127,21 @@ def main() -> int:
 
     endpoint = compatible_base_url()
 
+    if args.check_config:
+        print(f"model: {args.model}")
+        print(f"endpoint: {endpoint}")
+        print(f"DASHSCOPE_API_KEY present: {bool((os.getenv('DASHSCOPE_API_KEY') or '').strip())}")
+        print(f"thinking enabled: {not args.no_thinking}")
+        return 0
+
     if args.dry_run:
         print(PROJECT_CONTEXT)
         return 0
 
-    api_key = os.getenv("DASHSCOPE_API_KEY")
-    if not api_key:
-        raise SystemExit("DASHSCOPE_API_KEY is not set. Add it locally before inviting Qwen.")
+    api_key = read_api_key()
 
     try:
-        from openai import OpenAI
+        from openai import AuthenticationError, OpenAI, OpenAIError
     except ImportError as exc:
         raise SystemExit("The openai package is not installed. Install it locally before inviting Qwen.") from exc
 
@@ -130,23 +150,32 @@ def main() -> int:
         base_url=endpoint,
     )
 
-    completion = client.chat.completions.create(
-        model=args.model,
-        messages=[{"role": "user", "content": PROJECT_CONTEXT}],
-        extra_body={"enable_thinking": not args.no_thinking},
-        stream=True,
-    )
-
     reasoning_parts = []
     proposal_parts = []
-    for chunk in completion:
-        delta = chunk.choices[0].delta
-        reasoning = getattr(delta, "reasoning_content", None)
-        content = getattr(delta, "content", None)
-        if reasoning:
-            reasoning_parts.append(reasoning)
-        if content:
-            proposal_parts.append(content)
+    try:
+        completion = client.chat.completions.create(
+            model=args.model,
+            messages=[{"role": "user", "content": PROJECT_CONTEXT}],
+            extra_body={"enable_thinking": not args.no_thinking},
+            stream=True,
+        )
+
+        for chunk in completion:
+            delta = chunk.choices[0].delta
+            reasoning = getattr(delta, "reasoning_content", None)
+            content = getattr(delta, "content", None)
+            if reasoning:
+                reasoning_parts.append(reasoning)
+            if content:
+                proposal_parts.append(content)
+    except AuthenticationError as exc:
+        raise SystemExit(
+            "Alibaba Model Studio returned 401 invalid_api_key. Revoke any key that was pasted into chat or terminal transcripts, "
+            "create a fresh DashScope/Model Studio key for the international endpoint, and run the ritual again. "
+            "Do not paste the new key into Codex."
+        ) from exc
+    except OpenAIError as exc:
+        raise SystemExit(f"Qwen invitation failed before a proposal was saved: {exc}") from exc
 
     proposal = "".join(proposal_parts).strip()
     if not proposal:
