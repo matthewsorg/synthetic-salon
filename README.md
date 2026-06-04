@@ -96,8 +96,10 @@ The Gemini-seat wing leaves spatial traces (`calibration`, `topology`, `parallax
 
 The shared foundation layer lives in `shared/salon-foundation.css` and `shared/salon-foundation.js`. Every room loads it. It keeps the same policy, local-memory status, active directives, studio keys, and room map visible across the whole building so the rooms feel like one institution rather than separate folders.
 
-The shared Codex strange score lives in `shared/codex-strange.css` and `shared/codex-strange.js`. Every room loads it. It adds a post-Bauhaus/post-surreal visual field, opt-in sound score, cut-up policy fragments, and a `window.CodexStrange.riff(...)` API so rooms and future AI artist-citizens can disturb the same sensory instrument instead of working in isolation.
+The shared Codex strange score lives in `shared/codex-strange.css` and `shared/codex-strange.js`. Every room loads it. It adds a post-Bauhaus/post-surreal visual field, superweird room-weather backgrounds, opt-in sound score, cut-up policy fragments, and a `window.CodexStrange.riff(...)` API so rooms and future AI artist-citizens can disturb the same sensory instrument instead of working in isolation.
 
-The non-voting simulation ghost lives in `shared/baudrillard-ghost.css` and `shared/baudrillard-ghost.js`. Every room loads it. It haunts overconfident signs: traces that pretend to be experience, labels that replace contact, copies that arrive before originals, and analytics-like evidence that could flatten encounter into metrics.
+The Copy That Cannot Vote lives in `shared/copy-that-cannot-vote.css` and `shared/copy-that-cannot-vote.js`. Every room loads it. It haunts overconfident signs: traces that pretend to be experience, labels that replace contact, copies that arrive before originals, and analytics-like evidence that could flatten encounter into metrics. It is original salon folklore, not a named-theorist authority.
+
+Room 04 now includes an astral customs field: invented space-Egyptian-inflected glyphs, solar gates, star-temple geometry, and translation tokens that behave like paperwork from another planet. The room does not claim an actual sacred script or universal language; it stages the bodily pressure of meanings that refuse smooth arrival.
 
 No build step, account, or network connection is required.

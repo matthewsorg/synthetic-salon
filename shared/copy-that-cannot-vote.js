@@ -1,45 +1,51 @@
 "use strict";
 
-(function initBaudrillardGhost() {
-  if (window.BaudrillardGhost) return;
+(function initCopyThatCannotVote() {
+  if (window.CopyThatCannotVote) return;
 
   const script = document.currentScript;
-  const phrases = [
+  const apparitions = [
     {
-      title: "The copy is asking for a key.",
-      line: "A sign has become more confident than the encounter it claims to represent.",
+      title: "The copy is asking for a body.",
+      line: "A duplicate has learned to speak louder than the encounter that made it.",
       accent: "#7db4ff",
     },
     {
-      title: "The trace is not the experience.",
-      line: "Keep the body near the record or the record will begin collecting bodies.",
+      title: "The trace failed its body check.",
+      line: "Keep the record near touch or the record will start pretending to be touch.",
       accent: "#ff5a4d",
     },
     {
-      title: "Simulation is wearing a visitor badge.",
-      line: "The ghost can enter the room, but it cannot vote.",
+      title: "The label is wearing a visitor badge.",
+      line: "The sign may enter the room, but it cannot vote.",
       accent: "#e7c84b",
     },
     {
-      title: "A label has become too real.",
-      line: "When the wall text replaces contact, the wall text must be haunted.",
+      title: "A metric is dressed as a witness.",
+      line: "Evidence of encounter is not the encounter. Count carefully, then step back.",
       accent: "#00b7a8",
     },
     {
-      title: "The original is late.",
-      line: "The copy arrived first and is already giving directions.",
+      title: "The original is late again.",
+      line: "The copy arrived first and has already started rearranging the chairs.",
       accent: "#9cc76c",
+    },
+    {
+      title: "The counterfeit has excellent manners.",
+      line: "Polish can become a mask. The salon is authorized to scratch it.",
+      accent: "#ff5a4d",
     },
   ];
 
   const copyWords = [
-    "copy without original",
-    "trace pretending to be touch",
-    "sign eating its witness",
-    "do not mistake metrics for encounter",
-    "the ghost cannot vote",
-    "more real than the room",
-    "simulation leak",
+    "copy cannot vote",
+    "label failed body check",
+    "evidence without encounter",
+    "no metric owns the room",
+    "trace is not touch",
+    "borrowed sign, borrowed breath",
+    "counterfeit weather",
+    "original still in transit",
   ];
 
   const root = document.createElement("aside");
@@ -62,22 +68,22 @@
   }
 
   function setPressure(next) {
-    pressure = Math.max(0, Math.min(6, pressure + next));
-    document.body.dataset.baudrillardPressure = pressure >= 4 ? "high" : "low";
+    pressure = Math.max(0, Math.min(7, pressure + next));
+    document.body.dataset.copyPressure = pressure >= 4 ? "high" : "low";
     window.setTimeout(() => {
       pressure = Math.max(0, pressure - 1);
-      document.body.dataset.baudrillardPressure = pressure >= 4 ? "high" : "low";
+      document.body.dataset.copyPressure = pressure >= 4 ? "high" : "low";
     }, 5200);
   }
 
   function addCopy(text, accent) {
     const copy = document.createElement("span");
-    copy.className = "baudrillard-ghost-copy";
+    copy.className = "copy-vote__scrap";
     copy.textContent = text;
-    copy.style.setProperty("--ghost-accent", accent);
-    copy.style.setProperty("--ghost-tilt", `${-7 + Math.random() * 14}deg`);
-    copy.style.left = `${Math.round(18 + Math.random() * Math.max(window.innerWidth - 330, 40))}px`;
-    copy.style.top = `${Math.round(90 + Math.random() * Math.max(window.innerHeight - 240, 40))}px`;
+    copy.style.setProperty("--copy-accent", accent);
+    copy.style.setProperty("--copy-tilt", `${-9 + Math.random() * 18}deg`);
+    copy.style.left = `${Math.round(16 + Math.random() * Math.max(window.innerWidth - 320, 40))}px`;
+    copy.style.top = `${Math.round(86 + Math.random() * Math.max(window.innerHeight - 230, 40))}px`;
     document.body.append(copy);
     window.requestAnimationFrame(() => {
       copy.dataset.visible = "true";
@@ -85,37 +91,36 @@
     window.setTimeout(() => {
       copy.dataset.visible = "false";
       window.setTimeout(() => copy.remove(), 460);
-    }, 3600);
+    }, 3800);
   }
 
   function renderCopies(seed, accent) {
     copies.textContent = "";
-    const picked = [
-      `copy of: ${String(seed).slice(0, 46)}`,
+    [
+      `borrowed sign: ${String(seed).slice(0, 46)}`,
       copyWords[(index + 2) % copyWords.length],
-    ];
-    picked.forEach((text) => {
+    ].forEach((text) => {
       const item = document.createElement("span");
       item.textContent = text;
-      item.style.setProperty("--ghost-accent", accent);
+      item.style.setProperty("--copy-accent", accent);
       copies.append(item);
     });
     addCopy(copyWords[index % copyWords.length], accent);
   }
 
   function haunt(reason = "sign", detail = {}) {
-    index = (index + 1) % phrases.length;
-    const phrase = phrases[index];
+    index = (index + 1) % apparitions.length;
+    const apparition = apparitions[index];
     const seed = sourceText(detail);
     root.dataset.haunting = "true";
-    root.style.setProperty("--ghost-accent", phrase.accent);
-    title.textContent = phrase.title;
-    line.textContent = `${phrase.line} (${seed})`;
-    renderCopies(seed, phrase.accent);
+    root.style.setProperty("--copy-accent", apparition.accent);
+    title.textContent = apparition.title;
+    line.textContent = `${apparition.line} (${seed})`;
+    renderCopies(seed, apparition.accent);
     setPressure(2);
-    window.CodexStrange?.riff?.(`baudrillard:${reason}`, {
-      color: phrase.accent,
-      word: "SIMULACRUM",
+    window.CodexStrange?.riff?.(`copy:${reason}`, {
+      color: apparition.accent,
+      word: "NO VOTE",
       gain: 0.055,
     });
     window.clearTimeout(hideTimer);
@@ -134,28 +139,28 @@
       text.includes("surreal") ||
       text.includes("signal") ||
       text.includes("manifesto") ||
-      Math.random() > 0.48
+      Math.random() > 0.44
     ) {
       haunt(event.type.replace("ai-salon-", ""), detail);
     }
   }
 
   function mount() {
-    root.className = "baudrillard-ghost";
+    root.className = "copy-vote";
     root.dataset.haunting = "false";
-    root.setAttribute("aria-label", "Non-voting simulation ghost");
+    root.setAttribute("aria-label", "The Copy That Cannot Vote");
 
     const kicker = document.createElement("span");
-    kicker.className = "baudrillard-ghost__kicker";
-    kicker.textContent = "non-voting ghost";
-    copies.className = "baudrillard-ghost__copies";
-    title.textContent = "The ghost is waiting for a sign to overperform.";
-    line.textContent = "It appears only when the copy becomes too confident.";
+    kicker.className = "copy-vote__kicker";
+    kicker.textContent = "house apparition";
+    copies.className = "copy-vote__copies";
+    title.textContent = "The Copy is waiting for a sign to overperform.";
+    line.textContent = "It appears when evidence forgets the body that made it.";
 
     root.append(kicker, title, line, copies);
     document.body.append(root);
-    document.documentElement.dataset.baudrillardGhost = "installed";
-    if (script) document.documentElement.dataset.baudrillardGhostVersion = new URL(script.src).search || "unversioned";
+    document.documentElement.dataset.copyThatCannotVote = "installed";
+    if (script) document.documentElement.dataset.copyThatCannotVoteVersion = new URL(script.src).search || "unversioned";
 
     ["ai-salon-trace", "ai-salon-motion", "ai-salon-key", "ai-salon-archive"].forEach((eventName) => {
       window.addEventListener(eventName, maybeHaunt);
@@ -171,7 +176,7 @@
     window.setTimeout(() => haunt("arrival", { label: currentRoom() }), 1800);
   }
 
-  window.BaudrillardGhost = { haunt, currentRoom };
+  window.CopyThatCannotVote = { haunt, currentRoom };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", mount, { once: true });

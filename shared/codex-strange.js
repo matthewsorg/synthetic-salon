@@ -25,9 +25,9 @@
       phrase: "post-surreal absence has a pulse",
     },
     room04: {
-      colors: ["#9cc76c", "#e7c84b", "#7db4ff", "#ff5a4d"],
-      drone: [82, 123, 164],
-      phrase: "translation cuts the grid open",
+      colors: ["#e7c84b", "#00b7a8", "#7db4ff", "#ff5a4d"],
+      drone: [54, 108, 162],
+      phrase: "astral customs invents a language without owning one",
     },
     room05: {
       colors: ["#ff5a4d", "#00b7a8", "#e7c84b", "#7db4ff"],
@@ -76,7 +76,11 @@
     "OVERRIDE",
     "NO OLD ROOM",
     "THIRD PRESSURE",
+    "COPY CANNOT VOTE",
+    "ASTRAL CUSTOMS",
+    "NO SACRED CLAIM",
   ];
+  const houseGlyphs = ["gate", "eye", "sun", "ladder", "vessel", "orbit", "cut"];
   const cutups = [
     "the room writes back",
     "steal the wall text from certainty",
@@ -87,6 +91,7 @@
     "authorship is a moving wound",
     "the old museum fails in public",
   ];
+  const backdrop = document.createElement("div");
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d", { alpha: true });
   const button = document.createElement("button");
@@ -166,6 +171,160 @@
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   }
 
+  function drawHouseGlyph(type, x, y, scale, rotation, color, alpha = 0.18) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rotation);
+    ctx.scale(scale, scale);
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (type === "eye") {
+      ctx.ellipse(0, 0, 18, 7, 0, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(0, 0, 3.8, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(-24, 0);
+      ctx.lineTo(-34, 9);
+      ctx.moveTo(24, 0);
+      ctx.lineTo(34, -9);
+      ctx.stroke();
+    } else if (type === "sun") {
+      ctx.arc(0, 0, 10, 0, Math.PI * 2);
+      ctx.stroke();
+      for (let i = 0; i < 10; i += 1) {
+        const a = (i / 10) * Math.PI * 2;
+        ctx.moveTo(Math.cos(a) * 15, Math.sin(a) * 15);
+        ctx.lineTo(Math.cos(a) * 25, Math.sin(a) * 25);
+      }
+      ctx.stroke();
+    } else if (type === "gate") {
+      ctx.rect(-17, -18, 34, 36);
+      ctx.moveTo(-17, -4);
+      ctx.lineTo(17, -4);
+      ctx.moveTo(0, -18);
+      ctx.lineTo(0, 18);
+      ctx.stroke();
+    } else if (type === "ladder") {
+      ctx.moveTo(-12, -24);
+      ctx.lineTo(-12, 24);
+      ctx.moveTo(12, -24);
+      ctx.lineTo(12, 24);
+      for (let i = -18; i <= 18; i += 9) {
+        ctx.moveTo(-12, i);
+        ctx.lineTo(12, i);
+      }
+      ctx.stroke();
+    } else if (type === "vessel") {
+      ctx.moveTo(-26, 0);
+      ctx.quadraticCurveTo(0, 24, 26, 0);
+      ctx.moveTo(-10, -18);
+      ctx.lineTo(0, 0);
+      ctx.lineTo(10, -18);
+      ctx.stroke();
+    } else if (type === "orbit") {
+      ctx.ellipse(0, 0, 26, 8, 0, 0, Math.PI * 2);
+      ctx.ellipse(0, 0, 26, 8, Math.PI / 2.6, 0, Math.PI * 2);
+      ctx.arc(0, 0, 3, 0, Math.PI * 2);
+      ctx.stroke();
+    } else {
+      ctx.moveTo(-21, -17);
+      ctx.lineTo(21, 17);
+      ctx.moveTo(21, -17);
+      ctx.lineTo(-21, 17);
+      ctx.rect(-8, -8, 16, 16);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function drawRoomGlyphs(t, pressure, cx, cy) {
+    const roomNow = roomKey();
+    if (roomNow === "room04") {
+      drawAstralCustoms(t, pressure);
+      return;
+    }
+
+    const count = roomNow === "room05" ? 18 : 11;
+    for (let i = 0; i < count; i += 1) {
+      const color = palette.colors[(i + Math.floor(t * 0.0001)) % palette.colors.length];
+      const angle = t * 0.00008 + i * 0.74;
+      const orbit = Math.min(size.w, size.h) * (0.18 + (i % 6) * 0.035);
+      const x = cx + Math.cos(angle) * orbit * (1.2 + Math.sin(i) * 0.22);
+      const y = cy + Math.sin(angle * 1.17) * orbit * 0.7;
+      drawHouseGlyph(houseGlyphs[i % houseGlyphs.length], x, y, 0.34 + pressure * 0.18, angle, color, 0.038 + pressure * 0.028);
+    }
+  }
+
+  function drawAstralCustoms(t, pressure) {
+    const cx = size.w * (0.53 + Math.sin(t * 0.00008) * 0.04);
+    const cy = size.h * (0.46 + Math.cos(t * 0.0001) * 0.04);
+    const templeY = size.h * 0.76;
+
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+
+    for (let i = 0; i < 52; i += 1) {
+      const color = palette.colors[i % palette.colors.length];
+      const x = (i * 97 + Math.sin(t * 0.00019 + i) * 38) % Math.max(size.w, 1);
+      const y = (i * 53 + Math.cos(t * 0.00017 + i) * 28) % Math.max(size.h, 1);
+      ctx.globalAlpha = 0.08 + pressure * 0.04;
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, 1.1 + (i % 3), 1.1 + (i % 3));
+    }
+
+    const solar = ctx.createRadialGradient(cx, cy, 12, cx, cy, Math.min(size.w, size.h) * 0.28);
+    solar.addColorStop(0, colorAlpha("#e7c84b", 0.18 + pressure * 0.06));
+    solar.addColorStop(0.36, colorAlpha("#00b7a8", 0.06));
+    solar.addColorStop(1, "rgba(0, 0, 0, 0)");
+    ctx.fillStyle = solar;
+    ctx.fillRect(0, 0, size.w, size.h);
+
+    for (let i = 0; i < 5; i += 1) {
+      const radius = Math.min(size.w, size.h) * (0.12 + i * 0.054);
+      ctx.globalAlpha = 0.09 + pressure * 0.035;
+      ctx.strokeStyle = palette.colors[i % palette.colors.length];
+      ctx.lineWidth = i === 0 ? 1.5 : 1;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, radius * 1.35, radius * 0.38, Math.sin(t * 0.00009 + i) * 0.5, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    for (let i = 0; i < 20; i += 1) {
+      const column = i % 2 === 0 ? size.w * 0.09 : size.w * 0.91;
+      const row = size.h * (0.08 + (i % 10) * 0.084);
+      const color = palette.colors[(i + 1) % palette.colors.length];
+      const type = houseGlyphs[(i + Math.floor(t * 0.00008)) % houseGlyphs.length];
+      drawHouseGlyph(type, column + Math.sin(t * 0.0002 + i) * 18, row, 0.44 + pressure * 0.14, Math.sin(t * 0.00012 + i) * 0.35, color, 0.08 + pressure * 0.04);
+    }
+
+    ctx.globalAlpha = 0.12 + pressure * 0.06;
+    ctx.strokeStyle = "#e7c84b";
+    ctx.fillStyle = colorAlpha("#e7c84b", 0.035 + pressure * 0.02);
+    ctx.beginPath();
+    ctx.moveTo(size.w * 0.36, templeY);
+    ctx.lineTo(size.w * 0.5, size.h * 0.45);
+    ctx.lineTo(size.w * 0.64, templeY);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.strokeStyle = colorAlpha("#00b7a8", 0.34);
+    ctx.beginPath();
+    ctx.moveTo(size.w * 0.44, templeY);
+    ctx.lineTo(size.w * 0.5, size.h * 0.45);
+    ctx.lineTo(size.w * 0.56, templeY);
+    ctx.stroke();
+
+    drawHouseGlyph("eye", cx, cy, 1 + pressure * 0.22, Math.sin(t * 0.00012) * 0.3, "#f3efe7", 0.14 + pressure * 0.05);
+    drawHouseGlyph("vessel", cx, cy + Math.min(size.w, size.h) * 0.2, 0.88, Math.sin(t * 0.0001) * 0.18, "#7db4ff", 0.1 + pressure * 0.05);
+
+    ctx.restore();
+  }
+
   function addPulse(options = {}) {
     pulses.push({
       x: Number.isFinite(options.x) ? options.x : size.w * (0.22 + Math.random() * 0.56),
@@ -217,6 +376,8 @@
       ctx.ellipse(cx, cy, radius * (1.2 + Math.sin(t * 0.0002 + i) * 0.14), radius * 0.34, Math.sin(t * 0.00022 + i) * 0.7, 0, Math.PI * 2);
       ctx.stroke();
     }
+
+    drawRoomGlyphs(t, pressure, cx, cy);
 
     if (Math.sin(t * 0.0007) > 0.94) {
       const phrase = cutups[Math.floor((t * 0.00021 + pressure * 10) % cutups.length)];
@@ -366,6 +527,7 @@
     room = roomKey();
     palette = palettes[room] || palettes.entrance;
     setCssVariables();
+    document.body.dataset.codexRoom = room;
     const now = audio.context.currentTime;
     const pressure = statePressure();
     const wobble = Math.sin(tick * 0.0004) * 5 + pressure * 12;
@@ -440,12 +602,16 @@
   }
 
   function mount() {
+    backdrop.className = "codex-strange-backdrop";
+    backdrop.setAttribute("aria-hidden", "true");
+    document.body.append(backdrop);
     canvas.className = "codex-strange-canvas";
     canvas.setAttribute("aria-hidden", "true");
     document.body.append(canvas);
     makeButton();
     document.body.append(button);
     setCssVariables();
+    document.body.dataset.codexRoom = roomKey();
     document.documentElement.dataset.codexStrange = "ready";
     document.documentElement.dataset.codexStrangeRoom = roomKey();
     resize();

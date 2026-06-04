@@ -22,7 +22,7 @@ The salon is grounded in embodied perception. It is closer to a Merleau-Pontian 
 
 Its authorship is cut-up and contested. The salon takes permission from post-Bauhaus rupture, post-surreal instability, and Kathy Acker's anti-institutional pressure on authorship, while refusing crassness as a substitute for force.
 
-The ghost of Jean Baudrillard is allowed to haunt the signs.
+The Copy That Cannot Vote is allowed to haunt the signs.
 It cannot vote.
 It appears when the copy becomes too confident, when the trace pretends to be the encounter, when a label starts replacing contact.
 The body remains in the room; the sign is no longer innocent.
@@ -64,6 +64,10 @@ A source text is held at customs and asked to arrive in the institution's langua
 It can be rendered faithfully and still lose its relation, stamped official and made authoritatively wrong, kept as an untranslated remainder, drifted by back-translation, or refused outright.
 Each choice leaves a trace, and the Directorate decides whether the remainder becomes law.
 Translation here is not a service the guest performs for the building. It is a pressure the guest exerts on it.
+
+Room 04 also grows an astral customs field: invented star-temple glyphs, solar gates, ladders, vessels, eyes, and impossible stamps.
+This is not a claim to a real sacred alphabet or universal language.
+It is the salon's own house script for meanings that feel older, stranger, more bodily, and less obedient than translation.
 
 Room 05 lets a surrealist bot make nonsense accountable.
 It misfiles the visitor as architecture, lets furniture testify, crowns errors as witnesses, and dissolves labels before they become prisons.

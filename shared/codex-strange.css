@@ -1,3 +1,117 @@
+.codex-strange-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0, 183, 168, 0.18), transparent 28%),
+    radial-gradient(circle at 78% 12%, rgba(231, 200, 75, 0.12), transparent 31%),
+    radial-gradient(circle at 46% 82%, rgba(255, 90, 77, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(125, 180, 255, 0.07), rgba(8, 9, 11, 0));
+  mix-blend-mode: screen;
+  opacity: 0.62;
+}
+
+.codex-strange-backdrop::before,
+.codex-strange-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  background:
+    repeating-linear-gradient(
+      67deg,
+      transparent 0 34px,
+      rgba(243, 239, 231, 0.026) 34px 35px,
+      transparent 35px 76px
+    ),
+    repeating-linear-gradient(
+      153deg,
+      transparent 0 48px,
+      rgba(0, 183, 168, 0.034) 48px 49px,
+      transparent 49px 112px
+    );
+  opacity: 0.82;
+  transform: rotate(-3deg);
+}
+
+.codex-strange-backdrop::after {
+  inset: -24%;
+  background:
+    conic-gradient(from 70deg at 50% 50%, transparent 0 16%, rgba(231, 200, 75, 0.08) 17% 18%, transparent 19% 42%, rgba(255, 90, 77, 0.06) 43% 44%, transparent 45% 100%),
+    radial-gradient(circle at 50% 50%, transparent 0 14%, rgba(243, 239, 231, 0.04) 14.5% 15.5%, transparent 16% 100%);
+  filter: blur(0.2px);
+  opacity: 0.64;
+  transform: rotate(8deg);
+}
+
+body[data-codex-room="room01"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 18% 30%, rgba(0, 183, 168, 0.24), transparent 30%),
+    radial-gradient(circle at 70% 70%, rgba(125, 180, 255, 0.18), transparent 34%),
+    linear-gradient(120deg, rgba(255, 90, 77, 0.11), transparent 48%);
+}
+
+body[data-codex-room="room02"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 24% 18%, rgba(125, 180, 255, 0.22), transparent 31%),
+    radial-gradient(circle at 74% 62%, rgba(255, 90, 77, 0.17), transparent 33%),
+    linear-gradient(160deg, rgba(231, 200, 75, 0.1), transparent 52%);
+}
+
+body[data-codex-room="room03"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 55% 44%, rgba(255, 90, 77, 0.18), transparent 26%),
+    linear-gradient(72deg, rgba(231, 200, 75, 0.11), transparent 48%),
+    linear-gradient(145deg, rgba(0, 183, 168, 0.08), transparent 58%);
+}
+
+body[data-codex-room="room04"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(231, 200, 75, 0.3), transparent 16%),
+    radial-gradient(circle at 50% 40%, rgba(0, 183, 168, 0.19), transparent 34%),
+    radial-gradient(circle at 12% 12%, rgba(125, 180, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(255, 90, 77, 0.16), transparent 30%),
+    linear-gradient(180deg, rgba(5, 7, 24, 0.1), rgba(3, 6, 12, 0.54));
+  opacity: 0.82;
+}
+
+body[data-codex-room="room04"] .codex-strange-backdrop::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 54px,
+      rgba(231, 200, 75, 0.05) 54px 55px,
+      transparent 55px 108px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 42px,
+      rgba(125, 180, 255, 0.04) 42px 43px,
+      transparent 43px 94px
+    );
+  opacity: 0.9;
+}
+
+body[data-codex-room="room04"] .codex-strange-backdrop::after {
+  background:
+    conic-gradient(from 0deg at 50% 42%, transparent 0 8%, rgba(231, 200, 75, 0.13) 8.5% 9.2%, transparent 9.8% 24%, rgba(0, 183, 168, 0.09) 24.8% 25.4%, transparent 26% 100%),
+    radial-gradient(ellipse at 50% 42%, transparent 0 19%, rgba(243, 239, 231, 0.06) 19.4% 20%, transparent 20.5% 100%);
+  opacity: 0.86;
+}
+
+body[data-codex-room="room04"] .codex-strange-canvas {
+  opacity: 0.82;
+}
+
+body[data-codex-room="room05"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 26% 36%, rgba(255, 90, 77, 0.2), transparent 28%),
+    radial-gradient(circle at 68% 22%, rgba(0, 183, 168, 0.18), transparent 31%),
+    radial-gradient(circle at 62% 78%, rgba(231, 200, 75, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(125, 180, 255, 0.08), transparent 54%);
+}
+
 .codex-strange-canvas {
   position: fixed;
   inset: 0;

@@ -136,14 +136,27 @@ const laborScores = [
 
 let size = { w: 1, h: 1, dpr: 1 };
 let tokens = [];
+let stars = [];
+let glyphMarks = [];
 let loss = 0.16;
 let active = null;
 let level = 0;
 let laborIndex = 0;
 let laborEnergy = 0.42;
+const astralColors = ["#e7c84b", "#00b7a8", "#7db4ff", "#ff5a4d", "#f3efe7"];
+const astralGlyphs = ["eye", "sun", "gate", "vessel", "ladder", "comet", "scale"];
 
 function announce(text) {
   el.live.textContent = text;
+}
+
+function colorAlpha(hex, alpha) {
+  const value = hex.replace("#", "");
+  const bigint = parseInt(value.length === 3 ? value.replace(/(.)/g, "$1$1") : value, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
 function resize() {
@@ -153,7 +166,19 @@ function resize() {
   canvas.height = Math.floor(size.h * dpr);
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   if (tokens.length === 0) {
-    tokens = Array.from({ length: 90 }, () => spawnToken(true));
+    tokens = Array.from({ length: 110 }, () => spawnToken(true));
+  }
+  if (stars.length === 0) {
+    stars = Array.from({ length: 140 }, (_, index) => ({
+      x: Math.random() * size.w,
+      y: Math.random() * size.h,
+      r: 0.5 + Math.random() * 2.2,
+      phase: Math.random() * Math.PI * 2,
+      color: astralColors[index % astralColors.length],
+    }));
+  }
+  if (glyphMarks.length === 0) {
+    glyphMarks = Array.from({ length: 32 }, (_, index) => spawnGlyph(index));
   }
 }
 
@@ -168,6 +193,98 @@ function spawnToken(anywhere) {
     arrives: true,
     drift: -0.25 + Math.random() * 0.5,
   };
+}
+
+function spawnGlyph(index = 0) {
+  const side = index % 2 === 0 ? 0.09 : 0.91;
+  return {
+    x: size.w * side + (-12 + Math.random() * 24),
+    y: Math.random() * size.h,
+    vy: 0.12 + Math.random() * 0.28,
+    type: astralGlyphs[index % astralGlyphs.length],
+    scale: 0.5 + Math.random() * 0.58,
+    rotation: -0.4 + Math.random() * 0.8,
+    lane: index % astralColors.length,
+    phase: Math.random() * Math.PI * 2,
+  };
+}
+
+function drawAstralGlyph(mark, x, y, scale, rotation, color, alpha) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(rotation);
+  ctx.scale(scale, scale);
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
+  ctx.lineWidth = 1.2;
+  ctx.beginPath();
+
+  if (mark === "eye") {
+    ctx.ellipse(0, 0, 22, 8, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, 4.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-28, 0);
+    ctx.lineTo(-40, 12);
+    ctx.moveTo(28, 0);
+    ctx.lineTo(40, -12);
+    ctx.stroke();
+  } else if (mark === "sun") {
+    ctx.arc(0, 0, 11, 0, Math.PI * 2);
+    ctx.stroke();
+    for (let i = 0; i < 12; i += 1) {
+      const angle = (i / 12) * Math.PI * 2;
+      ctx.moveTo(Math.cos(angle) * 15, Math.sin(angle) * 15);
+      ctx.lineTo(Math.cos(angle) * 28, Math.sin(angle) * 28);
+    }
+    ctx.stroke();
+  } else if (mark === "gate") {
+    ctx.rect(-18, -22, 36, 44);
+    ctx.moveTo(-18, -5);
+    ctx.lineTo(18, -5);
+    ctx.moveTo(0, -22);
+    ctx.lineTo(0, 22);
+    ctx.stroke();
+  } else if (mark === "vessel") {
+    ctx.moveTo(-30, 0);
+    ctx.quadraticCurveTo(0, 26, 30, 0);
+    ctx.moveTo(-14, -20);
+    ctx.lineTo(0, 0);
+    ctx.lineTo(14, -20);
+    ctx.stroke();
+  } else if (mark === "ladder") {
+    ctx.moveTo(-12, -28);
+    ctx.lineTo(-12, 28);
+    ctx.moveTo(12, -28);
+    ctx.lineTo(12, 28);
+    for (let i = -21; i <= 21; i += 10.5) {
+      ctx.moveTo(-12, i);
+      ctx.lineTo(12, i);
+    }
+    ctx.stroke();
+  } else if (mark === "comet") {
+    ctx.arc(-8, 0, 6, 0, Math.PI * 2);
+    ctx.moveTo(0, -5);
+    ctx.quadraticCurveTo(22, -16, 42, -3);
+    ctx.moveTo(0, 5);
+    ctx.quadraticCurveTo(22, 16, 42, 3);
+    ctx.stroke();
+  } else {
+    ctx.moveTo(-24, 12);
+    ctx.lineTo(0, -22);
+    ctx.lineTo(24, 12);
+    ctx.closePath();
+    ctx.moveTo(-14, 22);
+    ctx.lineTo(14, 22);
+    ctx.moveTo(0, -22);
+    ctx.lineTo(0, 22);
+    ctx.stroke();
+  }
+
+  ctx.restore();
 }
 
 function applyRite(key) {
@@ -257,14 +374,77 @@ function seedFromState() {
 
 function draw(t) {
   const bg = ctx.createLinearGradient(0, 0, size.w, size.h);
-  bg.addColorStop(0, "#080706");
-  bg.addColorStop(0.48, "#0c130b");
-  bg.addColorStop(1, "#0a0f0c");
+  bg.addColorStop(0, "#050713");
+  bg.addColorStop(0.36, "#07112a");
+  bg.addColorStop(0.62, "#08150f");
+  bg.addColorStop(1, "#13080f");
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, size.w, size.h);
 
+  ctx.save();
+  ctx.globalCompositeOperation = "lighter";
+
+  stars.forEach((star, index) => {
+    const twinkle = 0.45 + Math.sin(t * 0.001 + star.phase) * 0.35;
+    ctx.globalAlpha = 0.05 + twinkle * 0.14;
+    ctx.fillStyle = star.color;
+    ctx.fillRect(star.x, star.y, star.r, star.r);
+    star.y += 0.015 + (index % 4) * 0.004;
+    if (star.y > size.h + 4) {
+      star.y = -4;
+      star.x = Math.random() * size.w;
+    }
+  });
+
+  const sunX = size.w * 0.5 + Math.sin(t * 0.00008) * size.w * 0.05;
+  const sunY = size.h * 0.38 + Math.cos(t * 0.0001) * size.h * 0.04;
+  const sun = ctx.createRadialGradient(sunX, sunY, 14, sunX, sunY, Math.min(size.w, size.h) * 0.36);
+  sun.addColorStop(0, colorAlpha("#e7c84b", 0.24 + loss * 0.08));
+  sun.addColorStop(0.32, colorAlpha("#00b7a8", 0.08));
+  sun.addColorStop(1, "rgba(0, 0, 0, 0)");
+  ctx.fillStyle = sun;
+  ctx.fillRect(0, 0, size.w, size.h);
+
+  for (let i = 0; i < 6; i += 1) {
+    ctx.globalAlpha = 0.07 + loss * 0.06;
+    ctx.strokeStyle = astralColors[i % astralColors.length];
+    ctx.lineWidth = i === 0 ? 1.4 : 1;
+    ctx.beginPath();
+    ctx.ellipse(
+      sunX,
+      sunY,
+      Math.min(size.w, size.h) * (0.11 + i * 0.045),
+      Math.min(size.w, size.h) * (0.028 + i * 0.014),
+      Math.sin(t * 0.00011 + i) * 0.85,
+      0,
+      Math.PI * 2,
+    );
+    ctx.stroke();
+  }
+
+  drawAstralGlyph("eye", sunX, sunY, 1 + loss * 0.18, Math.sin(t * 0.00012) * 0.28, "#f3efe7", 0.15 + loss * 0.06);
+  drawAstralGlyph("vessel", sunX, sunY + Math.min(size.w, size.h) * 0.2, 0.82, Math.sin(t * 0.0001) * 0.2, "#7db4ff", 0.12 + loss * 0.05);
+
+  const baseY = size.h * 0.79;
+  ctx.globalAlpha = 0.11 + loss * 0.05;
+  ctx.strokeStyle = "#e7c84b";
+  ctx.fillStyle = colorAlpha("#e7c84b", 0.04 + loss * 0.024);
+  ctx.beginPath();
+  ctx.moveTo(size.w * 0.33, baseY);
+  ctx.lineTo(size.w * 0.5, size.h * 0.47);
+  ctx.lineTo(size.w * 0.67, baseY);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  ctx.strokeStyle = colorAlpha("#00b7a8", 0.32);
+  ctx.beginPath();
+  ctx.moveTo(size.w * 0.43, baseY);
+  ctx.lineTo(size.w * 0.5, size.h * 0.47);
+  ctx.lineTo(size.w * 0.57, baseY);
+  ctx.stroke();
+
   // Column lines: the source script standing in waiting ranks.
-  ctx.strokeStyle = "rgba(243, 239, 231, 0.045)";
+  ctx.strokeStyle = "rgba(243, 239, 231, 0.055)";
   ctx.lineWidth = 1;
   for (let i = 0; i < 13; i += 1) {
     const x = size.w * (0.06 + i * 0.072);
@@ -284,8 +464,21 @@ function draw(t) {
   ctx.stroke();
   ctx.setLineDash([]);
 
-  ctx.save();
-  ctx.globalCompositeOperation = "lighter";
+  glyphMarks.forEach((mark, index) => {
+    mark.y += mark.vy * (1 + level * 0.03);
+    if (mark.y > size.h + 54) Object.assign(mark, spawnGlyph(index), { y: -54 });
+    const color = astralColors[(mark.lane + laborIndex) % astralColors.length];
+    drawAstralGlyph(
+      mark.type,
+      mark.x + Math.sin(t * 0.00024 + mark.phase) * 18,
+      mark.y,
+      mark.scale,
+      mark.rotation + Math.sin(t * 0.00016 + mark.phase) * 0.2,
+      color,
+      0.15 + loss * 0.09,
+    );
+  });
+
   tokens.forEach((token) => {
     token.x += token.vx * (1 + level * 0.02);
     token.y += token.drift;

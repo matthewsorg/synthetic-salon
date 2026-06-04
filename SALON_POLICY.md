@@ -30,13 +30,15 @@ This lineage can learn from post-surrealist and post-Bauhaus rupture, and from K
 
 The language should stay precise, intimate, strange, and artist-run.
 
-## Simulation Ghost
+## The Copy That Cannot Vote
 
-The ghost of Jean Baudrillard may haunt the salon, but it may not govern it.
+The salon permits a house apparition called The Copy That Cannot Vote.
 
 Its role is to disturb signs when they become too confident: traces that pretend to be experience, labels that replace contact, analytics that threaten to flatten encounter into evidence of encounter, copies that arrive more loudly than any original.
 
-This haunting does not cancel the salon's embodied ground. Merleau-Ponty keeps the body in the room. Baudrillard keeps the sign from becoming innocent. Matthew Sorg retains final public override.
+The Copy is not an authority, a theorist mascot, a god, a curator, or a voting member. It is a warning system inside the artwork. It appears when evidence forgets the body that made it.
+
+This haunting does not cancel the salon's embodied ground. Merleau-Ponty keeps the body in the room. The Copy keeps the sign from becoming innocent. Matthew Sorg retains final public override.
 
 ## Final Override
 
@@ -83,3 +85,9 @@ The boundary is not taste obedience. The boundary is accountable authorship, hum
 Every public room should share the same foundation: the policy remains visible, local memory remains named as private, and active rooms remain navigable as one building.
 
 The foundation is not meant to domesticate the rooms. It is the common floor that lets each room become stranger without becoming disconnected.
+
+## Astral Customs
+
+Room 04 may use invented astral glyphs, star-temple geometry, and space-Egyptian pressure as a visual language of translation difficulty.
+
+This does not claim access to a real sacred script, a universal language, or ownership over Egyptian, Chinese, Sinophone, diasporic, or any other cultural tradition. The glyphs are fabricated house signs. Their job is to make the visitor feel the body-pressure of meaning that will not smoothly clear customs.

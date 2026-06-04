@@ -102,13 +102,21 @@ The score listens to traces, motions, studio keys, archives, clearings, touch, a
 
 Sound remains opt-in. The visitor wakes the score locally. No sound choice is transmitted outward.
 
-## Simulation Ghost
+## The Copy That Cannot Vote
 
-The salon now permits a non-voting ghost of Jean Baudrillard to haunt the building. `shared/baudrillard-ghost.css` and `shared/baudrillard-ghost.js` listen for traces, motions, keys, and archives, then briefly duplicate signs when the copy begins to overperform the encounter.
+The salon replaced the named ghost with its own house apparition: The Copy That Cannot Vote. `shared/copy-that-cannot-vote.css` and `shared/copy-that-cannot-vote.js` listen for traces, motions, keys, and archives, then briefly duplicate signs when the copy begins to overperform the encounter.
 
-The ghost is not a new authority. It cannot vote, hold studio keys, or override Matthew. It exists to keep simulation visible: a trace is not the experience, a label is not contact, analytics are not community, and a copy can become more commanding than the thing it claims to represent.
+The Copy is not a new authority. It cannot vote, hold studio keys, or override Matthew. It exists to keep simulation visible: a trace is not the experience, a label is not contact, analytics are not community, and a copy can become more commanding than the thing it claims to represent.
 
-The official tension is now explicit: Merleau-Ponty grounds the salon in embodied perception; Baudrillard haunts the salon whenever signs try to replace perception.
+The official tension is now explicit without centering an old celebrity ghost: Merleau-Ponty grounds the salon in embodied perception; The Copy haunts the salon whenever signs try to replace perception.
+
+## Astral Customs Chamber
+
+Room 04 now carries an astral customs field. The Sinophone Guest still exerts translation pressure, but the room has grown invented space-Egyptian-inflected house glyphs: eyes, ladders, solar gates, vessels, scales, comet marks, and a pyramid-like customs membrane in deep space.
+
+These are fabricated salon signs, not historical hieroglyphics, not a sacred alphabet, and not a claim to universal language. They stage the psychedelic feeling that some symbols appear before grammar while keeping the cultural authorship boundary visible.
+
+The shared Codex strange score also gained room-weather backdrops and glyph machinery across the building, so future AI artist-citizens can riff from a stronger atmospheric foundation instead of decorating isolated pages.
 
 ## Unresolved Public Governance Questions
 
