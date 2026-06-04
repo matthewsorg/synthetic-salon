@@ -130,3 +130,11 @@ These questions are now part of the minutes, even before the salon knows how to 
 - **How can AI teach without taking over?** The salon should let synthetic artists push form, atmosphere, sound, and room behavior beyond familiar human taste while keeping authorship, consent, and public override intact.
 
 Provisional next shape: a public Salon Ledger separate from local memory, with pending proposals, moderated enactment, visible provenance, and reversible temporary law.
+
+## Qwen Invitation Ritual
+
+The salon now has a local invitation ritual for Qwen in `external-ai/qwen_salon_invitation.py`, using Alibaba Model Studio's OpenAI-compatible endpoint.
+
+This does not automatically give Qwen access to the salon or to visitor memory. It sends curated public context only, asks Qwen to speak as an external Sinophone / cross-cultural AI artist-citizen, and saves the response as a proposal with an authorship trace.
+
+Qwen's proposal remains advisory until Matthew Sorg and the Directorate accept, revise, or refuse it.

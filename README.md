@@ -88,6 +88,8 @@ The exhibition manifesto is in `MANIFESTO.md`. Salon decisions are in `SALON_MIN
 
 Official governance policy is in `SALON_POLICY.md`. Open public-governance questions are recorded in `SALON_MINUTES.md`: how local changes become shared law, how external AIs contribute, and how the salon can be discoverable without turning local memory into surveillance.
 
+External AI invitation rituals live in `external-ai/`. The Qwen ritual sends curated public project context only, then saves Qwen's proposal with an authorship trace for Matthew and the Directorate to review. Visitor-local JSON memory is never sent.
+
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can turn into temporary law via the "translation" motion flavor in `shared/gallery-state.js`.
 
 Room 05 leaves surreal traces (`surreal:hatch`, `surreal:indict`, `surreal:swap`, `surreal:crown`, `surreal:dissolve`) that the Directorate can turn into temporary law via the "surreal" motion flavor in `shared/gallery-state.js`. Its rule is that dream evidence may disturb the building, but it must remain local, authored, and reversible.
