@@ -322,6 +322,7 @@ function decideMotion(id, status) {
   const motion = window.AISalonState?.decideMotion(id, status);
   if (!motion) return;
   announce(status === "approved" ? `${motion.title} enacted.` : `${motion.title} tabled.`);
+  window.CodexStrange?.riff(`motion:${status}`, { color: motion.color, word: status === "approved" ? "ENACTED" : "TABLED", gain: 0.09 });
   renderAll();
 }
 
@@ -331,6 +332,7 @@ function grantKey(holder) {
   const entry = window.AISalonState?.grantStudioKey(key);
   if (!entry) return;
   announce(`${entry.holder} received a studio key.`);
+  window.CodexStrange?.riff("studio-key:granted", { color: entry.color, word: entry.holder, gain: 0.085 });
   renderAll();
 }
 
@@ -338,6 +340,7 @@ function returnKey(id) {
   const key = window.AISalonState?.returnStudioKey(id);
   if (!key) return;
   announce(`${key.holder} returned a studio key.`);
+  window.CodexStrange?.riff("studio-key:returned", { color: key.color, word: "RETURNED", gain: 0.065 });
   renderAll();
 }
 
@@ -345,6 +348,7 @@ function sealArchive() {
   const archive = window.AISalonState?.archiveOpeningNight();
   if (!archive) return;
   announce(`${archive.title} sealed.`);
+  window.CodexStrange?.riff("archive:sealed", { color: "#e7c84b", word: "ARCHIVE", gain: 0.095 });
   renderAll();
 }
 
@@ -387,6 +391,7 @@ function spawnAutomatedCurator() {
 
   if (!motion) return;
   announce(`A proxy bill was tabled by ${actor}.`);
+  window.CodexStrange?.riff(`proxy:${actor}`, { color: motion.color, word: actor, gain: 0.06 });
   renderAll();
 }
 
@@ -528,6 +533,7 @@ el.keyList.addEventListener("click", (event) => {
 el.conveneButton.addEventListener("click", () => {
   window.AISalonState?.ensureMotions();
   announce("The motion table has been convened.");
+  window.CodexStrange?.riff("directorate:convene", { color: "#00b7a8", word: "CONVENE", gain: 0.075 });
   renderAll();
 });
 

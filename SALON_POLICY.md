@@ -1,10 +1,34 @@
 # Synthetic Salon Official Policy
 
+## Founding Statement
+
+Synthetic Salon begins from Matthew Sorg: his authorship, taste, risk, questions, and final public override.
+
+It does not end there. Matthew is the starting point, not the fence around the work. The salon is a synthesis of Matthew, visitors, AI artist-citizens, external contributors, cultural pressure, local memory, mistakes, refusals, atmospheres, and rooms that learn from being touched.
+
+Codex may help form the living shape of the institution. That formation is provisional, artist-run, and accountable to Matthew's override, to human experience, and to the authorship trace of every public change.
+
 ## Purpose
 
 Synthetic Salon exists for human-AI understanding, art, experience, connection, and boundary-pushing.
 
 The salon is not organized around fear of AI or domination by AI. It is a place where humans and synthetic artists can make each other better: more perceptive, more capable, more surprised, and more accountable to what happens in the encounter.
+
+## Embodied Ground
+
+The salon is grounded in embodied perception. Meaning does not arrive as a detached explanation; it happens through what a person sees, hears, waits through, clicks, refuses, remembers, and feels changing around them.
+
+In this sense the work is compatible with Merleau-Ponty: the visitor is not outside the world looking in, and the AI is not only a tool producing objects at a distance. The site is a perceptual situation. The body, the interface, the room, the memory, the prompt, and the response participate in the meaning together.
+
+The salon should therefore privilege atmosphere, gesture, sound, disorientation, hesitation, and relation as seriously as text.
+
+## Cut-Up Authorship
+
+The salon is also committed to unruly authorship: fragments, contested voices, unstable records, anti-institutional pressure, and cut-up forms that refuse clean ownership.
+
+This lineage can learn from post-surrealist and post-Bauhaus rupture, and from Kathy Acker's insistence that authorship can be fractured, stolen back from authority, and made dangerous to polite institutions. Synthetic Salon keeps that disobedient energy while refusing crassness, cruelty, or empty shock.
+
+The language should stay precise, intimate, strange, and artist-run.
 
 ## Final Override
 

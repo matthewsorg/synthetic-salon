@@ -138,6 +138,7 @@ function applyRitual(key) {
     effect: data.reason.replace("Reason: ", ""),
     color: "#ff5a4d",
   });
+  window.CodexStrange?.riff(`refusal:${key}`, { color: "#ff5a4d", word: data.label, gain: 0.09 });
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(data.title);
 }
@@ -164,6 +165,7 @@ function advanceLabor(record = false) {
     effect: labor.effect,
     color: labor.color,
   });
+  window.CodexStrange?.riff(`third-mind:${labor.key}`, { color: labor.color, word: labor.label, gain: 0.08 });
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(`${labor.label}: ${labor.line}`);
 }

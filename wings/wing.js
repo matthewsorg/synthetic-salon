@@ -231,6 +231,7 @@ function advanceLabor(record = false) {
     effect: labor.effect,
     color: labor.color,
   });
+  window.CodexStrange?.riff(`${sourceName()}:${labor.key}`, { color: labor.color, word: labor.label, gain: 0.08 });
   window.AISalonState?.renderTraceList("traceList", { limit: 3 });
 }
 
@@ -257,6 +258,7 @@ function setScore(score, fromUser = false) {
       effect: line,
       color: wings[wing].colors[0],
     });
+    window.CodexStrange?.riff(`${wing}:${score}`, { color: wings[wing].colors[0], word: score, gain: 0.075 });
   }
   window.AISalonState?.renderTraceList("traceList", { limit: 3 });
 }

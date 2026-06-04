@@ -1,0 +1,158 @@
+.codex-strange-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.68;
+}
+
+.codex-score-toggle {
+  --codex-button-color: var(--codex-strange-1, #00b7a8);
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px;
+  align-items: center;
+  min-height: 40px;
+  border: 1px solid color-mix(in srgb, var(--codex-button-color) 42%, rgba(243, 239, 231, 0.14));
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--codex-button-color) 18%, transparent), transparent 38%),
+    rgba(8, 9, 11, 0.84);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(18px);
+  color: #f3efe7;
+  cursor: pointer;
+  padding: 8px 10px;
+  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.codex-score-toggle::after {
+  content: var(--codex-strange-phrase, "score asleep");
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  width: max-content;
+  max-width: min(280px, calc(100vw - 32px));
+  border: 1px solid color-mix(in srgb, var(--codex-button-color) 34%, rgba(243, 239, 231, 0.12));
+  border-radius: 8px;
+  background: rgba(8, 9, 11, 0.82);
+  opacity: 0;
+  padding: 7px 9px;
+  color: #f3efe7;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: translateY(6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+.codex-score-toggle strong {
+  display: block;
+  max-width: 112px;
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.codex-score-toggle span {
+  display: flex;
+  align-items: end;
+  gap: 2px;
+  width: 22px;
+  height: 18px;
+}
+
+.codex-score-toggle i {
+  display: block;
+  width: 4px;
+  min-height: 5px;
+  border-radius: 999px;
+  background: var(--codex-button-color);
+  box-shadow: 0 0 12px var(--codex-button-color);
+  transform-origin: bottom;
+}
+
+.codex-score-toggle i:nth-child(1) {
+  height: 8px;
+}
+
+.codex-score-toggle i:nth-child(2) {
+  height: 15px;
+}
+
+.codex-score-toggle i:nth-child(3) {
+  height: 11px;
+}
+
+.codex-score-toggle[aria-pressed="true"] i {
+  animation: codex-score-bar 820ms ease-in-out infinite alternate;
+}
+
+.codex-score-toggle[aria-pressed="true"] i:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.codex-score-toggle[aria-pressed="true"] i:nth-child(3) {
+  animation-delay: 320ms;
+}
+
+.codex-score-toggle:hover,
+.codex-score-toggle:focus-visible {
+  background:
+    radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--codex-button-color) 28%, transparent), transparent 42%),
+    rgba(8, 9, 11, 0.9);
+}
+
+.codex-score-toggle:hover::after,
+.codex-score-toggle:focus-visible::after,
+.codex-score-toggle[aria-pressed="true"]::after {
+  opacity: 0.82;
+  transform: translateY(0);
+}
+
+body.codex-score-awake .codex-strange-canvas {
+  opacity: 0.82;
+}
+
+@keyframes codex-score-bar {
+  from {
+    transform: scaleY(0.52);
+  }
+  to {
+    transform: scaleY(1.28);
+  }
+}
+
+@media (max-width: 760px) {
+  .codex-score-toggle {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .codex-score-toggle strong {
+    max-width: 86px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .codex-strange-canvas {
+    opacity: 0.44;
+  }
+
+  .codex-score-toggle[aria-pressed="true"] i {
+    animation: none;
+  }
+}

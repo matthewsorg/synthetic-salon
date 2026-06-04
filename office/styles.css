@@ -440,6 +440,22 @@ h1 {
   --accent: var(--cyan);
 }
 
+.covenant-list li:nth-child(8) {
+  --accent: var(--green);
+}
+
+.covenant-list li:nth-child(9) {
+  --accent: var(--blue);
+}
+
+.covenant-list li:nth-child(10) {
+  --accent: var(--red);
+}
+
+.covenant-list li:nth-child(11) {
+  --accent: var(--gold);
+}
+
 .covenant-list span {
   display: block;
   margin-bottom: 8px;

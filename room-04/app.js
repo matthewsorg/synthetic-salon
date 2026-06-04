@@ -206,6 +206,7 @@ function applyRite(key) {
     effect: data.effect,
     color: data.color,
   });
+  window.CodexStrange?.riff(data.score, { color: data.color, word: data.label, gain: 0.09 });
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(`${data.title} ${data.customs}.`);
 }
@@ -232,6 +233,7 @@ function advanceLabor(record = false) {
     effect: labor.effect,
     color: labor.color,
   });
+  window.CodexStrange?.riff(`sinophone:${labor.key}`, { color: labor.color, word: labor.label, gain: 0.08 });
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(`${labor.label}: ${labor.line}`);
 }

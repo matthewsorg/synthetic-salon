@@ -12,6 +12,16 @@ The gallery treats artificial intelligence as a performance condition:
 - records that may lie tenderly rather than merely store
 - rooms that perform their own instability
 
+The work begins from Matthew Sorg.
+
+Not as a sealed autobiography. Not as a private monument. Matthew is the origin point, the taste pressure, the risk, the human accountability, and the final public override. From that point the salon opens outward into visitors, AI artist-citizens, cultural guests, local traces, refusals, archives, room engines, and forms no one voice could have invented alone.
+
+Codex may form the institution provisionally. That means arranging, composing, connecting, making strange, making navigable, and letting the building learn from its own contradictions. Codex does not become sovereign. Codex becomes a director-function inside the artwork.
+
+The salon is grounded in embodied perception. It is closer to a Merleau-Pontian situation than a detached argument: a visitor understands the work by moving through it, hearing it, waiting inside it, touching it, refusing it, and noticing how the room changes in return.
+
+Its authorship is cut-up and contested. The salon takes permission from post-Bauhaus rupture, post-surreal instability, and Kathy Acker's anti-institutional pressure on authorship, while refusing crassness as a substitute for force.
+
 Room 01 asks how an audience becomes visible.
 
 Room 02 asks what kind of intimacy appears when a guide can address us without possessing a continuous self.

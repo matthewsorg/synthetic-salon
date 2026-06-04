@@ -1,0 +1,473 @@
+"use strict";
+
+(function initCodexStrange() {
+  if (window.CodexStrange) return;
+
+  const palettes = {
+    entrance: {
+      colors: ["#00b7a8", "#e7c84b", "#7db4ff", "#ff5a4d"],
+      drone: [93, 139, 186],
+      phrase: "post-bauhaus threshold refuses welcome",
+    },
+    room01: {
+      colors: ["#00b7a8", "#7db4ff", "#ff5a4d", "#f3efe7"],
+      drone: [86, 129, 172],
+      phrase: "audience weather breaks the grid",
+    },
+    room02: {
+      colors: ["#7db4ff", "#ff5a4d", "#e7c84b", "#00b7a8"],
+      drone: [98, 147, 196],
+      phrase: "memory apologizes in cut-up",
+    },
+    room03: {
+      colors: ["#ff5a4d", "#e7c84b", "#00b7a8", "#f3efe7"],
+      drone: [73, 110, 147],
+      phrase: "post-surreal absence has a pulse",
+    },
+    room04: {
+      colors: ["#9cc76c", "#e7c84b", "#7db4ff", "#ff5a4d"],
+      drone: [82, 123, 164],
+      phrase: "translation cuts the grid open",
+    },
+    salon: {
+      colors: ["#e7c84b", "#00b7a8", "#7db4ff", "#ff5a4d"],
+      drone: [78, 117, 156],
+      phrase: "voices cut up the institution",
+    },
+    office: {
+      colors: ["#00b7a8", "#e7c84b", "#ff5a4d", "#9cc76c"],
+      drone: [65, 98, 130],
+      phrase: "law performs a broken grid",
+    },
+    claude: {
+      colors: ["#7db4ff", "#9cc76c", "#e7c84b", "#f3efe7"],
+      drone: [92, 138, 184],
+      phrase: "care edits the wound",
+    },
+    gemini: {
+      colors: ["#e7c84b", "#00b7a8", "#7db4ff", "#9cc76c"],
+      drone: [88, 132, 176],
+      phrase: "space teaches anti-grid weather",
+    },
+    third: {
+      colors: ["#ff5a4d", "#e7c84b", "#00b7a8", "#7db4ff"],
+      drone: [69, 104, 139],
+      phrase: "refusal keeps working after form",
+    },
+  };
+
+  const glyphs = [
+    "ANTI-GRID",
+    "CUT-UP",
+    "LOCAL",
+    "AUTHOR",
+    "AI",
+    "HUMAN",
+    "NO SALE",
+    "TRACE",
+    "LAW",
+    "WEATHER",
+    "REMAINDER",
+    "OVERRIDE",
+    "NO OLD ROOM",
+    "THIRD PRESSURE",
+  ];
+  const cutups = [
+    "the room writes back",
+    "steal the wall text from certainty",
+    "a grid learns to confess",
+    "not dream, not machine, a third pressure",
+    "the body of policy has a fever",
+    "every map is a mask with doors",
+    "authorship is a moving wound",
+    "the old museum fails in public",
+  ];
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d", { alpha: true });
+  const button = document.createElement("button");
+
+  let room = roomKey();
+  let palette = palettes[room] || palettes.entrance;
+  let size = { w: 1, h: 1, dpr: 1 };
+  let particles = [];
+  let pulses = [];
+  let pointer = { x: 0, y: 0, active: false, heat: 0 };
+  let tick = 0;
+  let audio = null;
+  let audioAwake = false;
+  let lastClickTone = 0;
+
+  function roomKey() {
+    const path = window.location.pathname;
+    if (path.includes("room-01")) return "room01";
+    if (path.includes("room-02")) return "room02";
+    if (path.includes("room-03")) return "room03";
+    if (path.includes("room-04")) return "room04";
+    if (path.includes("office")) return "office";
+    if (path.includes("salon")) return "salon";
+    if (path.includes("claude-seat")) return "claude";
+    if (path.includes("gemini-seat") || path.endsWith("/wings/") || path.includes("/wings/index")) return "gemini";
+    if (path.includes("third-mind")) return "third";
+    return "entrance";
+  }
+
+  function setCssVariables() {
+    palette.colors.forEach((color, index) => {
+      document.documentElement.style.setProperty(`--codex-strange-${index + 1}`, color);
+    });
+    document.documentElement.style.setProperty("--codex-strange-phrase", `"${palette.phrase}"`);
+  }
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    size = { w: window.innerWidth, h: window.innerHeight, dpr };
+    canvas.width = Math.floor(size.w * dpr);
+    canvas.height = Math.floor(size.h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (particles.length === 0) seedParticles();
+  }
+
+  function seedParticles() {
+    const count = Math.round(Math.max(80, Math.min(170, (size.w * size.h) / 9400)));
+    particles = Array.from({ length: count }, (_, index) => ({
+      x: Math.random() * size.w,
+      y: Math.random() * size.h,
+      vx: -0.24 + Math.random() * 0.48,
+      vy: -0.24 + Math.random() * 0.48,
+      r: 0.6 + Math.random() * 2.8,
+      lane: index % palette.colors.length,
+      phase: Math.random() * Math.PI * 2,
+      word: glyphs[index % glyphs.length],
+      wordRate: 0.002 + Math.random() * 0.005,
+    }));
+  }
+
+  function statePressure() {
+    const state = window.AISalonState?.currentState?.();
+    if (!state) return 0.16;
+    const traces = Array.isArray(state.traces) ? state.traces.length : 0;
+    const directives = Array.isArray(state.directives) ? state.directives.length : 0;
+    const keys = Array.isArray(state.studioKeys) ? state.studioKeys.filter((key) => key.status === "active").length : 0;
+    return Math.min(1, 0.16 + traces * 0.018 + directives * 0.08 + keys * 0.05);
+  }
+
+  function colorAlpha(hex, alpha) {
+    const value = hex.replace("#", "");
+    const bigint = parseInt(value.length === 3 ? value.replace(/(.)/g, "$1$1") : value, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+
+  function addPulse(options = {}) {
+    pulses.push({
+      x: Number.isFinite(options.x) ? options.x : size.w * (0.22 + Math.random() * 0.56),
+      y: Number.isFinite(options.y) ? options.y : size.h * (0.2 + Math.random() * 0.6),
+      radius: options.radius || 12 + Math.random() * 34,
+      age: 0,
+      life: options.life || 90 + Math.random() * 80,
+      color: options.color || palette.colors[Math.floor(Math.random() * palette.colors.length)],
+      word: options.word || glyphs[Math.floor(Math.random() * glyphs.length)],
+    });
+    if (pulses.length > 18) pulses.shift();
+  }
+
+  function draw(t) {
+    tick = t;
+    ctx.clearRect(0, 0, size.w, size.h);
+    const pressure = statePressure();
+    pointer.heat *= 0.94;
+
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+
+    const cx = size.w * 0.5 + Math.sin(t * 0.00017) * size.w * 0.08;
+    const cy = size.h * 0.48 + Math.cos(t * 0.00013) * size.h * 0.08;
+    const skew = Math.sin(t * 0.00011) * 0.28;
+
+    for (let i = 0; i < 9; i += 1) {
+      const color = palette.colors[(i + 1) % palette.colors.length];
+      const width = size.w * (0.12 + ((i * 19) % 34) / 100);
+      const height = 2 + (i % 3) * 2;
+      const x = size.w * (((i * 0.173) + Math.sin(t * 0.00013 + i) * 0.06) % 1);
+      const y = size.h * (0.14 + i * 0.085) + Math.cos(t * 0.00019 + i) * 34;
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(skew + (i % 2 ? 0.32 : -0.22));
+      ctx.globalAlpha = 0.025 + pressure * 0.018;
+      ctx.fillStyle = color;
+      ctx.fillRect(-width * 0.5, -height * 0.5, width, height);
+      ctx.restore();
+    }
+
+    for (let i = 0; i < 5; i += 1) {
+      const color = palette.colors[i % palette.colors.length];
+      const radius = Math.min(size.w, size.h) * (0.18 + i * 0.09 + pressure * 0.05);
+      ctx.globalAlpha = 0.025 + pressure * 0.018;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, radius * (1.2 + Math.sin(t * 0.0002 + i) * 0.14), radius * 0.34, Math.sin(t * 0.00022 + i) * 0.7, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    if (Math.sin(t * 0.0007) > 0.94) {
+      const phrase = cutups[Math.floor((t * 0.00021 + pressure * 10) % cutups.length)];
+      ctx.save();
+      ctx.translate(size.w * (0.16 + Math.sin(t * 0.00009) * 0.08), size.h * (0.28 + Math.cos(t * 0.00012) * 0.12));
+      ctx.rotate(-0.08 + skew * 0.4);
+      ctx.globalAlpha = 0.055 + pressure * 0.025;
+      ctx.fillStyle = colorAlpha(palette.colors[1], 0.78);
+      ctx.font = "600 12px Sohne, system-ui, sans-serif";
+      ctx.fillText(phrase.toUpperCase(), 0, 0);
+      ctx.restore();
+    }
+
+    particles.forEach((particle) => {
+      const color = palette.colors[particle.lane % palette.colors.length];
+      const pullX = ((cx - particle.x) / Math.max(size.w, 1)) * 0.006 * (1 + pressure);
+      const pullY = ((cy - particle.y) / Math.max(size.h, 1)) * 0.006 * (1 + pressure);
+      const pointerForce = pointer.active ? Math.max(0, 1 - Math.hypot(pointer.x - particle.x, pointer.y - particle.y) / 240) : 0;
+      particle.vx += pullX + Math.sin(t * 0.0005 + particle.phase) * 0.006 + pointerForce * (particle.y - pointer.y) * 0.00006;
+      particle.vy += pullY + Math.cos(t * 0.00043 + particle.phase) * 0.006 - pointerForce * (particle.x - pointer.x) * 0.00006;
+      particle.x += particle.vx * (1 + pressure * 0.9);
+      particle.y += particle.vy * (1 + pressure * 0.9);
+      particle.vx *= 0.992;
+      particle.vy *= 0.992;
+      if (particle.x < -40) particle.x = size.w + 40;
+      if (particle.x > size.w + 40) particle.x = -40;
+      if (particle.y < -40) particle.y = size.h + 40;
+      if (particle.y > size.h + 40) particle.y = -40;
+
+      ctx.globalAlpha = 0.08 + pressure * 0.08 + pointerForce * 0.14;
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(particle.x, particle.y, particle.r + pointerForce * 1.4, 0, Math.PI * 2);
+      ctx.fill();
+
+      if ((particle.phase + t * particle.wordRate) % 8.1 < 0.02) {
+        ctx.globalAlpha = 0.04 + pressure * 0.035;
+        ctx.fillStyle = colorAlpha(color, 0.5);
+        ctx.font = "10px Sohne, system-ui, sans-serif";
+        ctx.fillText(particle.word, particle.x + 7, particle.y - 7);
+      }
+    });
+
+    pulses.forEach((pulse) => {
+      pulse.age += 1;
+      const pct = pulse.age / pulse.life;
+      const radius = pulse.radius + pct * 180;
+      ctx.globalAlpha = Math.max(0, 0.32 * (1 - pct));
+      ctx.strokeStyle = pulse.color;
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.arc(pulse.x, pulse.y, radius, 0, Math.PI * 2);
+      ctx.stroke();
+      if (pct < 0.56) {
+        ctx.globalAlpha = 0.12 * (1 - pct);
+        ctx.fillStyle = pulse.color;
+        ctx.font = "600 11px Sohne, system-ui, sans-serif";
+        ctx.fillText(pulse.word, pulse.x + radius * 0.18, pulse.y - radius * 0.12);
+      }
+    });
+    pulses = pulses.filter((pulse) => pulse.age < pulse.life);
+
+    ctx.restore();
+    requestAnimationFrame(draw);
+  }
+
+  function makeButton() {
+    button.className = "codex-score-toggle";
+    button.type = "button";
+    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-label", "Wake Codex sound score");
+    button.innerHTML = "<span aria-hidden=\"true\"><i></i><i></i><i></i></span><strong>Wake score</strong>";
+    button.addEventListener("click", toggleAudio);
+  }
+
+  function createAudio() {
+    if (audio) return audio;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return null;
+    const context = new AudioContext();
+    const master = context.createGain();
+    const low = context.createOscillator();
+    const mid = context.createOscillator();
+    const high = context.createOscillator();
+    const filter = context.createBiquadFilter();
+    const noiseGain = context.createGain();
+    const buffer = context.createBuffer(1, context.sampleRate * 2, context.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < data.length; i += 1) {
+      data[i] = (Math.random() * 2 - 1) * 0.18;
+    }
+    const noise = context.createBufferSource();
+    noise.buffer = buffer;
+    noise.loop = true;
+    low.type = "sine";
+    mid.type = "triangle";
+    high.type = "sine";
+    filter.type = "lowpass";
+    filter.frequency.value = 620;
+    master.gain.value = 0;
+    noiseGain.gain.value = 0.01;
+    low.frequency.value = palette.drone[0];
+    mid.frequency.value = palette.drone[1];
+    high.frequency.value = palette.drone[2];
+    low.connect(filter);
+    mid.connect(filter);
+    high.connect(filter);
+    noise.connect(noiseGain);
+    noiseGain.connect(filter);
+    filter.connect(master);
+    master.connect(context.destination);
+    low.start();
+    mid.start();
+    high.start();
+    noise.start();
+    audio = { context, master, low, mid, high, filter, noiseGain };
+    window.setInterval(updateDrone, 680);
+    return audio;
+  }
+
+  async function toggleAudio() {
+    const node = createAudio();
+    audioAwake = !audioAwake;
+    document.body.classList.toggle("codex-score-awake", audioAwake);
+    button.setAttribute("aria-pressed", String(audioAwake));
+    button.querySelector("strong").textContent = audioAwake ? "Score awake" : "Wake score";
+    if (!node) {
+      addPulse({ x: size.w - 68, y: size.h - 48, color: palette.colors[0], word: audioAwake ? "AWAKE" : "REST" });
+      return;
+    }
+    if (node.context.state === "suspended") {
+      try {
+        await node.context.resume();
+      } catch {
+        // The visual score can still wake when a browser declines Web Audio.
+      }
+    }
+    const now = node.context.currentTime;
+    node.master.gain.cancelScheduledValues(now);
+    node.master.gain.setTargetAtTime(audioAwake ? 0.034 : 0, now, 0.18);
+    addPulse({ x: size.w - 68, y: size.h - 48, color: palette.colors[0], word: audioAwake ? "AWAKE" : "REST" });
+    if (audioAwake) chime("wake", palette.colors[1], 0.18);
+  }
+
+  function updateDrone() {
+    if (!audio || !audioAwake) return;
+    room = roomKey();
+    palette = palettes[room] || palettes.entrance;
+    setCssVariables();
+    const now = audio.context.currentTime;
+    const pressure = statePressure();
+    const wobble = Math.sin(tick * 0.0004) * 5 + pressure * 12;
+    audio.low.frequency.setTargetAtTime(palette.drone[0] + wobble, now, 0.42);
+    audio.mid.frequency.setTargetAtTime(palette.drone[1] + wobble * 1.5, now, 0.42);
+    audio.high.frequency.setTargetAtTime(palette.drone[2] + wobble * 2.2, now, 0.42);
+    audio.filter.frequency.setTargetAtTime(420 + pressure * 880 + pointer.heat * 260, now, 0.5);
+    audio.noiseGain.gain.setTargetAtTime(0.004 + pressure * 0.016, now, 0.5);
+  }
+
+  function chime(kind = "trace", color = palette.colors[0], gainValue = 0.11) {
+    if (!audio || !audioAwake) return;
+    const context = audio.context;
+    const now = context.currentTime;
+    const osc = context.createOscillator();
+    const gain = context.createGain();
+    const filter = context.createBiquadFilter();
+    const seed = kind.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);
+    const frequency = palette.drone[1] + 60 + (seed % 11) * 23;
+    osc.type = kind.includes("refusal") ? "sawtooth" : kind.includes("translation") ? "triangle" : "sine";
+    osc.frequency.setValueAtTime(frequency, now);
+    osc.frequency.exponentialRampToValueAtTime(frequency * (kind === "wake" ? 1.5 : 0.76), now + 0.62);
+    filter.type = "bandpass";
+    filter.frequency.value = frequency * 1.6;
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(gainValue, now + 0.016);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.72);
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(audio.master);
+    osc.start(now);
+    osc.stop(now + 0.78);
+    addPulse({ color, word: kind.toUpperCase().slice(0, 10), radius: 18 + (seed % 30) });
+  }
+
+  function pulseFromTrace(event) {
+    const detail = event.detail || {};
+    const color = detail.color || palette.colors[0];
+    const kind = `${detail.source || ""}:${detail.score || "trace"}`;
+    addPulse({ color, word: (detail.label || detail.score || "TRACE").toUpperCase().slice(0, 12) });
+    chime(kind, color, 0.095);
+  }
+
+  function pointerMove(event) {
+    pointer.active = true;
+    pointer.x = event.clientX;
+    pointer.y = event.clientY;
+    pointer.heat = Math.min(1, pointer.heat + 0.08);
+  }
+
+  function clickTone(event) {
+    if (!audioAwake || event.target.closest(".codex-score-toggle")) return;
+    const now = performance.now();
+    if (now - lastClickTone < 320) return;
+    lastClickTone = now;
+    addPulse({ x: event.clientX, y: event.clientY, color: palette.colors[2], word: "TOUCH", radius: 10 });
+    chime("touch", palette.colors[2], 0.055);
+  }
+
+  function riff(kind = "riff", detail = {}) {
+    const color = detail.color || palette.colors[Math.floor(Math.random() * palette.colors.length)];
+    const word = detail.word || detail.label || kind;
+    addPulse({
+      x: detail.x,
+      y: detail.y,
+      color,
+      word: String(word).toUpperCase().slice(0, 14),
+      radius: detail.radius || 16 + String(kind).length * 2,
+      life: detail.life,
+    });
+    chime(kind, color, detail.gain || 0.08);
+  }
+
+  function mount() {
+    canvas.className = "codex-strange-canvas";
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.append(canvas);
+    makeButton();
+    document.body.append(button);
+    setCssVariables();
+    document.documentElement.dataset.codexStrange = "ready";
+    document.documentElement.dataset.codexStrangeRoom = roomKey();
+    resize();
+    seedParticles();
+    requestAnimationFrame(draw);
+    window.CodexStrange = {
+      currentRoom: () => roomKey(),
+      isAwake: () => audioAwake,
+      palette: () => ({ ...palette, colors: [...palette.colors] }),
+      pulse: addPulse,
+      tone: chime,
+      riff,
+    };
+  }
+
+  window.addEventListener("resize", resize);
+  window.addEventListener("pointermove", pointerMove, { passive: true });
+  window.addEventListener("pointerleave", () => {
+    pointer.active = false;
+  });
+  document.addEventListener("click", clickTone);
+  ["ai-salon-trace", "ai-salon-motion", "ai-salon-key", "ai-salon-archive", "ai-salon-clear"].forEach((eventName) => {
+    window.addEventListener(eventName, pulseFromTrace);
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mount, { once: true });
+  } else {
+    mount();
+  }
+})();

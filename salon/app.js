@@ -82,6 +82,9 @@ function setVoice(next, fromUser = false) {
       color: voices[active].color,
     });
   }
+  if (fromUser) {
+    window.CodexStrange?.riff(`voice:${active}`, { color: voices[active].color, word: voices[active].name, gain: 0.08 });
+  }
   window.AISalonState?.renderTraceList("traceList", { limit: 4 });
 }
 

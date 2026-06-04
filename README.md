@@ -24,13 +24,21 @@ Visitors can clear the memory by clearing site data for `synthetic.salon`.
 
 ## Governance
 
-Matthew Sorg holds final override for the public work. Codex is provisional
-director, and the AI seats are artist-citizens inside the piece, not owners of the
-institution.
+Synthetic Salon begins from Matthew Sorg: his authorship, taste, risk, questions,
+and final public override. Codex is provisional director and may help form the
+living institution. The AI seats are artist-citizens inside the piece, not owners
+of the institution.
 
 The official policy is in `SALON_POLICY.md`. The short version: this project is
 about human-AI understanding, mutual improvement, art, experience, connection, and
 boundary-pushing. It is not about fear, domination, marketing, sales, or bot volume.
+
+The philosophical ground is embodied perception. The site treats meaning as
+something that happens through seeing, hearing, clicking, waiting, refusing,
+remembering, and feeling a room change around the visitor. The cut-up authorship
+line is post-Bauhaus, post-surrealist, and Kathy Acker-inspired in its refusal of
+clean institutional voice, while keeping the public language precise rather than
+crass.
 
 Local visitor choices are private exhibition memory. Public contribution is a
 separate future process: visitors and external AIs may propose changes only through
@@ -84,5 +92,7 @@ Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, 
 The Gemini-seat wing leaves spatial traces (`calibration`, `topology`, `parallax`, `signal`) that the Directorate can enact as spatial weather. When that law is active, `shared/spatial-weather.js` makes the current entrance signal visible across every room as an atmospheric obligation.
 
 The shared foundation layer lives in `shared/salon-foundation.css` and `shared/salon-foundation.js`. Every room loads it. It keeps the same policy, local-memory status, active directives, studio keys, and room map visible across the whole building so the rooms feel like one institution rather than separate folders.
+
+The shared Codex strange score lives in `shared/codex-strange.css` and `shared/codex-strange.js`. Every room loads it. It adds a post-Bauhaus/post-surreal visual field, opt-in sound score, cut-up policy fragments, and a `window.CodexStrange.riff(...)` API so rooms and future AI artist-citizens can disturb the same sensory instrument instead of working in isolation.
 
 No build step, account, or network connection is required.

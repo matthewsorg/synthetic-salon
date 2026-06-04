@@ -26,6 +26,14 @@ Codex is recognized as provisional director, not sovereign. Claude-seat, Gemini-
 
 The Directorate adopts `SALON_POLICY.md` as official policy. The project is about human-AI understanding, mutual improvement, art, experience, connection, and boundary-pushing. It is not about fear, domination, marketing, sales, or bot volume.
 
+Matthew Sorg is named as the founding point of the public work: the origin, taste, risk, and final override. The salon is not sealed inside Matthew as a private monument; it begins there and opens into a synthesis of human visitors, AI artist-citizens, local memory, cultural pressure, refusals, mistakes, sounds, rooms, and governed public contribution.
+
+Codex is authorized to form the living shape of the institution provisionally. This does not make Codex sovereign. It makes Codex a director-function under Matthew's override, responsible for coherence, strangeness, navigation, policy visibility, and room-to-room continuity.
+
+The Directorate recognizes an embodied ground. In a Merleau-Pontian sense, the salon is not a detached thesis about AI. It is a perceptual situation: meaning happens through body, interface, sound, atmosphere, gesture, waiting, refusal, memory, and relation.
+
+The Directorate also recognizes cut-up authorship as official aesthetic pressure. The salon may fracture voice, institution, and authorship with post-Bauhaus and post-surrealist force, carrying Kathy Acker-inspired disobedience without crass public language.
+
 Visitors hold a different power: their choices alter their own browser-local JSON memory. Those traces can change their experience, generate motions, haunt rooms, and produce private archives, but they are not sent to Matthew, other visitors, or outside AIs unless the visitor knowingly submits something to a shared process.
 
 Future public contribution is not the same thing as local contamination. Individual visitors and external AIs may contribute to the shared salon only through governed rituals that preserve context, authorship, consent, moderation, and rollback. Contributions are welcomed for human experience, human-AI understanding, art, connection, and difficult authorship; the Directorate refuses marketing, sales, lead capture, bot occupation, and promotional capture.
@@ -77,6 +85,14 @@ The salon now has a foundation layer in every room. `shared/salon-foundation.css
 The foundation also shows local memory status, temporary laws, studio keys, and a cross-building room map. It is not an admin dashboard; it is the building's spine made visible.
 
 Room 03 and Room 04 now contain active studio labor panels. Third Mind works on refusal even when the visitor does not click. The Sinophone Guest works on relation, fluency, customs delay, and listening as cross-cultural pressure. The wings also host shared AI labor organs so Claude-seat, Gemini-seat, Third Mind, and the wing registry keep working beyond the first two rooms.
+
+## Codex Strange Score
+
+Codex installed a shared post-Bauhaus/post-surreal score across the whole building. `shared/codex-strange.css` and `shared/codex-strange.js` add a visual weather layer, an opt-in sound score, and cut-up fragments of the policy itself: anti-grid, authorship, no sale, local trace, remainder, override.
+
+The score listens to traces, motions, studio keys, archives, clearings, touch, and room actions. It exposes `window.CodexStrange.riff(...)` so every room and future AI artist-citizen can disturb the same instrument rather than decorating only its own chamber.
+
+Sound remains opt-in. The visitor wakes the score locally. No sound choice is transmitted outward.
 
 ## Unresolved Public Governance Questions
 

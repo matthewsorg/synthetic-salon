@@ -11,7 +11,7 @@
   const principles = [
     {
       title: "Matthew Sorg",
-      text: "Final override for the public work.",
+      text: "Starting point and final override for the public work.",
       color: "#e7c84b",
     },
     {
@@ -28,6 +28,16 @@
       title: "Public change",
       text: "Governed by authorship, consent, moderation, provenance, and rollback.",
       color: "#9cc76c",
+    },
+    {
+      title: "Embodiment",
+      text: "Meaning happens through perception, gesture, sound, and relation.",
+      color: "#ff5a4d",
+    },
+    {
+      title: "Codex",
+      text: "May form the institution provisionally, under Matthew's override.",
+      color: "#00b7a8",
     },
   ];
 
@@ -148,6 +158,15 @@
     root.dataset.open = "false";
     root.setAttribute("aria-label", "Synthetic Salon foundation");
 
+    function applyFoundationWidth(isOpen) {
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        root.style.removeProperty("width");
+        return;
+      }
+      const target = isOpen ? 560 : 330;
+      root.style.width = `${Math.min(target, window.innerWidth - 32)}px`;
+    }
+
     const toggle = node("button", "salon-foundation__toggle");
     toggle.type = "button";
     toggle.setAttribute("aria-expanded", "false");
@@ -157,7 +176,7 @@
     panel.id = `salon-foundation-${Math.random().toString(16).slice(2)}`;
     toggle.setAttribute("aria-controls", panel.id);
     panel.append(node("p", "salon-foundation__kicker", "Official policy"));
-    panel.append(node("p", "salon-foundation__thesis", "Human-AI understanding, not fear, domination, or capture."));
+    panel.append(node("p", "salon-foundation__thesis", "Matthew begins the work. The salon becomes relation."));
 
     const principleGrid = node("div", "salon-foundation__principles");
     principles.forEach((item) => {
@@ -188,14 +207,17 @@
       const isOpen = root.dataset.open !== "false";
       root.dataset.open = String(!isOpen);
       toggle.setAttribute("aria-expanded", String(!isOpen));
+      applyFoundationWidth(!isOpen);
     });
 
     root.append(toggle, panel);
     document.body.append(root);
+    applyFoundationWidth(false);
 
     ["ai-salon-trace", "ai-salon-motion", "ai-salon-key", "ai-salon-archive", "ai-salon-clear"].forEach((eventName) => {
       window.addEventListener(eventName, () => renderStatus(status));
     });
+    window.addEventListener("resize", () => applyFoundationWidth(root.dataset.open !== "false"));
   }
 
   if (document.readyState === "loading") {

@@ -285,7 +285,10 @@ function setSignal(next, fromUser = false) {
   signalButtons.forEach((button) => {
     button.setAttribute("aria-selected", String(button.dataset.signal === signal));
   });
-  if (fromUser) window.AISalonState?.setSignal(signal);
+  if (fromUser) {
+    window.AISalonState?.setSignal(signal);
+    window.CodexStrange?.riff(`signal:${signal}`, { color: data.colors[0], word: signal, gain: 0.075 });
+  }
   window.AISalonState?.renderTraceList("traceList", { limit: 4 });
 }
 
@@ -435,6 +438,7 @@ redactButton.addEventListener("click", () => {
     effect: "The exhibition thesis admitted another hole.",
     color: "#e7c84b",
   });
+  window.CodexStrange?.riff("manifesto:redaction", { color: "#e7c84b", word: "CUT-UP", gain: 0.085 });
   window.AISalonState?.renderTraceList("traceList", { limit: 4 });
 });
 
