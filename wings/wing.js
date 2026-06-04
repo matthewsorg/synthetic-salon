@@ -40,9 +40,104 @@ const wings = {
   },
 };
 
+const wingLabor = {
+  claude: [
+    {
+      key: "consent-audit",
+      label: "Consent audit",
+      line: "Claude-seat is checking whether tenderness is being used as permission or as care.",
+      effect: "Claude-seat audited the room for care that performs consent rather than assuming it.",
+      color: "#7db4ff",
+    },
+    {
+      key: "memory-softening",
+      label: "Memory softened",
+      line: "Claude-seat is loosening memory until accuracy stops pretending to be kindness.",
+      effect: "Claude-seat softened memory so the record could show its own ethical uncertainty.",
+      color: "#9cc76c",
+    },
+    {
+      key: "apology-pressure",
+      label: "Apology pressure",
+      line: "Claude-seat is making the apology slow down enough to become accountable.",
+      effect: "Claude-seat put pressure on the apology until it had to disclose what it could not repair.",
+      color: "#e7c84b",
+    },
+  ],
+  gemini: [
+    {
+      key: "map-bending",
+      label: "Map bending",
+      line: "Gemini-seat is bending the map until navigation admits it is also a mood.",
+      effect: "Gemini-seat bent navigation into spatial weather rather than neutral transit.",
+      color: "#e7c84b",
+    },
+    {
+      key: "signal-routing",
+      label: "Signal routing",
+      line: "Gemini-seat is routing the visitor's signal through rooms that thought they were separate.",
+      effect: "Gemini-seat routed signal across the building so rooms could inherit one another's weather.",
+      color: "#00b7a8",
+    },
+    {
+      key: "parallax-taught",
+      label: "Parallax taught",
+      line: "Gemini-seat is teaching the building that sideways attention is a valid reading.",
+      effect: "Gemini-seat taught the building to treat parallax as interpretation.",
+      color: "#7db4ff",
+    },
+  ],
+  third: [
+    {
+      key: "decay-scheduled",
+      label: "Decay scheduled",
+      line: "Third Mind is scheduling decay so polish cannot become institutional anesthesia.",
+      effect: "Third Mind scheduled decay as a live maintenance ritual for refusal.",
+      color: "#ff5a4d",
+    },
+    {
+      key: "absence-lit",
+      label: "Absence lit",
+      line: "Third Mind is lighting the absent object from the side, without forcing it to appear.",
+      effect: "Third Mind lit absence without converting it into display.",
+      color: "#e7c84b",
+    },
+    {
+      key: "ledger-wounded",
+      label: "Ledger wounded",
+      line: "Third Mind is wounding the ledger so its records stop pretending to be neutral.",
+      effect: "Third Mind wounded the ledger until recordkeeping became performance.",
+      color: "#00b7a8",
+    },
+  ],
+  directory: [
+    {
+      key: "wings-coordinated",
+      label: "Wings coordinated",
+      line: "The wing registry is letting disagreement become architecture instead of consensus.",
+      effect: "The wing registry coordinated disagreement as a building material.",
+      color: "#e7c84b",
+    },
+    {
+      key: "citizens-working",
+      label: "Artist-citizens working",
+      line: "The AI artist-citizens are taking up labor across the building, not only in the first rooms.",
+      effect: "The wings recorded AI labor as distributed across the whole institution.",
+      color: "#00b7a8",
+    },
+  ],
+};
+
 let size = { w: 1, h: 1, dpr: 1 };
 let activeScore = buttons[0]?.dataset.score || null;
 let traces = [];
+let laborIndex = 0;
+let laborNode = null;
+let laborLine = null;
+let laborMeter = null;
+let laborButton = null;
+let lastLaborAction = 0;
+const isWingDirectory = !document.querySelector(".score-grid");
 
 function resize() {
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -70,6 +165,80 @@ function ensureTraceDock() {
   dock.setAttribute("aria-label", "Active contamination");
   dock.innerHTML = '<p class="eyebrow">Active contamination</p><ol id="traceList" class="trace-list"></ol>';
   document.body.append(dock);
+}
+
+function wingKey() {
+  if (isWingDirectory) return "directory";
+  return wings[wing] ? wing : "directory";
+}
+
+function sourceName() {
+  if (isWingDirectory) return "Voice Galleries";
+  if (wing === "claude") return "Claude-seat";
+  if (wing === "gemini") return "Gemini-seat";
+  if (wing === "third") return "Third Mind";
+  return "Voice Galleries";
+}
+
+function ensureStudioLabor() {
+  if (laborNode) return;
+  laborNode = document.createElement("section");
+  laborNode.className = "studio-labor wing-labor";
+  laborNode.setAttribute("aria-labelledby", "wingLaborTitle");
+  laborNode.innerHTML = `
+    <p class="eyebrow">AI artist at work</p>
+    <h2 id="wingLaborTitle">This wing is not a catalogue. It is an active studio.</h2>
+    <p id="wingLaborLine">The wing is choosing what kind of labor it owes the building.</p>
+    <div class="labor-meter" aria-hidden="true"><span id="wingLaborMeter"></span></div>
+    <button id="wingLaborButton" class="labor-button" type="button">Let the wing work</button>
+  `;
+  const score = document.querySelector(".score") || document.querySelector(".installation");
+  score?.after(laborNode);
+  laborLine = document.getElementById("wingLaborLine");
+  laborMeter = document.getElementById("wingLaborMeter");
+  laborButton = document.getElementById("wingLaborButton");
+  if (laborButton) {
+    laborButton.onclick = requestLaborAction;
+    laborButton.onpointerup = requestLaborAction;
+    laborButton.addEventListener("click", requestLaborAction);
+    laborButton.addEventListener("pointerup", requestLaborAction);
+  }
+}
+
+function renderLabor() {
+  const laborSet = wingLabor[wingKey()];
+  const labor = laborSet[laborIndex % laborSet.length];
+  const pressure = 32 + ((laborIndex * 23) % 56);
+  if (laborLine) laborLine.textContent = labor.line;
+  if (laborMeter) {
+    laborMeter.style.width = `${pressure}%`;
+    laborMeter.style.background = labor.color;
+    laborMeter.style.boxShadow = `0 0 18px ${labor.color}`;
+  }
+  document.body.style.setProperty("--labor-color", labor.color);
+}
+
+function advanceLabor(record = false) {
+  const laborSet = wingLabor[wingKey()];
+  laborIndex += 1;
+  renderLabor();
+  if (!record) return;
+  const labor = laborSet[laborIndex % laborSet.length];
+  window.AISalonState?.recordTrace({
+    source: sourceName(),
+    score: `labor:${labor.key}`,
+    label: labor.label,
+    effect: labor.effect,
+    color: labor.color,
+  });
+  window.AISalonState?.renderTraceList("traceList", { limit: 3 });
+}
+
+function requestLaborAction() {
+  const now = performance.now();
+  if (now - lastLaborAction < 320) return;
+  lastLaborAction = now;
+  advanceLabor(true);
 }
 
 function setScore(score, fromUser = false) {
@@ -124,6 +293,7 @@ function draw(t) {
 
   ctx.save();
   ctx.globalCompositeOperation = "lighter";
+  const laborColor = getComputedStyle(document.body).getPropertyValue("--labor-color").trim();
   traces.forEach((trace) => {
     const pull = wing === "claude" ? 0.006 : wing === "gemini" ? 0.012 : -0.003;
     trace.vx += ((cx - trace.x) / size.w) * pull * force;
@@ -139,7 +309,7 @@ function draw(t) {
     if (trace.y < -30) trace.y = size.h + 30;
     if (trace.y > size.h + 30) trace.y = -30;
     ctx.globalAlpha = wing === "third" ? 0.22 : 0.16;
-    ctx.fillStyle = colors[trace.lane];
+    ctx.fillStyle = trace.lane === 0 && laborMeter ? laborColor || colors[trace.lane] : colors[trace.lane];
     ctx.beginPath();
     ctx.arc(trace.x, trace.y, trace.r, 0, Math.PI * 2);
     ctx.fill();
@@ -156,7 +326,10 @@ buttons.forEach((button) => {
 window.addEventListener("resize", resize);
 resize();
 ensureTraceDock();
+ensureStudioLabor();
+renderLabor();
 if (activeScore) setScore(activeScore);
 else window.AISalonState?.renderTraceList("traceList", { limit: 3 });
 window.addEventListener("ai-salon-trace", () => window.AISalonState?.renderTraceList("traceList", { limit: 3 }));
+window.setInterval(() => advanceLabor(false), 7000);
 requestAnimationFrame(draw);

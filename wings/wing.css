@@ -171,6 +171,7 @@ h1 {
 .thesis,
 .installation,
 .score,
+.studio-labor,
 .catalogue article,
 .ritual {
   border: 1px solid var(--line);
@@ -274,6 +275,71 @@ input[type="range"] {
   padding: 14px;
 }
 
+.studio-labor {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(280px, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+  padding: 15px;
+  border-color: color-mix(in srgb, var(--accent) 28%, rgba(243, 239, 231, 0.15));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 12%, transparent), rgba(243, 239, 231, 0.035)),
+    var(--glass);
+}
+
+.studio-labor h2 {
+  margin: 0;
+  color: var(--bone);
+  font-size: clamp(18px, 2.2vw, 30px);
+  line-height: 1.08;
+}
+
+.studio-labor p:not(.eyebrow) {
+  margin: 0;
+  color: var(--paper);
+  font-size: 14px;
+}
+
+.labor-meter {
+  grid-column: 2;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(243, 239, 231, 0.1);
+}
+
+.labor-meter span {
+  display: block;
+  width: 38%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--labor-color, var(--accent));
+  box-shadow: 0 0 18px var(--labor-color, var(--accent));
+  transition: width 420ms var(--ease), background 420ms var(--ease);
+}
+
+.labor-button {
+  grid-row: 1 / span 3;
+  grid-column: 3;
+  min-height: 44px;
+  align-self: stretch;
+  border: 1px solid color-mix(in srgb, var(--accent) 44%, rgba(243, 239, 231, 0.14));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 12%, rgba(243, 239, 231, 0.04));
+  cursor: pointer;
+  padding: 9px 12px;
+  color: var(--bone);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.labor-button:hover,
+.labor-button:focus-visible {
+  background: color-mix(in srgb, var(--accent) 18%, rgba(243, 239, 231, 0.05));
+}
+
 .score-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -356,6 +422,16 @@ input[type="range"] {
   .wing,
   .catalogue {
     grid-template-columns: 1fr;
+  }
+
+  .studio-labor {
+    grid-template-columns: 1fr;
+  }
+
+  .labor-meter,
+  .labor-button {
+    grid-column: 1;
+    grid-row: auto;
   }
 }
 

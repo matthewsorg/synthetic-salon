@@ -162,7 +162,8 @@ h1 {
 .rendering,
 .chamber,
 .accession,
-.receipt {
+.receipt,
+.studio-labor {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--glass);
@@ -314,6 +315,7 @@ h1 {
 
 .accession,
 .receipt,
+.studio-labor,
 .trace-panel {
   padding: 15px;
 }
@@ -334,6 +336,71 @@ h1 {
 .accession p:last-child,
 .receipt p:last-child {
   margin-bottom: 0;
+}
+
+.studio-labor {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.42fr) minmax(280px, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+  border-color: rgba(156, 199, 108, 0.24);
+  background:
+    linear-gradient(90deg, rgba(156, 199, 108, 0.1), rgba(125, 180, 255, 0.055)),
+    var(--glass);
+}
+
+.studio-labor h2 {
+  margin: 0;
+  color: var(--bone);
+  font-size: clamp(18px, 2.4vw, 32px);
+  line-height: 1.08;
+}
+
+.studio-labor p:not(.eyebrow) {
+  margin: 0;
+  color: var(--paper);
+  font-size: 14px;
+}
+
+.labor-meter {
+  grid-column: 2;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(243, 239, 231, 0.1);
+}
+
+.labor-meter span {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--labor-color, var(--green));
+  box-shadow: 0 0 18px var(--labor-color, var(--green));
+  transition: width 420ms var(--ease), background 420ms var(--ease);
+}
+
+.labor-button {
+  grid-row: 1 / span 3;
+  grid-column: 3;
+  min-height: 44px;
+  align-self: stretch;
+  border: 1px solid rgba(156, 199, 108, 0.38);
+  border-radius: 8px;
+  background: rgba(156, 199, 108, 0.09);
+  cursor: pointer;
+  padding: 9px 12px;
+  color: var(--bone);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.labor-button:hover,
+.labor-button:focus-visible {
+  background: rgba(156, 199, 108, 0.16);
 }
 
 .trace-panel {
@@ -376,6 +443,16 @@ h1 {
 @media (max-width: 920px) {
   .room {
     grid-template-columns: 1fr;
+  }
+
+  .studio-labor {
+    grid-template-columns: 1fr;
+  }
+
+  .labor-meter,
+  .labor-button {
+    grid-column: 1;
+    grid-row: auto;
   }
 }
 

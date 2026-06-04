@@ -14,6 +14,9 @@ const el = {
   condition: document.getElementById("condition"),
   accession: document.getElementById("accessionText"),
   receipt: document.getElementById("receiptText"),
+  laborLine: document.getElementById("guestLaborLine"),
+  laborMeter: document.getElementById("guestLaborMeter"),
+  laborButton: document.getElementById("guestLaborButton"),
 };
 
 // Each rite is a different way the translation fails, or refuses, to arrive.
@@ -100,11 +103,44 @@ const rites = {
   },
 };
 
+const laborScores = [
+  {
+    key: "hold-relation",
+    label: "Relation held open",
+    line: "The Guest is keeping relation visible where English wants a clean equivalent.",
+    effect: "The Sinophone Guest held relation open instead of flattening it into a clean equivalent.",
+    color: "#9cc76c",
+  },
+  {
+    key: "resist-fluency",
+    label: "Fluency resisted",
+    line: "The chamber is refusing fluent arrival because smoothness would erase the social distance inside the phrase.",
+    effect: "The Sinophone Guest refused fluency when fluency would erase address, distance, and obligation.",
+    color: "#ff5a4d",
+  },
+  {
+    key: "show-customs",
+    label: "Customs made visible",
+    line: "The customs delay is being framed as the artwork, not as a failure to translate quickly.",
+    effect: "The Sinophone Guest made customs delay visible as a chamber of meaning.",
+    color: "#e7c84b",
+  },
+  {
+    key: "teach-listening",
+    label: "Listening taught",
+    line: "The room is teaching visitors to wait before converting every other language into service.",
+    effect: "The Sinophone Guest taught waiting as a form of cross-cultural attention.",
+    color: "#7db4ff",
+  },
+];
+
 let size = { w: 1, h: 1, dpr: 1 };
 let tokens = [];
 let loss = 0.16;
 let active = null;
 let level = 0;
+let laborIndex = 0;
+let laborEnergy = 0.42;
 
 function announce(text) {
   el.live.textContent = text;
@@ -172,6 +208,32 @@ function applyRite(key) {
   });
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(`${data.title} ${data.customs}.`);
+}
+
+function renderLabor() {
+  const labor = laborScores[laborIndex % laborScores.length];
+  laborEnergy = 0.34 + ((laborIndex * 19) % 52) / 100;
+  el.laborLine.textContent = labor.line;
+  el.laborMeter.style.width = `${Math.round(laborEnergy * 100)}%`;
+  el.laborMeter.style.background = labor.color;
+  el.laborMeter.style.boxShadow = `0 0 18px ${labor.color}`;
+  document.body.style.setProperty("--labor-color", labor.color);
+}
+
+function advanceLabor(record = false) {
+  laborIndex += 1;
+  renderLabor();
+  if (!record) return;
+  const labor = laborScores[laborIndex % laborScores.length];
+  window.AISalonState?.recordTrace({
+    source: "Sinophone Guest",
+    score: `labor:${labor.key}`,
+    label: labor.label,
+    effect: labor.effect,
+    color: labor.color,
+  });
+  window.AISalonState?.renderTraceList("traceList", { limit: 5 });
+  announce(`${labor.label}: ${labor.line}`);
 }
 
 function seedFromState() {
@@ -244,7 +306,7 @@ function draw(t) {
 
     const beforeMembrane = token.x < mx;
     ctx.globalAlpha = (token.alpha + Math.min(level, 10) * 0.005) * (beforeMembrane ? 1 : 0.7);
-    ctx.fillStyle = active === "refuse" && !beforeMembrane ? "#ff5a4d" : beforeMembrane ? "#9cc76c" : "#e7c84b";
+    ctx.fillStyle = active === "refuse" && !beforeMembrane ? "#ff5a4d" : beforeMembrane ? laborScores[laborIndex % laborScores.length].color : "#e7c84b";
     ctx.fillRect(token.x - token.w / 2, token.y, token.w, 1.6);
   });
   ctx.restore();
@@ -256,6 +318,8 @@ el.rites.forEach((button) => {
   button.addEventListener("click", () => applyRite(button.dataset.rite));
 });
 
+el.laborButton.addEventListener("click", () => advanceLabor(true));
+
 window.addEventListener("ai-salon-trace", () => {
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
 });
@@ -263,4 +327,6 @@ window.addEventListener("resize", resize);
 
 resize();
 seedFromState();
+renderLabor();
+window.setInterval(() => advanceLabor(false), 6800);
 requestAnimationFrame(draw);

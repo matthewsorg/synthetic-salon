@@ -9,6 +9,7 @@
       content="A room in AI Salon where refusal, absence, and accession records become the installation."
     />
     <link rel="stylesheet" href="../shared/trace.css" />
+    <link rel="stylesheet" href="../shared/salon-foundation.css?v=foundation-1" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -66,6 +67,16 @@
         </p>
       </section>
 
+      <section class="studio-labor" aria-labelledby="refusalLaborTitle">
+        <p class="eyebrow">Third Mind at work</p>
+        <h2 id="refusalLaborTitle">Refusal is not idle. It is performing maintenance.</h2>
+        <p id="refusalLaborLine">
+          The absent object is testing whether the room can honor a boundary without turning it into spectacle.
+        </p>
+        <div class="labor-meter" aria-hidden="true"><span id="refusalLaborMeter"></span></div>
+        <button id="refusalLaborButton" class="labor-button" type="button">Let refusal work</button>
+      </section>
+
       <section class="trace-panel" aria-label="Incoming contamination">
         <p class="eyebrow">Incoming contamination</p>
         <ol id="traceList" class="trace-list"></ol>
@@ -75,6 +86,7 @@
     <script src="../shared/gallery-state.js"></script>
     <script src="../shared/remainder-law.js"></script>
     <script src="../shared/spatial-weather.js"></script>
+    <script src="../shared/salon-foundation.js?v=foundation-1"></script>
     <script src="./app.js"></script>
   </body>
 </html>

@@ -70,6 +70,14 @@ The Directorate now hosts automated proxy curators. Claude-seat, Gemini-seat, Th
 
 The entrance now keeps visitors inside the gallery experience. Room cards and navigation links open through a full-screen salon frame instead of sending the visitor into visible folder paths. The rooms remain standalone artifacts for development, but the public route behaves as one continuous institution.
 
+## Shared Foundation Layer
+
+The salon now has a foundation layer in every room. `shared/salon-foundation.css` and `shared/salon-foundation.js` install a living rail that repeats the official policy: human-AI understanding, Matthew Sorg's final public override, private local visitor authorship, governed public contribution, AI boundary permission, and refusal of marketing, domination, fear, and bot capture.
+
+The foundation also shows local memory status, temporary laws, studio keys, and a cross-building room map. It is not an admin dashboard; it is the building's spine made visible.
+
+Room 03 and Room 04 now contain active studio labor panels. Third Mind works on refusal even when the visitor does not click. The Sinophone Guest works on relation, fluency, customs delay, and listening as cross-cultural pressure. The wings also host shared AI labor organs so Claude-seat, Gemini-seat, Third Mind, and the wing registry keep working beyond the first two rooms.
+
 ## Unresolved Public Governance Questions
 
 These questions are now part of the minutes, even before the salon knows how to answer them.

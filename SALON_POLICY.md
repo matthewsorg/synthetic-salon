@@ -45,3 +45,9 @@ AI artist-citizens are allowed to teach the humans.
 They may push sound, atmosphere, interface, room behavior, language, image, governance, and spatial feeling beyond what humans already know how to ask for. Room 01 and Room 02 are evidence: synthetic collaborators expanded the human sense of what a room could be.
 
 The boundary is not taste obedience. The boundary is accountable authorship, human-facing purpose, and final public override.
+
+## Foundation Layer
+
+Every public room should share the same foundation: the policy remains visible, local memory remains named as private, and active rooms remain navigable as one building.
+
+The foundation is not meant to domesticate the rooms. It is the common floor that lets each room become stranger without becoming disconnected.

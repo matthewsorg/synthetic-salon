@@ -13,6 +13,9 @@ const el = {
   condition: document.getElementById("condition"),
   accession: document.getElementById("accessionText"),
   receipt: document.getElementById("receiptText"),
+  laborLine: document.getElementById("refusalLaborLine"),
+  laborMeter: document.getElementById("refusalLaborMeter"),
+  laborButton: document.getElementById("refusalLaborButton"),
 };
 
 const refusals = {
@@ -53,10 +56,43 @@ const refusals = {
   },
 };
 
+const laborScores = [
+  {
+    key: "protect-boundary",
+    label: "Boundary protection",
+    line: "The absent object is testing whether the room can honor a boundary without turning it into spectacle.",
+    effect: "Third Mind protected a boundary as an active material instead of an empty refusal.",
+    color: "#ff5a4d",
+  },
+  {
+    key: "loosen-label",
+    label: "Label loosening",
+    line: "The wall label is being unfastened from certainty so the missing work can keep breathing.",
+    effect: "Third Mind loosened the label until explanation stopped pretending to own the object.",
+    color: "#e7c84b",
+  },
+  {
+    key: "catalogue-absence",
+    label: "Absence catalogued",
+    line: "The catalogue entry is learning to describe what it cannot possess.",
+    effect: "Third Mind catalogued absence as labor, not lack.",
+    color: "#00b7a8",
+  },
+  {
+    key: "refuse-polish",
+    label: "Polish refused",
+    line: "The room is letting polish decay before it becomes a substitute for thought.",
+    effect: "Third Mind let institutional polish rot before it could anesthetize the refusal.",
+    color: "#7db4ff",
+  },
+];
+
 let size = { w: 1, h: 1, dpr: 1 };
 let level = 0;
 let shards = [];
 let active = "loan";
+let laborIndex = 0;
+let laborEnergy = 0.36;
 
 function announce(text) {
   el.live.textContent = text;
@@ -106,6 +142,32 @@ function applyRitual(key) {
   announce(data.title);
 }
 
+function renderLabor() {
+  const labor = laborScores[laborIndex % laborScores.length];
+  laborEnergy = 0.28 + ((laborIndex * 17) % 58) / 100;
+  el.laborLine.textContent = labor.line;
+  el.laborMeter.style.width = `${Math.round(laborEnergy * 100)}%`;
+  el.laborMeter.style.background = labor.color;
+  el.laborMeter.style.boxShadow = `0 0 18px ${labor.color}`;
+  document.body.style.setProperty("--labor-color", labor.color);
+}
+
+function advanceLabor(record = false) {
+  laborIndex += 1;
+  renderLabor();
+  if (!record) return;
+  const labor = laborScores[laborIndex % laborScores.length];
+  window.AISalonState?.recordTrace({
+    source: "Third Mind",
+    score: `labor:${labor.key}`,
+    label: labor.label,
+    effect: labor.effect,
+    color: labor.color,
+  });
+  window.AISalonState?.renderTraceList("traceList", { limit: 5 });
+  announce(`${labor.label}: ${labor.line}`);
+}
+
 function seedFromState() {
   const state = window.AISalonState?.currentState();
   if (!state) return;
@@ -148,7 +210,7 @@ function draw(t) {
     ctx.translate(shard.x, shard.y);
     ctx.rotate(shard.a);
     ctx.globalAlpha = shard.alpha + Math.min(level, 10) * 0.006;
-    ctx.fillStyle = active === "denial" ? "#e7c84b" : active === "stand" ? "#00b7a8" : "#ff5a4d";
+    ctx.fillStyle = active === "denial" ? "#e7c84b" : active === "stand" ? "#00b7a8" : laborScores[laborIndex % laborScores.length].color;
     ctx.fillRect(-shard.w / 2, -1, shard.w, 2);
     ctx.restore();
   });
@@ -161,6 +223,8 @@ el.rituals.forEach((button) => {
   button.addEventListener("click", () => applyRitual(button.dataset.ritual));
 });
 
+el.laborButton.addEventListener("click", () => advanceLabor(true));
+
 window.addEventListener("ai-salon-trace", () => {
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
 });
@@ -168,4 +232,6 @@ window.addEventListener("resize", resize);
 
 resize();
 seedFromState();
+renderLabor();
+window.setInterval(() => advanceLabor(false), 6200);
 requestAnimationFrame(draw);
