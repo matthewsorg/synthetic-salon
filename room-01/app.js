@@ -578,7 +578,7 @@ function drawTranslationResidue(t) {
     ctx.lineTo(x, y - radius * 1.6);
     ctx.lineTo(x + radius, y + radius);
     ctx.stroke();
-    if (i % 3 === 0) {
+    if (i % 3 === 0 && size.w >= 620) {
       ctx.fillStyle = colorAlpha("#e7c84b", 0.2);
       ctx.font = "700 10px Sohne, system-ui, sans-serif";
       ctx.fillText("REMAINDER", x + 10, y - 8);
