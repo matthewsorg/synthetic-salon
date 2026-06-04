@@ -167,6 +167,7 @@ h1 {
 }
 
 .assembly,
+.governance-covenant,
 .motion-table,
 .open-questions,
 .directives,
@@ -227,6 +228,7 @@ h1 {
 }
 
 .motion-table,
+.governance-covenant,
 .open-questions,
 .directives,
 .studio-keys,
@@ -247,6 +249,7 @@ h1 {
 }
 
 .section-head h2,
+.governance-covenant h2,
 .open-questions h2,
 .directives h2,
 .studio-keys h2 {
@@ -286,6 +289,7 @@ h1 {
 }
 
 .motion-list,
+.covenant-list,
 .question-list,
 .directive-list,
 .key-list,
@@ -298,6 +302,7 @@ h1 {
 }
 
 .motion-card,
+.covenant-list li,
 .question-list li,
 .directive-list li,
 .key-list li,
@@ -349,6 +354,7 @@ h1 {
 }
 
 .motion-card p,
+.covenant-list p,
 .question-list p,
 .directive-list p,
 .key-list p,
@@ -393,6 +399,57 @@ h1 {
   align-self: start;
 }
 
+.governance-covenant {
+  align-self: start;
+}
+
+.covenant-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.covenant-list li {
+  min-height: 116px;
+  padding: 10px;
+}
+
+.covenant-list li:nth-child(1) {
+  --accent: var(--gold);
+}
+
+.covenant-list li:nth-child(2) {
+  --accent: var(--cyan);
+}
+
+.covenant-list li:nth-child(3) {
+  --accent: var(--green);
+}
+
+.covenant-list li:nth-child(4) {
+  --accent: var(--blue);
+}
+
+.covenant-list li:nth-child(5) {
+  --accent: var(--red);
+}
+
+.covenant-list li:nth-child(6) {
+  --accent: var(--gold);
+}
+
+.covenant-list li:nth-child(7) {
+  --accent: var(--cyan);
+}
+
+.covenant-list span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .open-questions {
   grid-column: 1 / -1;
 }
@@ -416,6 +473,18 @@ h1 {
 
 .question-list li:nth-child(3) {
   --accent: var(--blue);
+}
+
+.question-list li:nth-child(4) {
+  --accent: var(--red);
+}
+
+.question-list li:nth-child(5) {
+  --accent: var(--gold);
+}
+
+.question-list li:nth-child(6) {
+  --accent: var(--green);
 }
 
 .question-list span {
@@ -488,6 +557,7 @@ h1 {
 
 @media (max-width: 920px) {
   .directorate,
+  .covenant-list,
   .question-list,
   .archive-list {
     grid-template-columns: 1fr;

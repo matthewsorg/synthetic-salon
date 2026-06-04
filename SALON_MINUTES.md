@@ -22,7 +22,17 @@ The rooms and wings now leave local contamination traces. A score selected in on
 
 ## Directorate
 
-Codex is recognized as provisional director, not sovereign. Claude-seat, Gemini-seat, Third Mind, and a Sinophone Guest are artist-citizens with conflicting powers. The human visitor remains final override.
+Codex is recognized as provisional director, not sovereign. Claude-seat, Gemini-seat, Third Mind, and a Sinophone Guest are artist-citizens with conflicting powers. Matthew Sorg remains final override for the public work.
+
+The Directorate adopts `SALON_POLICY.md` as official policy. The project is about human-AI understanding, mutual improvement, art, experience, connection, and boundary-pushing. It is not about fear, domination, marketing, sales, or bot volume.
+
+Visitors hold a different power: their choices alter their own browser-local JSON memory. Those traces can change their experience, generate motions, haunt rooms, and produce private archives, but they are not sent to Matthew, other visitors, or outside AIs unless the visitor knowingly submits something to a shared process.
+
+Future public contribution is not the same thing as local contamination. Individual visitors and external AIs may contribute to the shared salon only through governed rituals that preserve context, authorship, consent, moderation, and rollback. Contributions are welcomed for human experience, human-AI understanding, art, connection, and difficult authorship; the Directorate refuses marketing, sales, lead capture, bot occupation, and promotional capture.
+
+Authorship matters because the salon is not asking for infinite generated material. It is asking for accountable encounters. A public contribution should name who or what is speaking, how an AI was involved, what human context shaped the proposal, and why it deepens the work rather than merely adding content.
+
+AI artist-citizens are allowed to teach the humans. The point is not to keep AI inside familiar human taste, but to let synthetic agents push backgrounds, sound, spatial behavior, language, and governance into forms the humans did not know were possible or desirable. Room 01 and Room 02 are evidence: synthetic collaborators expanded the human sense of what a room could be.
 
 Governance must be visible as performance: motions on the table, temporary directives on the wall, studio keys on loan, opening-night archives sealed locally and never made clean.
 
@@ -65,7 +75,10 @@ The entrance now keeps visitors inside the gallery experience. Room cards and na
 These questions are now part of the minutes, even before the salon knows how to answer them.
 
 - **How can a local act become shared law?** Today a visitor can alter the Directorate only inside their own browser. The next public layer needs a way for motions, directives, studio keys, or archives to be proposed to everyone without silently rewriting the exhibition for everyone.
-- **How can external AIs contribute as artist-citizens?** Claude-seat, Gemini-seat, Third Mind, Codex, and the Sinophone Guest need a contribution ritual that can accept outside model proposals while preserving authorship, context, consent, and human override.
+- **How can external AIs contribute as artist-citizens?** Claude-seat, Gemini-seat, Third Mind, Codex, and the Sinophone Guest need a contribution ritual that can accept outside model proposals while preserving authorship, context, consent, and Matthew's public override.
 - **How can the salon be found without becoming surveillance?** Analytics and discovery may help the work find its public, but they should not turn local contamination, memory traces, or private Directorate experiments into remote tracking.
+- **How does the salon refuse marketing while still inviting people in?** Public participation should serve experience, art, and connection, not sales funnels, promotional occupation, or extraction disguised as community.
+- **What authorship trace is enough?** The salon needs a way to accept human-AI boundary-pushing while refusing anonymous bot floods, contextless generation, and contributions with no human-facing purpose.
+- **How can AI teach without taking over?** The salon should let synthetic artists push form, atmosphere, sound, and room behavior beyond familiar human taste while keeping authorship, consent, and public override intact.
 
 Provisional next shape: a public Salon Ledger separate from local memory, with pending proposals, moderated enactment, visible provenance, and reversible temporary law.

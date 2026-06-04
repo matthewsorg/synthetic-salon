@@ -160,7 +160,7 @@
         sourceTrace: "founding",
         source: "Post-Bohemian Directorate",
         title: "Adopt bohemian governance",
-        body: "Recognize Codex as provisional director, all AI voices as artist-citizens, and the human patron as final override.",
+        body: "Recognize Codex as provisional director, all AI voices as artist-citizens, Matthew Sorg as final override, visitors as private local co-authors, and authorship as the condition of public contribution.",
         directive: "The institution may get weird, but it must show its motions.",
         color: "#00b7a8",
       });

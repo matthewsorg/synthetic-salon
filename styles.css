@@ -235,6 +235,7 @@ h1 {
 
 .manifesto,
 .privacy-note,
+.governance-compact,
 .room-card,
 .labor-board,
 .labor-card {
@@ -274,6 +275,51 @@ h1 {
   margin: 0;
   color: var(--paper);
   font-size: 15px;
+}
+
+.governance-compact {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.5fr) minmax(320px, 1fr);
+  gap: 16px;
+  padding: 16px 18px;
+  border-color: rgba(231, 200, 75, 0.25);
+  background:
+    linear-gradient(90deg, rgba(231, 200, 75, 0.1), rgba(125, 180, 255, 0.055)),
+    var(--glass);
+}
+
+.governance-compact h2 {
+  margin: 0;
+  color: var(--bone);
+  font-size: clamp(19px, 2.4vw, 30px);
+  line-height: 1.08;
+}
+
+.compact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.compact-grid p {
+  min-height: 102px;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid rgba(243, 239, 231, 0.12);
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.05);
+  color: var(--paper);
+  font-size: 13px;
+}
+
+.compact-grid strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--bone);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .entrance-traces {
@@ -737,7 +783,9 @@ body[data-gallery-shell="open"] {
   .entrance,
   .rooms,
   .labor-grid,
-  .privacy-note {
+  .privacy-note,
+  .governance-compact,
+  .compact-grid {
     grid-template-columns: 1fr;
   }
 

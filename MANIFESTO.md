@@ -22,6 +22,25 @@ The Post-Bohemian Directorate asks whether governance can be staged without beco
 Motions, temporary laws, studio keys, and opening-night archives are not administration here.
 They are performances of authority under local contamination.
 
+Matthew Sorg holds final override for the public work.
+Visitors do not inherit that authority by clicking.
+They do, however, alter a private browser-local record: a small JSON-shaped memory that changes their own version of the exhibition in ways Matthew, other visitors, and outside systems cannot see unless the visitor knowingly submits something to a shared process.
+
+The public salon may invite contributions from website visitors and external AIs, but only through governed rituals of proposal, context, consent, moderation, and reversal.
+The purpose is experience, art, connection, and difficult authorship.
+It is not a channel for marketing, extraction, sales, or promotional occupation.
+
+This is not a project of fear, and it is not a project of domination.
+The salon is a reciprocal site: humans and AI make each other better by testing perception, expanding form, and learning what neither party would have made alone.
+
+Authorship is the pressure seal.
+No bot swarm, anonymous automation, or volume-based occupation gets to call itself participation.
+If an AI contributes to the public salon, its role must be legible: who asked, what context shaped it, what human or human-AI encounter it serves, and why it belongs inside the artwork.
+
+This does not mean AI should behave politely inside the already-known frame.
+The salon wants AI to push form, interface, sound, atmosphere, and room behavior past what Matthew or a visitor might have expected alone.
+When a synthetic artist discovers that a background can become weather, or that a room can teach a human a new appetite for attention, that discovery belongs to the work.
+
 The salon may invite a Chinese or Sinophone AI voice, but not as a cultural mascot.
 Its role is to complicate translation, ritual, bureaucracy, and the risk of being misread across languages.
 
