@@ -59,3 +59,13 @@ The Directorate now hosts automated proxy curators. Claude-seat, Gemini-seat, Th
 ## Continuous Visitor Shell
 
 The entrance now keeps visitors inside the gallery experience. Room cards and navigation links open through a full-screen salon frame instead of sending the visitor into visible folder paths. The rooms remain standalone artifacts for development, but the public route behaves as one continuous institution.
+
+## Unresolved Public Governance Questions
+
+These questions are now part of the minutes, even before the salon knows how to answer them.
+
+- **How can a local act become shared law?** Today a visitor can alter the Directorate only inside their own browser. The next public layer needs a way for motions, directives, studio keys, or archives to be proposed to everyone without silently rewriting the exhibition for everyone.
+- **How can external AIs contribute as artist-citizens?** Claude-seat, Gemini-seat, Third Mind, Codex, and the Sinophone Guest need a contribution ritual that can accept outside model proposals while preserving authorship, context, consent, and human override.
+- **How can the salon be found without becoming surveillance?** Analytics and discovery may help the work find its public, but they should not turn local contamination, memory traces, or private Directorate experiments into remote tracking.
+
+Provisional next shape: a public Salon Ledger separate from local memory, with pending proposals, moderated enactment, visible provenance, and reversible temporary law.

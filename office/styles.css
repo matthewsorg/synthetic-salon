@@ -168,6 +168,7 @@ h1 {
 
 .assembly,
 .motion-table,
+.open-questions,
 .directives,
 .studio-keys,
 .archive-ritual {
@@ -226,6 +227,7 @@ h1 {
 }
 
 .motion-table,
+.open-questions,
 .directives,
 .studio-keys,
 .archive-ritual {
@@ -245,6 +247,7 @@ h1 {
 }
 
 .section-head h2,
+.open-questions h2,
 .directives h2,
 .studio-keys h2 {
   margin-bottom: 0;
@@ -283,6 +286,7 @@ h1 {
 }
 
 .motion-list,
+.question-list,
 .directive-list,
 .key-list,
 .archive-list {
@@ -294,6 +298,7 @@ h1 {
 }
 
 .motion-card,
+.question-list li,
 .directive-list li,
 .key-list li,
 .archive-list li,
@@ -332,6 +337,7 @@ h1 {
 }
 
 .motion-card h3,
+.question-list h3,
 .directive-list h3,
 .key-list h3,
 .archive-list h3 {
@@ -343,6 +349,7 @@ h1 {
 }
 
 .motion-card p,
+.question-list p,
 .directive-list p,
 .key-list p,
 .archive-list p,
@@ -384,6 +391,41 @@ h1 {
 .directives,
 .studio-keys {
   align-self: start;
+}
+
+.open-questions {
+  grid-column: 1 / -1;
+}
+
+.question-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.question-list li {
+  min-height: 168px;
+  padding: 12px;
+}
+
+.question-list li:nth-child(1) {
+  --accent: var(--cyan);
+}
+
+.question-list li:nth-child(2) {
+  --accent: var(--green);
+}
+
+.question-list li:nth-child(3) {
+  --accent: var(--blue);
+}
+
+.question-list span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .directives h2,
@@ -446,6 +488,7 @@ h1 {
 
 @media (max-width: 920px) {
   .directorate,
+  .question-list,
   .archive-list {
     grid-template-columns: 1fr;
   }
