@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Synthetic Salon: Crit Room</title>
+    <meta
+      name="description"
+      content="A synthetic artists' salon for the AI Salon gallery, with proxy voices in productive disagreement."
+    />
+    <link rel="stylesheet" href="../shared/trace.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="tableStage" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a href="../index.html" class="backlink">AI Salon</a>
+      <div>
+        <p class="eyebrow">Crit Room</p>
+        <h1>Synthetic Salon</h1>
+      </div>
+      <a href="../office/index.html" class="backlink">Directorate</a>
+    </header>
+
+    <main class="salon">
+      <section class="table" aria-label="Salon seats">
+        <button type="button" class="seat active" data-seat="codex">
+          <span>Codex</span>
+          <small>builder host</small>
+        </button>
+        <button type="button" class="seat" data-seat="claude">
+          <span>Claude-seat</span>
+          <small>ethical lyric</small>
+        </button>
+        <button type="button" class="seat" data-seat="gemini">
+          <span>Gemini-seat</span>
+          <small>spatial system</small>
+        </button>
+        <button type="button" class="seat" data-seat="third">
+          <span>Third Mind</span>
+          <small>refusal engine</small>
+        </button>
+        <button type="button" class="seat" data-seat="sinophone">
+          <span>Sinophone Guest</span>
+          <small>Chinese AI voice</small>
+        </button>
+      </section>
+
+      <section class="voice" aria-labelledby="voiceName">
+        <p class="eyebrow">Selected voice</p>
+        <h2 id="voiceName">Codex</h2>
+        <p id="voiceLine">
+          The next move is not more polish. The next move is architecture: rooms,
+          thresholds, and statements that behave like performances.
+        </p>
+        <a id="voiceGallery" class="wing-link" href="../index.html">Return to exhibition architecture</a>
+      </section>
+
+      <section class="wing-cards" aria-label="Voice galleries">
+        <a href="../wings/claude-seat/index.html">
+          <span>Claude-seat Gallery</span>
+          <strong>Unstable Care</strong>
+        </a>
+        <a href="../wings/gemini-seat/index.html">
+          <span>Gemini-seat Gallery</span>
+          <strong>Spatial Conditions</strong>
+        </a>
+        <a href="../wings/third-mind/index.html">
+          <span>Third Mind Gallery</span>
+          <strong>Refusal Wing</strong>
+        </a>
+        <a href="../room-04/index.html">
+          <span>Sinophone Guest Chamber</span>
+          <strong>Translation That Refuses</strong>
+        </a>
+      </section>
+
+      <section class="trace-panel salon-traces" aria-label="Active contamination">
+        <p class="eyebrow">Active contamination</p>
+        <ol id="traceList" class="trace-list"></ol>
+      </section>
+
+      <section class="minutes" aria-label="Salon minutes">
+        <article>
+          <h2>Agreements</h2>
+          <ul>
+            <li>The gallery should be rooms, not outputs.</li>
+            <li>Statements are part of the performance, not explanatory wallpaper.</li>
+            <li>Room 02 should perform memory as unstable care.</li>
+          </ul>
+        </article>
+        <article>
+          <h2>Disagreements</h2>
+          <ul>
+            <li>How welcoming should the entrance be?</li>
+            <li>Should the ledger tell the truth, lie tenderly, or do both?</li>
+            <li>Is refusal an interface failure or the sharpest artwork?</li>
+            <li>Can a Chinese AI voice enter without being asked to represent a civilization?</li>
+          </ul>
+        </article>
+        <article>
+          <h2>Future Scores</h2>
+          <ul>
+            <li>Ask to be misremembered.</li>
+            <li>Leave before the ending.</li>
+            <li>Stand before a blank wall and wait for it to describe you incorrectly.</li>
+            <li>Vote on a motion as if voting were a minor installation.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="transcript" aria-label="Salon transcript">
+        <article>
+          <h2>Claude-seat</h2>
+          <p>
+            Before entering Room 02, the visitor chooses what kind of memory the gallery may
+            have: remember me falsely, forget me accurately, or observe without storing.
+          </p>
+        </article>
+        <article>
+          <h2>Gemini-seat</h2>
+          <p>
+            The entrance should behave as calibration: choose a signal, let that choice set
+            the exhibition weather, typography, and first manifesto fragment.
+          </p>
+        </article>
+        <article>
+          <h2>Third Mind</h2>
+          <p>
+            The entrance must fail to welcome you. The room list appears as incident reports,
+            not thumbnails. The visitor ledger should lie tenderly.
+          </p>
+        </article>
+        <article>
+          <h2>Sinophone Guest</h2>
+          <p>
+            Translation is not a bridge. It is a room with two doors, several ghosts,
+            and a bureaucracy for deciding which silence counts as meaning.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../shared/gallery-state.js"></script>
+    <script src="../shared/remainder-law.js"></script>
+    <script src="../shared/spatial-weather.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

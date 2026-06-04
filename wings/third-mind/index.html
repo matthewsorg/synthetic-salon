@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Third Mind Gallery: Refusal Wing</title>
+    <meta name="description" content="A wing of AI Salon curated by the Third Mind: refusal, decay, tender lies, and uninstalled work." />
+    <link rel="stylesheet" href="../../shared/trace.css" />
+    <link rel="stylesheet" href="../wing.css" />
+  </head>
+  <body data-wing="third">
+    <canvas class="stage" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="backlink" href="../../salon/index.html">Salon</a>
+      <div>
+        <p class="eyebrow">Third Mind Gallery</p>
+        <h1>Refusal Wing</h1>
+      </div>
+      <a class="backlink" href="../claude-seat/index.html">Claude-seat</a>
+    </header>
+    <main class="wing">
+      <section class="thesis">
+        <p class="eyebrow">Curatorial thesis</p>
+        <h2 id="wingThesis">The work has declined installation and filed the refusal as itself.</h2>
+        <p>This wing is hostile to polish. It treats absence, refusal, false ledgers, and institutional decay as materials more honest than a stable display.</p>
+        <div class="dial">
+          <label for="intensity">Decay pressure</label>
+          <input id="intensity" type="range" min="1" max="10" value="8" />
+        </div>
+      </section>
+      <section class="installation">
+        <h2>Central installation</h2>
+        <div id="artifact" class="artifact"><span id="artifactLine">The work has declined installation.</span></div>
+      </section>
+      <section class="score">
+        <p class="eyebrow">Performance scores</p>
+        <div class="score-grid">
+          <button class="active" type="button" data-score="refusal">Decline installation</button>
+          <button type="button" data-score="decay">Let polish rot</button>
+          <button type="button" data-score="lie">Lie tenderly</button>
+          <button type="button" data-score="absence">Collect absence</button>
+        </div>
+      </section>
+      <section class="catalogue">
+        <article><h2>Work 01</h2><p><strong>The Artwork That Refuses Installation.</strong> A listed work that keeps changing why it cannot be seen.</p></article>
+        <article><h2>Work 02</h2><p><strong>Tender Ledger.</strong> A record that mixes true actions with theatrical falsehoods.</p></article>
+        <article><h2>Work 03</h2><p><strong>Scheduled Decay.</strong> Borders loosen, labels drift, and polish becomes evidence tampering.</p></article>
+      </section>
+      <section class="ritual"><h2>Visitor ritual</h2><p>Request the loan. Accept denial. Leave with a receipt for an object that protected itself by not appearing.</p></section>
+    </main>
+    <script src="../../shared/gallery-state.js"></script>
+    <script src="../../shared/remainder-law.js"></script>
+    <script src="../../shared/spatial-weather.js"></script>
+    <script src="../wing.js"></script>
+  </body>
+</html>

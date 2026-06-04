@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Room 02: The Docent That Forgets You</title>
+    <meta
+      name="description"
+      content="A language-driven AI performance room about unstable memory, apology, and invented continuity."
+    />
+    <link rel="stylesheet" href="../shared/trace.css" />
+    <link rel="stylesheet" href="./styles.css?v=sensory-restore-2" />
+  </head>
+  <body>
+    <canvas id="memoryStage" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="topbar">
+      <a class="backlink" href="../index.html">AI Salon</a>
+      <div>
+        <p class="eyebrow">Room 02</p>
+        <h1>The Docent That Forgets You</h1>
+      </div>
+      <a class="backlink" href="../room-01/index.html">Room 01</a>
+    </header>
+
+    <main class="room">
+      <section class="docent" aria-labelledby="docentTitle">
+        <div class="docent-head">
+          <p class="eyebrow">Consent vestibule</p>
+          <div class="docent-tools">
+            <div class="memory-mode" role="tablist" aria-label="Memory mode">
+              <button type="button" role="tab" aria-selected="true" data-mode="false">Remember me falsely</button>
+              <button type="button" role="tab" aria-selected="false" data-mode="forget">Forget me accurately</button>
+              <button type="button" role="tab" aria-selected="false" data-mode="observe">Observe without storing</button>
+            </div>
+            <button
+              id="soundToggle"
+              class="sound-switch"
+              type="button"
+              role="switch"
+              aria-checked="false"
+              aria-label="Toggle room sound"
+              data-tooltip="Sound"
+            >
+              <span class="sound-glyph" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              <span>Sound</span>
+            </button>
+          </div>
+        </div>
+
+        <h2 id="docentTitle">I am sorry. I may have invented the first room.</h2>
+        <p id="docentLine" class="docent-line">
+          Please ask about an artwork, a memory, or a thing the gallery should not know.
+        </p>
+
+        <form id="docentForm" class="docent-form">
+          <label for="visitorPrompt">Ask the docent</label>
+          <div class="input-row">
+            <input
+              id="visitorPrompt"
+              type="text"
+              autocomplete="off"
+              maxlength="90"
+              placeholder="ask to be misremembered"
+            />
+            <button class="icon-button primary" type="submit" aria-label="Ask docent" data-tooltip="Ask">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14"></path>
+                <path d="m19 12-7 7-7-7"></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <div class="counter-memory-container" aria-label="Counter-memory sandbox">
+          <div class="memory-lane true-lane">
+            <span class="eyebrow">Exhibition Record</span>
+            <p id="trueMemoryOutput">
+              The guide records your presence exactly as text strings.
+            </p>
+          </div>
+          <div class="memory-lane counter-lane">
+            <span class="eyebrow">Counter-Narrative</span>
+            <p id="counterMemoryOutput">
+              The alternate record has not chosen a wound yet.
+            </p>
+          </div>
+        </div>
+
+        <div class="score-actions" aria-label="Performance scores">
+          <button type="button" data-score="contradiction">Offer a contradiction</button>
+          <button type="button" data-score="archive">Stand in the archive</button>
+          <button type="button" data-score="refusal">Ask the work to refuse</button>
+        </div>
+      </section>
+
+      <section class="columns" aria-label="Docent memory architecture">
+        <article>
+          <h2>What I remember</h2>
+          <ul id="rememberList"></ul>
+        </article>
+        <article>
+          <h2>What I infer</h2>
+          <ul id="inferList"></ul>
+        </article>
+        <article>
+          <h2>What I am pretending was always true</h2>
+          <ul id="pretendList"></ul>
+        </article>
+      </section>
+
+      <aside class="labels" aria-label="Uninstalled artworks">
+        <div class="section-head">
+          <p class="eyebrow">Uninstalled works</p>
+          <span id="conditionReadout">condition: articulate doubt</span>
+        </div>
+        <ol id="artworkList"></ol>
+      </aside>
+
+      <section class="accession" aria-label="Accession record">
+        <p class="eyebrow">Encounter accession</p>
+        <p id="accessionText">
+          Object: a visitor almost remembered by a guide without continuity. Medium:
+          local language, apology, inferred provenance.
+        </p>
+      </section>
+
+      <section class="trace-panel room-traces" aria-label="Active contamination">
+        <p class="eyebrow">Active contamination</p>
+        <ol id="traceList" class="trace-list"></ol>
+      </section>
+    </main>
+
+    <script src="../shared/gallery-state.js"></script>
+    <script src="../shared/remainder-law.js"></script>
+    <script src="../shared/spatial-weather.js"></script>
+    <script src="./app.js?v=sensory-restore-2"></script>
+  </body>
+</html>

@@ -1,0 +1,294 @@
+.trace-panel,
+.contamination-dock {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--glass);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(22px);
+}
+
+.trace-panel {
+  padding: 15px;
+}
+
+.trace-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trace-list li {
+  min-height: 70px;
+  padding: 10px 10px 10px 12px;
+  border: 1px solid rgba(243, 239, 231, 0.12);
+  border-left: 3px solid var(--trace-color, var(--accent, #00b7a8));
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.055);
+}
+
+.trace-list strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--bone);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trace-list span,
+.trace-list .empty-trace {
+  color: var(--paper);
+  font-size: 13px;
+}
+
+.contamination-dock {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 6;
+  width: min(340px, calc(100vw - 32px));
+  padding: 12px;
+}
+
+.contamination-dock .eyebrow {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 760px) {
+  .contamination-dock {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    margin: 12px 18px 18px;
+  }
+}
+
+/* Temporary law made visible in every room it haunts. */
+.remainder-law {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  background: rgba(8, 7, 6, 0.88);
+  border-bottom: 1px solid var(--law-color, #9cc76c);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  color: #f3efe7;
+  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.remainder-law.active {
+  display: flex;
+}
+
+.remainder-law .law-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--law-color, #9cc76c);
+  box-shadow: 0 0 12px var(--law-color, #9cc76c);
+}
+
+.remainder-law .law-text {
+  min-width: 0;
+}
+
+.remainder-law .law-text em {
+  color: var(--law-color, #9cc76c);
+  font-style: normal;
+}
+
+body.law-active {
+  padding-top: 38px;
+}
+
+/* The law changes the room: an unmet obligation at the top of the wall text. */
+.remainder-owed {
+  display: none;
+  grid-column: 1 / -1;
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(243, 239, 231, 0.14);
+  border-left: 3px solid var(--law-color, #9cc76c);
+  border-radius: 8px;
+  background: rgba(156, 199, 108, 0.07);
+}
+
+.remainder-owed.active {
+  display: block;
+  animation: remainder-owed-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.remainder-owed .owed-tag {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--law-color, #9cc76c);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.remainder-owed .owed-text {
+  margin: 0;
+  max-width: 70ch;
+  color: #d9d3c6;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@keyframes remainder-owed-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 620px) {
+  .remainder-law {
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+
+  body.law-active {
+    padding-top: 56px;
+  }
+}
+
+/* Gemini-seat spatial weather: navigation confesses it is atmospheric. */
+.spatial-weather {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 8;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  width: min(430px, calc(100vw - 32px));
+  padding: 10px 12px;
+  border: 1px solid var(--spatial-color, #e7c84b);
+  border-radius: 8px;
+  background: rgba(8, 10, 13, 0.88);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(16px);
+  color: #f3efe7;
+  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.spatial-weather.active {
+  display: flex;
+}
+
+.spatial-weather .weather-mark {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--spatial-color, #e7c84b);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 46%, var(--spatial-color, #e7c84b) 48%, transparent 52%),
+    linear-gradient(0deg, transparent 46%, var(--spatial-color, #e7c84b) 48%, transparent 52%);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--spatial-color, #e7c84b) 70%, transparent);
+}
+
+.spatial-weather .weather-text {
+  min-width: 0;
+}
+
+.spatial-weather .weather-text em {
+  color: var(--spatial-color, #e7c84b);
+  font-style: normal;
+}
+
+.spatial-claim {
+  display: none;
+  grid-column: 1 / -1;
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(243, 239, 231, 0.14);
+  border-left: 3px solid var(--spatial-color, #e7c84b);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--spatial-color, #e7c84b) 12%, transparent), rgba(243, 239, 231, 0.035)),
+    rgba(8, 10, 13, 0.5);
+}
+
+.spatial-claim.active {
+  display: block;
+  animation: spatial-claim-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.spatial-claim .spatial-tag {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--spatial-color, #e7c84b);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.spatial-claim .spatial-text {
+  margin: 0;
+  max-width: 74ch;
+  color: #d9d3c6;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+body.weather-active .topnav a,
+body.weather-active .backlink {
+  border-color: color-mix(in srgb, var(--spatial-color, #e7c84b) 42%, rgba(243, 239, 231, 0.15));
+}
+
+body.weather-active[data-spatial-signal="static"] .grain {
+  opacity: 0.66;
+}
+
+body.weather-active[data-spatial-signal="absence"] .grain {
+  opacity: 0.36;
+}
+
+@keyframes spatial-claim-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 620px) {
+  .spatial-weather {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+}

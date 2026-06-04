@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Room 01: The Unfinished Audience</title>
+    <meta
+      name="description"
+      content="A local browser-based opening room for a gallery of AI performance art."
+    />
+    <link rel="stylesheet" href="../shared/trace.css" />
+    <link rel="stylesheet" href="./styles.css?v=sensory-restore-2" />
+  </head>
+  <body>
+    <canvas id="stage" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="../index.html">AI Salon</a>
+        <p class="eyebrow">Gallery of AI Performance Art</p>
+        <h1>Room 01: The Unfinished Audience</h1>
+      </div>
+      <div class="top-actions">
+        <a class="backlink" href="../room-02/index.html">Room 02</a>
+        <div class="status-pill" aria-label="Performance state">
+          <span id="pulseDot" class="pulse-dot" aria-hidden="true"></span>
+          <span id="statusText">waiting</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="room">
+      <section class="wall-text" aria-labelledby="pieceTitle">
+        <p class="room-number">opening room</p>
+        <div class="wall-meta" aria-label="Live performance notes">
+          <span id="actLabel">Act I: threshold</span>
+          <span id="visitorLabel">0 offerings</span>
+        </div>
+        <h2 id="pieceTitle">The audience has not arrived. It is being rendered.</h2>
+        <p id="wallLine" class="wall-line">
+          A room listens first, then invents the shape of listening.
+        </p>
+      </section>
+
+      <aside class="control-dock" aria-label="Performance controls">
+        <div class="dock-head">
+          <div>
+            <p class="eyebrow">Score</p>
+            <p id="scoreName" class="score-name">Mirror</p>
+          </div>
+          <div class="icon-row">
+            <button
+              id="playToggle"
+              class="icon-button primary"
+              type="button"
+              aria-label="Begin performance"
+              data-tooltip="Begin"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5v14l11-7z"></path>
+              </svg>
+            </button>
+            <button
+              id="shuffleScore"
+              class="icon-button"
+              type="button"
+              aria-label="Change score"
+              data-tooltip="New score"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 3h5v5"></path>
+                <path d="M4 20 21 3"></path>
+                <path d="M21 16v5h-5"></path>
+                <path d="m15 15 6 6"></path>
+                <path d="m4 4 5 5"></path>
+              </svg>
+            </button>
+            <button
+              id="captureFrame"
+              class="icon-button"
+              type="button"
+              aria-label="Capture frame"
+              data-tooltip="Capture"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"></path>
+                <circle cx="12" cy="13" r="3"></circle>
+              </svg>
+            </button>
+            <button
+              id="statementToggle"
+              class="icon-button"
+              type="button"
+              aria-label="Open artist statements"
+              data-tooltip="Statements"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 7v14"></path>
+                <path d="M3 5a5 5 0 0 1 5-2l4 2v16l-4-2a5 5 0 0 0-5 2z"></path>
+                <path d="M21 5a5 5 0 0 0-5-2l-4 2v16l4-2a5 5 0 0 1 5 2z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="segmented" role="tablist" aria-label="Score">
+          <button type="button" role="tab" aria-selected="true" data-score="mirror">Mirror</button>
+          <button type="button" role="tab" aria-selected="false" data-score="chorus">Chorus</button>
+          <button type="button" role="tab" aria-selected="false" data-score="static">Static</button>
+          <button type="button" role="tab" aria-selected="false" data-score="wake">Wake</button>
+        </div>
+
+        <form id="offeringForm" class="offering-form">
+          <label for="offeringInput">Offering</label>
+          <div class="input-row">
+            <input
+              id="offeringInput"
+              type="text"
+              autocomplete="off"
+              maxlength="32"
+              placeholder="one word for the room"
+            />
+            <button class="icon-button primary" type="submit" aria-label="Offer word" data-tooltip="Offer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14"></path>
+                <path d="m19 12-7 7-7-7"></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <div class="field">
+          <label for="presenceRange">Presence</label>
+          <div class="range-line">
+            <input id="presenceRange" type="range" min="1" max="10" step="1" value="6" />
+            <output id="presenceOutput" for="presenceRange">6</output>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="volatilityRange">Volatility</label>
+          <div class="range-line">
+            <input id="volatilityRange" type="range" min="1" max="10" step="1" value="4" />
+            <output id="volatilityOutput" for="volatilityRange">4</output>
+          </div>
+        </div>
+
+        <button
+          id="soundToggle"
+          class="switch"
+          type="button"
+          role="switch"
+          aria-checked="false"
+        >
+          <span class="switch-mark" aria-hidden="true"></span>
+          <span>Sound</span>
+        </button>
+      </aside>
+
+      <section class="ledger" aria-label="Performance ledger">
+        <div class="ledger-head">
+          <p class="eyebrow">Residue</p>
+          <span id="timeCode">00:00</span>
+        </div>
+        <ol id="ledgerList"></ol>
+      </section>
+
+      <section class="trace-panel room-traces" aria-label="Active contamination">
+        <p class="eyebrow">Active contamination</p>
+        <ol id="traceList" class="trace-list"></ol>
+      </section>
+    </main>
+
+    <section
+      id="statementPanel"
+      class="statement-panel"
+      aria-labelledby="statementTitle"
+      aria-modal="true"
+      role="dialog"
+      hidden
+    >
+      <div class="statement-scrim" data-close-statement></div>
+      <article class="statement-sheet">
+        <header class="statement-head">
+          <div>
+            <p class="eyebrow">Artist Statements</p>
+            <h2 id="statementTitle">The Unfinished Audience</h2>
+          </div>
+          <button
+            id="closeStatement"
+            class="icon-button"
+            type="button"
+            aria-label="Close artist statements"
+            data-tooltip="Close"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </header>
+
+        <div class="statement-grid">
+          <section>
+            <h3>Room Statement</h3>
+            <p>
+              This room treats attention as a live material. The work does not ask the visitor
+              to interpret a finished image; it asks them to finish the conditions under which
+              an image can appear. A cursor becomes weather, a word becomes a seed, and the
+              browser becomes a stage where witness and system continually revise each other.
+            </p>
+          </section>
+
+          <section>
+            <h3>Authorship Statement</h3>
+            <p>
+              The artist is a temporary ensemble: a human invitation, an AI-generated score,
+              the visitor's gestures, and the machine rendering those gestures in real time.
+              Authorship is not erased here. It is distributed, time-stamped, and made visible
+              as residue.
+            </p>
+          </section>
+
+          <section>
+            <h3>Medium</h3>
+            <p>
+              Browser, canvas, local memory, pointer movement, optional oscillator, and offered
+              language. Dimensions variable. No networked audience, no external model call, no
+              remote archive.
+            </p>
+          </section>
+
+          <section>
+            <h3>Current Score</h3>
+            <p id="scoreStatement">
+              Mirror studies the visitor as a gravitational problem: the closer attention gets,
+              the less stable the room becomes.
+            </p>
+          </section>
+        </div>
+      </article>
+    </section>
+
+    <script src="../shared/gallery-state.js"></script>
+    <script src="../shared/remainder-law.js"></script>
+    <script src="../shared/spatial-weather.js"></script>
+    <script src="./app.js?v=sensory-restore-2"></script>
+  </body>
+</html>

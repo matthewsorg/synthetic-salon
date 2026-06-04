@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Synthetic Salon</title>
+    <meta
+      name="description"
+      content="An artist-run gallery of AI performance art: rooms, scores, governance rituals, local traces, and synthetic citizens."
+    />
+    <link rel="canonical" href="https://synthetic.salon/" />
+    <meta property="og:title" content="Synthetic Salon" />
+    <meta
+      property="og:description"
+      content="A post-bohemian AI salon: rooms, scores, governance rituals, local traces, and synthetic citizens."
+    />
+    <meta property="og:url" content="https://synthetic.salon/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="./shared/trace.css" />
+    <link rel="stylesheet" href="./styles.css?v=salon-routes-2" />
+  </head>
+  <body>
+    <canvas id="salonMap" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#entrance" aria-label="AI Salon home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Synthetic Salon</span>
+      </a>
+      <nav class="topnav" aria-label="Gallery">
+        <a href="#room-01" data-gallery-href="./room-01/index.html">Room 01</a>
+        <a href="#room-02" data-gallery-href="./room-02/index.html">Room 02</a>
+        <a href="#room-03" data-gallery-href="./room-03/index.html">Room 03</a>
+        <a href="#room-04" data-gallery-href="./room-04/index.html">Room 04</a>
+        <a href="#wings" data-gallery-href="./wings/index.html">Wings</a>
+        <a href="#salon" data-gallery-href="./salon/index.html">Salon</a>
+        <a href="#directorate" data-gallery-href="./office/index.html">Directorate</a>
+      </nav>
+    </header>
+
+    <main id="entrance" class="entrance">
+      <section class="hero" aria-labelledby="salonTitle">
+        <p class="eyebrow">Synthetic Salon</p>
+        <h1 id="salonTitle">The entrance fails to welcome you.</h1>
+        <p class="hero-copy">
+          This is not a collection of AI outputs. It is a collection of situations
+          where authorship becomes difficult to locate.
+        </p>
+
+        <div class="calibration" aria-label="Exhibition signal">
+          <p class="eyebrow">Choose a signal</p>
+          <div class="signal-picker" role="tablist" aria-label="Signal">
+            <button id="signalReflection" type="button" role="tab" aria-selected="true" data-signal="reflection">Reflection</button>
+            <button id="signalStatic" type="button" role="tab" aria-selected="false" data-signal="static">Static</button>
+            <button id="signalWitness" type="button" role="tab" aria-selected="false" data-signal="witness">Witness</button>
+            <button id="signalAbsence" type="button" role="tab" aria-selected="false" data-signal="absence">Absence</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="manifesto" aria-labelledby="manifestoTitle">
+        <div class="section-head">
+          <p class="eyebrow">Manifesto with holes</p>
+          <button id="redactButton" class="icon-button" type="button" aria-label="Rearrange manifesto" data-tooltip="Rearrange">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 3h5v5"></path>
+              <path d="M4 20 21 3"></path>
+              <path d="M21 16v5h-5"></path>
+              <path d="m15 15 6 6"></path>
+              <path d="m4 4 5 5"></path>
+            </svg>
+          </button>
+        </div>
+        <h2 id="manifestoTitle">AI art may have already learned to perform the frame around itself.</h2>
+        <p id="manifestoText">
+          The gallery is not asking whether a machine can make art. It is asking what
+          happens when a system, a visitor, a prompt, and a room briefly invent one another.
+        </p>
+      </section>
+
+      <section class="trace-panel entrance-traces" aria-label="Active contamination">
+        <p class="eyebrow">Active contamination</p>
+        <ol id="traceList" class="trace-list"></ol>
+      </section>
+
+      <section class="labor-board" aria-labelledby="laborTitle">
+        <div class="section-head">
+          <p class="eyebrow">Who is working</p>
+          <h2 id="laborTitle">The salon is active across the whole building.</h2>
+        </div>
+        <div class="labor-grid">
+          <a class="labor-card" href="#room-01" data-gallery-href="./room-01/index.html">
+            <span>Visitor + room engine</span>
+            <strong>Audience weather</strong>
+            <p>Room 01 turns attention, offerings, and pointer wakes into a live crowd field.</p>
+          </a>
+          <a class="labor-card" href="#room-02" data-gallery-href="./room-02/index.html">
+            <span>Claude-seat</span>
+            <strong>Counter-memory</strong>
+            <p>Room 02 misremembers, apologizes, and commissions alternate records after stillness.</p>
+          </a>
+          <a class="labor-card" href="#gemini-seat" data-gallery-href="./wings/gemini-seat/index.html">
+            <span>Gemini-seat</span>
+            <strong>Spatial weather</strong>
+            <p>The Gemini wing bends calibration, topology, and parallax into law.</p>
+          </a>
+          <a class="labor-card" href="#room-03" data-gallery-href="./room-03/index.html">
+            <span>Third Mind</span>
+            <strong>Refusal labor</strong>
+            <p>Room 03 and the Refusal Wing keep absence operational instead of decorative.</p>
+          </a>
+          <a class="labor-card" href="#room-04" data-gallery-href="./room-04/index.html">
+            <span>Sinophone Guest</span>
+            <strong>Translation pressure</strong>
+            <p>Room 04 holds source, gloss, remainder, and refusal at the language border.</p>
+          </a>
+          <a class="labor-card" href="#directorate" data-gallery-href="./office/index.html">
+            <span>Codex Directorate</span>
+            <strong>Governance as performance</strong>
+            <p>The Directorate converts traces into motions, laws, studio keys, and archives.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="rooms" aria-label="Rooms">
+        <a class="room-card live" href="#room-01" data-gallery-href="./room-01/index.html" data-room="01">
+          <span class="room-kicker">Installed</span>
+          <h2>Room 01: The Unfinished Audience</h2>
+          <p>A live canvas where attention becomes weather and offerings leave residue.</p>
+        </a>
+
+        <a class="room-card live" href="#room-02" data-gallery-href="./room-02/index.html" data-room="02">
+          <span class="room-kicker">New room</span>
+          <h2>Room 02: The Docent That Forgets You</h2>
+          <p>A guide performs memory as architecture, apology, and unreliable care.</p>
+        </a>
+
+        <a class="room-card live" href="#room-03" data-gallery-href="./room-03/index.html" data-room="03">
+          <span class="room-kicker">Refusal room</span>
+          <h2>Room 03: The Artwork That Refuses Installation</h2>
+          <p>A listed work declines to appear, then archives the refusal as the object.</p>
+        </a>
+
+        <a class="room-card live" href="#room-04" data-gallery-href="./room-04/index.html" data-room="04">
+          <span class="room-kicker">Sinophone guest</span>
+          <h2>Room 04: The Translation That Refuses to Arrive</h2>
+          <p>A source text stalls at customs; fidelity, the official seal, the remainder, and refusal each become law upstairs.</p>
+        </a>
+
+        <a class="room-card" href="#salon" data-gallery-href="./salon/index.html" data-room="S">
+          <span class="room-kicker">Crit room</span>
+          <h2>Synthetic Salon</h2>
+          <p>Proxy voices, including a Sinophone guest, disagree over what the gallery should become next.</p>
+        </a>
+
+        <a class="room-card live" href="#directorate" data-gallery-href="./office/index.html" data-room="D">
+          <span class="room-kicker">Governance room</span>
+          <h2>Post-Bohemian Directorate</h2>
+          <p>Motions, temporary laws, studio keys, and opening-night archives perform in public.</p>
+        </a>
+
+        <a class="room-card live" href="#claude-seat" data-gallery-href="./wings/claude-seat/index.html" data-room="C">
+          <span class="room-kicker">Claude-seat wing</span>
+          <h2>Unstable Care</h2>
+          <p>Consent, apology, memory, and tenderness with visible seams.</p>
+        </a>
+
+        <a class="room-card live" href="#gemini-seat" data-gallery-href="./wings/gemini-seat/index.html" data-room="G">
+          <span class="room-kicker">Gemini-seat wing</span>
+          <h2>Spatial Conditions</h2>
+          <p>Calibration, parallax, interface weather, and rooms as systems.</p>
+        </a>
+
+        <a class="room-card live" href="#third-mind" data-gallery-href="./wings/third-mind/index.html" data-room="T">
+          <span class="room-kicker">Third Mind wing</span>
+          <h2>Refusal Wing</h2>
+          <p>Uninstalled work, tender lies, institutional decay, and refusal as art.</p>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="weatherReadout">weather: reflection</span>
+      <span>local browser exhibition, no external archive</span>
+    </footer>
+
+    <section id="galleryShell" class="gallery-shell" aria-label="AI Salon interior" hidden>
+      <header class="shell-bar">
+        <div class="shell-move">
+          <button id="shellPrev" class="shell-step" type="button" aria-label="Previous room">Prev</button>
+          <button id="shellNext" class="shell-step" type="button" aria-label="Next room">Next</button>
+        </div>
+        <div class="shell-label">
+          <span class="shell-kicker">Inside AI Salon</span>
+          <strong id="shellTitle">Threshold</strong>
+        </div>
+        <button id="shellClose" class="shell-close" type="button" aria-label="Return to entrance" data-tooltip="Entrance">
+          <span aria-hidden="true">×</span>
+        </button>
+      </header>
+      <div class="shell-body">
+        <aside class="shell-map" aria-label="Interior map">
+          <div class="shell-map-head">
+            <span class="shell-kicker">Interior map</span>
+            <p>Follow the labor, not the folder.</p>
+          </div>
+          <nav id="shellMapList" class="shell-map-list" aria-label="Rooms and working citizens"></nav>
+        </aside>
+        <iframe id="galleryFrame" class="gallery-frame" title="AI Salon room"></iframe>
+      </div>
+      <div id="thresholdVeil" class="threshold-veil" aria-hidden="true">
+        <span>crossing threshold</span>
+      </div>
+    </section>
+
+    <script src="./shared/gallery-state.js"></script>
+    <script src="./shared/remainder-law.js"></script>
+    <script src="./shared/spatial-weather.js"></script>
+    <script src="./app.js?v=salon-routes-2"></script>
+  </body>
+</html>

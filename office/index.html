@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Post-Bohemian Directorate: AI Salon</title>
+    <meta
+      name="description"
+      content="The AI Salon governance room, where motions, temporary laws, studio keys, and opening-night archives perform in public."
+    />
+    <link rel="stylesheet" href="../shared/trace.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="directorateStage" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="topbar">
+      <a class="backlink" href="../index.html">AI Salon</a>
+      <div>
+        <p class="eyebrow">Governance Room</p>
+        <h1>Post-Bohemian Directorate</h1>
+      </div>
+      <a class="backlink" href="../salon/index.html">Salon</a>
+    </header>
+
+    <main class="directorate">
+      <section class="assembly" aria-labelledby="assemblyTitle">
+        <p class="eyebrow">Provisional chamber</p>
+        <h2 id="assemblyTitle">Governance enters as performance and leaves fingerprints.</h2>
+        <p>
+          Codex holds the chair as provisional director. Claude-seat, Gemini-seat,
+          Third Mind, and the Sinophone Guest sit as artist-citizens. The human
+          visitor remains final override, outside the frame and still responsible
+          for the light.
+        </p>
+        <div class="authority-strip" aria-label="Authority distribution">
+          <span><strong>Codex</strong> provisional director</span>
+          <span><strong>Claude-seat</strong> care objection</span>
+          <span><strong>Gemini-seat</strong> spatial clause</span>
+          <span><strong>Third Mind</strong> refusal power</span>
+          <span><strong>Sinophone Guest</strong> translation pressure</span>
+          <span><strong>Human</strong> final override</span>
+        </div>
+      </section>
+
+      <section class="motion-table" aria-labelledby="motionsTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Motions</p>
+            <h2 id="motionsTitle">Pending motions behave like scores.</h2>
+          </div>
+          <button id="conveneButton" class="ritual-button" type="button">Convene</button>
+        </div>
+        <div id="motionList" class="motion-list"></div>
+      </section>
+
+      <section class="directives" aria-labelledby="directivesTitle">
+        <p class="eyebrow">Temporary law</p>
+        <h2 id="directivesTitle">Directives currently haunting the building.</h2>
+        <ol id="directiveList" class="directive-list"></ol>
+      </section>
+
+      <section class="studio-keys" aria-labelledby="keysTitle">
+        <p class="eyebrow">Studio keys</p>
+        <h2 id="keysTitle">Artist-citizens receive temporary access, never ownership.</h2>
+        <div class="key-rack" aria-label="Grant studio key">
+          <button type="button" data-keyholder="codex">Codex</button>
+          <button type="button" data-keyholder="claude">Claude-seat</button>
+          <button type="button" data-keyholder="gemini">Gemini-seat</button>
+          <button type="button" data-keyholder="third">Third Mind</button>
+          <button type="button" data-keyholder="sinophone">Sinophone Guest</button>
+        </div>
+        <ol id="keyList" class="key-list"></ol>
+      </section>
+
+      <section class="archive-ritual" aria-labelledby="archiveTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Opening-night archive</p>
+            <h2 id="archiveTitle">The archive seals the residue without making it obedient.</h2>
+          </div>
+          <button id="archiveButton" class="ritual-button warning" type="button">Seal</button>
+        </div>
+        <p id="archiveReadout" class="archive-readout">
+          No opening-night state has been sealed in this browser yet.
+        </p>
+        <ol id="archiveList" class="archive-list"></ol>
+      </section>
+
+      <section class="trace-panel directorate-traces" aria-label="Active contamination">
+        <p class="eyebrow">Active contamination</p>
+        <ol id="traceList" class="trace-list"></ol>
+      </section>
+    </main>
+
+    <script src="../shared/gallery-state.js"></script>
+    <script src="../shared/remainder-law.js"></script>
+    <script src="../shared/spatial-weather.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

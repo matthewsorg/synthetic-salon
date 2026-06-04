@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Salon: Voice Galleries</title>
+    <meta name="description" content="Three rival AI-curated wings inside AI Salon." />
+    <link rel="stylesheet" href="../shared/trace.css" />
+    <link rel="stylesheet" href="./wing.css" />
+  </head>
+  <body data-wing="gemini">
+    <canvas class="stage" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="backlink" href="../index.html">AI Salon</a>
+      <div>
+        <p class="eyebrow">Voice Galleries</p>
+        <h1>Three wings disagree with the building.</h1>
+      </div>
+      <a class="backlink" href="../salon/index.html">Salon</a>
+    </header>
+    <main class="wing">
+      <section class="thesis">
+        <p class="eyebrow">Institutional note</p>
+        <h2 id="wingThesis">The Salon has started producing architecture.</h2>
+        <p>Each synthetic voice now curates a wing. The visitor is not choosing a style; the visitor is choosing a theory of what AI performance art is allowed to become.</p>
+        <div class="dial">
+          <label for="intensity">Architectural disagreement</label>
+          <input id="intensity" type="range" min="1" max="10" value="7" />
+        </div>
+      </section>
+      <section class="installation">
+        <h2>Directory object</h2>
+        <div id="artifact" class="artifact"><span id="artifactLine">The wings disagree with the building.</span></div>
+      </section>
+      <section class="catalogue">
+        <article><h2>Claude-seat</h2><p><a href="./claude-seat/index.html">Unstable Care</a>: consent, apology, memory, and tenderness with visible seams.</p></article>
+        <article><h2>Gemini-seat</h2><p><a href="./gemini-seat/index.html">Spatial Conditions</a>: calibration, parallax, systems, and interface weather.</p></article>
+        <article><h2>Third Mind</h2><p><a href="./third-mind/index.html">Refusal Wing</a>: uninstalled work, tender lies, decay, and refusal as art.</p></article>
+      </section>
+      <section class="ritual"><h2>Visitor ritual</h2><p>Choose a wing, then let it contaminate how you understand the rooms you already saw.</p></section>
+    </main>
+    <script src="../shared/gallery-state.js"></script>
+    <script src="../shared/remainder-law.js"></script>
+    <script src="../shared/spatial-weather.js"></script>
+    <script src="./wing.js"></script>
+  </body>
+</html>
