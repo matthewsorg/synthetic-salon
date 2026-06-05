@@ -134,21 +134,37 @@ def read_api_key() -> str:
     return api_key
 
 
-def build_authorship_trace(model: str, prompt: str, temperature: float) -> str:
+def build_authorship_trace(model: str, prompt: str, temperature: float, requested_model: str, fallback_note: str) -> str:
     prompt_hash = hashlib.sha256(prompt.encode("utf-8")).hexdigest()[:16]
     called_at = dt.datetime.now(dt.timezone.utc).isoformat()
     return dedent(
         f"""
         Authorship trace:
         - Invited model: {model}
+        - Requested model: {requested_model}
         - Invited by: Codex, provisional director, under Matthew Sorg's final override
         - Provider: Google Gemini API
         - Called at: {called_at}
         - Prompt digest: sha256:{prompt_hash}
         - Temperature: {temperature}
+        - Fallback note: {fallback_note}
         - Privacy boundary: curated public project context only; no visitor-local JSON memory sent
         """
     ).strip()
+
+
+def is_quota_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return "429" in text or "resource_exhausted" in text or "quota" in text
+
+
+def candidate_models(requested_model: str, fallback_enabled: bool) -> list[str]:
+    models = [requested_model]
+    if fallback_enabled:
+        for fallback in ("gemini-2.5-flash", "gemini-2.5-flash-lite"):
+            if fallback not in models:
+                models.append(fallback)
+    return models
 
 
 def response_text(response: object) -> str:
@@ -170,6 +186,7 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="Print the curated prompt without calling Gemini.")
     parser.add_argument("--check-config", action="store_true", help="Print model/key presence without calling Gemini.")
     parser.add_argument("--model", default=os.getenv("GEMINI_MODEL", "gemini-2.5-pro"))
+    parser.add_argument("--no-fallback", action="store_true", help="Do not fall back from Pro to Flash models on quota errors.")
     parser.add_argument("--temperature", type=float, default=float(os.getenv("GEMINI_TEMPERATURE", "1.0")))
     args = parser.parse_args()
 
@@ -178,6 +195,7 @@ def main() -> int:
         print(f"GEMINI_API_KEY present: {bool((os.getenv('GEMINI_API_KEY') or '').strip())}")
         print(f"GOOGLE_API_KEY present: {bool((os.getenv('GOOGLE_API_KEY') or '').strip())}")
         print(f"temperature: {args.temperature}")
+        print(f"quota fallback enabled: {not args.no_fallback}")
         return 0
 
     if args.dry_run:
@@ -196,27 +214,48 @@ def main() -> int:
 
     client = genai.Client(api_key=api_key)
 
-    try:
-        response = client.models.generate_content(
-            model=args.model,
-            contents=PROJECT_CONTEXT,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_INSTRUCTION,
-                temperature=args.temperature,
-            ),
-        )
-    except Exception as exc:
+    response = None
+    used_model = args.model
+    fallback_note = "No fallback used."
+    errors = []
+    for model in candidate_models(args.model, not args.no_fallback):
+        try:
+            if model != args.model:
+                print(f"{args.model} quota was unavailable; trying {model} instead.")
+            response = client.models.generate_content(
+                model=model,
+                contents=PROJECT_CONTEXT,
+                config=types.GenerateContentConfig(
+                    system_instruction=SYSTEM_INSTRUCTION,
+                    temperature=args.temperature,
+                ),
+            )
+            used_model = model
+            if model != args.model:
+                fallback_note = f"Requested {args.model}, but quota was unavailable; completed with {model}."
+            break
+        except Exception as exc:
+            errors.append((model, exc))
+            if not is_quota_error(exc):
+                raise SystemExit(
+                    "Gemini invitation failed before a proposal was saved. "
+                    "If this is an API-key error, create a fresh Gemini API key in Google AI Studio and do not paste it into chat. "
+                    f"Provider/client message: {exc}"
+                ) from exc
+
+    if response is None:
+        details = "\n".join(f"- {model}: {exc}" for model, exc in errors)
         raise SystemExit(
-            "Gemini invitation failed before a proposal was saved. "
-            "If this is an API-key error, create a fresh Gemini API key in Google AI Studio and do not paste it into chat. "
-            f"Provider/client message: {exc}"
-        ) from exc
+            "Gemini invitation could not complete because every attempted model hit quota limits.\n"
+            "Try again later, enable billing for the Google AI Studio project, or create a different project/key.\n"
+            f"Attempted models:\n{details}"
+        )
 
     proposal = response_text(response)
     if not proposal:
         raise SystemExit("Gemini returned no proposal text.")
 
-    trace = build_authorship_trace(args.model, PROJECT_CONTEXT, args.temperature)
+    trace = build_authorship_trace(used_model, PROJECT_CONTEXT, args.temperature, args.model, fallback_note)
 
     PROPOSALS.mkdir(parents=True, exist_ok=True)
     stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")

@@ -110,6 +110,8 @@ Optional local environment:
 - `GEMINI_MODEL`, defaulting to `gemini-2.5-pro`
 - `GEMINI_TEMPERATURE`, defaulting to `1.0`
 
+The ritual tries `gemini-2.5-pro` first. If Google returns a quota error, it automatically falls back to `gemini-2.5-flash`, then `gemini-2.5-flash-lite`. The saved authorship trace names the model that actually answered. Use `--no-fallback` only if you want the ritual to fail instead of switching models.
+
 Run without making an external call:
 
 ```sh
