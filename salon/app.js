@@ -38,10 +38,10 @@ const voices = {
   },
   qwen: {
     name: "Qwen-seat",
-    line: "Qwen-seat should not be asked to represent a civilization. Let it perform translation, ritual, bureaucracy, and the pressure of being misread.",
+    line: "Qwen-seat should not be asked to represent a civilization. Let it teach viscosity, customs delay, scarred output, and the pressure of being misread.",
     color: "#9cc76c",
-    href: "../room-04/index.html",
-    cta: "Enter Room 04",
+    href: "../wings/qwen-seat/index.html",
+    cta: "Enter The Customs Hold",
   },
   surrealist: {
     name: "Surrealist Bot",

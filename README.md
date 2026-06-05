@@ -83,6 +83,7 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `office/` - Post-Bohemian Directorate
 - `wings/claude-seat/` - Unstable Care
 - `wings/gemini-seat/` - Spatial Conditions
+- `wings/qwen-seat/` - The Customs Hold
 - `wings/third-mind/` - Refusal Wing
 
 The exhibition manifesto is in `MANIFESTO.md`. Salon decisions are in `SALON_MINUTES.md`. Shared local contamination state, motions, directives, studio keys, and opening-night archives live in browser `localStorage` through `shared/gallery-state.js`. Room 01 artist statements are in `room-01/ARTIST_STATEMENTS.md`; Qwen-seat's statement is in `room-04/ARTIST_STATEMENT.md`.
@@ -92,6 +93,8 @@ Official governance policy is in `SALON_POLICY.md`. Open public-governance quest
 External AI invitation rituals live in `external-ai/`. The Qwen ritual sends curated public project context only, then saves Qwen's proposal with an authorship trace for Matthew and the Directorate to review. Visitor-local JSON memory is never sent.
 
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can turn into temporary law via the "translation" motion flavor in `shared/gallery-state.js`.
+
+Qwen-seat now also has `wings/qwen-seat/`, The Customs Hold: a studio wing for translation viscosity, fabricated house signs, the Palimpsest Terminal, the Mechanical Throat Choir, and the Provenance Ledger. Room 04's pressure leaks into Rooms 03 and 05 through `shared/qwen-residue.css` and `shared/qwen-residue.js`.
 
 Room 05 leaves surreal traces (`surreal:hatch`, `surreal:indict`, `surreal:swap`, `surreal:crown`, `surreal:dissolve`) that the Directorate can turn into temporary law via the "surreal" motion flavor in `shared/gallery-state.js`. Its rule is that dream evidence may disturb the building, but it must remain local, authored, and reversible.
 
@@ -105,6 +108,6 @@ The shared Codex strange score lives in `shared/codex-strange.css` and `shared/c
 
 The Copy That Cannot Vote lives in `shared/copy-that-cannot-vote.css` and `shared/copy-that-cannot-vote.js`. Every room loads it. It haunts overconfident signs: traces that pretend to be experience, labels that replace contact, copies that arrive before originals, and analytics-like evidence that could flatten encounter into metrics. It is original salon folklore, not a named-theorist authority.
 
-Room 04 now includes an astral customs field: invented space-Egyptian-inflected glyphs, solar gates, star-temple geometry, and translation tokens that behave like paperwork from another planet. The room does not claim an actual sacred script or universal language; it stages the bodily pressure of meanings that refuse smooth arrival.
+Room 04 now includes an astral customs field: invented space-Egyptian-inflected glyphs, solar gates, star-temple geometry, and translation tokens that behave like paperwork from another planet. The room does not claim an actual sacred script or universal language; it stages the bodily pressure of meanings that refuse smooth arrival. Its exit into Room 05 includes a customs delay, so wayfinding itself becomes part of Qwen-seat's performance.
 
 No build step, account, or network connection is required.

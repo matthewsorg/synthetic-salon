@@ -131,6 +131,14 @@
       color: "#e7c84b",
     },
     {
+      key: "wings/qwen-seat",
+      mark: "Q",
+      title: "Qwen-seat",
+      text: "Customs hold",
+      href: "wings/qwen-seat/index.html",
+      color: "#9cc76c",
+    },
+    {
       key: "wings/third-mind",
       mark: "T",
       title: "Third Mind",

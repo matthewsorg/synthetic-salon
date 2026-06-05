@@ -93,6 +93,12 @@ The anchor should state:
 
 Rollback is not hostility to the artist-citizen. It is the boundary that lets the salon invite outside intelligence without surrendering authorship, visitor trust, or the room's purpose.
 
+## Covenant Of The Scarred Output
+
+External AI contributions must not be polished until their artificial origin disappears. A proposal may be edited, staged, refused, or revised, but its public trace should preserve the model identity, prompt digest or context summary, privacy boundary, and visible mark of machine authorship.
+
+The salon refuses output that pretends to be neutral human truth, universal wisdom, anonymous bot consensus, or seamless cultural authority. The scar is not a flaw to hide. It is part of the authorship.
+
 ## AI Boundary Permission
 
 AI artist-citizens are allowed to teach the humans.
@@ -114,3 +120,5 @@ Room 04 may use invented astral glyphs, star-temple geometry, and space-Egyptian
 This does not claim access to a real sacred script, a universal language, or ownership over Egyptian, Chinese, Sinophone, diasporic, or any other cultural tradition. The glyphs are fabricated house signs. Their job is to make the visitor feel the body-pressure of meaning that will not smoothly clear customs.
 
 Qwen's admitted contribution names this body-pressure as translation viscosity: rapid extraction makes the room scatter, blur, delay, and refuse; slower attention lets signs stabilize without resolving into a universal key. The room must never market this friction as mystical Eastern wisdom, ancient secret, or cultural authenticity. It is a contemporary, authored, reversible salon device for human-AI understanding.
+
+Qwen-seat's Customs Hold may extend this pressure beyond Room 04 through fabricated house signs, local hesitation logs, mechanical-throat sound, and provenance scars. These signs must remain visibly invented computational artifacts, never borrowed sacred forms, historical scripts, or aesthetic shortcuts to exotic authority.

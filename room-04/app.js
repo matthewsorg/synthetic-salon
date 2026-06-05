@@ -148,6 +148,8 @@ let qwenPressureActive = true;
 let translationViscosity = 0;
 let viscosityTarget = 0;
 let customsTimer = 0;
+let customsExitTimer = 0;
+let customsExitHref = "";
 let lastResidueAt = 0;
 let lastPointer = { x: window.innerWidth * 0.5, y: window.innerHeight * 0.5, at: performance.now() };
 const astralColors = ["#e7c84b", "#00b7a8", "#7db4ff", "#ff5a4d", "#f3efe7"];
@@ -489,6 +491,92 @@ function bindCopyResidue() {
   });
 }
 
+function lintOneGlyph() {
+  if (!qwenPressureActive) return;
+  const signs = [...document.querySelectorAll(".astral-sigil-row i")];
+  if (!signs.length) return;
+  const sign = signs[Math.floor(Math.random() * signs.length)];
+  sign.classList.add("is-linting");
+  window.setTimeout(() => sign.classList.remove("is-linting"), 420);
+}
+
+function ensureCustomsExit() {
+  let overlay = document.querySelector(".customs-exit");
+  if (overlay) return overlay;
+
+  overlay = document.createElement("aside");
+  overlay.className = "customs-exit";
+  overlay.dataset.active = "false";
+  overlay.dataset.reset = "false";
+  overlay.setAttribute("aria-live", "polite");
+  overlay.setAttribute("aria-label", "Customs hold before Room 05");
+  overlay.innerHTML = `
+    <div class="customs-exit__token">
+      <strong>Meaning held</strong>
+      <span>translation token cooling before Room 05</span>
+    </div>
+  `;
+  overlay.addEventListener("click", () => {
+    if (!customsExitTimer || !customsExitHref) return;
+    resetCustomsExit(overlay);
+    customsExitTimer = window.setTimeout(() => {
+      customsExitTimer = 0;
+      window.location.href = customsExitHref;
+    }, 1500);
+  });
+  document.body.append(overlay);
+  return overlay;
+}
+
+function resetCustomsExit(overlay) {
+  window.clearTimeout(customsExitTimer);
+  customsExitTimer = 0;
+  overlay.dataset.reset = "true";
+  overlay.querySelector("strong").textContent = "Processing residue";
+  overlay.querySelector("span").textContent = "please allow the meaning to settle";
+  window.CopyThatCannotVote?.haunt?.("customs-exit-reset", {
+    label: "Processing residue. Please allow the meaning to settle.",
+  });
+  window.CodexStrange?.riff?.("qwen:customs-reset", { color: "#ff5a4d", word: "WAIT", gain: 0.06 });
+  mechanicalThroat(3);
+  window.setTimeout(() => {
+    overlay.dataset.reset = "false";
+  }, 460);
+}
+
+function beginCustomsExit(event, anchor) {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+  if (!qwenPressureActive) return;
+  event.preventDefault();
+
+  const overlay = ensureCustomsExit();
+  customsExitHref = anchor.href;
+  overlay.dataset.active = "true";
+  document.body.dataset.customsDelay = "true";
+  document.documentElement.style.setProperty("--customs-delay-duration", "1500ms");
+  viscosityTarget = Math.max(viscosityTarget, 0.62);
+  el.customs.textContent = "customs: exit token pending";
+  overlay.querySelector("strong").textContent = "Meaning held";
+  overlay.querySelector("span").textContent = "translation token cooling before Room 05";
+
+  if (customsExitTimer) {
+    resetCustomsExit(overlay);
+  }
+
+  mechanicalThroat(4);
+  announce("Room 05 is waiting for the translation token to settle.");
+  customsExitTimer = window.setTimeout(() => {
+    customsExitTimer = 0;
+    window.location.href = anchor.href;
+  }, 1500);
+}
+
+function bindCustomsExit() {
+  document.querySelectorAll('a[href*="room-05"], [data-customs-exit]').forEach((anchor) => {
+    anchor.addEventListener("click", (event) => beginCustomsExit(event, anchor));
+  });
+}
+
 function setQwenPressure(activeState) {
   qwenPressureActive = activeState;
   if (!qwenPressureActive) {
@@ -689,6 +777,8 @@ resize();
 seedFromState();
 renderLabor();
 bindCopyResidue();
+bindCustomsExit();
 updateViscosityCss();
+window.setInterval(lintOneGlyph, 2600);
 window.setInterval(() => advanceLabor(false), 6800);
 requestAnimationFrame(draw);

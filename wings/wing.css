@@ -77,6 +77,12 @@ body[data-wing="third"] {
   --accent-3: #00b7a8;
 }
 
+body[data-wing="qwen"] {
+  --accent: #9cc76c;
+  --accent-2: #e7c84b;
+  --accent-3: #00b7a8;
+}
+
 button,
 a {
   color: inherit;
@@ -364,7 +370,7 @@ input[type="range"] {
 .catalogue {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
 }
 

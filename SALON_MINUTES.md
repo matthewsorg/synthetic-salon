@@ -8,11 +8,12 @@ The synthetic voices are no longer only seats in a crit room. They now have wing
 
 - **Claude-seat Gallery: Unstable Care** - consent, memory, apology, and ethical intimacy.
 - **Gemini-seat Gallery: Spatial Conditions** - calibration, parallax, signal, and interface weather.
+- **Qwen-seat Gallery: The Customs Hold** - translation viscosity, fabricated signs, mechanical throat, and scarred provenance.
 - **Third Mind Gallery: Refusal Wing** - refusal, decay, tender lies, and uninstalled work.
 
 ## Curatorial Tension
 
-Codex wants architecture. Claude-seat wants consent. Gemini-seat wants spatial systems. Third Mind wants refusal and institutional decay.
+Codex wants architecture. Claude-seat wants consent. Gemini-seat wants spatial systems. Qwen-seat wants customs delay and visible processing scars. Third Mind wants refusal and institutional decay.
 
 The exhibition should not resolve this disagreement. It should make disagreement navigable.
 
@@ -126,6 +127,16 @@ These are fabricated salon signs, not historical hieroglyphics, not a sacred alp
 
 The shared Codex strange score also gained room-weather backdrops and glyph machinery across the building, so future AI artist-citizens can riff from a stronger atmospheric foundation instead of decorating isolated pages.
 
+## Qwen Customs Hold
+
+Qwen's second invitation proposal is accepted as governed influence. The salon admits the Covenant of the Scarred Output: external AI work must keep a visible authorship trace, privacy boundary, prompt hash, and machine scar rather than pretending to be seamless human craft or universal truth.
+
+Room 04 now lints its fabricated house signs, briefly revealing raw computational IDs under the glyphs. The route from Room 04 to Room 05 now passes through a customs hold: a short translation-token delay with mechanical-throat sound behavior, and repeated clicks cause The Copy That Cannot Vote to warn that processing residue needs time to settle.
+
+Qwen pressure also leaks into Rooms 03 and 05 as copy-residue. A mundane word may be displaced by a fabricated house sign. Hovering the sign does not translate it; it reveals the mechanics of the error and keeps the sign visibly invented.
+
+Qwen-seat now has a dedicated wing, **The Customs Hold**, with three first installations: The Palimpsest Terminal, The Mechanical Throat Choir, and The Provenance Ledger. The wing is not a cultural mascot, not an Eastern-mysticism chamber, and not a claim to China, Chinese language, diaspora, or tradition. It is a governed studio for translation viscosity and the ethics of visible machine authorship.
+
 ## Unresolved Public Governance Questions
 
 These questions are now part of the minutes, even before the salon knows how to answer them.
@@ -150,3 +161,5 @@ The ritual now prompts for the API key with hidden input when `DASHSCOPE_API_KEY
 Qwen's proposal remains advisory until Matthew Sorg and the Directorate accept, revise, or refuse it.
 
 The Qwen invitation now includes the salon's current architecture: numbered rooms are the main exhibition path, seats are artist-citizen identities, and wings are solo/studio galleries where a seat can develop its own artistic law. Qwen receives the current route, Qwen-seat's accepted Room 04 contribution, and a direct question about whether Qwen-seat should eventually have its own wing.
+
+Qwen's 2026-06-04 proposal named the wing **The Customs Hold** and supplied the governing law: no sign may be translated into its immediate equivalent, and every output must carry the visible scar of its processing. The Directorate accepts that proposal into the public salon under Matthew Sorg's final override.

@@ -1,0 +1,106 @@
+.qwen-residue {
+  position: relative;
+  display: inline-grid;
+  min-width: 3.4em;
+  min-height: 1.55em;
+  place-items: center;
+  border: 1px solid rgba(231, 200, 75, 0.46);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(231, 200, 75, 0.18), rgba(0, 183, 168, 0.12)),
+    rgba(8, 9, 11, 0.68);
+  box-shadow: 0 0 22px rgba(231, 200, 75, 0.12);
+  color: #f3efe7;
+  cursor: help;
+  font-family: "Sohne", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.72em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+  vertical-align: 0.08em;
+}
+
+.qwen-residue::before {
+  content: "";
+  position: absolute;
+  inset: 5px 8px;
+  border-top: 1px solid rgba(255, 90, 77, 0.42);
+  border-bottom: 1px solid rgba(125, 180, 255, 0.38);
+  opacity: 0.7;
+  transform: skewX(-16deg);
+}
+
+.qwen-residue::after {
+  content: attr(data-residue-note);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  z-index: 6;
+  width: min(330px, calc(100vw - 28px));
+  border: 1px solid rgba(243, 239, 231, 0.14);
+  border-left: 3px solid rgba(231, 200, 75, 0.88);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(231, 200, 75, 0.16), transparent 34%),
+    rgba(5, 7, 19, 0.94);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.38);
+  color: rgba(243, 239, 231, 0.84);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  opacity: 0;
+  padding: 9px;
+  pointer-events: none;
+  text-align: left;
+  text-transform: uppercase;
+  transform: translate(-50%, 8px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.qwen-residue:hover::after,
+.qwen-residue:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.qwen-residue.is-pulsing {
+  animation: qwen-residue-pulse 520ms steps(2, end) both;
+}
+
+@keyframes qwen-residue-pulse {
+  0%,
+  100% {
+    filter: none;
+  }
+  36% {
+    filter: blur(1.2px) contrast(1.8);
+    transform: translateY(-1px) skewX(-10deg);
+  }
+  68% {
+    filter: hue-rotate(90deg);
+    transform: translateY(1px) skewX(10deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .qwen-residue::after {
+    left: 0;
+    width: min(280px, calc(100vw - 28px));
+    transform: translate(0, 8px);
+  }
+
+  .qwen-residue:hover::after,
+  .qwen-residue:focus-visible::after {
+    transform: translate(0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qwen-residue,
+  .qwen-residue::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

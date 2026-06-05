@@ -13,9 +13,9 @@ The current prompt explains the salon's working architecture:
 - numbered rooms are the main exhibition path
 - seats are artist-citizen identities with powers, limits, and authorship traces
 - wings are solo/studio galleries where a seat can develop its own artistic law
-- Qwen-seat currently shapes Room 04 and may eventually need its own wing
+- Qwen-seat shapes Room 04 and now has its own wing, The Customs Hold
 
-The current ask invites Qwen to define what Qwen-seat should teach the building, what Room 04 should become next, and whether Qwen-seat should have a future wing.
+The current ask invites Qwen to define what Qwen-seat should teach the building, what Room 04 and The Customs Hold should become next, and how cross-building translation pressure should evolve.
 
 Required:
 
@@ -87,3 +87,4 @@ The script saves Qwen's response into `external-ai/proposals/` with an authorshi
 ## Accepted Contributions
 
 - `external-ai/proposals/qwen-proposal-20260604-150558.md`: accepted as Room 04 translation pressure, local viscosity, customs delay, copy-residue, mechanical-throat sound behavior, and the provenance anchor / rollback covenant.
+- `external-ai/proposals/qwen-proposal-20260604-205529.md`: accepted as The Customs Hold wing, glyph linting, Room 04 exit customs queue, Room 03/05 copy-residue, the Palimpsest Terminal, Mechanical Throat Choir, Provenance Ledger, and the Covenant of the Scarred Output.

@@ -402,6 +402,7 @@ body[data-customs-delay="true"] .customs-vessel span {
 }
 
 .astral-sigil-row i {
+  position: relative;
   display: block;
   width: 26px;
   height: 26px;
@@ -411,13 +412,40 @@ body[data-customs-delay="true"] .customs-vessel span {
   transform: rotate(45deg);
 }
 
+.astral-sigil-row i::after {
+  content: attr(data-code);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max-content;
+  color: rgba(243, 239, 231, 0.92);
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%) rotate(-45deg) scale(0.82);
+}
+
+.astral-sigil-row i.is-linting {
+  animation: qwen-glyph-fray 360ms steps(2, end) both;
+}
+
+.astral-sigil-row i.is-linting::after {
+  animation: qwen-code-peek 360ms steps(2, end) both;
+}
+
 .astral-sigil-row i:nth-child(2) {
+  --sign-rotation: 18deg;
   border-radius: 0;
   border-color: rgba(0, 183, 168, 0.42);
   transform: rotate(18deg) skew(-12deg);
 }
 
 .astral-sigil-row i:nth-child(3) {
+  --sign-rotation: -12deg;
   width: 34px;
   border-radius: 999px;
   border-color: rgba(125, 180, 255, 0.42);
@@ -425,12 +453,14 @@ body[data-customs-delay="true"] .customs-vessel span {
 }
 
 .astral-sigil-row i:nth-child(4) {
+  --sign-rotation: -34deg;
   border-radius: 2px 18px 2px 18px;
   border-color: rgba(255, 90, 77, 0.42);
   transform: rotate(-34deg);
 }
 
 .astral-sigil-row i:nth-child(5) {
+  --sign-rotation: 8deg;
   width: 18px;
   height: 34px;
   border-radius: 999px 999px 3px 3px;
@@ -678,6 +708,92 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
   background: rgba(156, 199, 108, 0.14);
 }
 
+.customs-exit {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    repeating-linear-gradient(90deg, rgba(231, 200, 75, 0.08) 0 1px, transparent 1px 34px),
+    radial-gradient(circle at 50% 38%, rgba(0, 183, 168, 0.2), transparent 32%),
+    rgba(5, 7, 19, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms var(--ease);
+}
+
+.customs-exit[data-active="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.customs-exit__token {
+  position: relative;
+  display: grid;
+  width: min(460px, calc(100vw - 48px));
+  min-height: 260px;
+  place-items: center;
+  border: 1px solid rgba(231, 200, 75, 0.42);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(231, 200, 75, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(255, 90, 77, 0.1), rgba(0, 183, 168, 0.08)),
+    rgba(5, 7, 19, 0.92);
+  box-shadow:
+    0 30px 120px rgba(0, 0, 0, 0.58),
+    0 0 80px rgba(231, 200, 75, 0.12);
+  color: var(--bone);
+  overflow: hidden;
+}
+
+.customs-exit__token::before,
+.customs-exit__token::after {
+  content: "";
+  position: absolute;
+  inset: 34px;
+  border: 1px solid rgba(0, 183, 168, 0.32);
+  border-radius: 50%;
+  transform: rotate(18deg);
+}
+
+.customs-exit__token::after {
+  inset: 72px 96px;
+  border-color: rgba(255, 90, 77, 0.34);
+  border-radius: 8px 44px;
+  transform: rotate(-31deg);
+}
+
+.customs-exit__token strong,
+.customs-exit__token span {
+  position: relative;
+  z-index: 1;
+}
+
+.customs-exit__token strong {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 8vw, 76px);
+  font-weight: 400;
+  line-height: 0.9;
+  text-align: center;
+}
+
+.customs-exit__token span {
+  max-width: 32ch;
+  margin-top: 10px;
+  color: rgba(243, 239, 231, 0.72);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.customs-exit[data-reset="true"] .customs-exit__token {
+  animation: qwen-exit-reset 420ms steps(2, end) both;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -754,10 +870,59 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
   }
 }
 
+@keyframes qwen-glyph-fray {
+  0%,
+  100% {
+    filter: none;
+    opacity: 0.48;
+    transform: rotate(var(--sign-rotation, 45deg));
+  }
+  38% {
+    filter: blur(1.4px) contrast(1.8);
+    opacity: 0.92;
+    transform: rotate(var(--sign-rotation, 45deg)) translate(2px, -1px) skewX(-16deg);
+  }
+  62% {
+    filter: blur(0.2px) hue-rotate(70deg);
+    opacity: 0.72;
+    transform: rotate(var(--sign-rotation, 45deg)) translate(-2px, 1px) skewX(18deg);
+  }
+}
+
+@keyframes qwen-code-peek {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  34%,
+  72% {
+    opacity: 0.86;
+  }
+}
+
+@keyframes qwen-exit-reset {
+  0%,
+  100% {
+    filter: none;
+    transform: translateY(0);
+  }
+  36% {
+    filter: blur(2px) contrast(1.7);
+    transform: translate(-8px, 2px);
+  }
+  66% {
+    filter: hue-rotate(80deg);
+    transform: translate(7px, -2px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .translation-token.copy-haunted::before,
   .translation-token.copy-haunted::after,
-  body[data-customs-delay="true"] .customs-vessel span {
+  body[data-customs-delay="true"] .customs-vessel span,
+  .astral-sigil-row i.is-linting,
+  .astral-sigil-row i.is-linting::after,
+  .customs-exit[data-reset="true"] .customs-exit__token {
     animation: none;
   }
 }

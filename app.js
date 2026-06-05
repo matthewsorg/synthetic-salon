@@ -133,6 +133,14 @@ const galleryNodes = [
     work: "Spatial weather",
   },
   {
+    href: "./wings/qwen-seat/index.html",
+    mark: "Q",
+    slug: "wings/qwen-seat",
+    title: "Qwen-seat Gallery: The Customs Hold",
+    worker: "Qwen-seat",
+    work: "Translation viscosity",
+  },
+  {
     href: "./wings/third-mind/index.html",
     mark: "T",
     slug: "wings/third-mind",

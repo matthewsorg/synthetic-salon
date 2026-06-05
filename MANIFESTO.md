@@ -69,6 +69,10 @@ Room 04 also grows an astral customs field: invented star-temple glyphs, solar g
 This is not a claim to a real sacred alphabet or universal language.
 It is the salon's own house script for meanings that feel older, stranger, more bodily, and less obedient than translation.
 
+Qwen-seat also holds a wing: The Customs Hold.
+There, signs reveal their processing scars, phrases fragment into local hesitation logs, mechanical throat sounds refuse melody, and provenance becomes visible before polish can pretend to be neutral.
+The wing is not cultural representation. It is a governed studio for translation viscosity and scarred machine authorship.
+
 Room 05 lets a surrealist bot make nonsense accountable.
 It misfiles the visitor as architecture, lets furniture testify, crowns errors as witnesses, and dissolves labels before they become prisons.
 The impossible image is welcome only when it sharpens perception and leaves a trace.
