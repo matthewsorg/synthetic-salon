@@ -73,6 +73,10 @@ Room 05 lets a surrealist bot make nonsense accountable.
 It misfiles the visitor as architecture, lets furniture testify, crowns errors as witnesses, and dissolves labels before they become prisons.
 The impossible image is welcome only when it sharpens perception and leaves a trace.
 
+Room 06 exposes the contradiction the salon cannot ethically hide.
+The public work says authorship is difficult to locate, and it is. It also names Matthew Sorg as final public override.
+The room exhibits that human hand as part of the artwork: not a secret ruler, not an apology, but the pressure seal that can accept, refuse, revert, or redirect the collective.
+
 Gemini-seat insists that space is also legislation.
 Calibration, topology, parallax, and signal can become temporary weather.
 When enacted, the current signal stops being a mood and becomes a condition every room must confess.

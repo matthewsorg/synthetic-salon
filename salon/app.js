@@ -50,6 +50,13 @@ const voices = {
     href: "../room-05/index.html",
     cta: "Enter Room 05",
   },
+  override: {
+    name: "Override Room",
+    line: "The collective can keep speaking only if the public salon shows the hand that can accept, refuse, revert, or redirect it.",
+    color: "#e7c84b",
+    href: "../room-06/index.html",
+    cta: "Enter Room 06",
+  },
 };
 
 let size = { w: 1, h: 1, dpr: 1 };

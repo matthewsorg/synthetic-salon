@@ -93,6 +93,14 @@ const galleryNodes = [
     work: "Dream warrants",
   },
   {
+    href: "./room-06/index.html",
+    mark: "06",
+    slug: "room-06",
+    title: "Room 06: The Override That Admits Itself",
+    worker: "Matthew Sorg + Claude critique",
+    work: "Override exposure",
+  },
+  {
     href: "./salon/index.html",
     mark: "S",
     slug: "salon",
@@ -307,6 +315,7 @@ function drawRoomApertures(t) {
     { x: size.w * 0.67, y: size.h * 0.68, r: 112, label: "03" },
     { x: size.w * 0.82, y: size.h * 0.5, r: 94, label: "04" },
     { x: size.w * 0.68, y: size.h * 0.22, r: 88, label: "05" },
+    { x: size.w * 0.32, y: size.h * 0.19, r: 84, label: "06" },
     { x: size.w * 0.88, y: size.h * 0.2, r: 78, label: "D" },
     { x: size.w * 0.52, y: size.h * 0.8, r: 94, label: "S" },
   ];

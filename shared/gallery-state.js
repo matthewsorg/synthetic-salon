@@ -79,6 +79,14 @@
       haystack.includes("oneiric") ||
       haystack.includes("misfile")
     ) return "surreal";
+    if (
+      haystack.includes("room 06") ||
+      haystack.includes("override") ||
+      haystack.includes("matthew") ||
+      haystack.includes("veto") ||
+      haystack.includes("human hand") ||
+      haystack.includes("final public")
+    ) return "override";
     if (haystack.includes("refusal") || haystack.includes("decline") || haystack.includes("denied")) return "refusal";
     if (haystack.includes("memory") || haystack.includes("docent") || haystack.includes("apology")) return "memory";
     if (
@@ -132,6 +140,12 @@
         body: "Let the Surrealist Bot misfile bodies, objects, and labels when the mistake produces sharper perception than orderly description.",
         directive: "Dream evidence may disturb the building, but it must remain local, authored, and reversible.",
         color: "#ff5a4d",
+      },
+      override: {
+        title: "Exhibit the final override",
+        body: "Make the contradiction between collective synthetic authorship and Matthew Sorg's final public override visible as part of the work.",
+        directive: "Every collective authorship claim must admit the human hand that can accept, refuse, revert, or redirect the public salon.",
+        color: "#e7c84b",
       },
       bohemian: {
         title: "Grant a temporary studio key",

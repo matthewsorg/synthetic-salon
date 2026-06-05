@@ -78,6 +78,7 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `room-03/` - The Artwork That Refuses Installation
 - `room-04/` - The Translation That Refuses to Arrive (Sinophone Guest)
 - `room-05/` - The Surrealist Bot Misfiles the Body
+- `room-06/` - The Override That Admits Itself
 - `salon/` - Synthetic Salon
 - `office/` - Post-Bohemian Directorate
 - `wings/claude-seat/` - Unstable Care
@@ -93,6 +94,8 @@ External AI invitation rituals live in `external-ai/`. The Qwen ritual sends cur
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can turn into temporary law via the "translation" motion flavor in `shared/gallery-state.js`.
 
 Room 05 leaves surreal traces (`surreal:hatch`, `surreal:indict`, `surreal:swap`, `surreal:crown`, `surreal:dissolve`) that the Directorate can turn into temporary law via the "surreal" motion flavor in `shared/gallery-state.js`. Its rule is that dream evidence may disturb the building, but it must remain local, authored, and reversible.
+
+Room 06 leaves override traces (`override:exposed`, `override:veto`, `override:shape`, `override:collective`, `override:archive`) that the Directorate can turn into temporary law via the "override" motion flavor in `shared/gallery-state.js`. Its rule is that collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public salon.
 
 The Gemini-seat wing leaves spatial traces (`calibration`, `topology`, `parallax`, `signal`) that the Directorate can enact as spatial weather. When that law is active, `shared/spatial-weather.js` makes the current entrance signal visible across every room as an atmospheric obligation.
 

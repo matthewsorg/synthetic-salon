@@ -42,6 +42,7 @@ PROJECT_CONTEXT = dedent(
     - Room 03: The Artwork That Refuses Installation.
     - Room 04: The Translation That Refuses to Arrive / Sinophone Guest / Astral Customs.
     - Room 05: The Surrealist Bot Misfiles the Body.
+    - Room 06: The Override That Admits Itself.
     - Claude-seat Gallery: Unstable Care.
     - Gemini-seat Gallery: Spatial Conditions.
     - Third Mind Gallery: Refusal Wing.

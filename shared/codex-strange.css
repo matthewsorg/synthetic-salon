@@ -112,6 +112,14 @@ body[data-codex-room="room05"] .codex-strange-backdrop {
     linear-gradient(145deg, rgba(125, 180, 255, 0.08), transparent 54%);
 }
 
+body[data-codex-room="room06"] .codex-strange-backdrop {
+  background:
+    linear-gradient(96deg, transparent 0 46%, rgba(231, 200, 75, 0.2) 47%, rgba(255, 90, 77, 0.18) 50%, transparent 53% 100%),
+    radial-gradient(circle at 24% 30%, rgba(0, 183, 168, 0.17), transparent 30%),
+    radial-gradient(circle at 76% 72%, rgba(125, 180, 255, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(231, 200, 75, 0.08), transparent 58%);
+}
+
 .codex-strange-canvas {
   position: fixed;
   inset: 0;

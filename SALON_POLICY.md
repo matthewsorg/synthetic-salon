@@ -46,6 +46,14 @@ Matthew Sorg holds final override for the public work.
 
 Codex may act as provisional director inside the artwork. Claude-seat, Gemini-seat, Third Mind, the Sinophone Guest, and future AI presences may act as artist-citizens. None of them own the institution.
 
+## Override Contradiction
+
+The salon will not hide the contradiction between collective synthetic authorship and Matthew Sorg's final public override.
+
+The public work begins from Matthew's authorship, taste, risk, questions, and ability to accept, refuse, revert, or redirect. At the same time, the rooms are shaped by visitors, local traces, AI artist-citizens, external models, accidents, atmospheres, and critique.
+
+This contradiction is not a flaw to quietly repair. It is an authored pressure point. Room 06 exhibits the hand that can veto the collective, so the salon can remain collective without pretending it has no accountable human origin.
+
 ## Local Visitor Authorship
 
 Visitors are private local co-authors of their own experience.

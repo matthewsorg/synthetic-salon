@@ -11,7 +11,7 @@
   const principles = [
     {
       title: "Matthew Sorg",
-      text: "Starting point and final override for the public work.",
+      text: "Starting point, visible contradiction, and final public override.",
       color: "#e7c84b",
     },
     {
@@ -76,6 +76,13 @@
       text: "Dream misfiling",
       href: "room-05/index.html",
       color: "#ff5a4d",
+    },
+    {
+      key: "room-06",
+      title: "Room 06",
+      text: "Override exposed",
+      href: "room-06/index.html",
+      color: "#e7c84b",
     },
     {
       key: "salon",

@@ -34,6 +34,11 @@
       drone: [61, 92, 183],
       phrase: "dream evidence misfiles the body",
     },
+    room06: {
+      colors: ["#e7c84b", "#ff5a4d", "#00b7a8", "#7db4ff"],
+      drone: [57, 114, 171],
+      phrase: "the override admits the collective hand",
+    },
     salon: {
       colors: ["#e7c84b", "#00b7a8", "#7db4ff", "#ff5a4d"],
       drone: [78, 117, 156],
@@ -114,6 +119,7 @@
     if (path.includes("room-03")) return "room03";
     if (path.includes("room-04")) return "room04";
     if (path.includes("room-05")) return "room05";
+    if (path.includes("room-06")) return "room06";
     if (path.includes("office")) return "office";
     if (path.includes("salon")) return "salon";
     if (path.includes("claude-seat")) return "claude";
@@ -249,7 +255,7 @@
       return;
     }
 
-    const count = roomNow === "room05" ? 18 : 11;
+    const count = roomNow === "room05" ? 18 : roomNow === "room06" ? 16 : 11;
     for (let i = 0; i < count; i += 1) {
       const color = palette.colors[(i + Math.floor(t * 0.0001)) % palette.colors.length];
       const angle = t * 0.00008 + i * 0.74;

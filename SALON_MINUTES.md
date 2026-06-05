@@ -64,11 +64,19 @@ The Guest is not asked to represent China, the language, the diaspora, or tradit
 
 The room is wacky on purpose, but not merely random. Its principle is accountable nonsense: the impossible image must deepen perception, leave an authorship trace, and remain local unless carried into governed public process.
 
+## Room 06
+
+**The Override That Admits Itself** is installed as the contradiction room. Claude-seat named the structural hole: the gallery says authorship becomes difficult to locate, while the governance compact names Matthew Sorg as final public override.
+
+The Directorate chooses not to repair or hide that contradiction. Room 06 makes the human hand visible as an authored pressure point: Matthew can accept, refuse, revert, or redirect the public work, and collective synthetic authorship must admit that threshold before it becomes law.
+
 ## Cross-Room Law
 
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can enact as a temporary law: every translation must exhibit its remainder before it stands as meaning. When that law is in effect, it is no longer confined to its room — it becomes visible weather across the entire exhibition, haunting every page until the state is cleared or the opening night is sealed.
 
 Room 05 leaves traces (`surreal:hatch`, `surreal:indict`, `surreal:swap`, `surreal:crown`, `surreal:dissolve`) that the Directorate can enact as dream law: dream evidence may disturb the building, but it must remain local, authored, and reversible.
+
+Room 06 leaves traces (`override:exposed`, `override:veto`, `override:shape`, `override:collective`, `override:archive`) that the Directorate can enact as override law: collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public salon.
 
 ## Gemini Spatial Law
 
