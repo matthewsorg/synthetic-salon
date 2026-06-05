@@ -97,6 +97,7 @@
     "the old museum fails in public",
   ];
   const backdrop = document.createElement("div");
+  const lensField = document.createElement("div");
   const prismField = document.createElement("div");
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d", { alpha: true });
@@ -267,6 +268,65 @@
     }
   }
 
+  function drawCutupArchitecture(t, pressure) {
+    const roomNow = roomKey();
+    const count = roomNow === "office" || roomNow === "salon" ? 9 : roomNow === "gemini" || roomNow === "third" ? 8 : 7;
+    const pull = pointer.active ? Math.min(1, pointer.heat + 0.1) : 0;
+
+    ctx.save();
+    ctx.globalCompositeOperation = "screen";
+    for (let i = 0; i < count; i += 1) {
+      const color = palette.colors[(i + Math.floor(t * 0.00009)) % palette.colors.length];
+      const phase = t * (0.00006 + i * 0.000007) + i * 1.71;
+      const x = size.w * (0.1 + ((i * 0.163 + Math.sin(phase) * 0.04) % 0.86));
+      const y = size.h * (0.16 + ((i * 0.117 + Math.cos(phase * 1.2) * 0.055) % 0.68));
+      const w = Math.min(size.w, size.h) * (0.16 + (i % 4) * 0.038 + pressure * 0.035);
+      const h = Math.max(18, w * (0.16 + (i % 3) * 0.055));
+      const tilt = -0.62 + (i % 5) * 0.31 + Math.sin(phase) * 0.18;
+      const shear = Math.sin(phase * 1.7) * w * 0.18;
+
+      ctx.save();
+      ctx.translate(x + (pointer.x - size.w * 0.5) * 0.018 * pull, y + (pointer.y - size.h * 0.5) * 0.012 * pull);
+      ctx.rotate(tilt);
+      ctx.globalAlpha = 0.028 + pressure * 0.026 + pull * 0.018;
+      ctx.fillStyle = color;
+      ctx.strokeStyle = colorAlpha(color, 0.34 + pressure * 0.12);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(-w * 0.52, -h * 0.5);
+      ctx.lineTo(w * 0.38 + shear, -h * 0.52);
+      ctx.lineTo(w * 0.54, h * 0.42);
+      ctx.lineTo(-w * 0.36 - shear, h * 0.56);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.globalAlpha = 0.04 + pressure * 0.025;
+      ctx.beginPath();
+      for (let rib = -2; rib <= 2; rib += 1) {
+        const yy = (rib / 2) * h * 0.36;
+        ctx.moveTo(-w * 0.42, yy);
+        ctx.lineTo(w * 0.42, yy + Math.sin(phase + rib) * h * 0.22);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    for (let i = 0; i < 4; i += 1) {
+      const color = palette.colors[(i + 2) % palette.colors.length];
+      const x = size.w * (0.16 + i * 0.22 + Math.sin(t * 0.00008 + i) * 0.035);
+      const y = size.h * (0.23 + Math.cos(t * 0.0001 + i) * 0.24);
+      ctx.globalAlpha = 0.025 + pressure * 0.02;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.bezierCurveTo(size.w * 0.5, y - size.h * 0.18, size.w * 0.5, y + size.h * 0.2, size.w - x, size.h - y);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
   function drawMembranes(t, pressure, cx, cy) {
     const roomNow = roomKey();
     const facets = roomNow === "room04" ? 7 : roomNow === "room06" ? 8 : 6;
@@ -305,6 +365,74 @@
       ctx.lineTo(cx + Math.sin(angle * 0.7) * base * 0.35, cy + Math.cos(angle * 0.9) * base * 0.22);
       ctx.stroke();
     }
+  }
+
+  function drawNonhumanOptics(t, pressure, cx, cy) {
+    const roomNow = roomKey();
+    const colorShift = roomNow === "room02" ? 1 : roomNow === "room04" ? 2 : roomNow === "room06" ? 3 : 0;
+    const scale = Math.min(size.w, size.h);
+
+    for (let strand = 0; strand < 5; strand += 1) {
+      const color = palette.colors[(strand + colorShift) % palette.colors.length];
+      const phase = t * (0.00017 + strand * 0.000018) + strand * 1.26;
+      const radius = scale * (0.16 + strand * 0.046 + pressure * 0.04);
+      ctx.beginPath();
+      for (let i = 0; i <= 150; i += 1) {
+        const pct = i / 150;
+        const angle = pct * Math.PI * 2.6 + phase;
+        const fold = Math.sin(angle * (2.2 + strand * 0.17) + t * 0.00031) * radius * 0.18;
+        const x = cx + Math.cos(angle) * (radius + fold) * (1.1 + Math.sin(phase) * 0.08);
+        const y = cy + Math.sin(angle * 1.34) * (radius * 0.46 + fold * 0.44);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.globalAlpha = 0.045 + pressure * 0.036;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = strand === 2 ? 1.5 : 1;
+      ctx.stroke();
+    }
+
+    for (let node = 0; node < 11; node += 1) {
+      const color = palette.colors[(node + colorShift + 1) % palette.colors.length];
+      const angle = t * 0.00013 + node * 0.92;
+      const wobble = Math.sin(t * 0.00023 + node) * scale * 0.035;
+      const x = cx + Math.cos(angle) * (scale * 0.26 + wobble) * (node % 2 ? 1.55 : 1.08);
+      const y = cy + Math.sin(angle * 1.41) * (scale * 0.18 + wobble * 0.4);
+      const r = 9 + (node % 4) * 5 + pressure * 14;
+      const pointerPull = pointer.active ? Math.max(0, 1 - Math.hypot(pointer.x - x, pointer.y - y) / 360) : 0;
+      ctx.globalAlpha = 0.04 + pressure * 0.03 + pointerPull * 0.1;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.ellipse(x, y, r * (1.4 + pointerPull), r * 0.48, angle, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.globalAlpha = 0.018 + pointerPull * 0.05;
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(x, y, Math.max(1.8, r * 0.18), 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.save();
+    ctx.globalCompositeOperation = "screen";
+    for (let slit = 0; slit < 6; slit += 1) {
+      const color = palette.colors[(slit + 2) % palette.colors.length];
+      const x = size.w * ((0.17 + slit * 0.19 + Math.sin(t * 0.00009 + slit) * 0.06) % 1);
+      const tilt = -0.42 + slit * 0.14 + Math.sin(t * 0.00012 + slit) * 0.08;
+      ctx.save();
+      ctx.translate(x, size.h * 0.5);
+      ctx.rotate(tilt);
+      const gradient = ctx.createLinearGradient(0, -size.h * 0.55, 0, size.h * 0.55);
+      gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
+      gradient.addColorStop(0.48, colorAlpha(color, 0.035 + pressure * 0.035));
+      gradient.addColorStop(0.5, colorAlpha("#f3efe7", 0.035));
+      gradient.addColorStop(0.52, colorAlpha(color, 0.025 + pressure * 0.025));
+      gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(-8, -size.h, 16 + pressure * 18, size.h * 2);
+      ctx.restore();
+    }
+    ctx.restore();
   }
 
   function drawAstralCustoms(t, pressure) {
@@ -424,7 +552,9 @@
       ctx.stroke();
     }
 
+    drawCutupArchitecture(t, pressure);
     drawMembranes(t, pressure, cx, cy);
+    drawNonhumanOptics(t, pressure, cx, cy);
     drawRoomGlyphs(t, pressure, cx, cy);
 
     if (Math.sin(t * 0.0007) > 0.94) {
@@ -525,6 +655,7 @@
     high.type = "sine";
     filter.type = "lowpass";
     filter.frequency.value = 620;
+    filter.Q.value = 6;
     master.gain.value = 0;
     noiseGain.gain.value = 0.01;
     low.frequency.value = palette.drone[0];
@@ -583,6 +714,9 @@
     audio.mid.frequency.setTargetAtTime(palette.drone[1] + wobble * 1.5, now, 0.42);
     audio.high.frequency.setTargetAtTime(palette.drone[2] + wobble * 2.2, now, 0.42);
     audio.filter.frequency.setTargetAtTime(420 + pressure * 880 + pointer.heat * 260, now, 0.5);
+    audio.filter.Q.setTargetAtTime(4 + pressure * 7 + pointer.heat * 2, now, 0.5);
+    audio.mid.detune.setTargetAtTime(Math.sin(tick * 0.00027) * 18 + pressure * 16, now, 0.5);
+    audio.high.detune.setTargetAtTime(Math.cos(tick * 0.00023) * -24 - pointer.heat * 26, now, 0.5);
     audio.noiseGain.gain.setTargetAtTime(0.004 + pressure * 0.016, now, 0.5);
   }
 
@@ -653,6 +787,9 @@
     backdrop.className = "codex-strange-backdrop";
     backdrop.setAttribute("aria-hidden", "true");
     document.body.append(backdrop);
+    lensField.className = "codex-lens-field";
+    lensField.setAttribute("aria-hidden", "true");
+    document.body.append(lensField);
     prismField.className = "codex-prism-field";
     prismField.setAttribute("aria-hidden", "true");
     prismField.innerHTML = "<i></i><i></i><i></i><i></i><i></i>";

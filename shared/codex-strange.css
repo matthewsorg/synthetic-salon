@@ -10,7 +10,7 @@
     radial-gradient(circle at 46% 82%, rgba(255, 90, 77, 0.12), transparent 34%),
     linear-gradient(135deg, rgba(125, 180, 255, 0.07), rgba(8, 9, 11, 0));
   mix-blend-mode: screen;
-  opacity: 0.62;
+  opacity: 0.74;
 }
 
 .codex-strange-backdrop::before,
@@ -33,6 +33,7 @@
     );
   opacity: 0.82;
   transform: rotate(-3deg);
+  animation: codex-backdrop-warp 34s ease-in-out infinite alternate;
 }
 
 .codex-strange-backdrop::after {
@@ -43,6 +44,60 @@
   filter: blur(0.2px);
   opacity: 0.64;
   transform: rotate(8deg);
+  animation: codex-backdrop-warp 42s ease-in-out infinite alternate-reverse;
+}
+
+.codex-lens-field {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.56;
+}
+
+.codex-lens-field::before,
+.codex-lens-field::after {
+  content: "";
+  position: absolute;
+  inset: -18vmax;
+  background:
+    conic-gradient(
+      from 40deg at 44% 52%,
+      transparent 0 8%,
+      color-mix(in srgb, var(--codex-strange-1, #00b7a8) 22%, transparent) 9% 10.2%,
+      transparent 11% 21%,
+      color-mix(in srgb, var(--codex-strange-2, #e7c84b) 18%, transparent) 22% 23.4%,
+      transparent 24% 42%,
+      color-mix(in srgb, var(--codex-strange-3, #7db4ff) 16%, transparent) 43% 44.2%,
+      transparent 45% 100%
+    ),
+    repeating-radial-gradient(
+      ellipse at 52% 48%,
+      transparent 0 36px,
+      rgba(243, 239, 231, 0.034) 37px 38px,
+      transparent 39px 84px
+    );
+  filter: blur(0.3px);
+  transform: translate3d(-4vw, 1vh, 0) rotate(-12deg) scale(1.02);
+  animation: codex-lens-turn 38s cubic-bezier(0.45, 0, 0.2, 1) infinite alternate;
+}
+
+.codex-lens-field::after {
+  background:
+    radial-gradient(ellipse at 72% 18%, color-mix(in srgb, var(--codex-strange-4, #ff5a4d) 20%, transparent), transparent 24%),
+    radial-gradient(ellipse at 18% 78%, color-mix(in srgb, var(--codex-strange-1, #00b7a8) 18%, transparent), transparent 28%),
+    repeating-linear-gradient(
+      118deg,
+      transparent 0 18px,
+      color-mix(in srgb, var(--codex-strange-2, #e7c84b) 8%, transparent) 18px 19px,
+      transparent 19px 72px
+    );
+  opacity: 0.72;
+  transform: translate3d(6vw, -3vh, 0) rotate(18deg) scale(1.08);
+  animation-duration: 46s;
+  animation-direction: alternate-reverse;
 }
 
 .codex-prism-field {
@@ -52,8 +107,8 @@
   overflow: hidden;
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: 0.5;
-  filter: saturate(1.18) contrast(1.08);
+  opacity: 0.62;
+  filter: saturate(1.32) contrast(1.14);
 }
 
 .codex-prism-field i {
@@ -200,6 +255,93 @@ body[data-codex-room="room06"] .codex-strange-backdrop {
     linear-gradient(145deg, rgba(231, 200, 75, 0.08), transparent 58%);
 }
 
+body[data-codex-room="room01"] .codex-lens-field {
+  opacity: 0.62;
+}
+
+body[data-codex-room="room02"] .codex-lens-field {
+  opacity: 0.66;
+  filter: hue-rotate(8deg) saturate(1.18);
+}
+
+body[data-codex-room="room03"] .codex-lens-field {
+  opacity: 0.64;
+}
+
+body[data-codex-room="room03"] .codex-lens-field::after {
+  background:
+    radial-gradient(ellipse at 22% 18%, color-mix(in srgb, var(--codex-strange-4, #f3efe7) 16%, transparent), transparent 22%),
+    radial-gradient(ellipse at 68% 72%, color-mix(in srgb, var(--codex-strange-1, #ff5a4d) 22%, transparent), transparent 26%),
+    repeating-linear-gradient(
+      34deg,
+      transparent 0 16px,
+      color-mix(in srgb, var(--codex-strange-2, #e7c84b) 10%, transparent) 16px 17px,
+      transparent 17px 64px
+    );
+}
+
+body[data-codex-room="room04"] .codex-lens-field {
+  opacity: 0.72;
+  mix-blend-mode: lighten;
+}
+
+body[data-codex-room="room04"] .codex-lens-field::before {
+  background:
+    conic-gradient(
+      from 0deg at 50% 42%,
+      transparent 0 6%,
+      color-mix(in srgb, var(--codex-strange-1, #e7c84b) 25%, transparent) 6.8% 7.5%,
+      transparent 8.2% 17%,
+      color-mix(in srgb, var(--codex-strange-2, #00b7a8) 18%, transparent) 18% 18.7%,
+      transparent 19.4% 100%
+    ),
+    repeating-radial-gradient(
+      ellipse at 50% 42%,
+      transparent 0 28px,
+      rgba(243, 239, 231, 0.045) 29px 30px,
+      transparent 31px 76px
+    );
+}
+
+body[data-codex-room="room05"] .codex-lens-field {
+  opacity: 0.68;
+  filter: hue-rotate(-18deg) saturate(1.25);
+}
+
+body[data-codex-room="room06"] .codex-lens-field {
+  opacity: 0.7;
+}
+
+body[data-codex-room="room06"] .codex-lens-field::after {
+  background:
+    linear-gradient(92deg, transparent 0 47%, color-mix(in srgb, var(--codex-strange-2, #ff5a4d) 18%, transparent) 48%, transparent 51% 100%),
+    repeating-linear-gradient(
+      178deg,
+      transparent 0 31px,
+      color-mix(in srgb, var(--codex-strange-1, #e7c84b) 9%, transparent) 31px 32px,
+      transparent 32px 96px
+    );
+}
+
+body[data-codex-room="salon"] .codex-lens-field,
+body[data-codex-room="office"] .codex-lens-field {
+  opacity: 0.61;
+}
+
+body[data-codex-room="claude"] .codex-lens-field {
+  opacity: 0.58;
+  filter: hue-rotate(18deg) saturate(1.12);
+}
+
+body[data-codex-room="gemini"] .codex-lens-field {
+  opacity: 0.67;
+}
+
+body[data-codex-room="third"] .codex-lens-field {
+  opacity: 0.69;
+  filter: saturate(1.36) contrast(1.08);
+}
+
 .codex-strange-canvas {
   position: fixed;
   inset: 0;
@@ -333,12 +475,34 @@ body.codex-score-awake .codex-prism-field {
   opacity: 0.72;
 }
 
+body.codex-score-awake .codex-lens-field {
+  opacity: 0.76;
+}
+
 @keyframes codex-score-bar {
   from {
     transform: scaleY(0.52);
   }
   to {
     transform: scaleY(1.28);
+  }
+}
+
+@keyframes codex-backdrop-warp {
+  from {
+    transform: translate3d(-1vw, 0, 0) rotate(-4deg) scale(1);
+  }
+  to {
+    transform: translate3d(2vw, -1vh, 0) rotate(11deg) scale(1.06);
+  }
+}
+
+@keyframes codex-lens-turn {
+  from {
+    transform: translate3d(-4vw, 1vh, 0) rotate(-12deg) scale(1.02);
+  }
+  to {
+    transform: translate3d(5vw, -3vh, 0) rotate(24deg) scale(1.12);
   }
 }
 
@@ -352,8 +516,12 @@ body.codex-score-awake .codex-prism-field {
 }
 
 @media (max-width: 760px) {
+  .codex-lens-field {
+    opacity: 0.42;
+  }
+
   .codex-prism-field {
-    opacity: 0.38;
+    opacity: 0.46;
   }
 
   .codex-prism-field i {
@@ -374,6 +542,13 @@ body.codex-score-awake .codex-prism-field {
 @media (prefers-reduced-motion: reduce) {
   .codex-strange-canvas {
     opacity: 0.44;
+  }
+
+  .codex-strange-backdrop::before,
+  .codex-strange-backdrop::after,
+  .codex-lens-field::before,
+  .codex-lens-field::after {
+    animation: none;
   }
 
   .codex-prism-field i {
