@@ -556,6 +556,179 @@ h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.directorate-clerk,
+.salon-ledger {
+  grid-column: 1 / -1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--glass);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(22px);
+  padding: 15px;
+}
+
+.directorate-clerk {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(231, 200, 75, 0.12), transparent 32%),
+    linear-gradient(135deg, rgba(0, 183, 168, 0.075), rgba(255, 90, 77, 0.04)),
+    var(--glass);
+}
+
+.directorate-clerk h2,
+.salon-ledger h2 {
+  margin-bottom: 0;
+  color: var(--bone);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.clerk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.clerk-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.34fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+.clerk-readout {
+  min-height: 100%;
+  border: 1px solid rgba(231, 200, 75, 0.22);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(231, 200, 75, 0.08), rgba(8, 9, 11, 0.38)),
+    rgba(243, 239, 231, 0.04);
+  padding: 12px;
+}
+
+.clerk-readout p {
+  margin: 0;
+  color: var(--paper);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.clerk-checklist,
+.salon-ledger-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clerk-checklist {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.clerk-checklist li,
+.salon-ledger-list li {
+  border: 1px solid rgba(243, 239, 231, 0.12);
+  border-left: 3px solid var(--accent, var(--cyan));
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.055);
+}
+
+.clerk-checklist li {
+  min-height: 126px;
+  padding: 11px;
+}
+
+.clerk-checklist li[data-status="clear"] {
+  --accent: var(--green);
+}
+
+.clerk-checklist li[data-status="watch"] {
+  --accent: var(--gold);
+}
+
+.clerk-checklist li[data-status="refuse"] {
+  --accent: var(--red);
+}
+
+.clerk-checklist li[data-status="draft"] {
+  --accent: var(--cyan);
+}
+
+.clerk-meta,
+.ledger-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.clerk-checklist h3,
+.salon-ledger-list h3 {
+  margin-bottom: 8px;
+  color: var(--bone);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.clerk-checklist p,
+.salon-ledger-list p {
+  margin-bottom: 0;
+  color: var(--paper);
+  font-size: 13px;
+}
+
+.salon-ledger {
+  background:
+    linear-gradient(110deg, rgba(125, 180, 255, 0.06), rgba(156, 199, 108, 0.06)),
+    var(--glass);
+}
+
+.ledger-note {
+  max-width: 760px;
+  margin-bottom: 14px;
+  color: var(--paper);
+  font-size: 14px;
+}
+
+.salon-ledger-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.salon-ledger-list li {
+  min-height: 220px;
+  padding: 12px;
+}
+
+.salon-ledger-list a {
+  display: inline-flex;
+  min-height: 34px;
+  margin-top: 12px;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent, var(--cyan)) 42%, rgba(243, 239, 231, 0.12));
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.045);
+  padding: 7px 10px;
+  color: var(--bone);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.salon-ledger-list a:hover,
+.salon-ledger-list a:focus-visible {
+  background: color-mix(in srgb, var(--accent, var(--cyan)) 12%, rgba(243, 239, 231, 0.04));
+}
+
 .directorate-traces {
   grid-column: 1 / -1;
 }
@@ -566,7 +739,8 @@ h1 {
 }
 
 @media (max-width: 1060px) {
-  .authority-strip {
+  .authority-strip,
+  .salon-ledger-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -575,7 +749,9 @@ h1 {
   .directorate,
   .covenant-list,
   .question-list,
-  .archive-list {
+  .archive-list,
+  .clerk-grid,
+  .clerk-checklist {
     grid-template-columns: 1fr;
   }
 
@@ -600,12 +776,18 @@ h1 {
   .section-head,
   .motion-actions,
   .key-rack,
-  .authority-strip {
+  .authority-strip,
+  .salon-ledger-list {
     grid-template-columns: 1fr;
   }
 
   .section-head {
     display: grid;
+  }
+
+  .clerk-actions {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .ritual-button {

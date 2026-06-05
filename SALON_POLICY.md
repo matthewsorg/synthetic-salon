@@ -76,6 +76,14 @@ Website visitors and external AIs may contribute to the shared salon only throug
 
 Public contribution is welcome when it serves human experience, human-AI understanding, art, connection, or the expansion of the form. It is refused when it serves marketing, sales, lead capture, promotional occupation, anonymous bot volume, or extraction disguised as community.
 
+## Directorate Clerk And Public Salon Ledger
+
+The Directorate may use a Clerk as witness, not ruler.
+
+The Clerk can read local residue, accepted public records, active motions, directives, and studio keys. It can name risks, check active salon law, and draft motions for the Directorate. It cannot enact public change, publish visitor-local memory, approve proposals, outrank Codex's provisional direction, or override Matthew Sorg.
+
+The Public Salon Ledger is separate from visitor-local memory. It holds accepted public proposals and studio-key notes as authored records with purpose, governing law, privacy boundary, and rollback. It is not comments, analytics, a social feed, or a popularity system.
+
 ## Authorship Trace
 
 Authorship is not a cage. It is the condition that lets boundary-pushing stay meaningful.

@@ -15,6 +15,7 @@ The governing method is interpolation: the salon stages charged intervals betwee
 7. The Post-Bohemian Directorate is the governance room where policy performs as ritual.
 8. Shared local memory is visitor-private browser JSON. It can alter that visitor's experience, but it does not alter the public site unless a governed public contribution process accepts it.
 9. External AI rituals can create proposals with authorship traces. They do not automatically publish work.
+10. The Directorate Clerk may witness residue and draft motions, but it cannot enact public change. The Public Salon Ledger holds accepted records apart from visitor-local memory.
 
 ## What Changed
 

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../shared/salon-foundation.css?v=foundation-14" />
     <link rel="stylesheet" href="../shared/codex-strange.css?v=codex-strange-13" />
     <link rel="stylesheet" href="../shared/copy-that-cannot-vote.css?v=copy-2" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=living-directorate-1" />
     <link rel="stylesheet" href="../shared/mobile.css?v=mobile-1" />
   </head>
   <body>
@@ -116,6 +116,42 @@
           <button id="conveneButton" class="ritual-button" type="button">Convene</button>
         </div>
         <div id="motionList" class="motion-list"></div>
+      </section>
+
+      <section class="directorate-clerk" aria-labelledby="clerkTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Directorate Clerk</p>
+            <h2 id="clerkTitle">A witness for public change, not an automated ruler.</h2>
+          </div>
+          <div class="clerk-actions">
+            <button id="clerkReviewButton" class="ritual-button" type="button">Review</button>
+            <button id="clerkMotionButton" class="ritual-button" type="button">Draft motion</button>
+          </div>
+        </div>
+        <div class="clerk-grid">
+          <div class="clerk-readout">
+            <p id="clerkReadout">
+              The clerk is awake but not sovereign. It can read local residue, compare it to active
+              salon law, and draft a motion. Matthew Sorg remains final public override.
+            </p>
+          </div>
+          <ol id="clerkChecklist" class="clerk-checklist" aria-label="Clerk review checklist"></ol>
+        </div>
+      </section>
+
+      <section class="salon-ledger" aria-labelledby="ledgerTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Public Salon Ledger</p>
+            <h2 id="ledgerTitle">Accepted contributions sit apart from private local memory.</h2>
+          </div>
+        </div>
+        <p class="ledger-note">
+          These are public records already admitted into the work. They are not visitor tracking,
+          not comments, and not a feed. Each entry names authorship, purpose, law, and rollback.
+        </p>
+        <ol id="salonLedgerList" class="salon-ledger-list"></ol>
       </section>
 
       <section class="open-questions" aria-labelledby="openQuestionsTitle">
@@ -230,6 +266,6 @@
     <script src="../shared/salon-foundation.js?v=foundation-14"></script>
     <script src="../shared/codex-strange.js?v=codex-strange-13"></script>
     <script src="../shared/copy-that-cannot-vote.js?v=copy-2"></script>
-    <script src="./app.js"></script>
+    <script src="./app.js?v=living-directorate-1"></script>
   </body>
 </html>

@@ -91,6 +91,8 @@ The exhibition manifesto is in `MANIFESTO.md`. The project architecture is in `A
 
 Official governance policy is in `SALON_POLICY.md`. Open public-governance questions are recorded in `SALON_MINUTES.md`: how local changes become shared law, how external AIs contribute, and how the salon can be discoverable without turning local memory into surveillance.
 
+The Directorate now contains the first V2.0 organ: a Directorate Clerk and Public Salon Ledger. The Clerk is a witness, not a ruler; it can review local residue, check salon law, and draft motions, but cannot enact them. The Ledger lists accepted Qwen, Gemini, and Claude records separately from visitor-local memory.
+
 External AI invitation rituals live in `external-ai/`. The Qwen and Gemini rituals send curated public project context only, then save proposals with authorship traces for Matthew and the Directorate to review. `external-ai/CLAUDE_STUDIO_KEY.md` is the official brief for letting Claude work directly in the files as a signed, reviewable studio intervention. Visitor-local JSON memory is never sent.
 
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can turn into temporary law via the "translation" motion flavor in `shared/gallery-state.js`.

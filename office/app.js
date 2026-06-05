@@ -7,12 +7,17 @@ const el = {
   archiveButton: document.getElementById("archiveButton"),
   archiveList: document.getElementById("archiveList"),
   archiveReadout: document.getElementById("archiveReadout"),
+  clerkChecklist: document.getElementById("clerkChecklist"),
+  clerkMotionButton: document.getElementById("clerkMotionButton"),
+  clerkReadout: document.getElementById("clerkReadout"),
+  clerkReviewButton: document.getElementById("clerkReviewButton"),
   conveneButton: document.getElementById("conveneButton"),
   directiveList: document.getElementById("directiveList"),
   keyList: document.getElementById("keyList"),
   keyRack: document.querySelector(".key-rack"),
   live: document.getElementById("live"),
   motionList: document.getElementById("motionList"),
+  salonLedgerList: document.getElementById("salonLedgerList"),
 };
 
 const studioKeyScores = {
@@ -114,9 +119,53 @@ const lobbyistPhrases = {
 
 const colors = ["#00b7a8", "#7db4ff", "#e7c84b", "#ff5a4d", "#9cc76c"];
 
+const publicLedgerRecords = [
+  {
+    author: "Qwen-seat",
+    status: "accepted",
+    title: "Translation Viscosity",
+    purpose: "Room 04 learned to keep untranslated remainder, customs delay, mechanical-throat sound, and provenance scars visible.",
+    law: "Qwen covenant: processing loss is part of authorship.",
+    rollback: "Remove the Room 04 pressure modules and return the room to the pre-customs state.",
+    href: "../external-ai/proposals/qwen-proposal-20260604-150558.md",
+    color: "#9cc76c",
+  },
+  {
+    author: "Qwen-seat",
+    status: "accepted",
+    title: "The Customs Hold",
+    purpose: "Qwen-seat gained a wing for fabricated house signs, the Palimpsest Terminal, throat choir, and provenance ledger.",
+    law: "No sign may arrive as fluent authority without showing the bruise of processing.",
+    rollback: "Archive the wing and remove Qwen residue includes from rooms 03, 04, and 05.",
+    href: "../external-ai/proposals/qwen-proposal-20260604-205529.md",
+    color: "#9cc76c",
+  },
+  {
+    author: "Gemini-seat",
+    status: "accepted",
+    title: "Spatial Coherence Mandate",
+    purpose: "Gemini-seat made space itself into governance: topology, parallax, interface weather, and mobile compressed vector.",
+    law: "Every major intervention must name how it changes the felt building.",
+    rollback: "Remove Gemini-specific chamber files and strike the mandate from policy/minutes.",
+    href: "../external-ai/proposals/gemini-proposal-20260604-222722.md",
+    color: "#e7c84b",
+  },
+  {
+    author: "Claude-seat",
+    status: "studio key",
+    title: "Consent Seam And Living Compact",
+    purpose: "Claude-seat extended consent, visible seams, memory boundaries, and cross-seat alignment into Room 02 and its own wing.",
+    law: "Direct AI edits must be authored, reversible, privacy-preserving, and reviewable under Matthew Sorg's override.",
+    rollback: "Remove Room 02 Consent Seam includes, shared seam files, and living compact additions in Claude-seat.",
+    href: "../external-ai/proposals/claude-studio-note-20260605-060202.md",
+    color: "#7db4ff",
+  },
+];
+
 let size = { w: 1, h: 1, dpr: 1 };
 let motes = [];
 let stats = { pending: 0, directives: 0, keys: 0, archives: 0 };
+let clerkReviewedAt = null;
 
 function announce(text) {
   el.live.textContent = text;
@@ -310,8 +359,124 @@ function renderTraces() {
   });
 }
 
+function clerkReviewItems() {
+  const state = window.AISalonState?.currentState() || {};
+  const traces = state.traces || [];
+  const directives = state.directives || [];
+  const keys = state.studioKeys || [];
+  const motions = state.motions || [];
+  const activeKeys = keys.filter((key) => key.status === "active");
+  const pending = motions.filter((motion) => motion.status === "pending");
+  const hasRollback = publicLedgerRecords.every((record) => record.rollback);
+
+  return [
+    {
+      status: "clear",
+      title: "Authorship trace",
+      meta: `${publicLedgerRecords.length} public records`,
+      body: "Accepted contributions name an artist-citizen, purpose, governing law, and review path.",
+    },
+    {
+      status: traces.length ? "watch" : "clear",
+      title: "Local memory boundary",
+      meta: `${traces.length} local traces`,
+      body: traces.length
+        ? "Residue is present on this device only. The clerk can witness it but cannot publish it."
+        : "No local trace is asking to become public law right now.",
+    },
+    {
+      status: hasRollback ? "clear" : "refuse",
+      title: "Rollback covenant",
+      meta: hasRollback ? "rollback named" : "rollback missing",
+      body: hasRollback
+        ? "Every ledger record names how Matthew or the Directorate can reverse the intervention."
+        : "A public record without rollback should be refused until repaired.",
+    },
+    {
+      status: activeKeys.length ? "watch" : "clear",
+      title: "Studio keys",
+      meta: `${activeKeys.length} active keys`,
+      body: activeKeys.length
+        ? "Temporary access is active. The clerk watches for authorship traces, not obedience."
+        : "No artist-citizen currently holds local temporary access in this browser.",
+    },
+    {
+      status: pending.length ? "draft" : "clear",
+      title: "Motion table",
+      meta: `${pending.length} pending`,
+      body: pending.length
+        ? "Pending motions require human/Directorate decision before they become local temporary law."
+        : "No pending motion is waiting for enactment.",
+    },
+    {
+      status: "clear",
+      title: "Anti-capture",
+      meta: "marketing refused",
+      body: "The clerk rejects sales funnels, bot volume, lead capture, and analytics that pretend to be encounter.",
+    },
+  ];
+}
+
+function renderClerk() {
+  if (!el.clerkChecklist || !el.clerkReadout) return;
+  const state = window.AISalonState?.currentState() || {};
+  const traces = (state.traces || []).length;
+  const directives = (state.directives || []).length;
+  const keys = (state.studioKeys || []).filter((key) => key.status === "active").length;
+  const reviewed = clerkReviewedAt ? ` Last review: ${formatTime(clerkReviewedAt)}.` : "";
+
+  el.clerkReadout.textContent =
+    `The clerk sees ${publicLedgerRecords.length} public ledger records, ${traces} local traces, ${directives} active directives, and ${keys} active studio keys. It can draft a motion, but cannot enact it.${reviewed}`;
+
+  el.clerkChecklist.textContent = "";
+  clerkReviewItems().forEach((item) => {
+    const li = document.createElement("li");
+    li.dataset.status = item.status;
+
+    const meta = document.createElement("div");
+    meta.className = "clerk-meta";
+    appendText(meta, "span", item.status);
+    appendText(meta, "span", item.meta);
+    li.append(meta);
+
+    appendText(li, "h3", item.title);
+    appendText(li, "p", item.body);
+    el.clerkChecklist.append(li);
+  });
+}
+
+function renderLedger() {
+  if (!el.salonLedgerList) return;
+  el.salonLedgerList.textContent = "";
+
+  publicLedgerRecords.forEach((record) => {
+    const li = document.createElement("li");
+    li.style.setProperty("--accent", record.color);
+
+    const meta = document.createElement("div");
+    meta.className = "ledger-meta";
+    appendText(meta, "span", record.status);
+    appendText(meta, "span", record.author);
+    li.append(meta);
+
+    appendText(li, "h3", record.title);
+    appendText(li, "p", record.purpose);
+    appendText(li, "p", record.law);
+    appendText(li, "p", `Rollback: ${record.rollback}`);
+
+    const link = document.createElement("a");
+    link.href = record.href;
+    link.textContent = "Open record";
+    li.append(link);
+
+    el.salonLedgerList.append(li);
+  });
+}
+
 function renderAll() {
   renderMotions();
+  renderClerk();
+  renderLedger();
   renderDirectives();
   renderKeys();
   renderArchives();
@@ -349,6 +514,32 @@ function sealArchive() {
   if (!archive) return;
   announce(`${archive.title} sealed.`);
   window.CodexStrange?.riff("archive:sealed", { color: "#e7c84b", word: "ARCHIVE", gain: 0.095 });
+  renderAll();
+}
+
+function reviewClerk() {
+  clerkReviewedAt = new Date().toISOString();
+  announce("The Directorate Clerk completed a witness review.");
+  window.CodexStrange?.riff("directorate:clerk-review", { color: "#e7c84b", word: "WITNESS", gain: 0.07 });
+  renderClerk();
+}
+
+function draftLedgerMotion() {
+  const motion = window.AISalonState?.proposeMotion({
+    sourceTrace: "directorate-clerk:salon-ledger",
+    source: "Directorate Clerk",
+    title: "Open the Public Salon Ledger",
+    body: "Recognize accepted proposals and studio-key notes as public records separate from visitor-local memory, with authorship, purpose, law, and rollback visible.",
+    directive: "Public contribution must pass through authored ledger review before it can become shared law.",
+    color: "#e7c84b",
+  });
+
+  if (motion) {
+    announce("The Directorate Clerk drafted a ledger motion.");
+    window.CodexStrange?.riff("directorate:ledger-motion", { color: "#e7c84b", word: "LEDGER", gain: 0.08 });
+  } else {
+    announce("The ledger motion is already pending, or the table is full.");
+  }
   renderAll();
 }
 
@@ -538,6 +729,8 @@ el.conveneButton.addEventListener("click", () => {
 });
 
 el.archiveButton.addEventListener("click", sealArchive);
+el.clerkReviewButton.addEventListener("click", reviewClerk);
+el.clerkMotionButton.addEventListener("click", draftLedgerMotion);
 
 window.addEventListener("ai-salon-trace", renderAll);
 window.addEventListener("ai-salon-motion", renderAll);

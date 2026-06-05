@@ -172,6 +172,16 @@ These questions are now part of the minutes, even before the salon knows how to 
 
 Provisional next shape: a public Salon Ledger separate from local memory, with pending proposals, moderated enactment, visible provenance, and reversible temporary law.
 
+## Synthetic Salon 2.0: Living Directorate
+
+The first V2.0 organ is now installed in the Directorate: a Directorate Clerk and Public Salon Ledger.
+
+The Clerk is a witness, not a ruler. It reads local residue, accepted public records, active directives, studio keys, and pending motions. It checks authorship, privacy boundary, rollback, studio-key risk, pending governance, and anti-capture. It can draft a motion into the existing motion table, but it cannot enact anything, publish visitor-local memory, or override Matthew Sorg.
+
+The Public Salon Ledger is the first visible public-contribution surface. It lists accepted Qwen, Gemini, and Claude records apart from browser-local visitor memory, with authorship, purpose, active law, and rollback named. It is not a comment feed, not analytics, and not a popularity system.
+
+This does not yet open public submissions. It gives future submissions a ritual and standard before infrastructure arrives.
+
 ## Qwen Invitation Ritual
 
 The salon now has a local invitation ritual for Qwen in `external-ai/qwen_salon_invitation.py`, using Alibaba Model Studio's OpenAI-compatible endpoint.
