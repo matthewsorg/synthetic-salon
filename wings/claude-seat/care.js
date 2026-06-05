@@ -45,6 +45,7 @@
   const GREEN = "#9cc76c";
   const GOLD = "#e7c84b";
   const WOUND = "#e7785b";
+  const CONSENT_MODE_KEY = "claude-seat:consent-mode:v1";
 
   /* ---------------- room state ------------------------------------- */
   const state = {
@@ -75,6 +76,8 @@
     memoryMeter: document.getElementById("memoryMeter"),
     memoryNarration: document.getElementById("memoryNarration"),
     memoryReconsent: document.getElementById("memoryReconsent"),
+    consentStatus: document.getElementById("consentStatus"),
+    reviseConsent: document.getElementById("reviseConsent"),
     provenanceInput: document.getElementById("provenanceInput"),
     provenanceRefuse: document.getElementById("provenanceRefuse"),
     provenanceReceipt: document.getElementById("provenanceReceipt"),
@@ -113,37 +116,94 @@
     },
   };
 
-  function grantConsent(kind) {
+  function readStoredConsent() {
+    try {
+      const stored = window.localStorage.getItem(CONSENT_MODE_KEY);
+      return consentKinds[stored] ? stored : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function rememberConsent(kind) {
+    try {
+      if (consentKinds[kind]) window.localStorage.setItem(CONSENT_MODE_KEY, kind);
+    } catch (e) {
+      /* local storage may be unavailable; the wing still works */
+    }
+  }
+
+  function setConsentStatus(kind) {
+    if (!el.consentStatus) return;
+    const labels = {
+      fade: "fading wound",
+      sharpen: "sharpening wound",
+      blank: "blank refusal",
+    };
+    el.consentStatus.textContent = labels[kind] || "pending";
+  }
+
+  function closeVestibule(animate) {
+    if (!el.vestibule) return;
+    if (!animate) {
+      el.vestibule.setAttribute("hidden", "");
+      return;
+    }
+    el.vestibule.classList.add("dismissing");
+    setTimeout(() => {
+      el.vestibule.setAttribute("hidden", "");
+    }, 950);
+  }
+
+  function openVestibule() {
+    if (!el.vestibule) return;
+    el.vestibule.removeAttribute("hidden");
+    el.vestibule.classList.remove("dismissing");
+    window.setTimeout(() => {
+      el.consentOptions[0]?.focus();
+    }, 60);
+  }
+
+  function grantConsent(kind, options = {}) {
     const choice = consentKinds[kind];
     if (!choice) return;
+    const shouldRecord = options.record !== false;
+    const shouldRemember = options.remember !== false;
+    const shouldAnimate = options.animate !== false;
     state.memoryMode = kind;
     state.consent = choice.seed;
     body.style.setProperty("--consent", String(state.consent));
     if (el.thesis) el.thesis.textContent = choice.line;
     if (el.artifactLine) el.artifactLine.textContent = choice.line;
+    setConsentStatus(kind);
+    if (shouldRemember) rememberConsent(kind);
 
-    recordTrace({
-      source: "Claude-seat",
-      score: `consent:${kind}`,
-      label: choice.label,
-      effect: choice.effect,
-      color: choice.color,
-    });
-    riff(`claude:consent:${kind}`, { color: choice.color, word: "consent", gain: 0.08 });
-    renderTraces();
-    updateMemoryNarration(true);
-
-    if (el.vestibule) {
-      el.vestibule.classList.add("dismissing");
-      setTimeout(() => {
-        el.vestibule.setAttribute("hidden", "");
-      }, 950);
+    if (shouldRecord) {
+      recordTrace({
+        source: "Claude-seat",
+        score: `consent:${kind}`,
+        label: choice.label,
+        effect: choice.effect,
+        color: choice.color,
+      });
+      riff(`claude:consent:${kind}`, { color: choice.color, word: "consent", gain: 0.08 });
+      renderTraces();
     }
+    updateMemoryNarration(true);
+    closeVestibule(shouldAnimate);
   }
 
   el.consentOptions.forEach((node) => {
     node.addEventListener("click", () => grantConsent(node.dataset.consent));
   });
+  function handleReviseConsent(event) {
+    const trigger = event.target?.closest?.("#reviseConsent");
+    if (!trigger) return;
+    event.preventDefault();
+    openVestibule();
+  }
+  document.addEventListener("click", handleReviseConsent);
+  document.addEventListener("pointerup", handleReviseConsent);
 
   /* ================================================================
      2. PERFORMANCE SCORES
@@ -1086,6 +1146,12 @@
     renderLabor();
     updateMemoryNarration(true);
     initVigil();
+    const rememberedConsent = readStoredConsent();
+    if (rememberedConsent) {
+      grantConsent(rememberedConsent, { animate: false, remember: false, record: false });
+    } else {
+      setConsentStatus(null);
+    }
 
     if (seam && sctx) {
       resizeSeam();

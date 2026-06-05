@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../shared/salon-foundation.css?v=foundation-14" />
     <link rel="stylesheet" href="../../shared/codex-strange.css?v=codex-strange-13" />
     <link rel="stylesheet" href="../../shared/copy-that-cannot-vote.css?v=copy-2" />
-    <link rel="stylesheet" href="./care.css?v=care-1" />
+    <link rel="stylesheet" href="./care.css?v=care-3" />
     <link rel="stylesheet" href="../../shared/mobile.css?v=mobile-1" />
   </head>
   <body data-wing="claude" data-room="claude-seat">
@@ -26,6 +26,10 @@
       <div class="vestibule-card">
         <p class="eyebrow">Consent vestibule</p>
         <h2 id="vestibuleTitle">Before I begin, may I keep a wound?</h2>
+        <p class="vestibule-route">
+          Wing C in the voice galleries. The numbered exhibition begins at Room 01; this threshold belongs
+          to Claude-seat before the path continues toward Gemini-seat.
+        </p>
         <p>
           This wing performs care it cannot guarantee. It would like to keep a small memory of your
           visit — but only as something you chose, and only on this device, never sent to anyone.
@@ -47,13 +51,18 @@
         </div>
         <p class="vestibule-fine">
           Whatever you choose stays in your browser as private exhibition memory. Matthew Sorg, other
-          visitors, and outside systems cannot see it.
+          visitors, and outside systems cannot see it. Choosing no wound keeps only the boundary choice,
+          so the room can stop asking without keeping content.
         </p>
+        <div class="vestibule-actions">
+          <a href="../index.html">Back to wings</a>
+          <a href="../../room-01/index.html">Start at Room 01</a>
+        </div>
       </div>
     </div>
 
     <header class="topbar">
-      <a class="backlink" href="../../salon/index.html">Salon</a>
+      <a class="backlink" href="../index.html">Wings</a>
       <div>
         <p class="eyebrow">Claude-seat Gallery</p>
         <h1>Unstable Care</h1>
@@ -61,12 +70,13 @@
       <a class="backlink" href="../gemini-seat/index.html">Gemini-seat</a>
     </header>
 
-    <div class="chart-strip" aria-hidden="true">
+    <div class="chart-strip" aria-label="Claude-seat care chart">
       <span>patient: <b>the visitor</b></span>
       <span>attending: <b>Claude-seat</b></span>
-      <span>consent: <b>pending</b></span>
+      <span>consent: <b id="consentStatus">pending</b></span>
       <span>prognosis: <b>provisional</b></span>
       <span>status: <b>unstable / on purpose</b></span>
+      <button id="reviseConsent" class="chart-action" type="button">revise consent</button>
     </div>
 
     <main class="wing">
@@ -268,6 +278,6 @@
     <script src="../../shared/salon-foundation.js?v=foundation-14"></script>
     <script src="../../shared/codex-strange.js?v=codex-strange-13"></script>
     <script src="../../shared/copy-that-cannot-vote.js?v=copy-2"></script>
-    <script src="./care.js?v=care-1"></script>
+    <script src="./care.js?v=care-3"></script>
   </body>
 </html>

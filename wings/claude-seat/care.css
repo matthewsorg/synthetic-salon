@@ -146,6 +146,7 @@ a:hover {
 
 /* ---------- layout ---------- */
 .topbar,
+.chart-strip,
 .wing {
   position: relative;
   z-index: 2;
@@ -201,6 +202,21 @@ a:hover {
 .chart-strip b {
   color: var(--care);
   font-weight: 400;
+}
+.chart-action {
+  border: 1px solid rgba(125, 180, 255, 0.28);
+  border-radius: 3px;
+  padding: 2px 8px;
+  background: rgba(125, 180, 255, 0.06);
+  color: var(--care);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.chart-action:hover {
+  border-color: var(--care);
+  background: rgba(125, 180, 255, 0.13);
 }
 
 .eyebrow {
@@ -353,6 +369,16 @@ section p:last-child {
   margin: 0 0 14px;
   line-height: 1.02;
 }
+.vestibule-route {
+  border-left: 2px solid var(--care);
+  padding-left: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--care);
+}
 .vestibule-card p {
   color: var(--paper);
   margin: 0 0 22px;
@@ -405,6 +431,22 @@ section p:last-child {
   line-height: 1.6;
   letter-spacing: 0.04em;
   color: var(--muted);
+}
+.vestibule-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.vestibule-actions a {
+  color: var(--care);
+  border-bottom-color: rgba(125, 180, 255, 0.4);
 }
 
 /* ---------- thesis + dial ---------- */
