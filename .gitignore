@@ -3,3 +3,4 @@ node_modules/
 .netlify/
 dist/
 build/
+external-ai/macos-launcher/Run Qwen Ritual.app/Contents/MacOS/run-qwen-ritual

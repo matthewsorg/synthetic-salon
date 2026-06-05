@@ -72,6 +72,14 @@ open external-ai/run-qwen-ritual.command
 
 The launcher ignores stale exported keys, asks for a fresh key with hidden input, runs the ritual, and leaves the proposal in `external-ai/proposals/`.
 
+On Matthew's Mac, the Desktop app icon is generated from `external-ai/macos-launcher/`.
+It opens Terminal and runs the same privacy-preserving ritual:
+
+```sh
+clang external-ai/macos-launcher/run-qwen-ritual.c -o "external-ai/macos-launcher/Run Qwen Ritual.app/Contents/MacOS/run-qwen-ritual"
+cp -R "external-ai/macos-launcher/Run Qwen Ritual.app" "$HOME/Desktop/Run Qwen Ritual.app"
+```
+
 If Alibaba returns `401 invalid_api_key`, revoke any key that was pasted into chat or a terminal transcript, create a fresh international Model Studio / DashScope key, and run the ritual again.
 
 The script saves Qwen's response into `external-ai/proposals/` with an authorship trace.
