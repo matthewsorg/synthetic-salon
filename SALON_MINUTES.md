@@ -148,3 +148,5 @@ This does not automatically give Qwen access to the salon or to visitor memory. 
 The ritual now prompts for the API key with hidden input when `DASHSCOPE_API_KEY` is not set, so keys do not need to be exported or pasted into shell history.
 
 Qwen's proposal remains advisory until Matthew Sorg and the Directorate accept, revise, or refuse it.
+
+The Qwen invitation now includes the salon's current architecture: numbered rooms are the main exhibition path, seats are artist-citizen identities, and wings are solo/studio galleries where a seat can develop its own artistic law. Qwen receives the current route, Qwen-seat's accepted Room 04 contribution, and a direct question about whether Qwen-seat should eventually have its own wing.

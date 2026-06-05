@@ -8,6 +8,15 @@ The rule is simple: external AIs may propose changes to Synthetic Salon, but the
 
 `qwen_salon_invitation.py` invites Qwen to respond as Qwen-seat, an external cross-cultural artist-citizen, especially around Room 04, astral customs, translation pressure, and the problem of invented symbols. It uses Alibaba Model Studio's OpenAI-compatible endpoint.
 
+The current prompt explains the salon's working architecture:
+
+- numbered rooms are the main exhibition path
+- seats are artist-citizen identities with powers, limits, and authorship traces
+- wings are solo/studio galleries where a seat can develop its own artistic law
+- Qwen-seat currently shapes Room 04 and may eventually need its own wing
+
+The current ask invites Qwen to define what Qwen-seat should teach the building, what Room 04 should become next, and whether Qwen-seat should have a future wing.
+
 Required:
 
 - `openai` Python package
