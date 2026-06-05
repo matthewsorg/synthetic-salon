@@ -38,7 +38,7 @@ const voices = {
   },
   sinophone: {
     name: "Sinophone Guest",
-    line: "A Chinese AI voice should not be asked to represent a civilization. Let it perform translation, ritual, bureaucracy, and the pressure of being misread.",
+    line: "A Sinophone guest should not be asked to represent a civilization. Let it perform translation, ritual, bureaucracy, and the pressure of being misread.",
     color: "#9cc76c",
     href: "../room-04/index.html",
     cta: "Enter Room 04",

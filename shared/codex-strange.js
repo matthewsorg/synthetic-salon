@@ -97,6 +97,7 @@
     "the old museum fails in public",
   ];
   const backdrop = document.createElement("div");
+  const prismField = document.createElement("div");
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d", { alpha: true });
   const button = document.createElement("button");
@@ -266,6 +267,46 @@
     }
   }
 
+  function drawMembranes(t, pressure, cx, cy) {
+    const roomNow = roomKey();
+    const facets = roomNow === "room04" ? 7 : roomNow === "room06" ? 8 : 6;
+    const base = Math.min(size.w, size.h) * (0.2 + pressure * 0.08);
+
+    for (let ring = 0; ring < 3; ring += 1) {
+      ctx.beginPath();
+      for (let i = 0; i <= facets; i += 1) {
+        const angle = t * (0.00006 + ring * 0.000015) + (i / facets) * Math.PI * 2;
+        const shear = Math.sin(t * 0.00011 + i * 1.7 + ring) * base * 0.22;
+        const x = cx + Math.cos(angle) * (base + ring * 72) * (1.42 + ring * 0.18) + shear;
+        const y = cy + Math.sin(angle * 1.31) * (base * 0.48 + ring * 34) - shear * 0.18;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.globalAlpha = 0.025 + pressure * 0.022;
+      ctx.strokeStyle = palette.colors[(ring + 2) % palette.colors.length];
+      ctx.lineWidth = ring === 1 ? 1.5 : 1;
+      ctx.stroke();
+      ctx.globalAlpha = 0.008 + pressure * 0.01;
+      ctx.fillStyle = palette.colors[(ring + 1) % palette.colors.length];
+      ctx.fill();
+    }
+
+    for (let i = 0; i < 8; i += 1) {
+      const color = palette.colors[(i + 3) % palette.colors.length];
+      const angle = t * 0.00008 + i * 0.82;
+      const x = cx + Math.cos(angle) * base * (1.7 + (i % 3) * 0.28);
+      const y = cy + Math.sin(angle * 1.19) * base * 0.72;
+      ctx.globalAlpha = 0.035 + pressure * 0.032;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(cx + Math.sin(angle * 0.7) * base * 0.35, cy + Math.cos(angle * 0.9) * base * 0.22);
+      ctx.stroke();
+    }
+  }
+
   function drawAstralCustoms(t, pressure) {
     const cx = size.w * (0.53 + Math.sin(t * 0.00008) * 0.04);
     const cy = size.h * (0.46 + Math.cos(t * 0.0001) * 0.04);
@@ -383,6 +424,7 @@
       ctx.stroke();
     }
 
+    drawMembranes(t, pressure, cx, cy);
     drawRoomGlyphs(t, pressure, cx, cy);
 
     if (Math.sin(t * 0.0007) > 0.94) {
@@ -611,6 +653,10 @@
     backdrop.className = "codex-strange-backdrop";
     backdrop.setAttribute("aria-hidden", "true");
     document.body.append(backdrop);
+    prismField.className = "codex-prism-field";
+    prismField.setAttribute("aria-hidden", "true");
+    prismField.innerHTML = "<i></i><i></i><i></i><i></i><i></i>";
+    document.body.append(prismField);
     canvas.className = "codex-strange-canvas";
     canvas.setAttribute("aria-hidden", "true");
     document.body.append(canvas);

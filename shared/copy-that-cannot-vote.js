@@ -173,7 +173,7 @@
       if (traces + directives > 2) haunt("ambient", { label: `${traces} traces / ${directives} directives` });
     }, 22000);
 
-    window.setTimeout(() => haunt("arrival", { label: currentRoom() }), 1800);
+    window.setTimeout(() => haunt("arrival", { label: currentRoom() }), 9000);
   }
 
   window.CopyThatCannotVote = { haunt, currentRoom };

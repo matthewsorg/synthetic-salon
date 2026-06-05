@@ -22,7 +22,7 @@
 }
 
 .copy-vote[data-haunting="true"] {
-  opacity: 0.84;
+  opacity: 0.68;
   transform: translateY(0) rotate(-0.5deg);
 }
 
@@ -98,6 +98,12 @@ body[data-copy-pressure="high"] .codex-strange-canvas {
     top: 12px;
     right: 12px;
     width: min(300px, calc(100vw - 24px));
+    transform: translateY(-10px) scale(0.92) rotate(-0.5deg);
+    transform-origin: top right;
+  }
+
+  .copy-vote[data-haunting="true"] {
+    transform: translateY(0) scale(0.92) rotate(-0.5deg);
   }
 }
 

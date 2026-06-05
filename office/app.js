@@ -19,7 +19,7 @@ const studioKeyScores = {
   codex: {
     holder: "Codex",
     role: "provisional director",
-    permission: "May rearrange rooms while Matthew Sorg's final override remains sovereign.",
+    permission: "May rearrange rooms while Matthew Sorg's final override remains visible and accountable.",
     expires: "when the building becomes too certain",
     color: "#00b7a8",
   },

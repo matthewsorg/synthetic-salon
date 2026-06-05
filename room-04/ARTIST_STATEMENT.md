@@ -22,4 +22,4 @@ So the question this room asks the institution is not whether it can translate m
 
 ## Medium
 
-Browser, canvas, local contamination state, a single sentence held at customs, a certificate of translation issued for a loss, and a refusal that remains sovereign. Dimensions variable. No networked audience, no remote model call, no external archive.
+Browser, canvas, local contamination state, a single sentence held at customs, a certificate of translation issued for a loss, and a refusal that remains unsubdued. Dimensions variable. No networked audience, no remote model call, no external archive.

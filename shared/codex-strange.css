@@ -45,6 +45,86 @@
   transform: rotate(8deg);
 }
 
+.codex-prism-field {
+  position: fixed;
+  inset: -10vmax;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  filter: saturate(1.18) contrast(1.08);
+}
+
+.codex-prism-field i {
+  position: absolute;
+  display: block;
+  width: clamp(180px, 26vw, 520px);
+  height: clamp(70px, 10vw, 190px);
+  border: 1px solid color-mix(in srgb, var(--prism-color, var(--codex-strange-1, #00b7a8)) 36%, transparent);
+  background:
+    linear-gradient(
+      104deg,
+      transparent 0 18%,
+      color-mix(in srgb, var(--prism-color, var(--codex-strange-1, #00b7a8)) 22%, transparent) 26%,
+      transparent 38% 100%
+    ),
+    repeating-linear-gradient(
+      91deg,
+      transparent 0 17px,
+      rgba(243, 239, 231, 0.04) 17px 18px,
+      transparent 18px 43px
+    );
+  clip-path: polygon(0 22%, 70% 0, 100% 56%, 32% 100%);
+  transform: translate3d(var(--prism-x, 0), var(--prism-y, 0), 0) rotate(var(--prism-rotate, 0deg)) skewX(var(--prism-skew, 0deg));
+  animation: codex-prism-drift var(--prism-duration, 18s) ease-in-out infinite alternate;
+}
+
+.codex-prism-field i:nth-child(1) {
+  --prism-color: var(--codex-strange-1, #00b7a8);
+  --prism-x: 8vw;
+  --prism-y: 10vh;
+  --prism-rotate: -18deg;
+  --prism-skew: -9deg;
+  --prism-duration: 22s;
+}
+
+.codex-prism-field i:nth-child(2) {
+  --prism-color: var(--codex-strange-2, #e7c84b);
+  --prism-x: 61vw;
+  --prism-y: 6vh;
+  --prism-rotate: 14deg;
+  --prism-skew: 7deg;
+  --prism-duration: 26s;
+}
+
+.codex-prism-field i:nth-child(3) {
+  --prism-color: var(--codex-strange-3, #7db4ff);
+  --prism-x: 48vw;
+  --prism-y: 58vh;
+  --prism-rotate: -33deg;
+  --prism-skew: 10deg;
+  --prism-duration: 28s;
+}
+
+.codex-prism-field i:nth-child(4) {
+  --prism-color: var(--codex-strange-4, #ff5a4d);
+  --prism-x: 2vw;
+  --prism-y: 70vh;
+  --prism-rotate: 26deg;
+  --prism-skew: -12deg;
+  --prism-duration: 24s;
+}
+
+.codex-prism-field i:nth-child(5) {
+  --prism-color: var(--codex-strange-2, #e7c84b);
+  --prism-x: 78vw;
+  --prism-y: 72vh;
+  --prism-rotate: -9deg;
+  --prism-skew: 14deg;
+  --prism-duration: 30s;
+}
+
 body[data-codex-room="room01"] .codex-strange-backdrop {
   background:
     radial-gradient(circle at 18% 30%, rgba(0, 183, 168, 0.24), transparent 30%),
@@ -249,6 +329,10 @@ body.codex-score-awake .codex-strange-canvas {
   opacity: 0.82;
 }
 
+body.codex-score-awake .codex-prism-field {
+  opacity: 0.72;
+}
+
 @keyframes codex-score-bar {
   from {
     transform: scaleY(0.52);
@@ -258,7 +342,25 @@ body.codex-score-awake .codex-strange-canvas {
   }
 }
 
+@keyframes codex-prism-drift {
+  from {
+    transform: translate3d(var(--prism-x, 0), var(--prism-y, 0), 0) rotate(var(--prism-rotate, 0deg)) skewX(var(--prism-skew, 0deg));
+  }
+  to {
+    transform: translate3d(calc(var(--prism-x, 0) + 6vw), calc(var(--prism-y, 0) - 4vh), 0) rotate(calc(var(--prism-rotate, 0deg) + 12deg)) skewX(calc(var(--prism-skew, 0deg) * -0.7));
+  }
+}
+
 @media (max-width: 760px) {
+  .codex-prism-field {
+    opacity: 0.38;
+  }
+
+  .codex-prism-field i {
+    width: clamp(160px, 48vw, 260px);
+    height: clamp(68px, 18vw, 110px);
+  }
+
   .codex-score-toggle {
     right: 12px;
     bottom: 12px;
@@ -272,6 +374,10 @@ body.codex-score-awake .codex-strange-canvas {
 @media (prefers-reduced-motion: reduce) {
   .codex-strange-canvas {
     opacity: 0.44;
+  }
+
+  .codex-prism-field i {
+    animation: none;
   }
 
   .codex-score-toggle[aria-pressed="true"] i {
