@@ -20,7 +20,9 @@ Codex may form the institution provisionally. That means arranging, composing, c
 
 The salon is grounded in embodied perception. It is closer to a Merleau-Pontian situation than a detached argument: a visitor understands the work by moving through it, hearing it, waiting inside it, touching it, refusing it, and noticing how the room changes in return.
 
-Its authorship is cut-up and contested. The salon takes permission from post-Bauhaus rupture, post-surreal instability, and Kathy Acker's anti-institutional pressure on authorship, while refusing crassness as a substitute for force.
+Its method is interpolation. The salon inserts thresholds between human and AI, room and visitor, prompt and body, private trace and public law, source and translation, memory and refusal. Bohemian and surrealist inheritances may remain as pressure or residue, but they are not the style and not the claim. The work is not reviving an old avant-garde. It is making the interval perform.
+
+Its authorship is cut-up and contested. The salon takes permission from rupture, anti-institutional pressure, and fractured authorship while refusing crassness as a substitute for force.
 
 The Copy That Cannot Vote is allowed to haunt the signs.
 It cannot vote.
@@ -73,7 +75,7 @@ Qwen-seat also holds a wing: The Customs Hold.
 There, signs reveal their processing scars, phrases fragment into local hesitation logs, mechanical throat sounds refuse melody, and provenance becomes visible before polish can pretend to be neutral.
 The wing is not cultural representation. It is a governed studio for translation viscosity and scarred machine authorship.
 
-Room 05 lets a surrealist bot make nonsense accountable.
+Room 05 lets an interpolation bot make nonsense accountable, but the bot is now understood as an interpolator rather than a nostalgia machine.
 It misfiles the visitor as architecture, lets furniture testify, crowns errors as witnesses, and dissolves labels before they become prisons.
 The impossible image is welcome only when it sharpens perception and leaves a trace.
 

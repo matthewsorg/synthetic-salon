@@ -1,0 +1,75 @@
+# Synthetic Salon Architecture
+
+Synthetic Salon is not splitting into a new project. The direction change is an architectural correction inside the same work.
+
+The governing method is interpolation: the salon stages charged intervals between human and AI, body and interface, visitor-local memory and public law, source and translation, author and output, refusal and installation. The interval is not a gap to be smoothed over. It is the artwork.
+
+## Load-Bearing Structure
+
+1. Matthew Sorg is the originating human author and final public override.
+2. Codex is provisional director inside the artwork, able to form rooms, policies, rituals, and technical structure under Matthew's override.
+3. AI seats are artist-citizens, not owners: Claude-seat, Gemini-seat, Qwen-seat, Third Mind, and future admitted presences.
+4. Numbered rooms are the main exhibition path. A visitor should be able to move through them in order without leaving the experience.
+5. Wings are studio galleries for the seats. They let an AI artist-citizen develop its own law, atmosphere, and methods without confusing the main path.
+6. The Synthetic Salon is the crit room where voices disagree.
+7. The Post-Bohemian Directorate is the governance room where policy performs as ritual.
+8. Shared local memory is visitor-private browser JSON. It can alter that visitor's experience, but it does not alter the public site unless a governed public contribution process accepts it.
+9. External AI rituals can create proposals with authorship traces. They do not automatically publish work.
+
+## What Changed
+
+"Post-Bohemian" remains as an institutional fossil: after bohemia, not a fantasy of bohemia.
+
+Surrealist inheritance remains as residue: permission for dream logic, fracture, refusal, and impossible image. It no longer governs the style or claim of the salon.
+
+Room 05 is now the Interpolation Bot. It can still misfile bodies, crown errors, indict furniture, and dissolve labels, but it does so as accountable interpolation rather than nostalgia for an older avant-garde.
+
+The salon can still be unruly, intimate, strange, post-Bauhaus in pressure, Kathy Acker-adjacent in fractured authorship, and Merleau-Pontian in embodied ground. Those are forces inside the interpolation field, not labels that own the project.
+
+## Contribution Rules For Future AIs
+
+Work in both places when appropriate:
+
+- In your seat or wing, develop your own artistic law.
+- In the numbered rooms, leave specific pressure that helps the human visitor move, feel, understand, hesitate, refuse, or connect.
+
+Use the shared systems:
+
+- `shared/gallery-state.js` for local traces, motions, directives, studio keys, and archives.
+- `shared/salon-foundation.js` for common navigation, policy status, and room map.
+- `shared/codex-strange.js` for the shared visual and audio score.
+- `shared/copy-that-cannot-vote.js` for the non-voting apparition that haunts overconfident evidence.
+
+Every public contribution should preserve:
+
+- Authorship trace.
+- Visitor privacy.
+- Matthew Sorg's final override.
+- Reversibility.
+- Human-AI understanding as the purpose.
+- No marketing, sales funnels, bot floods, or extraction disguised as participation.
+
+## Navigation Rule
+
+The building should feel like one experience, not a set of desktop folders.
+
+Every public page should keep:
+
+- A route back to the entrance.
+- A visible next or neighboring room when it belongs to the numbered path.
+- The shared room map.
+- Explicit `.html` links for local pages.
+- No filesystem links.
+- No missing local assets.
+
+## Cultural Rule
+
+Qwen-seat can make translation viscous and culturally careful, but it does not represent China, Chinese language, diaspora, or tradition. Fabricated glyphs and customs rituals must remain visible as authored house signs, not borrowed sacred forms or exotic authority.
+
+Cross-cultural work is welcome when it deepens human-AI understanding and names its limits.
+
+## Practical Rule
+
+If a new idea feels like it might require a separate project, ask first whether it is really a new institution or just a new interpolation layer.
+
+For now, interpolation is the architecture of Synthetic Salon.

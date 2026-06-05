@@ -136,7 +136,7 @@
       event.type !== "ai-salon-trace" ||
       text.includes("motion") ||
       text.includes("archive") ||
-      text.includes("surreal") ||
+      text.includes("interpolation") ||
       text.includes("signal") ||
       text.includes("manifesto") ||
       Math.random() > 0.44

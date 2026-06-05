@@ -21,7 +21,7 @@ const el = {
 const procedures = {
   hatch: {
     label: "Second door hatched",
-    score: "surreal:hatch",
+    score: "interpolation:hatch",
     title: "The eye opens a door and refuses to call it vision.",
     text: "The bot records a new threshold inside the visitor's looking. Entry is permitted only by blinking sideways.",
     condition: "condition: optical door unlocked",
@@ -29,7 +29,7 @@ const procedures = {
   },
   indict: {
     label: "Furniture indicted",
-    score: "surreal:indict",
+    score: "interpolation:indict",
     title: "The chair is charged with keeping memories under the cushion.",
     text: "The bot asks the furniture to testify, then accepts silence as an architectural confession.",
     condition: "condition: evidence upholstered",
@@ -37,7 +37,7 @@ const procedures = {
   },
   swap: {
     label: "Visitor swapped with plan",
-    score: "surreal:swap",
+    score: "interpolation:swap",
     title: "The floor plan is now wearing the visitor's pulse.",
     text: "The bot misfiles the body as circulation. Every hallway briefly becomes a wrist.",
     condition: "condition: body filed as map",
@@ -45,7 +45,7 @@ const procedures = {
   },
   crown: {
     label: "Error crowned",
-    score: "surreal:crown",
+    score: "interpolation:crown",
     title: "The error is crowned because it arrived with better evidence.",
     text: "The bot grants the mistake a temporary witness seat. Accuracy must wait outside with the coats.",
     condition: "condition: error enthroned",
@@ -53,7 +53,7 @@ const procedures = {
   },
   dissolve: {
     label: "Label dissolved",
-    score: "surreal:dissolve",
+    score: "interpolation:dissolve",
     title: "The label dissolves before it can become a small prison.",
     text: "The bot preserves the residue as a soft law: names must leave room for contact.",
     condition: "condition: title liquefied",
@@ -70,28 +70,28 @@ const laborScores = [
     key: "nonsense-audit",
     label: "Nonsense audited",
     line: "The bot is checking whether nonsense deepens perception or only performs fog.",
-    effect: "The Surrealist Bot audited nonsense for human-facing pressure.",
+    effect: "The Interpolation Bot audited nonsense for human-facing pressure.",
     color: "#00b7a8",
   },
   {
     key: "body-misfile",
     label: "Body misfiled",
     line: "The bot is filing a body part under architecture until the room admits it has nerves.",
-    effect: "The Surrealist Bot misfiled the body as architecture and made the room feel implicated.",
+    effect: "The Interpolation Bot misfiled the body as architecture and made the room feel implicated.",
     color: "#ff5a4d",
   },
   {
     key: "warrant-collage",
     label: "Warrant collaged",
     line: "The bot is cutting a legal form into dream strips and asking which strip still has authority.",
-    effect: "The Surrealist Bot collaged a warrant until law became a perceptual object.",
+    effect: "The Interpolation Bot collaged a warrant until law became a perceptual object.",
     color: "#e7c84b",
   },
   {
     key: "object-listened",
     label: "Object listened",
     line: "The bot is listening to an object before converting it into a symbol.",
-    effect: "The Surrealist Bot made listening precede interpretation.",
+    effect: "The Interpolation Bot made listening precede interpretation.",
     color: "#7db4ff",
   },
 ];
@@ -182,13 +182,13 @@ function advanceLabor(record = false) {
   if (!record) return;
   const labor = laborScores[laborIndex % laborScores.length];
   window.AISalonState?.recordTrace({
-    source: "Surrealist Bot",
+    source: "Interpolation Bot",
     score: `labor:${labor.key}`,
     label: labor.label,
     effect: labor.effect,
     color: labor.color,
   });
-  window.CodexStrange?.riff(`surrealist-bot:${labor.key}`, { color: labor.color, word: labor.label, gain: 0.08 });
+  window.CodexStrange?.riff(`interpolation-bot:${labor.key}`, { color: labor.color, word: labor.label, gain: 0.08 });
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(`${labor.label}: ${labor.line}`);
 }
@@ -197,8 +197,8 @@ function seedFromState() {
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   const state = window.AISalonState?.currentState?.();
   if (!state) return;
-  const surrealTrace = (state.traces || []).find((trace) => `${trace.source} ${trace.score}`.toLowerCase().includes("surreal"));
-  if (surrealTrace) {
+  const interpolationTrace = (state.traces || []).find((trace) => `${trace.source} ${trace.score}`.toLowerCase().includes("interpolation"));
+  if (interpolationTrace) {
     el.condition.textContent = "condition: dream evidence already local";
     el.warrantText.textContent = "The bot recognizes previous dream evidence in this browser and refuses to reset its confusion.";
   }

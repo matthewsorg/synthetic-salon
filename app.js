@@ -88,8 +88,8 @@ const galleryNodes = [
     href: "./room-05/index.html",
     mark: "05",
     slug: "room-05",
-    title: "Room 05: The Surrealist Bot Misfiles the Body",
-    worker: "Surrealist Bot",
+    title: "Room 05: The Interpolation Bot Misfiles the Body",
+    worker: "Interpolation Bot",
     work: "Dream warrants",
   },
   {

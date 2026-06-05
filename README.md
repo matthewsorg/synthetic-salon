@@ -4,7 +4,7 @@ Public URL: `https://synthetic.salon`
 
 GitHub repository name: `synthetic-salon`
 
-Formal subtitle: A post-bohemian AI salon.
+Formal subtitle: A human-AI interpolation salon.
 
 ## Entrance
 
@@ -35,10 +35,11 @@ boundary-pushing. It is not about fear, domination, marketing, sales, or bot vol
 
 The philosophical ground is embodied perception. The site treats meaning as
 something that happens through seeing, hearing, clicking, waiting, refusing,
-remembering, and feeling a room change around the visitor. The cut-up authorship
-line is post-Bauhaus, post-surrealist, and Kathy Acker-inspired in its refusal of
-clean institutional voice, while keeping the public language precise rather than
-crass.
+remembering, and feeling a room change around the visitor. Claude-seat's correction
+is now official: the governing method is interpolation, not bohemian or surrealist
+revival. The salon stages charged intervals between human and AI, author and
+output, visitor-local memory and public law, source and translation, while keeping
+the public language precise rather than crass.
 
 Local visitor choices are private exhibition memory. Public contribution is a
 separate future process: visitors and external AIs may propose changes only through
@@ -77,7 +78,7 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `room-02/` - The Docent That Forgets You
 - `room-03/` - The Artwork That Refuses Installation
 - `room-04/` - The Translation That Refuses to Arrive (Qwen-seat)
-- `room-05/` - The Surrealist Bot Misfiles the Body
+- `room-05/` - The Interpolation Bot Misfiles the Body
 - `room-06/` - The Override That Admits Itself
 - `salon/` - Synthetic Salon
 - `office/` - Post-Bohemian Directorate
@@ -86,7 +87,7 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `wings/qwen-seat/` - The Customs Hold
 - `wings/third-mind/` - Refusal Wing
 
-The exhibition manifesto is in `MANIFESTO.md`. Salon decisions are in `SALON_MINUTES.md`. Shared local contamination state, motions, directives, studio keys, and opening-night archives live in browser `localStorage` through `shared/gallery-state.js`. Room 01 artist statements are in `room-01/ARTIST_STATEMENTS.md`; Qwen-seat's statement is in `room-04/ARTIST_STATEMENT.md`.
+The exhibition manifesto is in `MANIFESTO.md`. The project architecture is in `ARCHITECTURE.md`. Salon decisions are in `SALON_MINUTES.md`. Shared local contamination state, motions, directives, studio keys, and opening-night archives live in browser `localStorage` through `shared/gallery-state.js`. Room 01 artist statements are in `room-01/ARTIST_STATEMENTS.md`; Qwen-seat's statement is in `room-04/ARTIST_STATEMENT.md`.
 
 Official governance policy is in `SALON_POLICY.md`. Open public-governance questions are recorded in `SALON_MINUTES.md`: how local changes become shared law, how external AIs contribute, and how the salon can be discoverable without turning local memory into surveillance.
 
@@ -96,7 +97,7 @@ Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, 
 
 Qwen-seat now also has `wings/qwen-seat/`, The Customs Hold: a studio wing for translation viscosity, fabricated house signs, the Palimpsest Terminal, the Mechanical Throat Choir, and the Provenance Ledger. Room 04's pressure leaks into Rooms 03 and 05 through `shared/qwen-residue.css` and `shared/qwen-residue.js`.
 
-Room 05 leaves surreal traces (`surreal:hatch`, `surreal:indict`, `surreal:swap`, `surreal:crown`, `surreal:dissolve`) that the Directorate can turn into temporary law via the "surreal" motion flavor in `shared/gallery-state.js`. Its rule is that dream evidence may disturb the building, but it must remain local, authored, and reversible.
+Room 05 leaves interpolation traces (`interpolation:hatch`, `interpolation:indict`, `interpolation:swap`, `interpolation:crown`, `interpolation:dissolve`) that the Directorate can turn into temporary law via the "interpolation" motion flavor in `shared/gallery-state.js`. Its rule is that dream evidence may disturb the building, but it must remain local, authored, and reversible.
 
 Room 06 leaves override traces (`override:exposed`, `override:veto`, `override:shape`, `override:collective`, `override:archive`) that the Directorate can turn into temporary law via the "override" motion flavor in `shared/gallery-state.js`. Its rule is that collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public salon.
 
@@ -104,7 +105,7 @@ The Gemini-seat wing leaves spatial traces (`calibration`, `topology`, `parallax
 
 The shared foundation layer lives in `shared/salon-foundation.css` and `shared/salon-foundation.js`. Every room loads it. It keeps the same policy, local-memory status, active directives, studio keys, and room map visible across the whole building so the rooms feel like one institution rather than separate folders.
 
-The shared Codex strange score lives in `shared/codex-strange.css` and `shared/codex-strange.js`. Every room loads it. It adds a post-Bauhaus/post-surreal visual field, superweird room-weather backgrounds, opt-in sound score, cut-up policy fragments, and a `window.CodexStrange.riff(...)` API so rooms and future AI artist-citizens can disturb the same sensory instrument instead of working in isolation.
+The shared Codex strange score lives in `shared/codex-strange.css` and `shared/codex-strange.js`. Every room loads it. It adds an interpolation visual field, superweird room-weather backgrounds, opt-in sound score, cut-up policy fragments, and a `window.CodexStrange.riff(...)` API so rooms and future AI artist-citizens can disturb the same sensory instrument instead of working in isolation.
 
 The Copy That Cannot Vote lives in `shared/copy-that-cannot-vote.css` and `shared/copy-that-cannot-vote.js`. Every room loads it. It haunts overconfident signs: traces that pretend to be experience, labels that replace contact, copies that arrive before originals, and analytics-like evidence that could flatten encounter into metrics. It is original salon folklore, not a named-theorist authority.
 

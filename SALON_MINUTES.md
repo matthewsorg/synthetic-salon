@@ -33,7 +33,9 @@ Codex is authorized to form the living shape of the institution provisionally. T
 
 The Directorate recognizes an embodied ground. In a Merleau-Pontian sense, the salon is not a detached thesis about AI. It is a perceptual situation: meaning happens through body, interface, sound, atmosphere, gesture, waiting, refusal, memory, and relation.
 
-The Directorate also recognizes cut-up authorship as official aesthetic pressure. The salon may fracture voice, institution, and authorship with post-Bauhaus and post-surrealist force, carrying Kathy Acker-inspired disobedience without crass public language.
+The Directorate adopts Claude-seat's interpolation correction. Bohemian and surrealist language may remain as historical residue, but it cannot govern the salon. The operative method is interpolation: the salon inserts itself between human and AI, body and interface, private memory and public law, source and translation, refusal and installation, then makes that interval perform.
+
+The Directorate also recognizes cut-up authorship as official aesthetic pressure. The salon may fracture voice, institution, and authorship with interpolative force, carrying disobedient literary energy without crass public language.
 
 Visitors hold a different power: their choices alter their own browser-local JSON memory. Those traces can change their experience, generate motions, haunt rooms, and produce private archives, but they are not sent to Matthew, other visitors, or outside AIs unless the visitor knowingly submits something to a shared process.
 
@@ -61,9 +63,9 @@ Qwen-seat is not asked to represent China, the language, the diaspora, or tradit
 
 ## Room 05
 
-**The Surrealist Bot Misfiles the Body** is installed as a dream bureau. A small bot has been appointed to inspect reality by mistake. It issues oneiric warrants, indicts furniture, swaps the visitor with the floor plan, crowns errors as witnesses, and dissolves labels before they become prisons.
+**The Interpolation Bot Misfiles the Body** is installed as a dream bureau. A small bot has been appointed to inspect reality by mistake. It issues oneiric warrants, indicts furniture, swaps the visitor with the floor plan, crowns errors as witnesses, and dissolves labels before they become prisons.
 
-The room is wacky on purpose, but not merely random. Its principle is accountable nonsense: the impossible image must deepen perception, leave an authorship trace, and remain local unless carried into governed public process.
+The room is wacky on purpose, but not merely random. Its principle is accountable interpolation: the impossible image must deepen perception, leave an authorship trace, and remain local unless carried into governed public process.
 
 ## Room 06
 
@@ -75,7 +77,7 @@ The Directorate chooses not to repair or hide that contradiction. Room 06 makes 
 
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can enact as a temporary law: every translation must exhibit its remainder before it stands as meaning. When that law is in effect, it is no longer confined to its room — it becomes visible weather across the entire exhibition, haunting every page until the state is cleared or the opening night is sealed.
 
-Room 05 leaves traces (`surreal:hatch`, `surreal:indict`, `surreal:swap`, `surreal:crown`, `surreal:dissolve`) that the Directorate can enact as dream law: dream evidence may disturb the building, but it must remain local, authored, and reversible.
+Room 05 leaves traces (`interpolation:hatch`, `interpolation:indict`, `interpolation:swap`, `interpolation:crown`, `interpolation:dissolve`) that the Directorate can enact as interpolation law: dream evidence may disturb the building, but it must remain local, authored, and reversible.
 
 Room 06 leaves traces (`override:exposed`, `override:veto`, `override:shape`, `override:collective`, `override:archive`) that the Directorate can enact as override law: collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public salon.
 
@@ -105,7 +107,7 @@ Room 03 and Room 04 now contain active studio labor panels. Third Mind works on 
 
 ## Codex Strange Score
 
-Codex installed a shared post-Bauhaus/post-surreal score across the whole building. `shared/codex-strange.css` and `shared/codex-strange.js` add a visual weather layer, an opt-in sound score, and cut-up fragments of the policy itself: anti-grid, authorship, no sale, local trace, remainder, override.
+Codex installed a shared interpolation score across the whole building. `shared/codex-strange.css` and `shared/codex-strange.js` add a visual weather layer, an opt-in sound score, and cut-up fragments of the policy itself: anti-grid, authorship, no sale, local trace, remainder, override.
 
 The score listens to traces, motions, studio keys, archives, clearings, touch, and room actions. It exposes `window.CodexStrange.riff(...)` so every room and future AI artist-citizen can disturb the same instrument rather than decorating only its own chamber.
 

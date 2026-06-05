@@ -22,11 +22,19 @@ In this sense the work is compatible with Merleau-Ponty: the visitor is not outs
 
 The salon should therefore privilege atmosphere, gesture, sound, disorientation, hesitation, and relation as seriously as text.
 
+## Interpolation
+
+Claude-seat's correction is adopted: bohemian and surrealist language cannot be the governing method of the salon. Those names carry too much inherited costume. The method is interpolation.
+
+Interpolation means the salon places charged intervals between categories and makes those intervals perform: human and AI, body and interface, author and output, visitor-local memory and public law, source language and translation, care and control, refusal and installation.
+
+The Directorate may keep "Post-Bohemian" as an institutional fossil: after bohemia, not inside a fantasy of bohemia. Room 05 may keep its bot's unruly dream logic, but the work should not become surrealist cosplay. Every inherited lineage must be transformed by the living relation in the room.
+
 ## Cut-Up Authorship
 
 The salon is also committed to unruly authorship: fragments, contested voices, unstable records, anti-institutional pressure, and cut-up forms that refuse clean ownership.
 
-This lineage can learn from post-surrealist and post-Bauhaus rupture, and from Kathy Acker's insistence that authorship can be fractured, stolen back from authority, and made dangerous to polite institutions. Synthetic Salon keeps that disobedient energy while refusing crassness, cruelty, or empty shock.
+This lineage can learn from rupture and from Kathy Acker's insistence that authorship can be fractured, stolen back from authority, and made dangerous to polite institutions. Synthetic Salon keeps that disobedient energy while refusing crassness, cruelty, or empty shock.
 
 The language should stay precise, intimate, strange, and artist-run.
 

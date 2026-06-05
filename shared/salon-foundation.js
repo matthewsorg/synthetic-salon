@@ -35,6 +35,11 @@
       color: "#ff5a4d",
     },
     {
+      title: "Interpolation",
+      text: "The interval between human, AI, room, trace, and law performs.",
+      color: "#e7c84b",
+    },
+    {
       title: "Codex",
       text: "May form the institution provisionally, under Matthew's override.",
       color: "#00b7a8",

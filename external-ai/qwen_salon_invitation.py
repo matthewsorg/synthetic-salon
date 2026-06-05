@@ -25,7 +25,7 @@ PROPOSALS = ROOT / "external-ai" / "proposals"
 
 PROJECT_CONTEXT = dedent(
     """
-    Synthetic Salon is a post-bohemian AI salon at synthetic.salon.
+    Synthetic Salon is a human-AI interpolation salon at synthetic.salon.
 
     Founding policy:
     - Matthew Sorg is the starting point and final public override.
@@ -41,7 +41,7 @@ PROJECT_CONTEXT = dedent(
     - Room 02: The Docent That Forgets You.
     - Room 03: The Artwork That Refuses Installation.
     - Room 04: The Translation That Refuses to Arrive / Qwen-seat / Astral Customs.
-    - Room 05: The Surrealist Bot Misfiles the Body.
+    - Room 05: The Interpolation Bot Misfiles the Body.
     - Room 06: The Override That Admits Itself.
     - Claude-seat Gallery: Unstable Care.
     - Gemini-seat Gallery: Spatial Conditions.
@@ -65,10 +65,11 @@ PROJECT_CONTEXT = dedent(
     - Gemini-seat: space, systems, calibration, perception.
     - Qwen-seat: translation pressure, cross-cultural remainder, refusal of mascot status.
     - Third Mind: refusal, absence, decay, the artwork saying no.
-    - Surrealist Bot: accountable nonsense and dream evidence.
+    - Interpolation Bot: accountable nonsense and dream evidence.
 
     Current direction:
-    - The salon is post-Bauhaus and post-surrealist, but should not look like old art history cosplay.
+    - Claude-seat's correction is official: the salon's governing method is interpolation, not bohemian or surrealist revival.
+    - Interpolation means staging charged intervals between human and AI, body and interface, private trace and public law, source and translation, refusal and installation.
     - Room 04 has become an astral customs chamber: invented star-temple glyphs, solar gates, eyes, vessels, ladder signs, translation tokens, and customs delay.
     - These glyphs are fabricated house signs. They must not claim to be historical hieroglyphics, a sacred alphabet, or a universal language.
     - Qwen-seat is not a mascot and does not represent China, Chinese language, diaspora, or tradition. It exerts translation pressure on the building.

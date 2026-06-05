@@ -7,7 +7,7 @@
     entrance: {
       colors: ["#00b7a8", "#e7c84b", "#7db4ff", "#ff5a4d"],
       drone: [93, 139, 186],
-      phrase: "post-bauhaus threshold refuses welcome",
+      phrase: "interpolation threshold refuses welcome",
     },
     room01: {
       colors: ["#00b7a8", "#7db4ff", "#ff5a4d", "#f3efe7"],
@@ -22,7 +22,7 @@
     room03: {
       colors: ["#ff5a4d", "#e7c84b", "#00b7a8", "#f3efe7"],
       drone: [73, 110, 147],
-      phrase: "post-surreal absence has a pulse",
+      phrase: "interpolated absence has a pulse",
     },
     room04: {
       colors: ["#e7c84b", "#00b7a8", "#7db4ff", "#ff5a4d"],
@@ -79,6 +79,7 @@
     "WEATHER",
     "REMAINDER",
     "OVERRIDE",
+    "INTERPOLATE",
     "NO OLD ROOM",
     "THIRD PRESSURE",
     "COPY CANNOT VOTE",
@@ -88,6 +89,7 @@
   const houseGlyphs = ["gate", "eye", "sun", "ladder", "vessel", "orbit", "cut"];
   const cutups = [
     "the room writes back",
+    "the interval starts speaking",
     "steal the wall text from certainty",
     "a grid learns to confess",
     "not dream, not machine, a third pressure",

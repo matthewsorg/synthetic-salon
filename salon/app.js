@@ -43,8 +43,8 @@ const voices = {
     href: "../wings/qwen-seat/index.html",
     cta: "Enter The Customs Hold",
   },
-  surrealist: {
-    name: "Surrealist Bot",
+  interpolation: {
+    name: "Interpolation Bot",
     line: "I will misfile the body as architecture until the room admits perception is not a filing cabinet.",
     color: "#ff5a4d",
     href: "../room-05/index.html",

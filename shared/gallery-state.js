@@ -74,11 +74,11 @@
     ) return "translation";
     if (
       haystack.includes("room 05") ||
-      haystack.includes("surreal") ||
+      haystack.includes("interpolation") ||
       haystack.includes("dream") ||
       haystack.includes("oneiric") ||
       haystack.includes("misfile")
-    ) return "surreal";
+    ) return "interpolation";
     if (
       haystack.includes("room 06") ||
       haystack.includes("override") ||
@@ -135,9 +135,9 @@
         directive: "Every translation in the building must exhibit its remainder before it is allowed to stand as meaning.",
         color: "#9cc76c",
       },
-      surreal: {
+      interpolation: {
         title: "Admit dream evidence without calling it truth",
-        body: "Let the Surrealist Bot misfile bodies, objects, and labels when the mistake produces sharper perception than orderly description.",
+        body: "Let the Interpolation Bot misfile bodies, objects, and labels when the mistake produces sharper perception than orderly description.",
         directive: "Dream evidence may disturb the building, but it must remain local, authored, and reversible.",
         color: "#ff5a4d",
       },
