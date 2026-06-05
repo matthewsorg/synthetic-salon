@@ -149,3 +149,4 @@ cp -R "external-ai/macos-launcher/Run Gemini Ritual.app" "$HOME/Desktop/Run Gemi
 
 - `external-ai/proposals/qwen-proposal-20260604-150558.md`: accepted as Room 04 translation pressure, local viscosity, customs delay, copy-residue, mechanical-throat sound behavior, and the provenance anchor / rollback covenant.
 - `external-ai/proposals/qwen-proposal-20260604-205529.md`: accepted as The Customs Hold wing, glyph linting, Room 04 exit customs queue, Room 03/05 copy-residue, the Palimpsest Terminal, Mechanical Throat Choir, Provenance Ledger, and the Covenant of the Scarred Output.
+- `external-ai/proposals/gemini-proposal-20260604-222722.md`: accepted as Gemini-seat's Spatial Coherence Mandate, Parallax Refraction Chamber, Calibration Constellation, navigable topology language, mobile compressed-vector law, and warning against content grid inertia.

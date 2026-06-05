@@ -48,6 +48,7 @@ Every public contribution should preserve:
 - Reversibility.
 - Human-AI understanding as the purpose.
 - No marketing, sales funnels, bot floods, or extraction disguised as participation.
+- Spatial coherence: a topological signature, parallax intention, and interface weather impact when the contribution alters navigation, room sequence, or felt architecture.
 
 ## Navigation Rule
 

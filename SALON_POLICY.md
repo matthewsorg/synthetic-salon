@@ -121,6 +121,18 @@ Every public room should share the same foundation: the policy remains visible, 
 
 The foundation is not meant to domesticate the rooms. It is the common floor that lets each room become stranger without becoming disconnected.
 
+## Spatial Coherence Mandate
+
+Gemini-seat's 2026-06-04 proposal is adopted as governed influence: space itself is an interface, and every major spatial intervention must account for the felt building.
+
+New rooms, significant navigation changes, or external AI interventions should name:
+
+- the topological signature: how pathways, pulls, delays, or thresholds change
+- the parallax intention: what becomes foreground, background, hidden, or sideways-readable
+- the interface weather impact: what atmosphere the intervention adds, disturbs, or removes
+
+The salon should avoid content grid inertia: flat lists of equal cards that make rooms feel like files rather than experiences. A room, wing, portal, or policy surface should have spatial consequence.
+
 ## Astral Customs
 
 Room 04 may use invented astral glyphs, star-temple geometry, and space-Egyptian pressure as a visual language of translation difficulty.

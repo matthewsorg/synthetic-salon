@@ -1,0 +1,205 @@
+body[data-wing="gemini"] {
+  --gemini-x: 0.5;
+  --gemini-y: 0.5;
+  --gemini-speed: 0;
+  --gemini-score-color: #e7c84b;
+}
+
+body[data-wing="gemini"] .installation {
+  min-height: 520px;
+}
+
+.gemini-chamber {
+  min-height: 430px;
+  background:
+    radial-gradient(circle at calc(var(--gemini-x) * 100%) calc(var(--gemini-y) * 100%), color-mix(in srgb, var(--gemini-score-color) 20%, transparent), transparent 26%),
+    linear-gradient(135deg, rgba(231, 200, 75, 0.08), rgba(0, 183, 168, 0.06), rgba(125, 180, 255, 0.05)),
+    rgba(5, 7, 10, 0.72);
+  isolation: isolate;
+}
+
+.gemini-chamber canvas,
+.refraction-layer,
+.perceptual-horizon,
+.gemini-readout {
+  position: absolute;
+  inset: 0;
+}
+
+.gemini-chamber canvas {
+  z-index: 1;
+}
+
+.refraction-layer {
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: calc(0.28 + var(--gemini-speed) * 0.22);
+}
+
+.layer-a {
+  background:
+    linear-gradient(70deg, transparent 0 30%, color-mix(in srgb, var(--gemini-score-color) 38%, transparent) 44%, transparent 58%),
+    repeating-linear-gradient(100deg, transparent 0 28px, rgba(243, 239, 231, 0.07) 30px 31px);
+  transform: translate(calc((var(--gemini-x) - 0.5) * 42px), calc((var(--gemini-y) - 0.5) * 28px)) rotate(-7deg);
+}
+
+.layer-b {
+  inset: 9% 6%;
+  border: 1px solid color-mix(in srgb, var(--gemini-score-color) 40%, transparent);
+  border-radius: 46% 54% 62% 38%;
+  filter: blur(0.3px);
+  transform: translate(calc((0.5 - var(--gemini-x)) * 62px), calc((var(--gemini-y) - 0.5) * 38px)) rotate(16deg);
+}
+
+.layer-c {
+  inset: 18% 12%;
+  background:
+    radial-gradient(circle, rgba(243, 239, 231, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle, color-mix(in srgb, var(--gemini-score-color) 26%, transparent) 0 1px, transparent 2px);
+  background-size: 54px 54px, 91px 91px;
+  transform: translate(calc((var(--gemini-x) - 0.5) * -34px), calc((var(--gemini-y) - 0.5) * -58px));
+}
+
+.perceptual-horizon {
+  z-index: 3;
+  top: auto;
+  height: 42%;
+  border-top: 1px solid color-mix(in srgb, var(--gemini-score-color) 46%, transparent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--gemini-score-color) 14%, transparent), transparent 68%);
+  filter: blur(calc(var(--gemini-speed) * 3px));
+  transform: translateY(calc((var(--gemini-y) - 0.5) * 36px));
+  pointer-events: none;
+}
+
+.gemini-readout {
+  z-index: 5;
+  inset: auto 16px 92px 16px;
+  max-width: 46ch;
+  min-height: 32px;
+  margin: 0;
+  color: var(--paper);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gemini-chamber #artifactLine {
+  z-index: 4;
+}
+
+.score-grid button small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.gemini-panel {
+  grid-column: 1 / -1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(118deg, color-mix(in srgb, var(--accent) 9%, transparent), rgba(8, 10, 13, 0.68)),
+    var(--glass);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(22px);
+  padding: 18px;
+}
+
+.gemini-panel h2 {
+  max-width: 900px;
+  margin-bottom: 18px;
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.8vw, 66px);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.fog-phrases {
+  position: relative;
+  min-height: 230px;
+  overflow: hidden;
+  border: 1px solid rgba(243, 239, 231, 0.12);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 22% 30%, rgba(231, 200, 75, 0.18), transparent 30%),
+    radial-gradient(circle at 78% 72%, rgba(0, 183, 168, 0.16), transparent 32%),
+    rgba(4, 6, 9, 0.5);
+}
+
+.fog-phrases span {
+  position: absolute;
+  max-width: 220px;
+  color: var(--bone);
+  text-wrap: balance;
+  text-shadow: 0 0 18px rgba(243, 239, 231, 0.22);
+  transform: translate(calc((var(--gemini-x) - 0.5) * var(--drift-x)), calc((var(--gemini-y) - 0.5) * var(--drift-y)));
+}
+
+.fog-phrases span:nth-child(1) { left: 8%; top: 18%; --drift-x: 58px; --drift-y: -22px; }
+.fog-phrases span:nth-child(2) { left: 38%; top: 12%; --drift-x: -42px; --drift-y: 48px; }
+.fog-phrases span:nth-child(3) { right: 7%; top: 30%; --drift-x: 72px; --drift-y: 26px; }
+.fog-phrases span:nth-child(4) { left: 14%; bottom: 17%; --drift-x: -64px; --drift-y: -35px; }
+.fog-phrases span:nth-child(5) { left: 45%; bottom: 12%; --drift-x: 38px; --drift-y: -58px; }
+.fog-phrases span:nth-child(6) { right: 14%; bottom: 26%; --drift-x: -48px; --drift-y: 44px; }
+
+.spatial-mandate ol {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spatial-mandate li {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.32fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: baseline;
+  border-top: 1px dashed rgba(243, 239, 231, 0.16);
+  padding: 14px 0 4px;
+}
+
+.spatial-mandate strong {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spatial-mandate span {
+  color: var(--paper);
+}
+
+@media (max-width: 620px) {
+  body[data-wing="gemini"] .installation,
+  .gemini-chamber {
+    min-height: 380px;
+  }
+
+  .layer-a,
+  .layer-b,
+  .layer-c {
+    transform: translateY(calc((var(--gemini-y) - 0.5) * 42px));
+  }
+
+  .spatial-mandate li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .fog-phrases {
+    min-height: 320px;
+  }
+
+  .fog-phrases span {
+    max-width: 72vw;
+  }
+}

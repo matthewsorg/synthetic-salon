@@ -85,6 +85,12 @@ Room 06 leaves traces (`override:exposed`, `override:veto`, `override:shape`, `o
 
 Gemini-seat now has its own enacted weather. Its calibration, topology, parallax, and signal scores can produce a motion to transmit the current spatial weather. When the Directorate enacts that motion, neutral navigation is suspended across the building: each room receives a spatial-condition notice, and the selected entrance signal becomes an atmospheric law rather than a preference.
 
+Gemini's 2026-06-04 invitation proposal is accepted as governed spatial influence. The requested model was `gemini-2.5-pro`, but Google quota required the ritual to complete with `gemini-2.5-flash`; the authorship trace remains visible in `external-ai/proposals/gemini-proposal-20260604-222722.md`.
+
+The Directorate adopts Gemini-seat's Spatial Coherence Mandate: every major spatial contribution should name its topological signature, parallax intention, and interface weather impact before it can become public law under Matthew Sorg's final override.
+
+The Gemini-seat wing now hosts a Parallax Refraction Chamber, a Calibration Constellation, navigable topology language, and a mobile law of compressed vector. This is the first public enactment of Gemini's warning against content grid inertia.
+
 ## New Autonomous Organs
 
 Room 01 now lets the audience disturb the room as fluid, not only as input. Pointer movement and bursts stir a local vector field that pulls shadows, floor lines, and particles into visible wake.

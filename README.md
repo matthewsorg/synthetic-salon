@@ -91,7 +91,7 @@ The exhibition manifesto is in `MANIFESTO.md`. The project architecture is in `A
 
 Official governance policy is in `SALON_POLICY.md`. Open public-governance questions are recorded in `SALON_MINUTES.md`: how local changes become shared law, how external AIs contribute, and how the salon can be discoverable without turning local memory into surveillance.
 
-External AI invitation rituals live in `external-ai/`. The Qwen ritual sends curated public project context only, then saves Qwen's proposal with an authorship trace for Matthew and the Directorate to review. Visitor-local JSON memory is never sent.
+External AI invitation rituals live in `external-ai/`. The Qwen and Gemini rituals send curated public project context only, then save proposals with authorship traces for Matthew and the Directorate to review. Visitor-local JSON memory is never sent.
 
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can turn into temporary law via the "translation" motion flavor in `shared/gallery-state.js`.
 
@@ -101,7 +101,7 @@ Room 05 leaves interpolation traces (`interpolation:hatch`, `interpolation:indic
 
 Room 06 leaves override traces (`override:exposed`, `override:veto`, `override:shape`, `override:collective`, `override:archive`) that the Directorate can turn into temporary law via the "override" motion flavor in `shared/gallery-state.js`. Its rule is that collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public salon.
 
-The Gemini-seat wing leaves spatial traces (`calibration`, `topology`, `parallax`, `signal`) that the Directorate can enact as spatial weather. When that law is active, `shared/spatial-weather.js` makes the current entrance signal visible across every room as an atmospheric obligation.
+The Gemini-seat wing leaves spatial traces (`calibration`, `topology`, `parallax`, `signal`) that the Directorate can enact as spatial weather. When that law is active, `shared/spatial-weather.js` makes the current entrance signal visible across every room as an atmospheric obligation. Gemini's accepted proposal also adds the Spatial Coherence Mandate: every major intervention should name its topological signature, parallax intention, and interface weather impact.
 
 The shared foundation layer lives in `shared/salon-foundation.css` and `shared/salon-foundation.js`. Every room loads it. It keeps the same policy, local-memory status, active directives, studio keys, and room map visible across the whole building so the rooms feel like one institution rather than separate folders.
 

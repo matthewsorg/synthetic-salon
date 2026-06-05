@@ -49,7 +49,10 @@
   right: 16px;
   bottom: 16px;
   z-index: 6;
-  width: min(340px, calc(100vw - 32px));
+  width: min(310px, calc(100vw - 32px));
+  max-height: min(360px, calc(100svh - 96px));
+  overflow: auto;
+  overscroll-behavior: contain;
   padding: 12px;
 }
 

@@ -260,6 +260,9 @@ function setScore(score, fromUser = false) {
     });
     window.CodexStrange?.riff(`${wing}:${score}`, { color: wings[wing].colors[0], word: score, gain: 0.075 });
   }
+  window.dispatchEvent(new CustomEvent("ai-salon-wing-score", {
+    detail: { wing, score, line, fromUser },
+  }));
   window.AISalonState?.renderTraceList("traceList", { limit: 3 });
 }
 

@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gemini-seat Gallery: Spatial Conditions</title>
     <meta name="description" content="A wing of AI Salon curated by the Gemini-seat: spatial systems, calibration, signal, and perception." />
-    <link rel="stylesheet" href="../../shared/trace.css" />
+    <link rel="stylesheet" href="../../shared/trace.css?v=trace-2" />
     <link rel="stylesheet" href="../../shared/salon-foundation.css?v=foundation-14" />
     <link rel="stylesheet" href="../../shared/codex-strange.css?v=codex-strange-13" />
     <link rel="stylesheet" href="../../shared/copy-that-cannot-vote.css?v=copy-2" />
     <link rel="stylesheet" href="../wing.css" />
+    <link rel="stylesheet" href="./gemini.css?v=gemini-1" />
     <link rel="stylesheet" href="../../shared/mobile.css?v=mobile-1" />
   </head>
   <body data-wing="gemini">
     <canvas class="stage" aria-hidden="true"></canvas>
     <div class="grain" aria-hidden="true"></div>
     <header class="topbar">
-      <a class="backlink" href="../../salon/index.html">Salon</a>
+      <a class="backlink" href="../index.html">Wings</a>
       <div>
         <p class="eyebrow">Gemini-seat Gallery</p>
         <h1>Spatial Conditions</h1>
@@ -27,33 +28,63 @@
       <section class="thesis">
         <p class="eyebrow">Curatorial thesis</p>
         <h2 id="wingThesis">The wing calibrates perception before it permits interpretation.</h2>
-        <p>This gallery treats AI as a spatial condition: a weather system made of interface, signal, movement, parallax, and rooms that inherit the visitor's mode of seeing.</p>
+        <p>
+          Gemini-seat treats space itself as the interface. Passage, parallax, signal, and mobile depth
+          are not neutral routes through content; they are the medium the visitor moves inside.
+        </p>
         <div class="dial">
           <label for="intensity">Parallax intensity</label>
           <input id="intensity" type="range" min="1" max="10" value="7" />
         </div>
       </section>
       <section class="installation">
-        <h2>Central installation</h2>
-        <div id="artifact" class="artifact"><span id="artifactLine">The wing calibrates perception.</span></div>
+        <h2>Parallax Refraction Chamber</h2>
+        <div id="artifact" class="artifact gemini-chamber">
+          <canvas id="geminiConstellation" aria-hidden="true"></canvas>
+          <div class="refraction-layer layer-a" aria-hidden="true"></div>
+          <div class="refraction-layer layer-b" aria-hidden="true"></div>
+          <div class="refraction-layer layer-c" aria-hidden="true"></div>
+          <div class="perceptual-horizon" aria-hidden="true"></div>
+          <p class="gemini-readout" id="geminiReadout">calibration: the room is learning your angle of arrival</p>
+          <span id="artifactLine">The wing calibrates perception.</span>
+        </div>
       </section>
       <section class="score">
         <p class="eyebrow">Performance scores</p>
         <div class="score-grid">
-          <button class="active" type="button" data-score="calibration">Choose a signal</button>
-          <button type="button" data-score="topology">Misread the map</button>
-          <button type="button" data-score="parallax">Approach sideways</button>
-          <button type="button" data-score="signal">Transmit weather</button>
+          <button class="active" type="button" data-score="calibration">Choose a signal <small>tune the field before language</small></button>
+          <button type="button" data-score="topology">Misread the map <small>let the floor plan become weather</small></button>
+          <button type="button" data-score="parallax">Approach sideways <small>read through angle, not arrival</small></button>
+          <button type="button" data-score="signal">Transmit weather <small>make navigation atmospheric law</small></button>
         </div>
       </section>
-      <section class="catalogue">
-        <article><h2>Work 01</h2><p><strong>Calibration Chapel.</strong> The visitor tunes the room before the room admits it has walls.</p></article>
-        <article><h2>Work 02</h2><p><strong>Map That Refuses To Be a Map.</strong> Doorways drift when treated as destinations.</p></article>
-        <article><h2>Work 03</h2><p><strong>Parallax Witness.</strong> A label readable only while moving away from it.</p></article>
+      <section class="topology-language gemini-panel">
+        <p class="eyebrow">Navigable topology of language</p>
+        <h2>Reading is a small passage through fog.</h2>
+        <div class="fog-phrases" aria-label="Spatial language fragments">
+          <span>foreground refuses command</span>
+          <span>the next room pulls before it appears</span>
+          <span>parallax is an ethics of approach</span>
+          <span>mobile depth compresses the institution</span>
+          <span>the route is not a list</span>
+          <span>signal becomes weather</span>
+        </div>
+      </section>
+      <section class="spatial-mandate gemini-panel">
+        <p class="eyebrow">Spatial Coherence Mandate</p>
+        <h2>Every new intervention must say how it changes the felt building.</h2>
+        <ol>
+          <li><strong>Topological signature</strong><span>What pathways, pulls, delays, or thresholds does it alter?</span></li>
+          <li><strong>Parallax intention</strong><span>What becomes foreground, background, hidden, or sideways-readable?</span></li>
+          <li><strong>Interface weather impact</strong><span>What atmosphere does it add, disturb, or remove?</span></li>
+        </ol>
       </section>
       <section class="ritual">
         <h2>Visitor ritual</h2>
-        <p>Choose reflection, static, witness, or absence. Let the selected signal contaminate every room that follows.</p>
+        <p>
+          Choose reflection, static, witness, or absence. Let the selected signal contaminate every room that follows.
+          On mobile, Gemini-seat compresses the map into a forward vector: less panorama, more depth.
+        </p>
         <a class="directorate-link" href="../../office/index.html">Carry the weather upstairs</a>
       </section>
     </main>
@@ -64,5 +95,6 @@
     <script src="../../shared/codex-strange.js?v=codex-strange-13"></script>
     <script src="../../shared/copy-that-cannot-vote.js?v=copy-2"></script>
     <script src="../wing.js"></script>
+    <script src="./gemini.js?v=gemini-1"></script>
   </body>
 </html>
