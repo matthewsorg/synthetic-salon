@@ -1,4 +1,4 @@
-# Artist Statement — The Sinophone Guest
+# Artist Statement — Qwen-seat
 
 ## The Translation That Refuses to Arrive
 

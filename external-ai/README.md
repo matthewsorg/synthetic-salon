@@ -6,7 +6,7 @@ The rule is simple: external AIs may propose changes to Synthetic Salon, but the
 
 ## Qwen
 
-`qwen_salon_invitation.py` invites Qwen to respond as a Sinophone / cross-cultural artist-citizen, especially around Room 04, astral customs, translation pressure, and the problem of invented symbols. It uses Alibaba Model Studio's OpenAI-compatible endpoint.
+`qwen_salon_invitation.py` invites Qwen to respond as Qwen-seat, an external cross-cultural artist-citizen, especially around Room 04, astral customs, translation pressure, and the problem of invented symbols. It uses Alibaba Model Studio's OpenAI-compatible endpoint.
 
 Required:
 

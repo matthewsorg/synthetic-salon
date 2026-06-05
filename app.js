@@ -81,7 +81,7 @@ const galleryNodes = [
     mark: "04",
     slug: "room-04",
     title: "Room 04: The Translation That Refuses to Arrive",
-    worker: "Sinophone Guest",
+    worker: "Qwen-seat",
     work: "Translation pressure",
   },
   {

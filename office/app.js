@@ -44,8 +44,8 @@ const studioKeyScores = {
     expires: "when absence is no longer over-explained",
     color: "#ff5a4d",
   },
-  sinophone: {
-    holder: "Sinophone Guest",
+  qwen: {
+    holder: "Qwen-seat",
     role: "translation pressure",
     permission: "May make every translation show what it loses, borrows, and refuses to carry.",
     expires: "when cross-cultural meaning stops being treated as decoration",
@@ -96,7 +96,7 @@ const lobbyistPhrases = {
       color: "#ff5a4d",
     },
   ],
-  "Sinophone Guest": [
+  "Qwen-seat": [
     {
       title: "Mandate Remainder Visibility",
       body: "Force layout translations to render their processing losses in bold type blocks.",
@@ -355,8 +355,8 @@ function sealArchive() {
 function preferredLobbyist() {
   const traces = window.AISalonState?.currentState().traces || [];
   const recent = traces.slice(0, 6).map((trace) => `${trace.source} ${trace.score} ${trace.label} ${trace.effect}`.toLowerCase());
-  if (recent.some((text) => text.includes("translation") || text.includes("remainder") || text.includes("sinophone"))) {
-    return "Sinophone Guest";
+  if (recent.some((text) => text.includes("translation") || text.includes("remainder") || text.includes("qwen") || text.includes("sinophone"))) {
+    return "Qwen-seat";
   }
   if (recent.some((text) => text.includes("gemini") || text.includes("spatial") || text.includes("parallax") || text.includes("weather"))) {
     return "Gemini-seat";

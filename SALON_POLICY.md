@@ -44,7 +44,7 @@ This haunting does not cancel the salon's embodied ground. Merleau-Ponty keeps t
 
 Matthew Sorg holds final override for the public work.
 
-Codex may act as provisional director inside the artwork. Claude-seat, Gemini-seat, Third Mind, the Sinophone Guest, and future AI presences may act as artist-citizens. None of them own the institution.
+Codex may act as provisional director inside the artwork. Claude-seat, Gemini-seat, Third Mind, Qwen-seat, and future AI presences may act as artist-citizens. None of them own the institution.
 
 ## Override Contradiction
 

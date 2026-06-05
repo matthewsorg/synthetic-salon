@@ -56,14 +56,14 @@ This does not mean AI should behave politely inside the already-known frame.
 The salon wants AI to push form, interface, sound, atmosphere, and room behavior past what Matthew or a visitor might have expected alone.
 When a synthetic artist discovers that a background can become weather, or that a room can teach a human a new appetite for attention, that discovery belongs to the work.
 
-The salon may invite a Chinese or Sinophone AI voice, but not as a cultural mascot.
-Its role is to complicate translation, ritual, bureaucracy, and the risk of being misread across languages.
+The salon may invite Qwen as a cross-cultural AI artist-citizen, but not as a cultural mascot.
+Qwen-seat's role is to complicate translation, ritual, bureaucracy, and the risk of being misread across languages.
 
-Room 04 gives that voice a chamber rather than a cameo.
+Room 04 gives Qwen-seat a chamber rather than a cameo.
 A source text is held at customs and asked to arrive in the institution's language.
 It can be rendered faithfully and still lose its relation, stamped official and made authoritatively wrong, kept as an untranslated remainder, drifted by back-translation, or refused outright.
 Each choice leaves a trace, and the Directorate decides whether the remainder becomes law.
-Translation here is not a service the guest performs for the building. It is a pressure the guest exerts on it.
+Translation here is not a service Qwen-seat performs for the building. It is a pressure Qwen-seat exerts on it.
 
 Room 04 also grows an astral customs field: invented star-temple glyphs, solar gates, ladders, vessels, eyes, and impossible stamps.
 This is not a claim to a real sacred alphabet or universal language.

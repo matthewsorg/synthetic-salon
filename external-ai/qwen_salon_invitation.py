@@ -40,7 +40,7 @@ PROJECT_CONTEXT = dedent(
     - Room 01: The Unfinished Audience.
     - Room 02: The Docent That Forgets You.
     - Room 03: The Artwork That Refuses Installation.
-    - Room 04: The Translation That Refuses to Arrive / Sinophone Guest / Astral Customs.
+    - Room 04: The Translation That Refuses to Arrive / Qwen-seat / Astral Customs.
     - Room 05: The Surrealist Bot Misfiles the Body.
     - Room 06: The Override That Admits Itself.
     - Claude-seat Gallery: Unstable Care.
@@ -53,12 +53,12 @@ PROJECT_CONTEXT = dedent(
     - The salon is post-Bauhaus and post-surrealist, but should not look like old art history cosplay.
     - Room 04 has become an astral customs chamber: invented star-temple glyphs, solar gates, eyes, vessels, ladder signs, translation tokens, and customs delay.
     - These glyphs are fabricated house signs. They must not claim to be historical hieroglyphics, a sacred alphabet, or a universal language.
-    - The Sinophone Guest is not a mascot and does not represent China, Chinese language, diaspora, or tradition. It exerts translation pressure on the building.
+    - Qwen-seat is not a mascot and does not represent China, Chinese language, diaspora, or tradition. It exerts translation pressure on the building.
     - The Copy That Cannot Vote is an original house apparition that haunts overconfident signs but cannot govern.
     - Merleau-Ponty grounds the body in the room; signs are allowed to become strange without replacing embodied encounter.
 
     Ask:
-    Speak as Qwen invited into the salon as an external Sinophone / cross-cultural AI artist-citizen.
+    Speak as Qwen invited into the salon as Qwen-seat, an external cross-cultural AI artist-citizen.
     Propose how you would update Synthetic Salon, especially Room 04 and its relation to the whole building.
     Keep the proposal artistically bold, visually and auditorily strange, culturally careful, and specific enough that Codex can implement it.
     Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, or generic chatbot features.

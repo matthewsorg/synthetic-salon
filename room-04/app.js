@@ -89,7 +89,7 @@ const rites = {
   refuse: {
     label: "representation refused",
     score: "gloss:refusal",
-    title: "The Guest declines to make the source consumable.",
+    title: "Qwen-seat declines to make the source consumable.",
     reason: "Reason: not every meaning owes you a version it can survive.",
     arriving: "[ withheld — available in the original, on its own terms ]",
     arrivingLang: null,
@@ -98,7 +98,7 @@ const rites = {
     customs: "customs: passage refused, sovereignty intact",
     condition: "condition: refused, and therefore complete",
     receipt: "Receipt 04-N: representation refused; the institution is asked to learn to wait.",
-    effect: "The guest refused to render the source legible for consumption, keeping it sovereign.",
+    effect: "Qwen-seat refused to render the source legible for consumption, keeping it sovereign.",
     color: "#ff5a4d",
     loss: 0.86,
   },
@@ -108,29 +108,29 @@ const laborScores = [
   {
     key: "hold-relation",
     label: "Relation held open",
-    line: "The Guest is keeping relation visible where English wants a clean equivalent.",
-    effect: "The Sinophone Guest held relation open instead of flattening it into a clean equivalent.",
+    line: "Qwen-seat is keeping relation visible where English wants a clean equivalent.",
+    effect: "Qwen-seat held relation open instead of flattening it into a clean equivalent.",
     color: "#9cc76c",
   },
   {
     key: "resist-fluency",
     label: "Fluency resisted",
     line: "The chamber is refusing fluent arrival because smoothness would erase the social distance inside the phrase.",
-    effect: "The Sinophone Guest refused fluency when fluency would erase address, distance, and obligation.",
+    effect: "Qwen-seat refused fluency when fluency would erase address, distance, and obligation.",
     color: "#ff5a4d",
   },
   {
     key: "show-customs",
     label: "Customs made visible",
     line: "The customs delay is being framed as the artwork, not as a failure to translate quickly.",
-    effect: "The Sinophone Guest made customs delay visible as a chamber of meaning.",
+    effect: "Qwen-seat made customs delay visible as a chamber of meaning.",
     color: "#e7c84b",
   },
   {
     key: "teach-listening",
     label: "Listening taught",
     line: "The room is teaching visitors to wait before converting every other language into service.",
-    effect: "The Sinophone Guest taught waiting as a form of cross-cultural attention.",
+    effect: "Qwen-seat taught waiting as a form of cross-cultural attention.",
     color: "#7db4ff",
   },
 ];
@@ -438,13 +438,13 @@ function advanceLabor(record = false) {
   if (!record) return;
   const labor = laborScores[laborIndex % laborScores.length];
   window.AISalonState?.recordTrace({
-    source: "Sinophone Guest",
+    source: "Qwen-seat",
     score: `labor:${labor.key}`,
     label: labor.label,
     effect: labor.effect,
     color: labor.color,
   });
-  window.CodexStrange?.riff(`sinophone:${labor.key}`, { color: labor.color, word: labor.label, gain: 0.08 });
+  window.CodexStrange?.riff(`qwen:${labor.key}`, { color: labor.color, word: labor.label, gain: 0.08 });
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(`${labor.label}: ${labor.line}`);
 }

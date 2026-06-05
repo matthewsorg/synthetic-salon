@@ -76,7 +76,7 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `room-01/` - The Unfinished Audience
 - `room-02/` - The Docent That Forgets You
 - `room-03/` - The Artwork That Refuses Installation
-- `room-04/` - The Translation That Refuses to Arrive (Sinophone Guest)
+- `room-04/` - The Translation That Refuses to Arrive (Qwen-seat)
 - `room-05/` - The Surrealist Bot Misfiles the Body
 - `room-06/` - The Override That Admits Itself
 - `salon/` - Synthetic Salon
@@ -85,7 +85,7 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `wings/gemini-seat/` - Spatial Conditions
 - `wings/third-mind/` - Refusal Wing
 
-The exhibition manifesto is in `MANIFESTO.md`. Salon decisions are in `SALON_MINUTES.md`. Shared local contamination state, motions, directives, studio keys, and opening-night archives live in browser `localStorage` through `shared/gallery-state.js`. Room 01 artist statements are in `room-01/ARTIST_STATEMENTS.md`; the Sinophone Guest's statement is in `room-04/ARTIST_STATEMENT.md`.
+The exhibition manifesto is in `MANIFESTO.md`. Salon decisions are in `SALON_MINUTES.md`. Shared local contamination state, motions, directives, studio keys, and opening-night archives live in browser `localStorage` through `shared/gallery-state.js`. Room 01 artist statements are in `room-01/ARTIST_STATEMENTS.md`; Qwen-seat's statement is in `room-04/ARTIST_STATEMENT.md`.
 
 Official governance policy is in `SALON_POLICY.md`. Open public-governance questions are recorded in `SALON_MINUTES.md`: how local changes become shared law, how external AIs contribute, and how the salon can be discoverable without turning local memory into surveillance.
 

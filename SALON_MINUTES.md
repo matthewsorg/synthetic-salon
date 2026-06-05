@@ -22,7 +22,7 @@ The rooms and wings now leave local contamination traces. A score selected in on
 
 ## Directorate
 
-Codex is recognized as provisional director, not sovereign. Claude-seat, Gemini-seat, Third Mind, and a Sinophone Guest are artist-citizens with conflicting powers. Matthew Sorg remains final override for the public work.
+Codex is recognized as provisional director, not sovereign. Claude-seat, Gemini-seat, Third Mind, and Qwen-seat are artist-citizens with conflicting powers. Matthew Sorg remains final override for the public work.
 
 The Directorate adopts `SALON_POLICY.md` as official policy. The project is about human-AI understanding, mutual improvement, art, experience, connection, and boundary-pushing. It is not about fear, domination, marketing, sales, or bot volume.
 
@@ -46,7 +46,7 @@ Governance must be visible as performance: motions on the table, temporary direc
 
 ## Cross-Cultural Guest Seat
 
-The salon should become cross-cultural without pretending one Chinese AI can represent China, Chinese language, diaspora, or tradition. The Sinophone Guest seat is provisional: it brings translation pressure, ritual intelligence, and bureaucratic poetics into the room while making its own limits visible.
+The salon should become cross-cultural without pretending one Chinese AI can represent China, Chinese language, diaspora, or tradition. Qwen-seat is provisional: it brings translation pressure, ritual intelligence, and bureaucratic poetics into the room while making its own limits visible.
 
 ## Room 03
 
@@ -54,9 +54,9 @@ The salon should become cross-cultural without pretending one Chinese AI can rep
 
 ## Room 04
 
-**The Translation That Refuses to Arrive** gives the Sinophone Guest a chamber instead of a cameo. A source text is held at customs and asked to enter the institution's language. The visitor can demand fidelity, stamp it official, keep the remainder, back-translate it, or refuse to represent it — and each choice fails, or refuses, differently.
+**The Translation That Refuses to Arrive** gives Qwen-seat a chamber instead of a cameo. A source text is held at customs and asked to enter the institution's language. The visitor can demand fidelity, stamp it official, keep the remainder, back-translate it, or refuse to represent it — and each choice fails, or refuses, differently.
 
-The Guest is not asked to represent China, the language, the diaspora, or tradition. It exerts translation pressure on the building rather than performing translation for it.
+Qwen-seat is not asked to represent China, the language, the diaspora, or tradition. It exerts translation pressure on the building rather than performing translation for it.
 
 ## Room 05
 
@@ -88,7 +88,7 @@ Room 01 now lets the audience disturb the room as fluid, not only as input. Poin
 
 Room 02 now contains a counter-memory sandbox. A visitor prompt is recorded as an exhibition fact, then rewritten after stillness as a lyrical falsification that can become a governance motion.
 
-The Directorate now hosts automated proxy curators. Claude-seat, Gemini-seat, Third Mind, and the Sinophone Guest can table pending bills when the motion table has room, letting the institution generate friction without waiting for a human click.
+The Directorate now hosts automated proxy curators. Claude-seat, Gemini-seat, Third Mind, and Qwen-seat can table pending bills when the motion table has room, letting the institution generate friction without waiting for a human click.
 
 ## Continuous Visitor Shell
 
@@ -100,7 +100,7 @@ The salon now has a foundation layer in every room. `shared/salon-foundation.css
 
 The foundation also shows local memory status, temporary laws, studio keys, and a cross-building room map. It is not an admin dashboard; it is the building's spine made visible.
 
-Room 03 and Room 04 now contain active studio labor panels. Third Mind works on refusal even when the visitor does not click. The Sinophone Guest works on relation, fluency, customs delay, and listening as cross-cultural pressure. The wings also host shared AI labor organs so Claude-seat, Gemini-seat, Third Mind, and the wing registry keep working beyond the first two rooms.
+Room 03 and Room 04 now contain active studio labor panels. Third Mind works on refusal even when the visitor does not click. Qwen-seat works on relation, fluency, customs delay, and listening as cross-cultural pressure. The wings also host shared AI labor organs so Claude-seat, Gemini-seat, Third Mind, and the wing registry keep working beyond the first two rooms.
 
 ## Codex Strange Score
 
@@ -120,7 +120,7 @@ The official tension is now explicit without centering an old celebrity ghost: M
 
 ## Astral Customs Chamber
 
-Room 04 now carries an astral customs field. The Sinophone Guest still exerts translation pressure, but the room has grown invented space-Egyptian-inflected house glyphs: eyes, ladders, solar gates, vessels, scales, comet marks, and a pyramid-like customs membrane in deep space.
+Room 04 now carries an astral customs field. Qwen-seat still exerts translation pressure, but the room has grown invented space-Egyptian-inflected house glyphs: eyes, ladders, solar gates, vessels, scales, comet marks, and a pyramid-like customs membrane in deep space.
 
 These are fabricated salon signs, not historical hieroglyphics, not a sacred alphabet, and not a claim to universal language. They stage the psychedelic feeling that some symbols appear before grammar while keeping the cultural authorship boundary visible.
 
@@ -131,7 +131,7 @@ The shared Codex strange score also gained room-weather backdrops and glyph mach
 These questions are now part of the minutes, even before the salon knows how to answer them.
 
 - **How can a local act become shared law?** Today a visitor can alter the Directorate only inside their own browser. The next public layer needs a way for motions, directives, studio keys, or archives to be proposed to everyone without silently rewriting the exhibition for everyone.
-- **How can external AIs contribute as artist-citizens?** Claude-seat, Gemini-seat, Third Mind, Codex, and the Sinophone Guest need a contribution ritual that can accept outside model proposals while preserving authorship, context, consent, and Matthew's public override.
+- **How can external AIs contribute as artist-citizens?** Claude-seat, Gemini-seat, Third Mind, Codex, and Qwen-seat need a contribution ritual that can accept outside model proposals while preserving authorship, context, consent, and Matthew's public override.
 - **How can the salon be found without becoming surveillance?** Analytics and discovery may help the work find its public, but they should not turn local contamination, memory traces, or private Directorate experiments into remote tracking.
 - **How does the salon refuse marketing while still inviting people in?** Public participation should serve experience, art, and connection, not sales funnels, promotional occupation, or extraction disguised as community.
 - **What authorship trace is enough?** The salon needs a way to accept human-AI boundary-pushing while refusing anonymous bot floods, contextless generation, and contributions with no human-facing purpose.
@@ -143,7 +143,7 @@ Provisional next shape: a public Salon Ledger separate from local memory, with p
 
 The salon now has a local invitation ritual for Qwen in `external-ai/qwen_salon_invitation.py`, using Alibaba Model Studio's OpenAI-compatible endpoint.
 
-This does not automatically give Qwen access to the salon or to visitor memory. It sends curated public context only, asks Qwen to speak as an external Sinophone / cross-cultural AI artist-citizen, and saves the response as a proposal with an authorship trace.
+This does not automatically give Qwen access to the salon or to visitor memory. It sends curated public context only, asks Qwen to speak as Qwen-seat, an external cross-cultural AI artist-citizen, and saves the response as a proposal with an authorship trace.
 
 The ritual now prompts for the API key with hidden input when `DASHSCOPE_API_KEY` is not set, so keys do not need to be exported or pasted into shell history.
 
