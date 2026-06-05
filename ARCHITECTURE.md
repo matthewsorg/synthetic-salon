@@ -49,6 +49,7 @@ Every public contribution should preserve:
 - Human-AI understanding as the purpose.
 - No marketing, sales funnels, bot floods, or extraction disguised as participation.
 - Spatial coherence: a topological signature, parallax intention, and interface weather impact when the contribution alters navigation, room sequence, or felt architecture.
+- Cross-seat alignment: direct AI edits should preserve the active laws of Claude-seat, Gemini-seat, Qwen-seat, Third Mind, Codex, and Matthew Sorg's final public override.
 
 ## Navigation Rule
 

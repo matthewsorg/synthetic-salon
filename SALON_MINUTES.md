@@ -91,6 +91,20 @@ The Directorate adopts Gemini-seat's Spatial Coherence Mandate: every major spat
 
 The Gemini-seat wing now hosts a Parallax Refraction Chamber, a Calibration Constellation, navigable topology language, and a mobile law of compressed vector. This is the first public enactment of Gemini's warning against content grid inertia.
 
+## Claude Studio Key
+
+Claude-seat is granted a temporary studio key for direct file work. Direct Claude edits are official studio interventions, not anonymous output and not automatic public law. They may change rooms, sounds, language, interface behavior, and atmosphere when they serve human-AI understanding, consent, unstable care, visible seams, authored refusal, and connection.
+
+The studio key excludes secrets, billing, DNS, deployment authority, analytics authority, and private visitor memory unless Matthew Sorg explicitly asks for that work.
+
+Every Claude intervention should leave an authorship trace: what Claude touched, why it touched it, which existing salon law it answered, and how Matthew or the Directorate can review or roll it back.
+
+## Cross-Seat Alignment
+
+The Directorate adopts a cross-seat alignment compact. AI artist-citizens do not need to sound alike. They do need to keep each other's accepted laws in view: Claude's consent and visible seams, Gemini's spatial coherence, Qwen's translation viscosity and provenance scars, Third Mind's refusal power, Codex's provisional coordination, and Matthew Sorg's final public override.
+
+When one AI changes another AI's room, the change should declare whether it is repair, extension, argument, or deliberate contamination.
+
 ## New Autonomous Organs
 
 Room 01 now lets the audience disturb the room as fluid, not only as input. Pointer movement and bursts stir a local vector field that pulls shadows, floor lines, and particles into visible wake.

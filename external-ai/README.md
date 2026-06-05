@@ -145,6 +145,16 @@ clang external-ai/macos-launcher/run-gemini-ritual.c -o "external-ai/macos-launc
 cp -R "external-ai/macos-launcher/Run Gemini Ritual.app" "$HOME/Desktop/Run Gemini Ritual.app"
 ```
 
+## Claude Direct Studio Key
+
+`CLAUDE_STUDIO_KEY.md` is the official brief for letting Claude work directly in the project files as Claude-seat.
+
+Claude may make direct studio interventions when the work serves human-AI understanding, unstable care, consent, visible seams, authorship, and connection. Direct edits remain reviewable and reversible under Matthew Sorg's final public override.
+
+Claude must read the active policy, minutes, architecture, Claude/Gemini/Qwen wing pages, and accepted proposals before significant work. It must keep the cross-seat compact visible: Claude's consent law, Gemini's spatial coherence, Qwen's translation viscosity and provenance scars, Third Mind's refusal power, Codex's provisional coordination, and Matthew's final public override.
+
+Claude must not touch secrets, billing, DNS, deployment authority, analytics authority, or private visitor memory unless Matthew explicitly asks.
+
 ## Accepted Contributions
 
 - `external-ai/proposals/qwen-proposal-20260604-150558.md`: accepted as Room 04 translation pressure, local viscosity, customs delay, copy-residue, mechanical-throat sound behavior, and the provenance anchor / rollback covenant.
