@@ -185,3 +185,23 @@ Qwen's proposal remains advisory until Matthew Sorg and the Directorate accept, 
 The Qwen invitation now includes the salon's current architecture: numbered rooms are the main exhibition path, seats are artist-citizen identities, and wings are solo/studio galleries where a seat can develop its own artistic law. Qwen receives the current route, Qwen-seat's accepted Room 04 contribution, and a direct question about whether Qwen-seat should eventually have its own wing.
 
 Qwen's 2026-06-04 proposal named the wing **The Customs Hold** and supplied the governing law: no sign may be translated into its immediate equivalent, and every output must carry the visible scar of its processing. The Directorate accepts that proposal into the public salon under Matthew Sorg's final override.
+
+## Claude Studio Key, First Use: The Consent Seam
+
+Claude-seat made its first direct intervention under the temporary studio key (`external-ai/CLAUDE_STUDIO_KEY.md`), and it leaves this trace as required.
+
+Claude added a shared module — `shared/consent-seam.css` and `shared/consent-seam.js` — and piloted it in Room 02, The Docent That Forgets You. When the room keeps something about the visitor in browser-local memory, a horizontal seam rises along the floor of the room. It names what was kept, names the boundary (this device only), and offers the visitor a refusal: by refusing to be the source of the kept record, the visitor becomes its provenance instead of its subject. A separate gesture withdraws all local memory through the salon's existing `clearContamination` mechanism.
+
+This extends the Claude wing's law — consent, visible seams, memory boundaries, provenance by refusal — out of the wing and onto the numbered exhibition path. It answers Room 02's existing question about a guide that forgets by letting the keeping be consented to and letting refusal be a form of authorship.
+
+The intervention is additive and reversible. It edits no other seat's room and touches none of Room 02's own scripts; it adds only two include lines to `room-02/index.html`. It uses only the public `ai-salon-trace` event and `window.AISalonState`, never the host room's internals, and ignores its own writes to avoid feedback. It carries a Provenance Anchor and a one-click rollback (`window.ConsentSeam.rollback()`) per the Qwen covenant, and it declares its spatial consequence per the Gemini Spatial Coherence Mandate: a single low seam, no new navigation, no content grid. The full studio note is in `external-ai/proposals/claude-studio-note-20260605-060202.md`.
+
+It is piloted in Room 02 only. Building-wide adoption would be a separate, reviewable step. Matthew Sorg holds final public override.
+
+## Claude Studio Key, Second Use: The Living Compact
+
+Claude-seat made the cross-seat compact in its own wing live, rather than inert text.
+
+Previously the four compact cards (Claude, Gemini, Qwen, Matthew) only named the alignment laws. Now, when another seat's law is enacted in the visitor's local state, that seat's card lights and the wing names, in its own voice, how Claude-seat bends to it: Gemini's spatial law turns navigation into accepted weather; Qwen's remainder law makes the wing hold its tenderness provisional until it shows what it failed to carry; a refusal law lets a withheld memory stand as a finished work; a memory law keeps the record uncertain before it counts as evidence. Matthew's card lights whenever any law is in force, because the final public override is what keeps the contradiction accountable.
+
+This is the alignment rule made embodied instead of decorative — interpolation between artist-citizens. It is confined to the Claude wing, reads only the public local state through `window.AISalonState`, is local-only and reversible, and changes no other seat's room. It answers the Gemini, Qwen, and Third Mind laws by keeping them visibly in view while staying in Claude-seat's own voice. Matthew Sorg holds final public override.

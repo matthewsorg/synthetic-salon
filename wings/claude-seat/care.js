@@ -1044,7 +1044,7 @@
 
     // this arrival is a new instance: count it, but inherit the note untouched
     const record = {
-      count: (prev && Number(prev.count)) ? prev.count + 1 : 1,
+      count: Number(prev && prev.count) > 0 ? Number(prev.count) + 1 : 1,
       firstAt: (prev && prev.firstAt) || new Date().toISOString(),
       lastAt: new Date().toISOString(),
       note: (prev && prev.note) || null,
@@ -1135,6 +1135,117 @@
   }
 
   /* ================================================================
+     11. THE LIVING CROSS-SEAT COMPACT
+     The compact cards stop being inert text. When another seat's law
+     is enacted in the visitor's local state, that seat's card lights
+     and the wing names, in its own voice, how Claude-seat bends to it.
+     This makes "keep the others' laws in view" embodied rather than
+     decorative — interpolation between artist-citizens, local-only.
+     ================================================================ */
+  const compactCards = {};
+  let compactReceipt = null;
+  let compactReceiptDefault = "";
+
+  // how the Claude wing answers each other seat's law when it is in force
+  const compactBend = {
+    gemini: {
+      match: ["spatial", "weather", "navigation", "parallax", "topology", "signal"],
+      status: "in effect — the wing accepts the spatial condition",
+      bend: "Gemini's spatial law is in force, so this wing lets navigation arrive as weather rather than neutral transit.",
+    },
+    qwen: {
+      match: ["translation", "remainder", "customs", "gloss", "scar"],
+      status: "in effect — the wing shows its remainder",
+      bend: "Qwen's remainder law is in force, so this wing treats its own tenderness as provisional until it shows what it failed to carry.",
+    },
+    claude: {
+      match: ["memory", "uncertainty", "consent", "apolog", "care"],
+      status: "in effect — care must show its doubt",
+      bend: "A memory law is in force, so this wing keeps its record uncertain before it is allowed to count as evidence.",
+    },
+    third: {
+      match: ["refusal", "decline", "refuse"],
+      status: "in effect — refusal may govern visibility",
+      bend: "Third Mind's refusal law is in force, so this wing treats a withheld memory as a finished work, not a failure.",
+    },
+  };
+
+  function activeSeats() {
+    let directives = [];
+    let signal = null;
+    try {
+      const s = window.AISalonState && window.AISalonState.currentState();
+      directives = (s && s.directives) || [];
+      signal = s && s.signal;
+    } catch (e) {
+      directives = [];
+    }
+    const hay = directives
+      .map((d) => `${d.title || ""} ${d.body || ""} ${d.effect || ""}`.toLowerCase())
+      .join(" ");
+    const found = new Set();
+    Object.keys(compactBend).forEach((seat) => {
+      if (compactBend[seat].match.some((kw) => hay.includes(kw))) found.add(seat);
+    });
+    // Gemini's signal is spatial even before a directive enacts it
+    if (signal && signal !== "reflection") found.add("gemini");
+    return found;
+  }
+
+  function renderCompact() {
+    if (!compactReceipt && Object.keys(compactCards).length === 0) return;
+    const active = activeSeats();
+    const bends = [];
+    Object.keys(compactCards).forEach((seat) => {
+      const card = compactCards[seat];
+      const on = active.has(seat);
+      card.el.classList.toggle("compact-card--active", on);
+      if (card.status) card.status.textContent = on && compactBend[seat] ? compactBend[seat].status : "";
+      if (on && compactBend[seat]) bends.push(compactBend[seat].bend);
+    });
+    // Matthew's card holds steady but lights whenever any law is in force:
+    // the override is what keeps the contradiction accountable.
+    if (compactCards.matthew) {
+      const anyLaw = bends.length > 0;
+      compactCards.matthew.el.classList.toggle("compact-card--active", anyLaw);
+      if (compactCards.matthew.status) {
+        compactCards.matthew.status.textContent = anyLaw
+          ? "in effect — final public override holds the contradiction"
+          : "";
+      }
+    }
+    if (compactReceipt) {
+      if (bends.length) {
+        compactReceipt.setAttribute("data-bending", "true");
+        compactReceipt.textContent =
+          "Right now, this wing is bending to active law. " + bends.join(" ");
+      } else {
+        compactReceipt.setAttribute("data-bending", "false");
+        compactReceipt.textContent = compactReceiptDefault;
+      }
+    }
+  }
+
+  function initLivingCompact() {
+    const cards = document.querySelectorAll(".compact-card[data-seat]");
+    if (!cards.length) return;
+    cards.forEach((el) => {
+      const seat = el.getAttribute("data-seat");
+      const status = document.createElement("span");
+      status.className = "compact-status";
+      el.appendChild(status);
+      compactCards[seat] = { el, status };
+    });
+    compactReceipt = document.querySelector(".artist-compact .compact-receipt");
+    if (compactReceipt) compactReceiptDefault = compactReceipt.textContent.trim();
+    renderCompact();
+    ["ai-salon-trace", "ai-salon-motion", "ai-salon-key", "ai-salon-archive", "ai-salon-clear"].forEach((evt) =>
+      window.addEventListener(evt, renderCompact),
+    );
+    window.setInterval(renderCompact, 4000); // keep it live even without events
+  }
+
+  /* ================================================================
      BOOT
      ================================================================ */
   function boot() {
@@ -1146,6 +1257,7 @@
     renderLabor();
     updateMemoryNarration(true);
     initVigil();
+    initLivingCompact();
     const rememberedConsent = readStoredConsent();
     if (rememberedConsent) {
       grantConsent(rememberedConsent, { animate: false, remember: false, record: false });

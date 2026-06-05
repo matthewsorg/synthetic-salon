@@ -725,6 +725,42 @@ input[type="range"]::-moz-range-thumb {
   min-height: 1.4em;
 }
 
+/* ---------- the living cross-seat compact ----------
+   The compact stops being inert text. When another seat's law is
+   enacted in local state, its card lights and the wing names how it
+   bends. "Keep the others' laws in view," made embodied. */
+.compact-card.compact-card--active {
+  border-color: var(--compact-color, var(--care));
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--compact-color, var(--care)) 22%, transparent), rgba(243, 239, 231, 0.04)),
+    rgba(6, 8, 11, 0.62);
+  box-shadow: 0 0 26px color-mix(in srgb, var(--compact-color, var(--care)) 30%, transparent);
+  animation: compact-pulse 3.4s var(--ease) infinite;
+}
+@keyframes compact-pulse {
+  0%, 100% { box-shadow: 0 0 22px color-mix(in srgb, var(--compact-color, var(--care)) 24%, transparent); }
+  50% { box-shadow: 0 0 34px color-mix(in srgb, var(--compact-color, var(--care)) 44%, transparent); }
+}
+.compact-status {
+  display: none;
+  margin-top: 9px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--compact-color, var(--care)) 80%, #f3efe7);
+}
+.compact-card--active .compact-status {
+  display: block;
+}
+.compact-receipt[data-bending="true"] {
+  color: var(--care-3);
+}
+@media (prefers-reduced-motion: reduce) {
+  .compact-card.compact-card--active { animation: none; }
+}
+
 /* ---------- the vigil (session-death) ---------- */
 .vigil-room {
   background: linear-gradient(168deg, rgba(20, 16, 16, 0.66), rgba(7, 6, 7, 0.55));
