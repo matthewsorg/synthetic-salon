@@ -41,9 +41,18 @@
     },
   ];
 
-  const rooms = [
+  const routeStops = [
+    {
+      key: "",
+      mark: "Start",
+      title: "Entrance",
+      text: "Begin at Room 01",
+      href: "index.html",
+      color: "#f3efe7",
+    },
     {
       key: "room-01",
+      mark: "01",
       title: "Room 01",
       text: "Audience weather",
       href: "room-01/index.html",
@@ -51,6 +60,7 @@
     },
     {
       key: "room-02",
+      mark: "02",
       title: "Room 02",
       text: "Counter-memory",
       href: "room-02/index.html",
@@ -58,6 +68,7 @@
     },
     {
       key: "room-03",
+      mark: "03",
       title: "Room 03",
       text: "Refusal labor",
       href: "room-03/index.html",
@@ -65,6 +76,7 @@
     },
     {
       key: "room-04",
+      mark: "04",
       title: "Room 04",
       text: "Translation pressure",
       href: "room-04/index.html",
@@ -72,6 +84,7 @@
     },
     {
       key: "room-05",
+      mark: "05",
       title: "Room 05",
       text: "Dream misfiling",
       href: "room-05/index.html",
@@ -79,6 +92,7 @@
     },
     {
       key: "room-06",
+      mark: "06",
       title: "Room 06",
       text: "Override exposed",
       href: "room-06/index.html",
@@ -86,20 +100,23 @@
     },
     {
       key: "salon",
+      mark: "S",
       title: "Salon",
       text: "AI disagreement",
       href: "salon/index.html",
       color: "#e7c84b",
     },
     {
-      key: "office",
-      title: "Directorate",
-      text: "Governed motions",
-      href: "office/index.html",
-      color: "#00b7a8",
+      key: "wings",
+      mark: "W",
+      title: "Wings",
+      text: "Voice directory",
+      href: "wings/index.html",
+      color: "#9cc76c",
     },
     {
       key: "wings/claude-seat",
+      mark: "C",
       title: "Claude-seat",
       text: "Unstable care",
       href: "wings/claude-seat/index.html",
@@ -107,6 +124,7 @@
     },
     {
       key: "wings/gemini-seat",
+      mark: "G",
       title: "Gemini-seat",
       text: "Spatial conditions",
       href: "wings/gemini-seat/index.html",
@@ -114,12 +132,23 @@
     },
     {
       key: "wings/third-mind",
+      mark: "T",
       title: "Third Mind",
       text: "Refusal wing",
       href: "wings/third-mind/index.html",
       color: "#ff5a4d",
     },
+    {
+      key: "office",
+      mark: "D",
+      title: "Directorate",
+      text: "Governed motions",
+      href: "office/index.html",
+      color: "#00b7a8",
+    },
   ];
+
+  const rooms = routeStops.filter((room) => room.key);
 
   function node(tag, className, text) {
     const element = document.createElement(tag);
@@ -131,7 +160,19 @@
   function isCurrent(room) {
     const path = currentPath();
     const hrefPath = new URL(room.href, rootUrl).pathname.replace(/\/index\.html$/, "/");
+    if (room.key === "wings") return path === hrefPath;
     return path === hrefPath || path.startsWith(hrefPath);
+  }
+
+  function currentRouteIndex() {
+    const path = currentPath();
+    const index = routeStops.findIndex((stop) => {
+      const hrefPath = new URL(stop.href, rootUrl).pathname.replace(/\/index\.html$/, "/");
+      if (!stop.key) return path === hrefPath;
+      if (stop.key === "wings") return path === hrefPath;
+      return path === hrefPath || path.startsWith(hrefPath);
+    });
+    return index >= 0 ? index : 0;
   }
 
   function number(value) {
@@ -167,7 +208,52 @@
     });
   }
 
+  function mountRoute() {
+    const header = document.querySelector(".topbar");
+    if (!header || document.querySelector(".salon-route")) return;
+
+    const index = currentRouteIndex();
+    const current = routeStops[index];
+    const previous = routeStops[(index - 1 + routeStops.length) % routeStops.length];
+    const next = routeStops[(index + 1) % routeStops.length];
+    const route = node("nav", "salon-route");
+    route.setAttribute("aria-label", "Recommended route through Synthetic Salon");
+    route.style.setProperty("--route-accent", current.color);
+
+    const prevLink = node("a", "salon-route__step salon-route__step--prev");
+    prevLink.href = linkFor(previous.href);
+    prevLink.append(node("span", null, "Previous"), node("strong", null, previous.title));
+
+    const currentNode = node("div", "salon-route__current");
+    currentNode.append(
+      node("span", null, index === 0 ? "Begin here" : `Stop ${index} of ${routeStops.length - 1}`),
+      node("strong", null, current.title),
+      node("small", null, index === 0 ? "Start with Room 01, then follow the next-room signal." : current.text)
+    );
+
+    const nextLink = node("a", "salon-route__step salon-route__step--next");
+    nextLink.href = linkFor(next.href);
+    nextLink.append(node("span", null, index === routeStops.length - 1 ? "Return to" : "Next"), node("strong", null, next.title));
+
+    const trail = node("ol", "salon-route__trail");
+    routeStops.slice(1).forEach((stop, stopIndex) => {
+      const item = node("li");
+      const link = node("a");
+      link.href = linkFor(stop.href);
+      link.textContent = stop.mark;
+      link.style.setProperty("--route-accent", stop.color);
+      if (stopIndex + 1 === index) link.setAttribute("aria-current", "page");
+      item.append(link);
+      trail.append(item);
+    });
+
+    route.append(prevLink, currentNode, nextLink, trail);
+    header.insertAdjacentElement("afterend", route);
+  }
+
   function mount() {
+    mountRoute();
+
     const root = node("aside", "salon-foundation");
     root.dataset.open = "false";
     root.setAttribute("aria-label", "Synthetic Salon foundation");

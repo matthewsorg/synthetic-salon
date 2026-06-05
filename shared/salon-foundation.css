@@ -215,7 +215,179 @@
   line-height: 1.25;
 }
 
+.salon-route {
+  --route-ink: rgba(8, 9, 11, 0.74);
+  --route-paper: #d9d3c6;
+  --route-bone: #f3efe7;
+  --route-muted: #9a958a;
+  --route-line: rgba(243, 239, 231, 0.14);
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: minmax(120px, 0.42fr) minmax(240px, 0.9fr) minmax(120px, 0.42fr);
+  gap: 8px;
+  align-items: stretch;
+  width: min(1180px, calc(100vw - 48px));
+  margin: -8px auto 16px;
+  color: var(--route-paper);
+  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.salon-route,
+.salon-route * {
+  box-sizing: border-box;
+}
+
+.salon-route__step,
+.salon-route__current,
+.salon-route__trail a {
+  border: 1px solid color-mix(in srgb, var(--route-accent, #00b7a8) 34%, var(--route-line));
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--route-accent, #00b7a8) 18%, transparent), transparent 36%),
+    var(--route-ink);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(18px);
+}
+
+.salon-route__step,
+.salon-route__current {
+  display: grid;
+  min-width: 0;
+  min-height: 54px;
+  align-content: center;
+  gap: 2px;
+  padding: 9px 11px;
+}
+
+.salon-route__step {
+  color: var(--route-paper);
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+
+.salon-route__step:hover,
+.salon-route__step:focus-visible {
+  border-color: var(--route-accent, #00b7a8);
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--route-accent, #00b7a8) 28%, transparent), transparent 40%),
+    rgba(8, 9, 11, 0.82);
+  transform: translateY(-1px);
+}
+
+.salon-route__step span,
+.salon-route__current span {
+  color: var(--route-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.salon-route__step strong,
+.salon-route__current strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--route-bone);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.salon-route__step--next {
+  text-align: right;
+}
+
+.salon-route__current {
+  border-color: color-mix(in srgb, var(--route-accent, #00b7a8) 58%, var(--route-line));
+  text-align: center;
+}
+
+.salon-route__current small {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--route-muted);
+  font-size: 11px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.salon-route__trail {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.salon-route__trail a {
+  display: grid;
+  min-height: 26px;
+  place-items: center;
+  color: var(--route-paper);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.salon-route__trail a:hover,
+.salon-route__trail a:focus-visible,
+.salon-route__trail a[aria-current="page"] {
+  border-color: var(--route-accent, #00b7a8);
+  background:
+    radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--route-accent, #00b7a8) 28%, transparent), transparent 46%),
+    rgba(8, 9, 11, 0.88);
+  transform: translateY(-1px);
+}
+
+.salon-route + .entrance,
+.salon-route + .room,
+.salon-route + .salon,
+.salon-route + .directorate,
+.salon-route + .wing,
+.salon-route ~ .wing {
+  min-height: calc(100vh - 214px) !important;
+}
+
 @media (max-width: 760px) {
+  .salon-route {
+    grid-template-columns: minmax(0, 1fr);
+    width: auto;
+    margin: 0 14px 10px;
+  }
+
+  .salon-route__step,
+  .salon-route__current {
+    min-height: 48px;
+    text-align: left;
+  }
+
+  .salon-route__step--next {
+    order: -1;
+    text-align: left;
+  }
+
+  .salon-route__current {
+    text-align: left;
+  }
+
+  .salon-route__current small {
+    white-space: normal;
+  }
+
+  .salon-route__trail {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
   .salon-foundation {
     position: relative;
     left: auto;

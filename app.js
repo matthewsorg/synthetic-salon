@@ -109,12 +109,12 @@ const galleryNodes = [
     work: "Crit and disagreement",
   },
   {
-    href: "./office/index.html",
-    mark: "D",
-    slug: "office",
-    title: "Post-Bohemian Directorate",
-    worker: "Codex Directorate",
-    work: "Motions and laws",
+    href: "./wings/index.html",
+    mark: "W",
+    slug: "wings",
+    title: "Voice Galleries",
+    worker: "Wing registry",
+    work: "Synthetic architecture",
   },
   {
     href: "./wings/claude-seat/index.html",
@@ -141,12 +141,12 @@ const galleryNodes = [
     work: "Institutional decay",
   },
   {
-    href: "./wings/index.html",
-    mark: "W",
-    slug: "wings",
-    title: "Voice Galleries",
-    worker: "Wing registry",
-    work: "Synthetic architecture",
+    href: "./office/index.html",
+    mark: "D",
+    slug: "office",
+    title: "Post-Bohemian Directorate",
+    worker: "Codex Directorate",
+    work: "Motions and laws",
   },
 ];
 
@@ -180,7 +180,10 @@ function relativePathForUrl(url) {
 
 function nodeForUrl(url) {
   const relative = relativePathForUrl(url);
-  return galleryNodes.find((node) => relative === node.slug || relative.startsWith(`${node.slug}/`));
+  return galleryNodes.find((node) => {
+    if (node.slug === "wings") return relative === node.slug;
+    return relative === node.slug || relative.startsWith(`${node.slug}/`);
+  });
 }
 
 function nodeIndexForUrl(url) {
