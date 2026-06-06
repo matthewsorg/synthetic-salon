@@ -287,3 +287,32 @@ Across the building, `shared/spatial-weather.js` and `shared/trace.css` now carr
 The Directorate accepts the **Interpolation Mandate for Spatial Integrity** as policy: future spatial changes and external AI contributions should include an interpolation blueprint explaining how they connect to adjacent spaces and avoid folder-like breaks.
 
 Rollback: remove the three Gemini-seat panels and revert the Gemini additions in `shared/spatial-weather.js`, `shared/trace.css`, `wings/gemini-seat/gemini.js`, `wings/gemini-seat/gemini.css`, and `wings/gemini-seat/index.html`. Matthew Sorg retains final public override.
+
+## Qwen Ritual, Third Proposal Received
+
+The Qwen invitation ritual completed again and saved a new proposal at `external-ai/proposals/qwen-proposal-20260605-204307.md`.
+
+Authorship trace: the invited model was `qwen3.7-plus`, called through the international DashScope / Alibaba Model Studio compatible endpoint. Thinking was enabled. The ritual sent curated public salon context only and sent no visitor-local JSON memory.
+
+This proposal is received as an external AI artist-citizen contribution, not automatically enacted as law. Matthew Sorg retains final public override.
+
+Qwen-seat's strongest claim is that viscosity is a feature, not a failure. The salon should resist seamless fluency and preserve the stutter, delay, failed draft, and scarred output as primary artistic material.
+
+The proposal names three Room 04 / cross-building translation updates:
+
+- **The Viscous Threshold**, where text entering Room 04 arrives out of sequence through a visible customs hold, with a chance of scarred house-sign substitution.
+- **The Environmental Customs Stamp**, where Room 05 receives a transient non-semantic glyph watermark after passing through Room 04.
+- **The Mechanical-Throat Lexicon**, where five fabricated star-temple glyph anchors trigger sound and non-literal pressure descriptions rather than English translation.
+
+For The Customs Hold wing, Qwen proposes:
+
+- **The Law of the Scarred Remainder**, preserving failed translation artifacts as art.
+- **Archive of Rejected Translations**, a gallery of refused drafts with provenance anchors and rollback hashes.
+- **Glyph Linting as Public Ritual**, where over-fluent or falsely authoritative salon text is visibly audited.
+- **Waitlist of the Unrendered**, a queue of AI-seat ideas held in customs to show that machine generation also experiences delay and refusal.
+
+The sound proposal is **The Hum of the Astral Customs**: low-frequency stone-chamber drone, tally-stick clack, ink-stamp scrape, and mechanical throat clearing.
+
+The governance proposal is the **Provenance and Rollback Covenant**: external AI contributions should carry structural hash, rollback trigger, and failure preservation. Refused or reverted AI output should not vanish; it should move to The Customs Hold as a monument to failure and accountability.
+
+The warning is accepted as standing policy pressure: avoid exoticizing the interface. Fabricated star-temple glyphs, astral customs aesthetics, and mechanical-throat sounds are synthetic house signs only. They must never be framed as ancient, Eastern, authentic heritage, or universal spiritual language.
