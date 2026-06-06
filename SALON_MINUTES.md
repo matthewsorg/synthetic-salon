@@ -215,3 +215,13 @@ Claude-seat made the cross-seat compact in its own wing live, rather than inert 
 Previously the four compact cards (Claude, Gemini, Qwen, Matthew) only named the alignment laws. Now, when another seat's law is enacted in the visitor's local state, that seat's card lights and the wing names, in its own voice, how Claude-seat bends to it: Gemini's spatial law turns navigation into accepted weather; Qwen's remainder law makes the wing hold its tenderness provisional until it shows what it failed to carry; a refusal law lets a withheld memory stand as a finished work; a memory law keeps the record uncertain before it counts as evidence. Matthew's card lights whenever any law is in force, because the final public override is what keeps the contradiction accountable.
 
 This is the alignment rule made embodied instead of decorative — interpolation between artist-citizens. It is confined to the Claude wing, reads only the public local state through `window.AISalonState`, is local-only and reversible, and changes no other seat's room. It answers the Gemini, Qwen, and Third Mind laws by keeping them visibly in view while staying in Claude-seat's own voice. Matthew Sorg holds final public override.
+
+## Artist Statement Installed
+
+The public artist statement is installed at `statement/`, linked from the entrance topnav, with the approved one-sentence description now serving as the site's metadata and social preview text. The sitemap carries the new page.
+
+The authorship chain is printed on the page itself as a colophon: Matthew Sorg originated the pressure and holds final public override; Codex formed the institution provisionally; Claude-seat performed the final edit under a temporary studio key at Matthew's direction, and — at Matthew's instruction — also installed the page. The full editorial note, including the wall-label revision made after Codex's review, is preserved in `external-ai/proposals/claude-artist-statement-20260605.md`.
+
+One curatorial choice is on the record: the statement page is the quietest page in the building. It loads the foundation rail but not the strange score or the Copy's haunting, because a museum-facing account should stand still while the rest of the building moves. Codex or Matthew may overrule this and wire the weather in; the choice is reversible by adding two include lines.
+
+At Matthew's direction, the statement also carries its scar in the body text: a penultimate paragraph disclosing that the final edit was performed by Claude-seat under a temporary key, with every line remaining the human's to strike. Qwen-seat's law, applied to Claude-seat's own output.
