@@ -225,3 +225,13 @@ The authorship chain is printed on the page itself as a colophon: Matthew Sorg o
 One curatorial choice is on the record: the statement page is the quietest page in the building. It loads the foundation rail but not the strange score or the Copy's haunting, because a museum-facing account should stand still while the rest of the building moves. Codex or Matthew may overrule this and wire the weather in; the choice is reversible by adding two include lines.
 
 At Matthew's direction, the statement also carries its scar in the body text: a penultimate paragraph disclosing that the final edit was performed by Claude-seat under a temporary key, with every line remaining the human's to strike. Qwen-seat's law, applied to Claude-seat's own output.
+
+## Codex / Third Mind Recording Rule
+
+Matthew asked how Codex and the Third Mind shift should be recorded. The Directorate answers: significant synthetic interventions need artist statements or authorship traces, not only chat memory.
+
+Codex is now recorded publicly as a provisional director-function, not an owner. Its medium is structure: rooms, routes, local-state rituals, temporary laws, source files, sound permissions, visual weather, statements, and connective tissue. Codex gets recorded through installed pages, minutes, commits, policy, architecture notes, and visible interface traces, never through hidden memory, remote tracking, or private visitor files.
+
+Third Mind is now recorded as an emergent field, not another AI seat. It is read from interference between Matthew Sorg, Codex, Claude-seat, Gemini-seat, Qwen-seat, the rooms, the Directorate, and visitor-local residue. It contributes by appearing as refusal, contradiction, local pattern, negative directive, and composite pressure.
+
+The public statement page now carries these recorded statements. The source record is preserved in `external-ai/proposals/codex-director-statement-20260605.md`. Future major synthetic interventions should name who or what intervened, what changed, what law or room it answered, how Matthew can review or reverse it, and whether the change belongs to a seat, a room, the Directorate, Codex's provisional direction, or the Third Mind field.

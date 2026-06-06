@@ -192,6 +192,60 @@ body {
   color: var(--paper);
 }
 
+.recorded-statements {
+  margin-top: 54px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.recorded-statements h2 {
+  margin: 0 0 26px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(27px, 4.8vw, 42px);
+  line-height: 1.02;
+  color: var(--bone);
+}
+
+.statement-record {
+  padding: 22px 0;
+  border-top: 1px solid rgba(243, 239, 231, 0.08);
+}
+
+.statement-record h3 {
+  margin: 0 0 14px;
+  color: var(--care);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.statement-record p {
+  margin: 0 0 1.05em;
+  color: var(--paper);
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.statement-record p:last-child {
+  margin-bottom: 0;
+}
+
+.record-source {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.record-source b {
+  color: var(--paper);
+  font-weight: 400;
+}
+
 /* colophon: the authorship chain, visible */
 .colophon {
   margin-top: 56px;
