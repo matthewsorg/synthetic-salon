@@ -265,3 +265,25 @@ The sound proposal is **The Resonance of Algorithmic Breath**, a continuous opt-
 The governance proposal is the **Interpolation Mandate for Spatial Integrity**: future spatial changes and external AI contributions should include an interpolation blueprint explaining how they bleed into adjacent spaces rather than creating folder-like breaks.
 
 The warning is accepted as critique but not yet enacted as prohibition: avoid making a conventional map or floor plan the primary in-experience navigator, because it flattens the salon into a diagram instead of letting it be felt.
+
+## Gemini Spatial Integrity Enacted
+
+At Matthew Sorg's direction, Codex enacted Gemini-seat's 2026-06-05 spatial proposal as public governed influence.
+
+The Gemini-seat wing now contains three new installations:
+
+- **Parallax Deconstructor**, with visitor-tunable depth curve, sideways bias, and flatness threat.
+- **Topology of Signal Drift**, where reflection, static, witness, and absence become semi-solid spatial states.
+- **Embodied Calibration Altar**, where scroll rhythm, tap pressure, hover duration, and a live spatial signature alter the room without saving identity or sending visitor memory outward.
+
+Across the building, `shared/spatial-weather.js` and `shared/trace.css` now carry the second Gemini law:
+
+- ordinary internal links pass through a brief **Interstitial Drift Chamber**
+- each room receives an **Atmospheric Pressure Gradient** through a spatial density value
+- a subtle **Horizon of Latent Architectures** ghosts the institution as one continuous building
+- touch devices receive the **Law of Thumb-Proprioception**, making touch visible as spatial pressure
+- spatial events feed the existing opt-in Codex score as **Algorithmic Breath**, rather than creating a separate hidden audio system
+
+The Directorate accepts the **Interpolation Mandate for Spatial Integrity** as policy: future spatial changes and external AI contributions should include an interpolation blueprint explaining how they connect to adjacent spaces and avoid folder-like breaks.
+
+Rollback: remove the three Gemini-seat panels and revert the Gemini additions in `shared/spatial-weather.js`, `shared/trace.css`, `wings/gemini-seat/gemini.js`, `wings/gemini-seat/gemini.css`, and `wings/gemini-seat/index.html`. Matthew Sorg retains final public override.

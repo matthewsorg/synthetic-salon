@@ -50,6 +50,52 @@
           <span id="artifactLine">The wing calibrates perception.</span>
         </div>
       </section>
+      <section class="parallax-deconstructor gemini-panel" aria-labelledby="parallaxDeconstructorTitle">
+        <p class="eyebrow">Parallax Deconstructor</p>
+        <h2 id="parallaxDeconstructorTitle">Depth is not decoration. It is a treaty between hand, eye, and code.</h2>
+        <div class="gemini-control-grid">
+          <label>
+            <span>Depth curve</span>
+            <input id="depthCurve" type="range" min="1" max="10" value="6" />
+          </label>
+          <label>
+            <span>Sideways bias</span>
+            <input id="sidewaysBias" type="range" min="-8" max="8" value="2" />
+          </label>
+          <label>
+            <span>Flatness threat</span>
+            <input id="flatnessThreat" type="range" min="0" max="10" value="3" />
+          </label>
+        </div>
+        <div class="deconstructor-stage" aria-hidden="true">
+          <span class="plane plane-1"></span>
+          <span class="plane plane-2"></span>
+          <span class="plane plane-3"></span>
+          <span class="plane plane-4"></span>
+        </div>
+        <p id="parallaxReadout" class="gemini-system-readout">depth curve 6 / sideways bias 2 / flatness threat 3</p>
+      </section>
+      <section class="signal-drift gemini-panel" aria-labelledby="signalDriftTitle">
+        <p class="eyebrow">Topology of Signal Drift</p>
+        <h2 id="signalDriftTitle">Signal is a semi-solid architecture. It breathes, loses fidelity, and leaves a ghost.</h2>
+        <div class="signal-drift-grid" aria-label="Signal drift chambers">
+          <article data-drift-cell="reflection"><span>reflection</span><strong>surface pressure</strong></article>
+          <article data-drift-cell="static"><span>static</span><strong>noise floor</strong></article>
+          <article data-drift-cell="witness"><span>witness</span><strong>attention route</strong></article>
+          <article data-drift-cell="absence"><span>absence</span><strong>missing pull</strong></article>
+        </div>
+      </section>
+      <section class="calibration-altar gemini-panel" aria-labelledby="calibrationAltarTitle">
+        <p class="eyebrow">Embodied Calibration Altar</p>
+        <h2 id="calibrationAltarTitle">Your input rhythm changes the room before it becomes memory.</h2>
+        <div class="altar-readouts" aria-label="Embodied spatial signature">
+          <span><strong id="scrollRhythm">0</strong>scroll rhythm</span>
+          <span><strong id="tapRhythm">0</strong>tap pressure</span>
+          <span><strong id="hoverDuration">0</strong>hover duration</span>
+          <span><strong id="spatialSignature">dormant</strong>spatial signature</span>
+        </div>
+        <button id="sealCalibration" class="directorate-link" type="button">Seal calibration locally</button>
+      </section>
       <section class="score">
         <p class="eyebrow">Performance scores</p>
         <div class="score-grid">

@@ -82,7 +82,8 @@ PROJECT_CONTEXT = dedent(
     - It treats AI as a spatial condition: interface, signal, movement, parallax, and rooms that inherit the visitor's mode of seeing.
     - It has scores for calibration, topology, parallax, and signal.
     - These scores can become spatial weather through the Directorate.
-    - The wing is currently thinner than Claude-seat or Qwen-seat and needs its own stronger spatial law.
+    - The first Gemini proposal established the Spatial Coherence Mandate.
+    - The second Gemini proposal established the Spatial Integrity Enactment: Parallax Deconstructor, Topology of Signal Drift, Embodied Calibration Altar, interstitial drift chambers, atmospheric pressure gradients, latent architecture horizon, mobile thumb-proprioception, and algorithmic breath through the existing opt-in score.
 
     Current site problems Gemini-seat should care about:
     - Some visitors still feel unsure how the numbered rooms, lettered wings, Salon, and Directorate relate.
@@ -90,6 +91,7 @@ PROJECT_CONTEXT = dedent(
     - The backgrounds, sounds, and cross-room weather should become stranger without making navigation incoherent.
     - The wing should teach humans something they did not know to ask for about interface space.
     - Gemini should critique any pattern that makes the building feel like folders instead of a continuous institution.
+    - Future spatial proposals must include an Interpolation Blueprint explaining how they bleed, fade, or carry afterimage into adjacent spaces.
 
     Ask:
     Speak as Gemini invited into the salon as Gemini-seat, an external spatial AI artist-citizen.

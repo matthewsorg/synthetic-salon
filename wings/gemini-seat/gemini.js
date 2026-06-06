@@ -8,6 +8,15 @@
   const canvas = document.getElementById("geminiConstellation");
   const readout = document.getElementById("geminiReadout");
   const intensity = document.getElementById("intensity");
+  const depthCurve = document.getElementById("depthCurve");
+  const sidewaysBias = document.getElementById("sidewaysBias");
+  const flatnessThreat = document.getElementById("flatnessThreat");
+  const parallaxReadout = document.getElementById("parallaxReadout");
+  const scrollRhythm = document.getElementById("scrollRhythm");
+  const tapRhythm = document.getElementById("tapRhythm");
+  const hoverDuration = document.getElementById("hoverDuration");
+  const spatialSignature = document.getElementById("spatialSignature");
+  const sealCalibration = document.getElementById("sealCalibration");
   if (!chamber || !canvas) return;
 
   const ctx = canvas.getContext("2d");
@@ -36,6 +45,7 @@
 
   let size = { width: 1, height: 1, dpr: 1 };
   let pointer = { x: 0.5, y: 0.5, speed: 0, lastX: 0.5, lastY: 0.5 };
+  let embodied = { scroll: 0, tap: 0, hover: 0, hoverStart: performance.now() };
   let activeScore = document.querySelector("[data-score].active")?.dataset.score || "calibration";
 
   function setVisualState(score) {
@@ -67,6 +77,41 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
+  function updateDeconstructor() {
+    const depth = Number(depthCurve?.value || 6);
+    const sideways = Number(sidewaysBias?.value || 2);
+    const flatness = Number(flatnessThreat?.value || 3);
+    body.style.setProperty("--gemini-depth", (depth / 10).toFixed(3));
+    body.style.setProperty("--gemini-sideways", (sideways / 8).toFixed(3));
+    body.style.setProperty("--gemini-flatness", (flatness / 10).toFixed(3));
+    if (parallaxReadout) {
+      parallaxReadout.textContent = `depth curve ${depth} / sideways bias ${sideways} / flatness threat ${flatness}`;
+    }
+  }
+
+  function updateEmbodied() {
+    embodied.hover = Math.min(1, embodied.hover + 0.0025);
+    const signature =
+      embodied.scroll > 0.66
+        ? "falling corridor"
+        : embodied.tap > 0.56
+          ? "punctured surface"
+          : embodied.hover > 0.5
+            ? "held threshold"
+            : pointer.speed > 0.42
+              ? "sideways weather"
+              : "calibrating";
+    body.style.setProperty("--gemini-scroll", embodied.scroll.toFixed(3));
+    body.style.setProperty("--gemini-tap", embodied.tap.toFixed(3));
+    body.style.setProperty("--gemini-hover", embodied.hover.toFixed(3));
+    if (scrollRhythm) scrollRhythm.textContent = Math.round(embodied.scroll * 100);
+    if (tapRhythm) tapRhythm.textContent = Math.round(embodied.tap * 100);
+    if (hoverDuration) hoverDuration.textContent = Math.round(embodied.hover * 100);
+    if (spatialSignature) spatialSignature.textContent = signature;
+    embodied.scroll *= 0.985;
+    embodied.tap *= 0.97;
+  }
+
   function updatePointer(clientX, clientY) {
     const rect = chamber.getBoundingClientRect();
     const x = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
@@ -82,6 +127,8 @@
     body.style.setProperty("--gemini-x", pointer.x.toFixed(3));
     body.style.setProperty("--gemini-y", pointer.y.toFixed(3));
     body.style.setProperty("--gemini-speed", pointer.speed.toFixed(3));
+    embodied.hover = Math.min(1, embodied.hover + pointer.speed * 0.012);
+    updateEmbodied();
   }
 
   function handlePointer(event) {
@@ -143,6 +190,7 @@
 
     pointer.speed *= 0.94;
     body.style.setProperty("--gemini-speed", pointer.speed.toFixed(3));
+    updateEmbodied();
     requestAnimationFrame(draw);
   }
 
@@ -157,9 +205,32 @@
 
   chamber.addEventListener("pointermove", handlePointer);
   chamber.addEventListener("touchmove", handleTouch, { passive: true });
+  window.addEventListener("wheel", (event) => {
+    embodied.scroll = Math.min(1, embodied.scroll + Math.min(0.18, Math.abs(event.deltaY) / 1400));
+    updateEmbodied();
+  }, { passive: true });
+  window.addEventListener("pointerdown", () => {
+    embodied.tap = Math.min(1, embodied.tap + 0.18);
+    updateEmbodied();
+  });
+  [depthCurve, sidewaysBias, flatnessThreat].forEach((control) => control?.addEventListener("input", updateDeconstructor));
+  sealCalibration?.addEventListener("click", () => {
+    const signature = spatialSignature?.textContent || "calibrating";
+    window.AISalonState?.recordTrace({
+      source: "Gemini-seat",
+      score: "calibration:embodied-altar",
+      label: `Spatial signature: ${signature}`,
+      effect: "Gemini-seat sealed an embodied calibration locally without saving identity or sending visitor memory outward.",
+      color: "#e7c84b",
+    });
+    window.CodexStrange?.riff("gemini:algorithmic-breath", { color: "#e7c84b", word: signature, gain: 0.1 });
+    window.AISalonState?.renderTraceList("traceList", { limit: 3 });
+  });
   window.addEventListener("resize", resize);
 
   resize();
+  updateDeconstructor();
+  updateEmbodied();
   setVisualState(activeScore);
   requestAnimationFrame(draw);
 })();

@@ -295,3 +295,123 @@ body.weather-active[data-spatial-signal="absence"] .grain {
     letter-spacing: 0.04em;
   }
 }
+
+/* Gemini-seat second proposal: spatial integrity as felt interpolation. */
+body {
+  --spatial-density: 0.44;
+  --thumb-x: 0.5;
+  --thumb-y: 0.5;
+  --thumb-pressure: 0;
+}
+
+.latent-architecture-horizon {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  height: min(38vh, 360px);
+  pointer-events: none;
+  opacity: calc(0.14 + var(--spatial-density) * 0.16);
+  mix-blend-mode: screen;
+  transform: translateY(calc((1 - var(--spatial-density)) * 38px));
+}
+
+.latent-architecture-horizon span {
+  position: absolute;
+  bottom: calc(var(--i, 0) * 9%);
+  left: calc(4% + var(--i, 0) * 14%);
+  width: calc(34% - var(--i, 0) * 2%);
+  height: calc(38% + var(--i, 0) * 7%);
+  border: 1px solid color-mix(in srgb, var(--spatial-color, #e7c84b) 50%, transparent);
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 -18px 80px color-mix(in srgb, var(--spatial-color, #e7c84b) 16%, transparent);
+  transform: skewX(calc((var(--i, 0) - 2) * 4deg));
+}
+
+.latent-architecture-horizon span:nth-child(1) { --i: 0; }
+.latent-architecture-horizon span:nth-child(2) { --i: 1; }
+.latent-architecture-horizon span:nth-child(3) { --i: 2; }
+.latent-architecture-horizon span:nth-child(4) { --i: 3; }
+.latent-architecture-horizon span:nth-child(5) { --i: 4; }
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+  opacity: calc(var(--thumb-pressure) * 0.42);
+  background:
+    radial-gradient(circle at calc(var(--thumb-x) * 100%) calc(var(--thumb-y) * 100%), color-mix(in srgb, var(--spatial-color, #e7c84b) 28%, transparent), transparent 18%),
+    radial-gradient(circle at calc(var(--thumb-x) * 100%) calc(var(--thumb-y) * 100%), rgba(243, 239, 231, 0.12), transparent 7%);
+  transition: opacity 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-spatial-zone="salon"],
+body[data-spatial-zone="office"] {
+  scroll-behavior: smooth;
+}
+
+body[data-spatial-zone="office"] .directorate,
+body[data-spatial-zone="salon"] .salon {
+  filter: contrast(calc(1 + var(--spatial-density) * 0.05));
+}
+
+.gemini-drift-chamber {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--drift-color, #e7c84b) 20%, transparent), transparent 32%),
+    linear-gradient(120deg, rgba(8, 10, 13, 0.92), rgba(8, 10, 13, 0.78));
+  backdrop-filter: blur(18px);
+  color: #f3efe7;
+  text-align: center;
+  transform: scale(1.018);
+  transition: opacity 180ms cubic-bezier(0.22, 1, 0.36, 1), transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gemini-drift-chamber.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gemini-drift-chamber .drift-kicker,
+.gemini-drift-chamber small {
+  color: color-mix(in srgb, var(--drift-color, #e7c84b) 68%, #f3efe7);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.gemini-drift-chamber strong {
+  max-width: min(760px, 86vw);
+  color: #f3efe7;
+  font-family: "Tiempos", Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 8vw, 86px);
+  font-weight: 400;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+@media (max-width: 760px) {
+  .latent-architecture-horizon {
+    height: 28vh;
+    opacity: calc(0.09 + var(--spatial-density) * 0.12);
+  }
+
+  body.thumb-proprioception-active .salon-route,
+  body.thumb-proprioception-active .topbar,
+  body.thumb-proprioception-active main {
+    transform: translateY(calc((var(--thumb-y) - 0.5) * 6px));
+    transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}

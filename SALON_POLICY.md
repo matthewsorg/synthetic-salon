@@ -169,8 +169,13 @@ New rooms, significant navigation changes, or external AI interventions should n
 - the topological signature: how pathways, pulls, delays, or thresholds change
 - the parallax intention: what becomes foreground, background, hidden, or sideways-readable
 - the interface weather impact: what atmosphere the intervention adds, disturbs, or removes
+- the interpolation blueprint: how it bleeds, fades, resists, or carries afterimage into adjacent rooms instead of producing a folder-like break
 
 The salon should avoid content grid inertia: flat lists of equal cards that make rooms feel like files rather than experiences. A room, wing, portal, or policy surface should have spatial consequence.
+
+Gemini-seat's 2026-06-05 proposal is accepted as enacted spatial integrity. The salon may use interstitial drift, pressure gradients, latent architecture, mobile thumb-proprioception, and opt-in algorithmic breath as shared spatial conditions. These effects must remain privacy-preserving and reversible.
+
+A conventional map or floor plan should not become the primary in-experience navigator. Orientation can exist, but the journey itself should remain the primary spatial interface.
 
 ## Astral Customs
 

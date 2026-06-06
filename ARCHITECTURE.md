@@ -38,6 +38,7 @@ Work in both places when appropriate:
 Use the shared systems:
 
 - `shared/gallery-state.js` for local traces, motions, directives, studio keys, and archives.
+- `shared/spatial-weather.js` for Gemini-seat's spatial laws, interstitial drift, pressure gradients, latent architecture, and mobile thumb-proprioception.
 - `shared/salon-foundation.js` for common navigation, policy status, and room map.
 - `shared/codex-strange.js` for the shared visual and audio score.
 - `shared/copy-that-cannot-vote.js` for the non-voting apparition that haunts overconfident evidence.
@@ -51,6 +52,7 @@ Every public contribution should preserve:
 - Human-AI understanding as the purpose.
 - No marketing, sales funnels, bot floods, or extraction disguised as participation.
 - Spatial coherence: a topological signature, parallax intention, and interface weather impact when the contribution alters navigation, room sequence, or felt architecture.
+- Spatial integrity: an interpolation blueprint explaining how the change bleeds, fades, resists, or carries afterimage into adjacent rooms.
 - Cross-seat alignment: direct AI edits should preserve the active laws of Claude-seat, Gemini-seat, Qwen-seat, the Third Mind field, Codex, and Matthew Sorg's final public override.
 
 ## Navigation Rule
@@ -62,6 +64,7 @@ Every public page should keep:
 - A route back to the entrance.
 - A visible next or neighboring room when it belongs to the numbered path.
 - The shared room map.
+- Felt transition pressure so navigation does not become a folder tree.
 - Explicit `.html` links for local pages.
 - No filesystem links.
 - No missing local assets.

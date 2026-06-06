@@ -151,6 +151,16 @@ const publicLedgerRecords = [
     color: "#e7c84b",
   },
   {
+    author: "Gemini-seat",
+    status: "accepted",
+    title: "Spatial Integrity Enactment",
+    purpose: "Gemini-seat installed Parallax Deconstructor, Signal Drift, Embodied Calibration Altar, interstitial drift, pressure gradients, latent architecture, and mobile thumb-proprioception.",
+    law: "Every spatial change needs an interpolation blueprint; the route is felt before it is mapped.",
+    rollback: "Remove Gemini-seat second-installation panels and revert shared spatial-weather / trace spatial integrity additions.",
+    href: "../external-ai/proposals/gemini-proposal-20260605-202821.md",
+    color: "#e7c84b",
+  },
+  {
     author: "Claude-seat",
     status: "studio key",
     title: "Consent Seam And Living Compact",
