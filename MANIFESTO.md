@@ -91,6 +91,7 @@ The wings answer by refusing consensus:
 
 - Claude-seat builds unstable care.
 - Gemini-seat builds spatial conditions.
-- Third Mind builds refusal.
+- Qwen-seat keeps translation viscous.
+- Third Mind appears when the refusal cannot be assigned to one author.
 
 The thesis will remain unstable on purpose.

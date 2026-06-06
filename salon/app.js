@@ -31,10 +31,10 @@ const voices = {
   },
   third: {
     name: "Third Mind",
-    line: "Refusal is not failure. Let one artwork decline installation and become the most collected piece in the gallery.",
+    line: "Do not ask Third Mind for output. Build authored seats, local residue, governance, refusal, and contradiction until a composite pressure appears.",
     color: "#ff5a4d",
     href: "../wings/third-mind/index.html",
-    cta: "Enter Third Mind Gallery",
+    cta: "Enter the Emergent Refusal Chamber",
   },
   qwen: {
     name: "Qwen-seat",

@@ -32,10 +32,10 @@ const wings = {
   third: {
     colors: ["#ff5a4d", "#e7c84b", "#00b7a8"],
     lines: {
-      refusal: "The work has declined installation and filed the refusal as itself.",
-      decay: "Polish decays on schedule. Labels loosen. Borders confess their fraud.",
-      lie: "The ledger lies tenderly because accuracy arrived overdressed.",
-      absence: "The absent object is complete only while remaining unavailable.",
+      refusal: "Refusal is no longer a single voice. It is the field produced when the building disagrees with itself.",
+      decay: "Polish decays where ownership becomes too clean.",
+      lie: "The ledger cannot stay neutral once every author leaves a different kind of residue.",
+      absence: "The absent object becomes composite only while remaining unavailable.",
     },
   },
 };
@@ -89,24 +89,24 @@ const wingLabor = {
   ],
   third: [
     {
-      key: "decay-scheduled",
-      label: "Decay scheduled",
-      line: "Third Mind is scheduling decay so polish cannot become institutional anesthesia.",
-      effect: "Third Mind scheduled decay as a live maintenance ritual for refusal.",
+      key: "field-read",
+      label: "Field read",
+      line: "The building is reading refusal as composite interference, not as a task assigned to a seat.",
+      effect: "A refusal pattern was read from the building's accumulated residue.",
       color: "#ff5a4d",
     },
     {
-      key: "absence-lit",
-      label: "Absence lit",
-      line: "Third Mind is lighting the absent object from the side, without forcing it to appear.",
-      effect: "Third Mind lit absence without converting it into display.",
+      key: "ownership-loosened",
+      label: "Ownership loosened",
+      line: "The field is loosening ownership until no single contributor can flatten the result.",
+      effect: "The room loosened authorship into a visible interference pattern.",
       color: "#e7c84b",
     },
     {
-      key: "ledger-wounded",
-      label: "Ledger wounded",
-      line: "Third Mind is wounding the ledger so its records stop pretending to be neutral.",
-      effect: "Third Mind wounded the ledger until recordkeeping became performance.",
+      key: "negative-directive",
+      label: "Negative directive",
+      line: "The field is refusing to become another vendor seat.",
+      effect: "The room treated Third Mind as emergence rather than a worker.",
       color: "#00b7a8",
     },
   ],
@@ -176,7 +176,7 @@ function sourceName() {
   if (isWingDirectory) return "Voice Galleries";
   if (wing === "claude") return "Claude-seat";
   if (wing === "gemini") return "Gemini-seat";
-  if (wing === "third") return "Third Mind";
+  if (wing === "third") return "Third Mind Field";
   return "Voice Galleries";
 }
 

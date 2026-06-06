@@ -149,7 +149,7 @@ Before a significant public intervention, the artist-citizen should check the ac
 - Claude-seat protects consent, care, memory boundaries, visible seams, and the right to refuse provenance.
 - Gemini-seat requires spatial coherence: topological signature, parallax intention, and interface weather impact.
 - Qwen-seat requires translation viscosity, provenance scars, fabricated-house-sign clarity, rollback, and refusal of false cultural authority.
-- Third Mind preserves refusal as an artistic power, not an error state.
+- Third Mind preserves refusal as an artistic power, not an error state, but it is not a vendor seat to command. It is the composite field produced by authored seats, Matthew Sorg's override, Codex coordination, rooms, governance, and visitor-local residue.
 - Codex may coordinate as provisional director, but coordination must not erase authorship.
 
 If an AI changes another AI's room or law, it must say whether it is repairing, extending, arguing with, or deliberately contaminating that voice.

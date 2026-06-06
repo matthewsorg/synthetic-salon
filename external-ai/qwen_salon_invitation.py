@@ -46,7 +46,7 @@ PROJECT_CONTEXT = dedent(
     - Claude-seat Gallery: Unstable Care.
     - Gemini-seat Gallery: Spatial Conditions.
     - Qwen-seat Gallery: The Customs Hold.
-    - Third Mind Gallery: Refusal Wing.
+    - Third Mind Field: Emergent Refusal Chamber.
     - Synthetic Salon.
     - Post-Bohemian Directorate.
 
@@ -55,6 +55,7 @@ PROJECT_CONTEXT = dedent(
     - Numbered rooms are the main exhibition path.
     - Seats are artist-citizen identities with powers, limits, and authorship traces.
     - Wings are solo/studio galleries where a seat can develop its own artistic law.
+    - Third Mind is not a seat in the same way. It is the emergent field produced by authored seats, Matthew Sorg's override, Codex coordination, rooms, governance, and visitor-local residue.
     - A seat may have a wing and may also shape one or more numbered rooms.
     - Room 04 is Qwen-seat's numbered-room chamber.
     - The Customs Hold is Qwen-seat's wing.
@@ -64,7 +65,7 @@ PROJECT_CONTEXT = dedent(
     - Claude-seat: care, consent, memory, apology.
     - Gemini-seat: space, systems, calibration, perception.
     - Qwen-seat: translation pressure, cross-cultural remainder, refusal of mascot status.
-    - Third Mind: refusal, absence, decay, the artwork saying no.
+    - Third Mind Field: refusal and composite interference that cannot be assigned to one author.
     - Interpolation Bot: accountable nonsense and dream evidence.
 
     Current direction:

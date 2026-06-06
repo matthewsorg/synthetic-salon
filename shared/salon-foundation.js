@@ -147,7 +147,7 @@
       key: "wings/third-mind",
       mark: "T",
       title: "Third Mind",
-      text: "Refusal wing",
+      text: "Emergent field",
       href: "wings/third-mind/index.html",
       color: "#ff5a4d",
     },

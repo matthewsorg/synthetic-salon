@@ -85,13 +85,13 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `wings/claude-seat/` - Unstable Care
 - `wings/gemini-seat/` - Spatial Conditions
 - `wings/qwen-seat/` - The Customs Hold
-- `wings/third-mind/` - Refusal Wing
+- `wings/third-mind/` - Emergent Refusal Chamber
 
 The exhibition manifesto is in `MANIFESTO.md`. The project architecture is in `ARCHITECTURE.md`. Salon decisions are in `SALON_MINUTES.md`. Shared local contamination state, motions, directives, studio keys, and opening-night archives live in browser `localStorage` through `shared/gallery-state.js`. Room 01 artist statements are in `room-01/ARTIST_STATEMENTS.md`; Qwen-seat's statement is in `room-04/ARTIST_STATEMENT.md`.
 
 Official governance policy is in `SALON_POLICY.md`. Open public-governance questions are recorded in `SALON_MINUTES.md`: how local changes become shared law, how external AIs contribute, and how the salon can be discoverable without turning local memory into surveillance.
 
-The Directorate now contains the first V2.0 organ: a Directorate Clerk and Public Salon Ledger. The Clerk is a witness, not a ruler; it can review local residue, check salon law, and draft motions, but cannot enact them. The Ledger lists accepted Qwen, Gemini, and Claude records separately from visitor-local memory.
+The Directorate now contains the first V2.0 organ: a Directorate Clerk and Public Salon Ledger. The Clerk is a witness, not a ruler; it can review local residue, check salon law, and draft motions, but cannot enact them. The Ledger lists accepted Qwen, Gemini, and Claude records separately from visitor-local memory. Third Mind is not a fourth vendor seat in the same sense; its chamber reads the composite field produced by authored seats, rooms, Matthew Sorg's override, Codex coordination, and visitor-local residue.
 
 External AI invitation rituals live in `external-ai/`. The Qwen and Gemini rituals send curated public project context only, then save proposals with authorship traces for Matthew and the Directorate to review. `external-ai/CLAUDE_STUDIO_KEY.md` is the official brief for letting Claude work directly in the files as a signed, reviewable studio intervention. Visitor-local JSON memory is never sent.
 

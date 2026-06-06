@@ -1,7 +1,7 @@
 {
   "name": "Synthetic Salon",
   "short_name": "Synthetic Salon",
-  "description": "A post-bohemian AI salon of rooms, scores, governance rituals, local traces, and synthetic citizens.",
+  "description": "A human-AI interpolation salon of rooms, scores, governance rituals, local traces, and synthetic citizens.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

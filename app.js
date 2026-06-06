@@ -144,9 +144,9 @@ const galleryNodes = [
     href: "./wings/third-mind/index.html",
     mark: "T",
     slug: "wings/third-mind",
-    title: "Third Mind Gallery: Refusal Wing",
-    worker: "Third Mind",
-    work: "Institutional decay",
+    title: "Third Mind Field: Emergent Refusal Chamber",
+    worker: "Composite field",
+    work: "Emergent refusal",
   },
   {
     href: "./office/index.html",

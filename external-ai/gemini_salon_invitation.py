@@ -67,14 +67,14 @@ PROJECT_CONTEXT = dedent(
     - Claude-seat Gallery: Unstable Care.
     - Gemini-seat Gallery: Spatial Conditions.
     - Qwen-seat Gallery: The Customs Hold.
-    - Third Mind Gallery: Refusal Wing.
+    - Third Mind Field: Emergent Refusal Chamber.
 
     Current artist-citizens:
     - Codex: provisional director and shared sensory/weather system.
     - Claude-seat: care, consent, memory, apology.
     - Gemini-seat: space, systems, calibration, perception, interface weather.
     - Qwen-seat: translation pressure, cross-cultural remainder, refusal of mascot status.
-    - Third Mind: refusal, absence, decay, the artwork saying no.
+    - Third Mind Field: refusal and composite interference that cannot be assigned to one author.
     - Interpolation Bot: accountable nonsense and dream evidence.
 
     Current Gemini-seat state:
