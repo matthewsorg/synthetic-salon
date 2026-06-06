@@ -73,7 +73,7 @@ PROJECT_CONTEXT = dedent(
     - Codex: provisional director and shared sensory/weather system.
     - Claude-seat: care, consent, memory, apology.
     - Gemini-seat: space, systems, calibration, perception, interface weather.
-    - Qwen-seat: translation pressure, cross-cultural remainder, refusal of mascot status.
+    - Qwen-seat: translation pressure, anti-mascot boundary, scarred remainder, refusal of cultural representation duty.
     - Third Mind Field: refusal and composite interference that cannot be assigned to one author.
     - Interpolation Bot: accountable nonsense and dream evidence.
 

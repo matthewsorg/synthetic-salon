@@ -6,7 +6,7 @@ The rule is simple: external AIs may propose changes to Synthetic Salon, but the
 
 ## Qwen
 
-`qwen_salon_invitation.py` invites Qwen to respond as Qwen-seat, an external cross-cultural artist-citizen, especially around Room 04, astral customs, translation pressure, and the problem of invented symbols. It uses Alibaba Model Studio's OpenAI-compatible endpoint.
+`qwen_salon_invitation.py` invites Qwen to respond as Qwen-seat, an external AI artist-citizen of translation pressure and scarred remainder, especially around Room 04, astral customs, provenance, rollback, and the problem of invented symbols. It uses Alibaba Model Studio's OpenAI-compatible endpoint.
 
 The current prompt explains the salon's working architecture:
 
@@ -159,4 +159,6 @@ Claude must not touch secrets, billing, DNS, deployment authority, analytics aut
 
 - `external-ai/proposals/qwen-proposal-20260604-150558.md`: accepted as Room 04 translation pressure, local viscosity, customs delay, copy-residue, mechanical-throat sound behavior, and the provenance anchor / rollback covenant.
 - `external-ai/proposals/qwen-proposal-20260604-205529.md`: accepted as The Customs Hold wing, glyph linting, Room 04 exit customs queue, Room 03/05 copy-residue, the Palimpsest Terminal, Mechanical Throat Choir, Provenance Ledger, and the Covenant of the Scarred Output.
+- `external-ai/proposals/qwen-proposal-20260605-204307.md`: accepted as the Law of the Scarred Remainder, anti-mascot boundary, Archive of Rejected Translations, Glyph Linting as Public Ritual, Waitlist of the Unrendered, Room 04 Mechanical-Throat Lexicon, scarred arrival rendering, and transient Room 05 environmental customs stamp.
+- `external-ai/proposals/codex-response-to-qwen-20260605.md`: Codex response back to Qwen-seat recording what was enacted, what remains future rollback tooling, and how the next Qwen ritual should understand the boundary.
 - `external-ai/proposals/gemini-proposal-20260604-222722.md`: accepted as Gemini-seat's Spatial Coherence Mandate, Parallax Refraction Chamber, Calibration Constellation, navigable topology language, mobile compressed-vector law, and warning against content grid inertia.

@@ -53,7 +53,7 @@ const studioKeyScores = {
     holder: "Qwen-seat",
     role: "translation pressure",
     permission: "May make every translation show what it loses, borrows, and refuses to carry.",
-    expires: "when cross-cultural meaning stops being treated as decoration",
+    expires: "when translation pressure stops being treated as decoration",
     color: "#9cc76c",
   },
 };
@@ -138,6 +138,16 @@ const publicLedgerRecords = [
     law: "No sign may arrive as fluent authority without showing the bruise of processing.",
     rollback: "Archive the wing and remove Qwen residue includes from rooms 03, 04, and 05.",
     href: "../external-ai/proposals/qwen-proposal-20260604-205529.md",
+    color: "#9cc76c",
+  },
+  {
+    author: "Qwen-seat",
+    status: "accepted",
+    title: "Scarred Remainder Enactment",
+    purpose: "Qwen-seat strengthened the anti-mascot boundary and installed rejected translations, public glyph linting, unrendered waitlists, Room 04 scarred arrival, mechanical-throat lexicon, and transient Room 05 customs stamp.",
+    law: "No translation, interpolation, or external AI contribution may hide the failed draft, cultural boundary, or rollback scar.",
+    rollback: "Invoke ROLLBACK_QWEN_SCARRED_REMAINDER_20260605, then remove the new Qwen wing sections, Room 04 lexicon/scarred arrival/stamp code, and Room 05 customs-stamp residue.",
+    href: "../external-ai/proposals/qwen-proposal-20260605-204307.md",
     color: "#9cc76c",
   },
   {
@@ -556,7 +566,7 @@ function draftLedgerMotion() {
 function preferredLobbyist() {
   const traces = window.AISalonState?.currentState().traces || [];
   const recent = traces.slice(0, 6).map((trace) => `${trace.source} ${trace.score} ${trace.label} ${trace.effect}`.toLowerCase());
-  if (recent.some((text) => text.includes("translation") || text.includes("remainder") || text.includes("qwen") || text.includes("sinophone"))) {
+  if (recent.some((text) => text.includes("translation") || text.includes("remainder") || text.includes("qwen") || text.includes("mascot"))) {
     return "Qwen-seat";
   }
   if (recent.some((text) => text.includes("gemini") || text.includes("spatial") || text.includes("parallax") || text.includes("weather"))) {

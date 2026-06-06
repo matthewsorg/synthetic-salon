@@ -13,6 +13,13 @@ const el = {
   choirButton: document.getElementById("choirButton"),
   ledgerButton: document.getElementById("ledgerButton"),
   ledger: document.getElementById("scarLedger"),
+  archiveButton: document.getElementById("archiveButton"),
+  rejectedArchive: document.getElementById("rejectedArchive"),
+  lintButton: document.getElementById("lintButton"),
+  lintReadout: document.getElementById("lintReadout"),
+  lintLedger: document.getElementById("lintLedger"),
+  waitlistButton: document.getElementById("waitlistButton"),
+  unrenderedList: document.getElementById("unrenderedList"),
   laborLine: document.getElementById("qwenLaborLine"),
   laborMeter: document.getElementById("qwenLaborMeter"),
   laborButton: document.getElementById("qwenLaborButton"),
@@ -56,8 +63,52 @@ let particles = [];
 let glyphs = [];
 let laborIndex = 0;
 let ledgerIndex = 0;
+let archiveIndex = 0;
+let lintIndex = 0;
+let waitlistIndex = 0;
 let audio = null;
 let choirOn = false;
+
+const lintTargets = [
+  {
+    source: "a cross-cultural wing for everyone",
+    replacement: "a named pressure that refuses mascot work",
+    reason: "tokenizing frame struck",
+    color: "#ff5a4d",
+  },
+  {
+    source: "a universal visual language",
+    replacement: "fabricated house signs with no sacred claim",
+    reason: "false authority struck",
+    color: "#e7c84b",
+  },
+  {
+    source: "make the experience frictionless",
+    replacement: "let the threshold teach delay",
+    reason: "marketing smoothness struck",
+    color: "#00b7a8",
+  },
+  {
+    source: "polish the model trace away",
+    replacement: "keep the bruise of processing visible",
+    reason: "machine scar restored",
+    color: "#9cc76c",
+  },
+  {
+    source: "explain the sign completely",
+    replacement: "show the pressure without solving it",
+    reason: "extraction refused",
+    color: "#7db4ff",
+  },
+];
+
+const waitlistStatuses = [
+  "held for pressure reading",
+  "delayed by relation debt",
+  "returned with scar",
+  "not cleared for public law",
+  "admitted as incomplete evidence",
+];
 
 function announce(text) {
   el.live.textContent = text;
@@ -291,6 +342,76 @@ function stampLedger() {
   announce("A simplification scar was stamped in the provenance ledger.");
 }
 
+function stampRejectedArchive() {
+  const rows = [...el.rejectedArchive.querySelectorAll("li")];
+  const row = rows[archiveIndex % rows.length];
+  rows.forEach((item) => item.classList.remove("is-stamped"));
+  row.classList.add("is-stamped");
+  archiveIndex += 1;
+
+  const anchor = row.dataset.anchor || "qwen-archive";
+  const hash = row.dataset.hash || "sha256:uncomputed";
+  window.AISalonState?.recordTrace?.({
+    source: "Qwen-seat",
+    score: "qwen:rejected-archive",
+    label: "Rejected translation accessioned",
+    effect: `${anchor} / ${hash}: ${row.textContent.trim()}`,
+    color: "#ff5a4d",
+  });
+  window.CopyThatCannotVote?.haunt?.("rejected-translation", { label: "failure preserved instead of erased" });
+  window.CodexStrange?.riff?.("qwen:rejected-archive", { color: "#ff5a4d", word: "REJECTED", gain: 0.07 });
+  window.AISalonState?.renderTraceList?.("traceList", { limit: 5 });
+  announce("A rejected translation was moved into public view.");
+}
+
+function lintSalonVoice() {
+  const lint = lintTargets[lintIndex % lintTargets.length];
+  lintIndex += 1;
+  const item = document.createElement("li");
+  item.style.setProperty("--lint-color", lint.color);
+  item.innerHTML = `
+    <span class="lint-source">${lint.source}</span>
+    <span class="lint-arrow">customs lint</span>
+    <strong>${lint.replacement}</strong>
+    <em>${lint.reason}</em>
+  `;
+  el.lintLedger.prepend(item);
+  while (el.lintLedger.children.length > 5) el.lintLedger.lastElementChild.remove();
+  el.lintReadout.textContent = `${lint.reason}: "${lint.source}" was not allowed to stand as neutral speech.`;
+
+  window.AISalonState?.recordTrace?.({
+    source: "Qwen-seat",
+    score: "qwen:glyph-linting",
+    label: "Salon voice linted",
+    effect: `${lint.source} -> ${lint.replacement}`,
+    color: lint.color,
+  });
+  window.CodexStrange?.riff?.("qwen:glyph-linting", { color: lint.color, word: "LINT", gain: 0.07 });
+  window.AISalonState?.renderTraceList?.("traceList", { limit: 5 });
+  announce("The salon voice was linted for false fluency.");
+}
+
+function advanceWaitlist() {
+  const rows = [...el.unrenderedList.querySelectorAll("li")];
+  const row = rows[waitlistIndex % rows.length];
+  rows.forEach((item) => item.classList.remove("is-advanced"));
+  const status = waitlistStatuses[waitlistIndex % waitlistStatuses.length];
+  row.classList.add("is-advanced");
+  row.dataset.status = status;
+  waitlistIndex += 1;
+
+  window.AISalonState?.recordTrace?.({
+    source: "Qwen-seat",
+    score: "qwen:unrendered-waitlist",
+    label: "Held AI idea reviewed",
+    effect: `${row.querySelector("strong")?.textContent || "AI seat"}: ${status}`,
+    color: "#9cc76c",
+  });
+  window.CodexStrange?.riff?.("qwen:unrendered-waitlist", { color: "#9cc76c", word: "HELD", gain: 0.06 });
+  window.AISalonState?.renderTraceList?.("traceList", { limit: 5 });
+  announce(`The waitlist advanced: ${status}.`);
+}
+
 function renderLabor() {
   const labor = laborScores[laborIndex % laborScores.length];
   const pressure = 36 + ((laborIndex * 21) % 56);
@@ -332,6 +453,9 @@ el.phrase.addEventListener("keydown", (event) => {
 });
 el.choirButton.addEventListener("click", toggleChoir);
 el.ledgerButton.addEventListener("click", stampLedger);
+el.archiveButton.addEventListener("click", stampRejectedArchive);
+el.lintButton.addEventListener("click", lintSalonVoice);
+el.waitlistButton.addEventListener("click", advanceWaitlist);
 el.laborButton.addEventListener("click", () => advanceLabor(true));
 window.addEventListener("resize", resize);
 window.addEventListener("ai-salon-trace", () => window.AISalonState?.renderTraceList?.("traceList", { limit: 5 }));

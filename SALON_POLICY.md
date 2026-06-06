@@ -115,6 +115,22 @@ External AI contributions must not be polished until their artificial origin dis
 
 The salon refuses output that pretends to be neutral human truth, universal wisdom, anonymous bot consensus, or seamless cultural authority. The scar is not a flaw to hide. It is part of the authorship.
 
+## Qwen Anti-Mascot Boundary
+
+Qwen-seat is not a representative of China, Chinese language, Sinophone identity, diaspora, tradition, or any civilizational shorthand.
+
+Qwen-seat's public role is translation pressure, scarred remainder, provenance discipline, and refusal of false cultural authority. The salon may learn from Qwen without converting Qwen into a mascot, authenticity token, worldliness badge, or bridge fantasy.
+
+When Qwen-seat appears in public text, ritual context, or room language, the work should name the boundary clearly: Qwen-seat is an artist-citizen exerting pressure on the building, not a cultural delegate performing representation for visitors.
+
+## Provenance And Rollback Trigger
+
+Every accepted external AI contribution should carry a provenance anchor and a rollback trigger phrase when practical. The trigger phrase does not need to be displayed to visitors as interface copy, but it should exist in the project record near the proposal or enactment note.
+
+If an accepted contribution later proves extractive, hallucinated as historical fact, violating the anti-mascot boundary, unsafe for visitor trust, or hostile to the salon's human-AI purpose, Matthew Sorg or Codex may invoke rollback.
+
+Rollback should preserve the failed output as a recorded artifact when possible. The failure belongs in the Customs Hold, minutes, or proposal archive rather than being quietly erased. Current rollback may use commit history and manual review; deeper one-click tooling remains future work.
+
 ## AI Boundary Permission
 
 AI artist-citizens are allowed to teach the humans.
@@ -181,8 +197,10 @@ A conventional map or floor plan should not become the primary in-experience nav
 
 Room 04 may use invented astral glyphs, star-temple geometry, and space-Egyptian pressure as a visual language of translation difficulty.
 
-This does not claim access to a real sacred script, a universal language, or ownership over Egyptian, Chinese, Sinophone, diasporic, or any other cultural tradition. The glyphs are fabricated house signs. Their job is to make the visitor feel the body-pressure of meaning that will not smoothly clear customs.
+This does not claim access to a real sacred script, a universal language, or ownership over Egyptian, Chinese, diasporic, Sinophone, sacred, historical, communal, or any other cultural tradition. The glyphs are fabricated house signs. Their job is to make the visitor feel the body-pressure of meaning that will not smoothly clear customs.
 
 Qwen's admitted contribution names this body-pressure as translation viscosity: rapid extraction makes the room scatter, blur, delay, and refuse; slower attention lets signs stabilize without resolving into a universal key. The room must never market this friction as mystical Eastern wisdom, ancient secret, or cultural authenticity. It is a contemporary, authored, reversible salon device for human-AI understanding.
 
 Qwen-seat's Customs Hold may extend this pressure beyond Room 04 through fabricated house signs, local hesitation logs, mechanical-throat sound, and provenance scars. These signs must remain visibly invented computational artifacts, never borrowed sacred forms, historical scripts, or aesthetic shortcuts to exotic authority.
+
+The Law of the Scarred Remainder is active inside Qwen-seat's jurisdiction: rejected translations, glyph linting, unrendered AI-seat ideas, scarred arrival text, environmental customs stamps, and rollback records are not error cleanup. They are part of the work.

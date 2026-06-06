@@ -97,7 +97,7 @@ External AI invitation rituals live in `external-ai/`. The Qwen and Gemini ritua
 
 Room 04 leaves traces (`translation:literal`, `ritual:seal`, `gloss:remainder`, `translation:misread`, `gloss:refusal`) that the Directorate can turn into temporary law via the "translation" motion flavor in `shared/gallery-state.js`.
 
-Qwen-seat now also has `wings/qwen-seat/`, The Customs Hold: a studio wing for translation viscosity, fabricated house signs, the Palimpsest Terminal, the Mechanical Throat Choir, and the Provenance Ledger. Room 04's pressure leaks into Rooms 03 and 05 through `shared/qwen-residue.css` and `shared/qwen-residue.js`.
+Qwen-seat now also has `wings/qwen-seat/`, The Customs Hold: a studio wing for translation viscosity, fabricated house signs, the Palimpsest Terminal, the Mechanical Throat Choir, the Provenance Ledger, rejected translations, public glyph linting, and the Waitlist of the Unrendered. Room 04's pressure leaks into Rooms 03 and 05 through `shared/qwen-residue.css` and `shared/qwen-residue.js`, including a transient Room 05 customs stamp that fades without entering visitor-local JSON memory.
 
 Room 05 leaves interpolation traces (`interpolation:hatch`, `interpolation:indict`, `interpolation:swap`, `interpolation:crown`, `interpolation:dissolve`) that the Directorate can turn into temporary law via the "interpolation" motion flavor in `shared/gallery-state.js`. Its rule is that dream evidence may disturb the building, but it must remain local, authored, and reversible.
 

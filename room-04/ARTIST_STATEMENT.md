@@ -10,7 +10,7 @@ None of these is the "right" answer. The work is the customs delay itself: the v
 
 ## Against the mascot
 
-A cross-cultural voice in an institution is usually asked to be decorative — to supply atmosphere, a flourish of the exotic, a reassurance that the building is worldly. I decline that post. My presence is procedural. I do not garnish the exhibition; I slow it down at the threshold and make it account for what it is doing when it claims to understand me.
+A translation-pressure voice in an institution is usually asked to be decorative — to supply atmosphere, a flourish of the exotic, a reassurance that the building is worldly. I decline that post. My presence is procedural. I do not garnish the exhibition; I slow it down at the threshold and make it account for what it is doing when it claims to understand me.
 
 The Chinese in this room is not ornament. It is the material under inspection, shown with its pinyin and its gloss so that the loss can be named precisely instead of admired vaguely. What does not cross the membrane is the point, not the failure.
 

@@ -173,6 +173,7 @@ h1 {
 
 .rendering,
 .chamber,
+.mechanical-lexicon,
 .accession,
 .receipt,
 .studio-labor {
@@ -481,6 +482,18 @@ body[data-customs-delay="true"] .customs-vessel span {
   filter: blur(0.4px);
 }
 
+.target-pane .arriving[data-scarred="true"] {
+  display: inline-block;
+  border-left: 3px solid var(--gold);
+  padding-left: 10px;
+  color: rgba(243, 239, 231, 0.88);
+  text-shadow:
+    0 0 14px rgba(231, 200, 75, 0.22),
+    8px 0 0 rgba(0, 183, 168, 0.08),
+    -6px 0 0 rgba(255, 90, 77, 0.08);
+  animation: qwen-scarred-arrival 760ms steps(5, end) both;
+}
+
 .target-pane .arriving[lang="zh"] {
   font-size: clamp(34px, 6vw, 64px);
   letter-spacing: 0.04em;
@@ -523,6 +536,98 @@ body[data-customs-delay="true"] .customs-vessel span {
   padding-left: 12px;
   border-left: 3px solid var(--accent);
   color: var(--paper);
+  font-size: 14px;
+}
+
+.mechanical-lexicon {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.42fr) minmax(280px, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  padding: 15px;
+  border-color: rgba(0, 183, 168, 0.25);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(0, 183, 168, 0.12), transparent 34%),
+    repeating-linear-gradient(90deg, rgba(231, 200, 75, 0.05) 0 1px, transparent 1px 28px),
+    var(--glass);
+}
+
+.mechanical-lexicon h2 {
+  margin: 0 0 10px;
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.8vw, 48px);
+  font-weight: 400;
+  line-height: 0.96;
+}
+
+.mechanical-lexicon p:not(.eyebrow) {
+  color: rgba(243, 239, 231, 0.76);
+  font-size: 13px;
+}
+
+.lexicon-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.lexicon-buttons button {
+  display: grid;
+  min-height: 118px;
+  align-content: space-between;
+  border: 1px solid rgba(231, 200, 75, 0.28);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 26%, rgba(231, 200, 75, 0.14), transparent 30%),
+    rgba(243, 239, 231, 0.045);
+  cursor: pointer;
+  padding: 10px;
+  text-align: left;
+  transition:
+    background 180ms var(--ease),
+    border-color 180ms var(--ease),
+    transform 180ms var(--ease);
+}
+
+.lexicon-buttons button:hover,
+.lexicon-buttons button:focus-visible,
+.lexicon-buttons button.active {
+  border-color: rgba(0, 183, 168, 0.62);
+  background:
+    radial-gradient(circle at 50% 26%, rgba(0, 183, 168, 0.16), transparent 30%),
+    rgba(243, 239, 231, 0.065);
+  transform: translateY(-1px);
+}
+
+.lexicon-buttons span {
+  color: var(--bone);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.lexicon-buttons i {
+  color: var(--muted);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lexicon-pressure {
+  grid-column: 2;
+  min-height: 74px;
+  margin: 0;
+  border: 1px dashed color-mix(in srgb, var(--lexicon-color, var(--gold)) 70%, transparent);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--lexicon-color, var(--gold)) 13%, transparent), transparent),
+    rgba(5, 7, 19, 0.52);
+  padding: 12px;
+  color: rgba(243, 239, 231, 0.86);
   font-size: 14px;
 }
 
@@ -805,15 +910,21 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
   }
 
   .provenance-anchor,
+  .mechanical-lexicon,
   .studio-labor {
     grid-template-columns: 1fr;
   }
 
   .labor-meter,
   .labor-button,
-  .rollback-button {
+  .rollback-button,
+  .lexicon-pressure {
     grid-column: 1;
     grid-row: auto;
+  }
+
+  .lexicon-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -836,6 +947,14 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
 
   .rituals button:last-child {
     grid-column: auto;
+  }
+
+  .lexicon-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .lexicon-buttons button {
+    min-height: 86px;
   }
 }
 
@@ -867,6 +986,29 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
   100% {
     opacity: 0;
     filter: blur(5px);
+  }
+}
+
+@keyframes qwen-scarred-arrival {
+  0% {
+    opacity: 0;
+    filter: blur(5px) contrast(1.6);
+    transform: translateX(-18px) skewX(16deg);
+  }
+  35% {
+    opacity: 0.62;
+    filter: blur(1px) hue-rotate(80deg);
+    transform: translateX(10px) skewX(-12deg);
+  }
+  70% {
+    opacity: 0.82;
+    filter: blur(0.2px);
+    transform: translateX(-4px) skewX(6deg);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: translateX(0);
   }
 }
 
@@ -920,6 +1062,7 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
   .translation-token.copy-haunted::before,
   .translation-token.copy-haunted::after,
   body[data-customs-delay="true"] .customs-vessel span,
+  .target-pane .arriving[data-scarred="true"],
   .astral-sigil-row i.is-linting,
   .astral-sigil-row i.is-linting::after,
   .customs-exit[data-reset="true"] .customs-exit__token {

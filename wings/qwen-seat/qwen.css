@@ -191,6 +191,9 @@ p {
 .terminal,
 .choir,
 .ledger,
+.rejected-archive,
+.lint-ritual,
+.unrendered-waitlist,
 .governance,
 .studio-labor,
 .trace-panel {
@@ -306,6 +309,9 @@ input[type="range"] {
 .terminal,
 .choir,
 .ledger,
+.rejected-archive,
+.lint-ritual,
+.unrendered-waitlist,
 .governance,
 .studio-labor,
 .trace-panel {
@@ -476,6 +482,137 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
   text-transform: uppercase;
 }
 
+.rejected-archive,
+.lint-ritual,
+.unrendered-waitlist {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.rejected-list,
+.lint-ledger,
+.unrendered-list {
+  display: grid;
+  gap: 8px;
+  max-height: 300px;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.rejected-list li,
+.lint-ledger li,
+.unrendered-list li {
+  position: relative;
+  border: 1px solid rgba(243, 239, 231, 0.12);
+  border-left: 3px solid rgba(231, 200, 75, 0.68);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(231, 200, 75, 0.08), rgba(0, 183, 168, 0.04)),
+    rgba(243, 239, 231, 0.04);
+  padding: 10px;
+  color: rgba(243, 239, 231, 0.78);
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.rejected-list li::after {
+  content: attr(data-anchor) " / " attr(data-hash);
+  display: block;
+  margin-top: 7px;
+  color: rgba(0, 183, 168, 0.74);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.rejected-list li.is-stamped {
+  border-left-color: var(--red);
+  animation: qwen-archive-stamp 520ms steps(2, end) both;
+}
+
+.rejected-list strong,
+.unrendered-list strong {
+  display: block;
+  color: var(--bone);
+}
+
+.rejected-list span,
+.unrendered-list span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lint-readout {
+  min-height: 64px;
+  margin: 0;
+  border: 1px dashed rgba(231, 200, 75, 0.32);
+  border-radius: 8px;
+  background: rgba(5, 7, 19, 0.56);
+  padding: 11px;
+  color: rgba(243, 239, 231, 0.8);
+  font-size: 13px;
+}
+
+.lint-ledger li {
+  border-left-color: var(--lint-color, var(--gold));
+}
+
+.lint-source {
+  color: rgba(243, 239, 231, 0.46);
+  text-decoration: line-through;
+  text-decoration-color: var(--lint-color, var(--red));
+  text-decoration-thickness: 2px;
+}
+
+.lint-arrow,
+.lint-ledger em {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lint-ledger strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--bone);
+  font-size: 15px;
+}
+
+.unrendered-list li::after {
+  content: attr(data-status);
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  max-width: 42%;
+  color: rgba(231, 200, 75, 0.82);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.unrendered-list li.is-advanced {
+  border-left-color: var(--green);
+  background:
+    linear-gradient(90deg, rgba(156, 199, 108, 0.16), rgba(231, 200, 75, 0.07)),
+    rgba(243, 239, 231, 0.045);
+}
+
 .governance,
 .studio-labor,
 .trace-panel {
@@ -545,6 +682,22 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
   }
 }
 
+@keyframes qwen-archive-stamp {
+  0%,
+  100% {
+    filter: none;
+    transform: translate(0, 0);
+  }
+  44% {
+    filter: blur(1.2px) contrast(1.7);
+    transform: translate(4px, -2px);
+  }
+  64% {
+    filter: hue-rotate(76deg);
+    transform: translate(-3px, 2px);
+  }
+}
+
 @keyframes qwen-choir {
   from {
     transform: scaleY(0.24);
@@ -558,6 +711,9 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
   .qwen-wing,
   .terminal,
   .choir,
+  .rejected-archive,
+  .lint-ritual,
+  .unrendered-waitlist,
   .studio-labor {
     grid-template-columns: 1fr;
   }
@@ -592,7 +748,8 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
 
 @media (prefers-reduced-motion: reduce) {
   .sigil-field span.is-linting,
-  body[data-choir="on"] .choir-bars span {
+  body[data-choir="on"] .choir-bars span,
+  .rejected-list li.is-stamped {
     animation: none;
   }
 }

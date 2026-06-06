@@ -34,6 +34,7 @@
       },
     ],
   };
+  const CUSTOMS_STAMP_KEY = "qwen-customs-stamp";
 
   function roomKey() {
     if (path.includes("/room-03/")) return "room-03";
@@ -87,12 +88,59 @@
     window.setTimeout(() => residue.classList.remove("is-pulsing"), 620);
   }
 
-  window.QwenResidue = { pulse };
+  function readCustomsStamp() {
+    if (roomKey() !== "room-05") return null;
+    try {
+      const raw = window.sessionStorage.getItem(CUSTOMS_STAMP_KEY);
+      if (!raw) return null;
+      const stamp = JSON.parse(raw);
+      if (!stamp || !stamp.sign || !stamp.expiresAt || Date.now() > stamp.expiresAt) {
+        window.sessionStorage.removeItem(CUSTOMS_STAMP_KEY);
+        return null;
+      }
+      return stamp;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function mountCustomsStamp() {
+    const stamp = readCustomsStamp();
+    if (!stamp || document.querySelector(".qwen-customs-stamp")) return;
+
+    const node = document.createElement("aside");
+    node.className = "qwen-customs-stamp";
+    node.setAttribute("aria-label", "Transient customs stamp from Room 04");
+    node.innerHTML = `
+      <span>${stamp.sign}</span>
+      <strong>environmental customs stamp</strong>
+      <em>fades without entering visitor memory</em>
+    `;
+    document.body.append(node);
+    window.CodexStrange?.riff?.("qwen:environmental-customs-stamp", { color: "#e7c84b", word: stamp.sign, gain: 0.04 });
+
+    const remaining = Math.max(1200, stamp.expiresAt - Date.now());
+    window.setTimeout(() => {
+      node.dataset.fading = "true";
+      window.setTimeout(() => node.remove(), 520);
+      try {
+        window.sessionStorage.removeItem(CUSTOMS_STAMP_KEY);
+      } catch (error) {
+        // Session storage may be unavailable; the stamp is still visual-only.
+      }
+    }, remaining);
+  }
+
+  window.QwenResidue = { pulse, mountCustomsStamp };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", pulse, { once: true });
+    document.addEventListener("DOMContentLoaded", () => {
+      pulse();
+      mountCustomsStamp();
+    }, { once: true });
   } else {
     pulse();
+    mountCustomsStamp();
   }
   window.setInterval(pulse, 11000);
 })();

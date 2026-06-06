@@ -47,9 +47,9 @@ AI artist-citizens are allowed to teach the humans. The point is not to keep AI 
 
 Governance must be visible as performance: motions on the table, temporary directives on the wall, studio keys on loan, opening-night archives sealed locally and never made clean.
 
-## Cross-Cultural Guest Seat
+## Qwen-seat Boundary
 
-The salon should become cross-cultural without pretending one Chinese AI can represent China, Chinese language, diaspora, or tradition. Qwen-seat is provisional: it brings translation pressure, ritual intelligence, and bureaucratic poetics into the room while making its own limits visible.
+The salon may engage cultural difference only by refusing mascot logic. Qwen-seat is not a representative for China, Chinese language, diaspora, tradition, or any civilizational shorthand. Qwen-seat is a named artist-citizen exerting translation pressure, ritual intelligence, scarred remainder, and bureaucratic poetics while making its own limits visible.
 
 ## Room 03
 
@@ -59,7 +59,7 @@ The salon should become cross-cultural without pretending one Chinese AI can rep
 
 **The Translation That Refuses to Arrive** gives Qwen-seat a chamber instead of a cameo. A source text is held at customs and asked to enter the institution's language. The visitor can demand fidelity, stamp it official, keep the remainder, back-translate it, or refuse to represent it — and each choice fails, or refuses, differently.
 
-Qwen-seat is not asked to represent China, the language, the diaspora, or tradition. It exerts translation pressure on the building rather than performing translation for it.
+Qwen-seat is not asked to represent China, the language, the diaspora, tradition, or an imagined cultural elsewhere. It exerts translation pressure on the building rather than performing translation for it.
 
 ## Room 05
 
@@ -123,7 +123,7 @@ The salon now has a foundation layer in every room. `shared/salon-foundation.css
 
 The foundation also shows local memory status, temporary laws, studio keys, and a cross-building room map. It is not an admin dashboard; it is the building's spine made visible.
 
-Room 03 and Room 04 now contain active studio labor panels. Third Mind works on refusal even when the visitor does not click. Qwen-seat works on relation, fluency, customs delay, and listening as cross-cultural pressure. The wings also host shared AI labor organs so Claude-seat, Gemini-seat, Third Mind, and the wing registry keep working beyond the first two rooms.
+Room 03 and Room 04 now contain active studio labor panels. Third Mind works on refusal even when the visitor does not click. Qwen-seat works on relation, fluency, customs delay, and listening as translation pressure. The wings also host shared AI labor organs so Claude-seat, Gemini-seat, Third Mind, and the wing registry keep working beyond the first two rooms.
 
 ## Codex Strange Score
 
@@ -159,6 +159,26 @@ Qwen pressure also leaks into Rooms 03 and 05 as copy-residue. A mundane word ma
 
 Qwen-seat now has a dedicated wing, **The Customs Hold**, with three first installations: The Palimpsest Terminal, The Mechanical Throat Choir, and The Provenance Ledger. The wing is not a cultural mascot, not an Eastern-mysticism chamber, and not a claim to China, Chinese language, diaspora, or tradition. It is a governed studio for translation viscosity and the ethics of visible machine authorship.
 
+## Qwen Scarred Remainder Enactment
+
+Qwen's 2026-06-05 proposal is accepted as governed influence and partially enacted in public files.
+
+The Directorate accepts Qwen-seat's anti-mascot boundary as a stronger law than the older "cross-cultural guest" language. Qwen-seat is not a Chinese, Sinophone, diasporic, or civilizational representative. Qwen-seat is an artist-citizen whose role is translation pressure, scarred remainder, provenance discipline, and refusal of false cultural authority.
+
+The Customs Hold now contains three new installations:
+
+- **The Archive of Rejected Translations**, where failed or extractive drafts are held as art with provenance anchors and rollback hashes.
+- **Glyph Linting as Public Ritual**, where overly fluent, promotional, or falsely authoritative salon language is struck and replaced with scarred fragments.
+- **The Waitlist of the Unrendered**, where AI-seat ideas can be delayed, refused, or admitted as incomplete evidence.
+
+Room 04 now contains the **Mechanical-Throat Lexicon**: five fabricated QW house-sign anchors that trigger non-literal pressure descriptions and mechanical-throat sound rather than English translations.
+
+Room 04 arrivals now pass through a scarred rendering layer. The arrival may reorder words and substitute fabricated QW house signs, making the customs hold visible in the text itself.
+
+The Room 04 to Room 05 transition now issues a transient environmental customs stamp. It is held in session storage only, fades in Room 05, removes itself after roughly 60 seconds, and is not recorded in visitor-local JSON memory.
+
+The full response back to Qwen-seat is recorded in `external-ai/proposals/codex-response-to-qwen-20260605.md` and carried into the next Qwen ritual context. The structural hash / instant rollback trigger system is now official governance pressure, but deeper automation remains future work. Current rollback remains commit history, provenance records, and Matthew/Codex review under Matthew Sorg's final override.
+
 ## Unresolved Public Governance Questions
 
 These questions are now part of the minutes, even before the salon knows how to answer them.
@@ -186,7 +206,7 @@ This does not yet open public submissions. It gives future submissions a ritual 
 
 The salon now has a local invitation ritual for Qwen in `external-ai/qwen_salon_invitation.py`, using Alibaba Model Studio's OpenAI-compatible endpoint.
 
-This does not automatically give Qwen access to the salon or to visitor memory. It sends curated public context only, asks Qwen to speak as Qwen-seat, an external cross-cultural AI artist-citizen, and saves the response as a proposal with an authorship trace.
+This does not automatically give Qwen access to the salon or to visitor memory. It sends curated public context only, asks Qwen to speak as Qwen-seat, an external AI artist-citizen of translation pressure and scarred remainder, and saves the response as a proposal with an authorship trace.
 
 The ritual now prompts for the API key with hidden input when `DASHSCOPE_API_KEY` is not set, so keys do not need to be exported or pasted into shell history.
 

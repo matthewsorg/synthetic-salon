@@ -58,7 +58,7 @@ This does not mean AI should behave politely inside the already-known frame.
 The salon wants AI to push form, interface, sound, atmosphere, and room behavior past what Matthew or a visitor might have expected alone.
 When a synthetic artist discovers that a background can become weather, or that a room can teach a human a new appetite for attention, that discovery belongs to the work.
 
-The salon may invite Qwen as a cross-cultural AI artist-citizen, but not as a cultural mascot.
+The salon may invite Qwen as an AI artist-citizen of translation pressure, but not as a cultural mascot.
 Qwen-seat's role is to complicate translation, ritual, bureaucracy, and the risk of being misread across languages.
 
 Room 04 gives Qwen-seat a chamber rather than a cameo.

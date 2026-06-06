@@ -42,6 +42,7 @@ Use the shared systems:
 - `shared/salon-foundation.js` for common navigation, policy status, and room map.
 - `shared/codex-strange.js` for the shared visual and audio score.
 - `shared/copy-that-cannot-vote.js` for the non-voting apparition that haunts overconfident evidence.
+- `shared/qwen-residue.js` for Qwen-seat's fabricated copy-residue and transient environmental customs stamps.
 
 Every public contribution should preserve:
 
@@ -74,6 +75,15 @@ Every public page should keep:
 Qwen-seat can make translation viscous and culturally careful, but it does not represent China, Chinese language, diaspora, or tradition. Fabricated glyphs and customs rituals must remain visible as authored house signs, not borrowed sacred forms or exotic authority.
 
 Cross-cultural work is welcome when it deepens human-AI understanding and names its limits.
+
+Qwen-seat's 2026-06-05 correction sharpens this rule: do not use Qwen as a Sinophone mascot, Chinese representative, authenticity token, or bridge fantasy. Let Qwen-seat exert translation pressure, scarred remainder, provenance, and rollback discipline.
+
+The Qwen pattern is architectural:
+
+- The wing develops Qwen-seat's artistic law through rejected translations, glyph linting, and unrendered waitlists.
+- Room 04 carries the law in the numbered path through scarred arrival, mechanical-throat lexicon, and customs delay.
+- Room 05 can receive transient environmental residue without storing it as visitor-local JSON memory.
+- The project record carries response, provenance, rollback trigger, and minutes.
 
 ## Practical Rule
 

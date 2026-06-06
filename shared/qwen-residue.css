@@ -69,6 +69,70 @@
   animation: qwen-residue-pulse 520ms steps(2, end) both;
 }
 
+.qwen-customs-stamp {
+  position: fixed;
+  right: clamp(14px, 3vw, 34px);
+  bottom: clamp(14px, 3vw, 34px);
+  z-index: 9;
+  display: grid;
+  width: min(230px, calc(100vw - 28px));
+  gap: 5px;
+  border: 1px solid rgba(231, 200, 75, 0.42);
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(90deg, rgba(231, 200, 75, 0.08) 0 1px, transparent 1px 21px),
+    radial-gradient(circle at 22% 0%, rgba(0, 183, 168, 0.2), transparent 34%),
+    rgba(5, 7, 19, 0.9);
+  box-shadow:
+    0 22px 80px rgba(0, 0, 0, 0.46),
+    0 0 42px rgba(231, 200, 75, 0.14);
+  color: #f3efe7;
+  padding: 12px;
+  pointer-events: none;
+  text-transform: uppercase;
+  animation: qwen-stamp-arrive 620ms steps(3, end) both;
+}
+
+.qwen-customs-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(0, 183, 168, 0.28);
+  border-radius: 50%;
+  transform: rotate(-14deg);
+}
+
+.qwen-customs-stamp span,
+.qwen-customs-stamp strong,
+.qwen-customs-stamp em {
+  position: relative;
+  z-index: 1;
+}
+
+.qwen-customs-stamp span {
+  color: #e7c84b;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.qwen-customs-stamp strong {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.qwen-customs-stamp em {
+  color: rgba(243, 239, 231, 0.62);
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.qwen-customs-stamp[data-fading="true"] {
+  animation: qwen-stamp-fade 500ms ease both;
+}
+
 @keyframes qwen-residue-pulse {
   0%,
   100% {
@@ -81,6 +145,32 @@
   68% {
     filter: hue-rotate(90deg);
     transform: translateY(1px) skewX(10deg);
+  }
+}
+
+@keyframes qwen-stamp-arrive {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate(18px, 10px) rotate(8deg);
+  }
+  58% {
+    opacity: 0.9;
+    filter: blur(0.8px) hue-rotate(80deg);
+    transform: translate(-4px, -2px) rotate(-4deg);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes qwen-stamp-fade {
+  to {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(14px) scale(0.96);
   }
 }
 
@@ -99,7 +189,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .qwen-residue,
-  .qwen-residue::after {
+  .qwen-residue::after,
+  .qwen-customs-stamp {
     animation: none !important;
     transition: none !important;
   }

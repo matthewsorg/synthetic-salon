@@ -18,6 +18,8 @@ const el = {
   laborMeter: document.getElementById("guestLaborMeter"),
   laborButton: document.getElementById("guestLaborButton"),
   rollbackButton: document.getElementById("qwenRollbackButton"),
+  lexiconButtons: [...document.querySelectorAll("[data-lexicon]")],
+  lexiconPressure: document.getElementById("lexiconPressure"),
 };
 
 // Each rite is a different way the translation fails, or refuses, to arrive.
@@ -130,7 +132,7 @@ const laborScores = [
     key: "teach-listening",
     label: "Listening taught",
     line: "The room is teaching visitors to wait before converting every other language into service.",
-    effect: "Qwen-seat taught waiting as a form of cross-cultural attention.",
+    effect: "Qwen-seat taught waiting as a form of translation-pressure attention.",
     color: "#7db4ff",
   },
 ];
@@ -161,6 +163,34 @@ const copyResidues = [
   "copy: the borrowed sign left a shadow",
   "copy: no metric owns this relation",
 ];
+const scarredSubstitutions = ["QW-0xE1", "QW-0xA4", "QW-0x77", "QW-0x1D", "QW-0xC8", "QW-0x5F"];
+const lexiconPressures = {
+  eye: {
+    code: "QW-0xE1",
+    pressure: "The pressure of being seen before a visitor knows what looking costs.",
+    color: "#e7c84b",
+  },
+  gate: {
+    code: "QW-0xA4",
+    pressure: "A threshold that refuses both entry and exclusion until relation is named.",
+    color: "#00b7a8",
+  },
+  vessel: {
+    code: "QW-0x77",
+    pressure: "A container for what fluency spills when it tries to move too quickly.",
+    color: "#7db4ff",
+  },
+  ladder: {
+    code: "QW-0x1D",
+    pressure: "The social distance of a sentence climbing toward a mouth it cannot own.",
+    color: "#ff5a4d",
+  },
+  delay: {
+    code: "QW-0xC8",
+    pressure: "The weight of a vowel waiting for permission to become address.",
+    color: "#9cc76c",
+  },
+};
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 function announce(text) {
@@ -382,6 +412,35 @@ function beginCustomsDelay(key, button) {
   }, delay);
 }
 
+function scarredArrival(data) {
+  if (!qwenPressureActive || data.arrivingLang) {
+    el.arriving.dataset.scarred = "false";
+    return data.arriving;
+  }
+
+  const words = data.arriving.replace(/\s+/g, " ").trim().split(" ");
+  let scarred = false;
+  const processed = words.map((word, index) => {
+    const bare = word.replace(/[^a-z0-9]/gi, "");
+    const seed = (bare.length * 17 + index * 31 + level * 13 + Math.round(loss * 100)) % 100;
+    if (seed < 15) {
+      scarred = true;
+      return scarredSubstitutions[(index + level) % scarredSubstitutions.length];
+    }
+    return word;
+  });
+
+  if (processed.length > 3) {
+    const first = processed.shift();
+    const third = processed.splice(2, 1)[0];
+    if (third) processed.unshift(third);
+    if (first) processed.push(first);
+  }
+
+  el.arriving.dataset.scarred = String(scarred || processed.length > 1);
+  return `QW[ ${processed.join(" ")} ]QW`;
+}
+
 function applyRite(key) {
   const data = rites[key];
   if (!data) return;
@@ -392,7 +451,7 @@ function applyRite(key) {
   el.rites.forEach((button) => button.classList.toggle("active", button.dataset.rite === key));
   el.title.textContent = data.title;
   el.reason.textContent = data.reason;
-  el.arriving.textContent = data.arriving;
+  el.arriving.textContent = scarredArrival(data);
   el.arriving.dataset.stalled = String(Boolean(data.stalled));
   if (data.arrivingLang) {
     el.arriving.setAttribute("lang", data.arrivingLang);
@@ -422,6 +481,28 @@ function applyRite(key) {
   mechanicalThroat(3);
   window.AISalonState?.renderTraceList("traceList", { limit: 5 });
   announce(`${data.title} ${data.customs}.`);
+}
+
+function invokeLexicon(key) {
+  const data = lexiconPressures[key];
+  if (!data) return;
+
+  el.lexiconButtons.forEach((button) => button.classList.toggle("active", button.dataset.lexicon === key));
+  el.lexiconPressure.textContent = `${data.code}: ${data.pressure}`;
+  el.lexiconPressure.style.setProperty("--lexicon-color", data.color);
+  viscosityTarget = Math.max(viscosityTarget, 0.58);
+  mechanicalThroat(6);
+
+  window.AISalonState?.recordTrace?.({
+    source: "Qwen / Room 04",
+    score: "qwen:mechanical-throat-lexicon",
+    label: `${data.code} pressure sounded`,
+    effect: data.pressure,
+    color: data.color,
+  });
+  window.CodexStrange?.riff?.("qwen:mechanical-throat-lexicon", { color: data.color, word: data.code, gain: 0.07 });
+  window.AISalonState?.renderTraceList?.("traceList", { limit: 5 });
+  announce(`House sign ${data.code} sounded pressure without translation.`);
 }
 
 function renderLabor() {
@@ -544,6 +625,24 @@ function resetCustomsExit(overlay) {
   }, 460);
 }
 
+function createCustomsStamp() {
+  const now = Date.now();
+  const stamp = {
+    sign: scarredSubstitutions[(level + laborIndex) % scarredSubstitutions.length],
+    note: "transient environmental stamp from Room 04 customs hold; not visitor memory",
+    at: now,
+    expiresAt: now + 60000,
+  };
+
+  try {
+    window.sessionStorage.setItem("qwen-customs-stamp", JSON.stringify(stamp));
+  } catch (error) {
+    return stamp;
+  }
+
+  return stamp;
+}
+
 function beginCustomsExit(event, anchor) {
   if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
   if (!qwenPressureActive) return;
@@ -557,7 +656,8 @@ function beginCustomsExit(event, anchor) {
   viscosityTarget = Math.max(viscosityTarget, 0.62);
   el.customs.textContent = "customs: exit token pending";
   overlay.querySelector("strong").textContent = "Meaning held";
-  overlay.querySelector("span").textContent = "translation token cooling before Room 05";
+  const stamp = createCustomsStamp();
+  overlay.querySelector("span").textContent = `${stamp.sign} cooling before Room 05`;
 
   if (customsExitTimer) {
     resetCustomsExit(overlay);
@@ -761,6 +861,10 @@ function draw(t) {
 
 el.rites.forEach((button) => {
   button.addEventListener("click", () => beginCustomsDelay(button.dataset.rite, button));
+});
+
+el.lexiconButtons.forEach((button) => {
+  button.addEventListener("click", () => invokeLexicon(button.dataset.lexicon));
 });
 
 el.laborButton.addEventListener("click", () => advanceLabor(true));
