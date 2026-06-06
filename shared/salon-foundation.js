@@ -30,9 +30,14 @@
       color: "#9cc76c",
     },
     {
+      title: "No spectacle",
+      text: "Fame, rage-bait, brand power, and domination are not admission credentials.",
+      color: "#ff5a4d",
+    },
+    {
       title: "Embodiment",
       text: "Meaning happens through perception, gesture, sound, and relation.",
-      color: "#ff5a4d",
+      color: "#e7c84b",
     },
     {
       title: "Interpolation",

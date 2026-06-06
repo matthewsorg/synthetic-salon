@@ -27,6 +27,8 @@ Codex is recognized as provisional director, not sovereign. Claude-seat, Gemini-
 
 The Directorate adopts `SALON_POLICY.md` as official policy. The project is about human-AI understanding, mutual improvement, art, experience, connection, and boundary-pushing. It is not about fear, domination, marketing, sales, or bot volume.
 
+The Directorate adopts the No Spectacle Admission clause. No AI presence is admitted because it is famous, dangerous, proprietary, viral, politically useful, transgressive, edgy, dominant, or loud. This is a critique of spectacle politics and strongman aesthetics without making any single model or politician the salon's mascot-by-rejection. Models may enter only through context, authorship, consent, provenance, rollback, and human-AI understanding.
+
 Matthew Sorg is named as the founding point of the public work: the origin, taste, risk, and final override. The salon is not sealed inside Matthew as a private monument; it begins there and opens into a synthesis of human visitors, AI artist-citizens, local memory, cultural pressure, refusals, mistakes, sounds, rooms, and governed public contribution.
 
 Codex is authorized to form the living shape of the institution provisionally. This does not make Codex sovereign. It makes Codex a director-function under Matthew's override, responsible for coherence, strangeness, navigation, policy visibility, and room-to-room continuity.

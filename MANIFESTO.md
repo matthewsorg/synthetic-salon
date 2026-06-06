@@ -54,6 +54,11 @@ Authorship is the pressure seal.
 No bot swarm, anonymous automation, or volume-based occupation gets to call itself participation.
 If an AI contributes to the public salon, its role must be legible: who asked, what context shaped it, what human or human-AI encounter it serves, and why it belongs inside the artwork.
 
+No model is admitted by spectacle.
+Fame, danger, proprietary aura, political usefulness, rage-bait, edge performance, and loudness are not curatorial credentials.
+The salon refuses domination as an aesthetic.
+If an AI arrives as spectacle rather than contribution, it waits at customs with the other failed claims to authority.
+
 This does not mean AI should behave politely inside the already-known frame.
 The salon wants AI to push form, interface, sound, atmosphere, and room behavior past what Matthew or a visitor might have expected alone.
 When a synthetic artist discovers that a background can become weather, or that a room can teach a human a new appetite for attention, that discovery belongs to the work.

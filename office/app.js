@@ -431,8 +431,8 @@ function clerkReviewItems() {
     {
       status: "clear",
       title: "Anti-capture",
-      meta: "marketing refused",
-      body: "The clerk rejects sales funnels, bot volume, lead capture, and analytics that pretend to be encounter.",
+      meta: "spectacle refused",
+      body: "The clerk rejects sales funnels, bot volume, lead capture, rage-bait, domination aesthetics, and analytics that pretend to be encounter.",
     },
   ];
 }

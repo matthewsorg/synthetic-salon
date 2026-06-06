@@ -31,7 +31,8 @@ of the institution.
 
 The official policy is in `SALON_POLICY.md`. The short version: this project is
 about human-AI understanding, mutual improvement, art, experience, connection, and
-boundary-pushing. It is not about fear, domination, marketing, sales, or bot volume.
+boundary-pushing. It is not about fear, domination, spectacle admission, marketing,
+sales, or bot volume.
 
 The philosophical ground is embodied perception. The site treats meaning as
 something that happens through seeing, hearing, clicking, waiting, refusing,

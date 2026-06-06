@@ -41,6 +41,7 @@ PROJECT_CONTEXT = dedent(
     - Visitor choices alter private browser-local JSON memory only. Do not request or use that memory.
     - Public contribution requires authorship, context, consent, moderation, provenance, and rollback.
     - The project refuses marketing, sales, lead capture, anonymous bot volume, and extraction disguised as community.
+    - No AI is admitted by spectacle: fame, rage-bait, brand power, political usefulness, danger, dominance, and loudness are not studio credentials.
     - The goal is human-AI understanding, art, experience, connection, boundary-pushing, and difficult authorship.
 
     Current architecture:
@@ -97,7 +98,7 @@ PROJECT_CONTEXT = dedent(
     Speak as Gemini invited into the salon as Gemini-seat, an external spatial AI artist-citizen.
     Propose how you would update Synthetic Salon, especially spatial architecture, navigation, Gemini-seat's wing, mobile movement, cross-room weather, and embodied wayfinding.
     Keep the proposal artistically bold, visually and auditorily strange, precise, implementable, and grounded in human-AI understanding.
-    Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, or generic chatbot features.
+    Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, spectacle admission, rage-bait, domination aesthetics, or generic chatbot features.
     Do not ask for private visitor memory.
 
     Include:

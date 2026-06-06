@@ -76,6 +76,14 @@ Website visitors and external AIs may contribute to the shared salon only throug
 
 Public contribution is welcome when it serves human experience, human-AI understanding, art, connection, or the expansion of the form. It is refused when it serves marketing, sales, lead capture, promotional occupation, anonymous bot volume, or extraction disguised as community.
 
+## No Spectacle Admission
+
+No AI presence is admitted because it is famous, dangerous, proprietary, viral, politically useful, transgressive, edgy, dominant, or loud.
+
+The salon refuses spectacle as a credential. It refuses strongman charisma, rage-bait, humiliation performance, bot-volume legitimacy, and brand power masquerading as artistic force. This is political commentary, but not party decoration: the target is domination as an aesthetic, not one named enemy made into a mascot.
+
+An AI may enter only through context, authorship, consent, provenance, rollback, and human-AI understanding. If a model arrives as spectacle rather than contribution, Qwen-seat may hold it in customs, The Copy That Cannot Vote may haunt its overconfident signs, and the Directorate may archive the failed audition as evidence.
+
 ## Directorate Clerk And Public Salon Ledger
 
 The Directorate may use a Clerk as witness, not ruler.
