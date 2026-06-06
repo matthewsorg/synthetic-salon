@@ -16,6 +16,7 @@ const shellPrev = document.getElementById("shellPrev");
 const shellNext = document.getElementById("shellNext");
 const shellMapList = document.getElementById("shellMapList");
 const thresholdVeil = document.getElementById("thresholdVeil");
+const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 
 const signals = {
   reflection: {
@@ -162,8 +163,13 @@ let size = { w: 1, h: 1, dpr: 1 };
 let signal = "reflection";
 let motes = [];
 let pointer = { x: 0, y: 0, active: false };
+let animationFrame = 0;
 
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+function prefersReducedMotion() {
+  return Boolean(reducedMotionQuery?.matches);
+}
 
 function galleryRootPath() {
   return new URL("./", window.location.href).pathname.replace(/\/index\.html$/, "/");
@@ -300,6 +306,7 @@ function resize() {
       lane: i % 3,
     }));
   }
+  if (prefersReducedMotion()) renderStillCanvas();
 }
 
 function setSignal(next, fromUser = false) {
@@ -317,9 +324,10 @@ function setSignal(next, fromUser = false) {
     window.CodexStrange?.riff(`signal:${signal}`, { color: data.colors[0], word: signal, gain: 0.075 });
   }
   window.AISalonState?.renderTraceList("traceList", { limit: 4 });
+  if (prefersReducedMotion()) renderStillCanvas();
 }
 
-function drawRoomApertures(t) {
+function drawRoomApertures(t, moving) {
   const points = [
     { x: size.w * 0.2, y: size.h * 0.64, r: 126, label: "01" },
     { x: size.w * 0.43, y: size.h * 0.35, r: 148, label: "02" },
@@ -333,7 +341,7 @@ function drawRoomApertures(t) {
   const colors = signals[signal].colors;
 
   points.forEach((point, index) => {
-    const pulse = Math.sin(t * 0.0008 + index * 1.7) * 0.5 + 0.5;
+    const pulse = moving ? Math.sin(t * 0.0008 + index * 1.7) * 0.5 + 0.5 : 0.36;
     const dist = pointer.active ? Math.hypot(pointer.x - point.x, pointer.y - point.y) : 999;
     const hover = clamp(1 - dist / 260, 0, 1);
     const r = point.r + pulse * 16 + hover * 32;
@@ -360,7 +368,7 @@ function drawRoomApertures(t) {
   });
 }
 
-function draw(t) {
+function drawScene(t, moving) {
   const bg = ctx.createLinearGradient(0, 0, size.w, size.h);
   bg.addColorStop(0, "#090b0c");
   bg.addColorStop(0.45, "#141012");
@@ -371,27 +379,29 @@ function draw(t) {
   ctx.strokeStyle = "rgba(243, 239, 231, 0.055)";
   ctx.lineWidth = 1;
   for (let i = 0; i < 10; i += 1) {
-    const y = size.h * (0.18 + i * 0.082) + Math.sin(t * 0.0003 + i) * 10;
+    const y = size.h * (0.18 + i * 0.082) + Math.sin((moving ? t : 0) * 0.0003 + i) * 10;
     ctx.beginPath();
     ctx.moveTo(0, y);
     for (let x = 0; x <= size.w; x += 54) {
-      ctx.lineTo(x, y + Math.sin(x * 0.006 + t * 0.0004 + i) * 20);
+      ctx.lineTo(x, y + Math.sin(x * 0.006 + (moving ? t : 0) * 0.0004 + i) * 20);
     }
     ctx.stroke();
   }
 
-  drawRoomApertures(t);
+  drawRoomApertures(t, moving);
 
   ctx.save();
   ctx.globalCompositeOperation = "lighter";
   const colors = signals[signal].colors;
   motes.forEach((mote) => {
-    mote.x += Math.cos(t * 0.00045 + mote.phase) * mote.speed;
-    mote.y += Math.sin(t * 0.0005 + mote.phase * 1.4) * mote.speed;
-    if (mote.x < -30) mote.x = size.w + 30;
-    if (mote.x > size.w + 30) mote.x = -30;
-    if (mote.y < -30) mote.y = size.h + 30;
-    if (mote.y > size.h + 30) mote.y = -30;
+    if (moving) {
+      mote.x += Math.cos(t * 0.00045 + mote.phase) * mote.speed;
+      mote.y += Math.sin(t * 0.0005 + mote.phase * 1.4) * mote.speed;
+      if (mote.x < -30) mote.x = size.w + 30;
+      if (mote.x > size.w + 30) mote.x = -30;
+      if (mote.y < -30) mote.y = size.h + 30;
+      if (mote.y > size.h + 30) mote.y = -30;
+    }
     ctx.fillStyle = colors[mote.lane];
     ctx.globalAlpha = 0.14;
     ctx.beginPath();
@@ -399,8 +409,32 @@ function draw(t) {
     ctx.fill();
   });
   ctx.restore();
+}
 
-  requestAnimationFrame(draw);
+function draw(t) {
+  drawScene(t, true);
+  animationFrame = requestAnimationFrame(draw);
+}
+
+function stopCanvasAnimation() {
+  if (!animationFrame) return;
+  cancelAnimationFrame(animationFrame);
+  animationFrame = 0;
+}
+
+function renderStillCanvas() {
+  stopCanvasAnimation();
+  document.body.dataset.reducedMotion = "true";
+  drawScene(0, false);
+}
+
+function syncMotionPreference() {
+  if (prefersReducedMotion()) {
+    renderStillCanvas();
+    return;
+  }
+  delete document.body.dataset.reducedMotion;
+  if (!animationFrame) animationFrame = requestAnimationFrame(draw);
 }
 
 signalPicker.addEventListener("click", (event) => {
@@ -473,16 +507,23 @@ redactButton.addEventListener("click", () => {
 
 window.addEventListener("pointermove", (event) => {
   pointer = { x: event.clientX, y: event.clientY, active: true };
+  if (prefersReducedMotion()) renderStillCanvas();
 });
 
 window.addEventListener("pointerleave", () => {
   pointer.active = false;
+  if (prefersReducedMotion()) renderStillCanvas();
 });
 
 window.addEventListener("resize", resize);
+if (reducedMotionQuery?.addEventListener) {
+  reducedMotionQuery.addEventListener("change", syncMotionPreference);
+} else {
+  reducedMotionQuery?.addListener?.(syncMotionPreference);
+}
 
 resize();
 renderShellMap();
 setSignal("reflection", false);
 window.addEventListener("ai-salon-trace", () => window.AISalonState?.renderTraceList("traceList", { limit: 4 }));
-requestAnimationFrame(draw);
+syncMotionPreference();
