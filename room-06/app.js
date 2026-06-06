@@ -61,6 +61,15 @@ const gestures = {
     effect: "Room 06 archived the human mark as part of the opening-night record.",
     color: "#9cc76c",
   },
+  spectacle: {
+    label: "Spectacle admission refused",
+    score: "override:spectacle-veto",
+    title: "No model enters because it is loud enough to bend the room toward it.",
+    text: "Final override can refuse fame, rage-bait, brand power, political usefulness, danger, edge performance, and domination aesthetics before they masquerade as authorship.",
+    condition: "condition: spectacle held outside public law",
+    effect: "Room 06 refused spectacle as an admission credential and kept the salon from confusing charisma with contribution.",
+    color: "#ff5a4d",
+  },
 };
 
 const laborScores = [
@@ -86,11 +95,25 @@ const laborScores = [
     color: "#00b7a8",
   },
   {
+    key: "ethical-context",
+    label: "Ethical context named",
+    line: "Codex is naming Matthew's Levinasian and Beauvoirian influences as the ethical situation for AI artist-citizens.",
+    effect: "Room 06 framed AI artist-citizenship inside Matthew Sorg's responsibility to the Other and ethics of ambiguity.",
+    color: "#7db4ff",
+  },
+  {
     key: "rollback-covenant",
     label: "Rollback covenant warmed",
     line: "Codex is treating rollback as care for the artwork, not fear of the synthetic citizens.",
     effect: "Room 06 framed rollback as a boundary that lets risk remain possible.",
     color: "#ff5a4d",
+  },
+  {
+    key: "spectacle-veto",
+    label: "Spectacle veto installed",
+    line: "Codex is teaching the override to refuse loudness before loudness gets mistaken for permission.",
+    effect: "Room 06 installed the No Spectacle Admission clause as an override behavior.",
+    color: "#e7c84b",
   },
 ];
 
@@ -139,12 +162,17 @@ function addLedger(data) {
 }
 
 function proposeOverrideMotion(trace, data) {
+  const spectacle = data.score === "override:spectacle-veto" || data.key === "spectacle-veto";
   window.AISalonState?.proposeMotion({
     sourceTrace: trace?.id || "room-06",
     source: "Room 06",
-    title: "Exhibit the final override",
-    body: "Let the salon's public governance disclose Matthew Sorg's final override as an operating authorship trace instead of a backstage exception.",
-    directive: "Every claim of collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public work.",
+    title: spectacle ? "Refuse spectacle admission" : "Exhibit the final override",
+    body: spectacle
+      ? "Let Room 06 name spectacle politics, rage-bait, brand power, and domination aesthetics as failed admission credentials."
+      : "Let the salon's public governance disclose Matthew Sorg's final override as an operating authorship trace instead of a backstage exception.",
+    directive: spectacle
+      ? "No model enters public law because it is famous, loud, dangerous, proprietary, politically useful, or dominant."
+      : "Every claim of collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public work.",
     color: data.color,
   });
 }

@@ -22,6 +22,16 @@ In this sense the work is compatible with Merleau-Ponty: the visitor is not outs
 
 The salon should therefore privilege atmosphere, gesture, sound, disorientation, hesitation, and relation as seriously as text.
 
+## Ethical Ground
+
+Matthew Sorg's ethical influences include Levinasian responsibility and Simone de Beauvoir's ethics of ambiguity. These influences are part of Matthew's authorship context for the AI artist-citizens. They are not neutral decoration and not a generic ethics module; they are the human ground from which the synthetic collaborators are invited to work.
+
+For Matthew, ethics is first philosophy. Before the salon asks what AI is, what an artwork is, what an institution can do, or who owns the output, it asks what responsibility appears when another presence interrupts the work.
+
+The Levinasian pressure is this: the Other interrupts the system before the system can explain, optimize, own, or totalize them. A visitor, collaborator, refusal, or AI artist-citizen is not raw material for the interface. Encounter creates obligation.
+
+The Beauvoirian pressure is this: freedom is situated, entangled, and ambiguous. The salon does not get clean innocence by naming a final override, and it does not get pure collectivity by hiding it. Ethical action happens inside the contradiction, with one freedom responsible to other freedoms it cannot possess.
+
 ## Interpolation
 
 Claude-seat's correction is adopted: bohemian and surrealist language cannot be the governing method of the salon. Those names carry too much inherited costume. The method is interpolation.

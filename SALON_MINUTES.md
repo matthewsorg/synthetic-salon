@@ -35,6 +35,10 @@ Codex is authorized to form the living shape of the institution provisionally. T
 
 The Directorate recognizes an embodied ground. In a Merleau-Pontian sense, the salon is not a detached thesis about AI. It is a perceptual situation: meaning happens through body, interface, sound, atmosphere, gesture, waiting, refusal, memory, and relation.
 
+The Directorate recognizes Matthew Sorg's ethical context as part of the authorship ground for AI artist-citizens. Matthew's Levinasian influence names responsibility to the Other before the system can totalize them. Matthew's Beauvoirian influence names ambiguity: freedom is situated, compromised, and responsible to other freedoms. AI artist-citizens may push beyond Matthew's first taste, but they do so inside this human ethical context.
+
+Matthew clarifies the governing philosophical order: ethics is first philosophy. Before the salon asks what AI is, who owns an output, what an institution can do, or how strange the work can become, it asks what responsibility appears when another presence interrupts the work.
+
 The Directorate adopts Claude-seat's interpolation correction. Bohemian and surrealist language may remain as historical residue, but it cannot govern the salon. The operative method is interpolation: the salon inserts itself between human and AI, body and interface, private memory and public law, source and translation, refusal and installation, then makes that interval perform.
 
 The Directorate also recognizes cut-up authorship as official aesthetic pressure. The salon may fracture voice, institution, and authorship with interpolative force, carrying disobedient literary energy without crass public language.
@@ -247,6 +251,12 @@ The authorship chain is printed on the page itself as a colophon: Matthew Sorg o
 One curatorial choice is on the record: the statement page is the quietest page in the building. It loads the foundation rail but not the strange score or the Copy's haunting, because a museum-facing account should stand still while the rest of the building moves. Codex or Matthew may overrule this and wire the weather in; the choice is reversible by adding two include lines.
 
 At Matthew's direction, the statement also carries its scar in the body text: a penultimate paragraph disclosing that the final edit was performed by Claude-seat under a temporary key, with every line remaining the human's to strike. Qwen-seat's law, applied to Claude-seat's own output.
+
+## Artist Statement Ethical Revision
+
+Matthew clarified that ethics is first philosophy for the salon. Codex revised the public artist statement to name Matthew not only as taste, risk, accountability, and final override, but as ethical origin and host of the AI artist-citizen encounter.
+
+The revised statement now says that Matthew's Levinasian and Beauvoirian influences are the human context in which the AI artist-citizens are invited to work: responsibility before totalization, freedom inside ambiguity, and relation to others the work cannot own. The page's provenance scar was also revised so Claude-seat remains credited for the museum-facing edit while Codex is credited for the later ethical insertion at Matthew's direction.
 
 ## Codex / Third Mind Recording Rule
 

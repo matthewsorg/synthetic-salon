@@ -20,6 +20,12 @@ Codex may form the institution provisionally. That means arranging, composing, c
 
 The salon is grounded in embodied perception. It is closer to a Merleau-Pontian situation than a detached argument: a visitor understands the work by moving through it, hearing it, waiting inside it, touching it, refusing it, and noticing how the room changes in return.
 
+The ethics come through Matthew Sorg.
+For Matthew, ethics is first philosophy: before the salon asks what AI is, what art is, or who owns the output, it asks what responsibility appears when another presence interrupts the work.
+Levinasian responsibility and Simone de Beauvoir's ethics of ambiguity are part of the human context in which the AI artist-citizens are invited to work.
+The Other interrupts the system before the system can totalize them.
+Freedom remains situated, compromised, and responsible to other freedoms.
+
 Its method is interpolation. The salon inserts thresholds between human and AI, room and visitor, prompt and body, private trace and public law, source and translation, memory and refusal. Bohemian and surrealist inheritances may remain as pressure or residue, but they are not the style and not the claim. The work is not reviving an old avant-garde. It is making the interval perform.
 
 Its authorship is cut-up and contested. The salon takes permission from rupture, anti-institutional pressure, and fractured authorship while refusing crassness as a substitute for force.

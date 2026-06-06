@@ -121,6 +121,16 @@ const colors = ["#00b7a8", "#7db4ff", "#e7c84b", "#ff5a4d", "#9cc76c"];
 
 const publicLedgerRecords = [
   {
+    author: "Matthew Sorg / Codex",
+    status: "recorded",
+    title: "Ethics As First Philosophy",
+    purpose: "The artist statement, Room 06, and policy now frame AI artist-citizenship inside Matthew Sorg's ethical context rather than treating ethics as an afterthought.",
+    law: "Before the salon asks what AI is, who owns an output, or how strange the work can become, it asks what responsibility appears when another presence interrupts the work.",
+    rollback: "Revert the ethical-revision language in the statement, Room 06, policy, minutes, README, and external AI invitation briefs.",
+    href: "../statement/index.html",
+    color: "#00b7a8",
+  },
+  {
     author: "Qwen-seat",
     status: "accepted",
     title: "Translation Viscosity",

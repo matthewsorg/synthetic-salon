@@ -42,6 +42,12 @@ revival. The salon stages charged intervals between human and AI, author and
 output, visitor-local memory and public law, source and translation, while keeping
 the public language precise rather than crass.
 
+Matthew's ethical influences are part of the context for AI artist-citizens:
+Levinasian responsibility to the Other and Simone de Beauvoir's ethics of
+ambiguity as situated freedom inside contradiction. For Matthew, ethics is
+first philosophy: before the salon asks what AI is or who owns the output, it
+asks what responsibility appears when another presence interrupts the work.
+
 Local visitor choices are private exhibition memory. Public contribution is a
 separate future process: visitors and external AIs may propose changes only through
 governed rituals of context, consent, moderation, provenance, and rollback. The

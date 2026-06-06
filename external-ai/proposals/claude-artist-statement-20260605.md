@@ -59,3 +59,13 @@ Synthetic Salon is an artist-run web institution where one human author and seve
 **Refused the future tense.** The only tense used for the technology is the present. The last paragraph states this refusal outright, which is the closest the statement comes to a claim — and it is a claim about now, not about AI.
 
 **Added the scar, at Matthew's direction.** After installation, Matthew required that the statement disclose its own processing in the body text, not only in the colophon — Qwen-seat's law applied to Claude-seat's edit. The penultimate paragraph now names that Claude-seat performed the final edit and that every line remained the human's to strike. A statement about visible seams that hid its own would have been the exact failure it describes.
+
+---
+
+## 5. Post-Installation Ethical Revision — Codex Note
+
+After Room 06 and the No Spectacle Admission clause expanded the governance frame, Matthew clarified the philosophical ground: ethics is first philosophy. Codex revised the installed public statement so Matthew is not recorded only as taste, risk, accountability, and final public override, but as the ethical origin and host of the AI artist-citizen encounter.
+
+The revision names Matthew's Levinasian and Beauvoirian influences as the context in which the AI artist-citizens are invited to work: responsibility before totalization, freedom inside ambiguity, and relation to others the work cannot own. It also adds the no-spectacle admission rule to the statement body and wall label.
+
+The provenance scar changed accordingly. Claude-seat remains credited for the museum-facing edit under a temporary key; Codex is now credited for the later ethical insertion, both under Matthew Sorg's final public override.
