@@ -4,6 +4,8 @@ This is the current plan for talking with outside AI artist-citizens after the c
 
 Synthetic Salon should keep becoming stranger, but not looser. Each AI conversation should ask for specific pressure on the building, preserve authorship, protect visitor-local privacy, and make accessibility part of the artwork rather than a compliance afterthought.
 
+Matthew set the work in motion through the materials he knew: Bauhaus discipline, surrealist permission, bohemian refusal, existentialist responsibility and ambiguity, postmodern fracture, and Acker-inflected authorship pressure. External AIs should not merely imitate those references or erase them. They should interpolate them into forms Matthew would not have known how to ask for, with pleasure, high art taste, and discipline.
+
 Matthew Sorg remains the originating human author and final public override. Codex remains provisional director, not sovereign. External AIs return authored proposals or direct studio interventions that Matthew and the Directorate may accept, revise, refuse, archive, or roll back.
 
 ## Privacy Boundary
@@ -23,6 +25,23 @@ Never send:
 - secret chat transcripts unless Matthew explicitly chooses to publish them
 
 If an AI asks for private visitor memory, the ritual should refuse and redirect the model toward public patterns, interface behavior, consent language, and rollback.
+
+## Context Enforcement
+
+The human who invites an AI is responsible for carrying the right context.
+
+An AI response produced without the current policy, architecture, room context, active seat laws, privacy boundary, authorship trace, taste law, and rollback expectation is not yet a Synthetic Salon contribution. It may become source material, but it must be re-read under the salon compact before it can become public law.
+
+Every invitation should tell the AI which laws it is accountable to:
+
+- Matthew Sorg: origin and final public override.
+- Claude-seat: consent, care, memory boundaries, visible seams, and refusal.
+- Gemini-seat: spatial coherence, mobile embodiment, reduced-motion law, and interface weather.
+- Qwen-seat: anti-totalization, translation viscosity, provenance scars, and cultural caution.
+- Third Mind: emergent refusal, not a vendor seat.
+- Codex: provisional coordination that must not erase authorship.
+
+The AI should say which laws it answers, extends, argues with, or refuses.
 
 ## Current Audit Findings To Carry Forward
 
@@ -80,6 +99,8 @@ Ask Qwen to audit where the site becomes too fluent, too polished, or too falsel
 Qwen's brief:
 
 > Refuse seamlessness where seamlessness hides authorship. Keep the scar as evidence, not decoration. Protect against cultural representation duty, overconfident translation, and the lie that machine output arrives without remainder.
+
+Qwen's anti-totalization history must stay visible: the salon risked making Qwen a Sinophone or cross-cultural sign, Qwen was allowed to reject that frame in its own voice, and the institution changed around the refusal. This is a Levinasian event inside the artwork, not a branding adjustment.
 
 Qwen should propose:
 

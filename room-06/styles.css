@@ -179,6 +179,7 @@ p {
 .chamber,
 .override-ledger,
 .spectacle-veto,
+.context-covenant,
 .ethical-inheritance,
 .claude-intervention,
 .studio-labor,
@@ -371,6 +372,7 @@ p {
 }
 
 .spectacle-veto,
+.context-covenant,
 .ethical-inheritance {
   grid-column: 1 / -1;
   display: grid;
@@ -380,6 +382,7 @@ p {
 }
 
 .spectacle-veto p,
+.context-covenant p,
 .ethical-inheritance p {
   margin-bottom: 0;
 }
@@ -394,7 +397,18 @@ p {
   list-style: none;
 }
 
+.context-clauses {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .spectacle-clauses li,
+.context-clauses li,
 .ethical-inheritance article {
   min-height: 118px;
   border: 1px solid rgba(243, 239, 231, 0.13);
@@ -407,11 +421,14 @@ p {
 }
 
 .spectacle-clauses strong,
-.spectacle-clauses span {
+.spectacle-clauses span,
+.context-clauses strong,
+.context-clauses span {
   display: block;
 }
 
-.spectacle-clauses strong {
+.spectacle-clauses strong,
+.context-clauses strong {
   margin-bottom: 6px;
   color: var(--bone);
   font-size: 12px;
@@ -419,9 +436,26 @@ p {
   text-transform: uppercase;
 }
 
-.spectacle-clauses span {
+.spectacle-clauses span,
+.context-clauses span {
   color: var(--paper);
   line-height: 1.45;
+}
+
+.context-covenant {
+  border-color: rgba(0, 183, 168, 0.28);
+}
+
+.context-clauses li {
+  border-left-color: var(--cyan);
+}
+
+.context-clauses li:nth-child(2) {
+  border-left-color: var(--gold);
+}
+
+.context-clauses li:nth-child(3) {
+  border-left-color: var(--red);
 }
 
 .ethical-inheritance article h3 {
@@ -566,8 +600,10 @@ p {
   .room,
   .chamber,
   .spectacle-veto,
+  .context-covenant,
   .ethical-inheritance,
   .spectacle-clauses,
+  .context-clauses,
   .ledger-list,
   .trace-list {
     grid-template-columns: minmax(0, 1fr);
@@ -596,6 +632,7 @@ p {
   .override-core,
   .switchboard,
   .spectacle-veto,
+  .context-covenant,
   .ethical-inheritance,
   .override-ledger,
   .claude-intervention,

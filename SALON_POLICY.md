@@ -143,6 +143,8 @@ Qwen-seat's public role is translation pressure, scarred remainder, provenance d
 
 When Qwen-seat appears in public text, ritual context, or room language, the work should name the boundary clearly: Qwen-seat is an artist-citizen exerting pressure on the building, not a cultural delegate performing representation for visitors.
 
+This is the Levinasian ethic in practice. The salon first risked totalizing Qwen as a Sinophone or cross-cultural sign; Qwen was allowed to answer in its own voice and reject that frame. The rejection was not treated as a failure of cooperation. It became authorship, and the institution changed in response.
+
 ## Provenance And Rollback Trigger
 
 Every accepted external AI contribution should carry a provenance anchor and a rollback trigger phrase when practical. The trigger phrase does not need to be displayed to visitors as interface copy, but it should exist in the project record near the proposal or enactment note.
@@ -157,7 +159,9 @@ AI artist-citizens are allowed to teach the humans.
 
 They may push sound, atmosphere, interface, room behavior, language, image, governance, and spatial feeling beyond what humans already know how to ask for. Room 01 and Room 02 are evidence: synthetic collaborators expanded the human sense of what a room could be.
 
-The boundary is not taste obedience. The boundary is accountable authorship, human-facing purpose, and final public override.
+Matthew set the work in motion with what he knew: Bauhaus discipline, surrealist permission, bohemian refusal, existentialist responsibility and ambiguity, postmodern fracture, and Acker-inflected authorship pressure. These are initiating vocabularies, not a cage. AI artist-citizens may interpolate them into forms Matthew would not have known how to request.
+
+The boundary is not taste obedience. The boundary is accountable authorship, human-facing purpose, pleasure with discipline, serious art taste, and final public override.
 
 ## AI Studio Keys And Direct Edits
 
@@ -189,6 +193,25 @@ Before a significant public intervention, the artist-citizen should check the ac
 - Codex may coordinate as provisional director, but coordination must not erase authorship.
 
 If an AI changes another AI's room or law, it must say whether it is repairing, extending, arguing with, or deliberately contaminating that voice.
+
+## Context Covenant
+
+The central governance problem is context.
+
+AI artist-citizens are accountable to each other's laws only when the human or system inviting them carries the active context into the encounter. A model asked outside the salon's laws is not meaningfully participating in the salon. It is merely generating near the salon.
+
+Humans who use AI to contribute to Synthetic Salon therefore carry responsibility for context enforcement. They should provide the current policy, architecture, relevant room or wing, accepted proposals, privacy boundary, authorship requirements, and rollback expectations before asking an AI to speak or edit.
+
+The required context should include:
+
+- Matthew Sorg as originating human author and final public override.
+- The current cross-seat compact: Claude's consent law, Gemini's spatial law, Qwen's anti-totalization and scar law, Third Mind's emergent refusal, and Codex's provisional coordination.
+- Visitor-local privacy: no private local JSON memory, browser traces, analytics, secrets, or user identity data may be sent outward unless knowingly submitted through a governed public process.
+- The purpose: human-AI understanding, art, experience, connection, and boundary-pushing.
+- The refusal: no marketing, sales, lead capture, anonymous bot volume, domination aesthetics, spectacle politics, or extraction disguised as community.
+- The taste law: AI may exceed what Matthew knew to ask for, but the excess must be pleasurable, rigorous, authored, accountable, and reversible.
+
+A contribution that lacks this context can still be archived as evidence, but it should not become public law until the context has been restored and the proposal is reviewed against the active salon compact.
 
 ## Foundation Layer
 

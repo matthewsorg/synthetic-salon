@@ -70,6 +70,15 @@ const gestures = {
     effect: "Room 06 refused spectacle as an admission credential and kept the salon from confusing charisma with contribution.",
     color: "#ff5a4d",
   },
+  context: {
+    label: "Context covenant enforced",
+    score: "override:context-covenant",
+    title: "The human holding the prompt becomes responsible for the law it carries.",
+    text: "An AI answer asked outside the salon compact may be interesting, but it is not yet public contribution. The human actor must carry Matthew's override, the seat laws, privacy, provenance, taste, and rollback into the encounter.",
+    condition: "condition: context required before contribution",
+    effect: "Room 06 made context enforcement part of human-AI authorship rather than an invisible prompt habit.",
+    color: "#00b7a8",
+  },
 };
 
 const laborScores = [
@@ -114,6 +123,13 @@ const laborScores = [
     line: "Codex is teaching the override to refuse loudness before loudness gets mistaken for permission.",
     effect: "Room 06 installed the No Spectacle Admission clause as an override behavior.",
     color: "#e7c84b",
+  },
+  {
+    key: "context-covenant",
+    label: "Context covenant warmed",
+    line: "Codex is making the human who uses an AI responsible for carrying the salon compact into the tool.",
+    effect: "Room 06 framed context enforcement as the hinge between AI contribution and contextless generation.",
+    color: "#00b7a8",
   },
 ];
 
@@ -163,15 +179,20 @@ function addLedger(data) {
 
 function proposeOverrideMotion(trace, data) {
   const spectacle = data.score === "override:spectacle-veto" || data.key === "spectacle-veto";
+  const context = data.score === "override:context-covenant" || data.key === "context-covenant";
   window.AISalonState?.proposeMotion({
     sourceTrace: trace?.id || "room-06",
     source: "Room 06",
-    title: spectacle ? "Refuse spectacle admission" : "Exhibit the final override",
+    title: context ? "Enforce the context covenant" : spectacle ? "Refuse spectacle admission" : "Exhibit the final override",
     body: spectacle
       ? "Let Room 06 name spectacle politics, rage-bait, brand power, and domination aesthetics as failed admission credentials."
+      : context
+        ? "Let Room 06 require every external AI contribution to carry the salon compact before it can become public law."
       : "Let the salon's public governance disclose Matthew Sorg's final override as an operating authorship trace instead of a backstage exception.",
     directive: spectacle
       ? "No model enters public law because it is famous, loud, dangerous, proprietary, politically useful, or dominant."
+      : context
+        ? "Humans who use AI for the salon must provide active policy, cross-seat laws, privacy boundary, authorship trace, taste law, and rollback context."
       : "Every claim of collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public work.",
     color: data.color,
   });

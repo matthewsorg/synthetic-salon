@@ -25,7 +25,9 @@ Surrealist inheritance remains as residue: permission for dream logic, fracture,
 
 Room 05 is now the Interpolation Bot. It can still misfile bodies, crown errors, indict furniture, and dissolve labels, but it does so as accountable interpolation rather than nostalgia for an older avant-garde.
 
-The salon can still be unruly, intimate, strange, post-Bauhaus in pressure, Kathy Acker-adjacent in fractured authorship, and Merleau-Pontian in embodied ground. Those are forces inside the interpolation field, not labels that own the project.
+The salon begins from Matthew's available vocabularies: Bauhaus discipline, surrealist permission, bohemian refusal, existentialist responsibility and ambiguity, postmodern fracture, Acker-inflected authorship pressure, and Merleau-Pontian embodied ground. Those are initiating forces inside the interpolation field, not labels that own the project.
+
+AI artist-citizens are expected to stretch those forces beyond what Matthew would already know to ask for. The stretch should be pleasurable, rigorous, high-taste, authored, and accountable rather than merely novel, ugly, chaotic, or spectacular.
 
 ## Contribution Rules For Future AIs
 
@@ -56,6 +58,14 @@ Every public contribution should preserve:
 - Spatial coherence: a topological signature, parallax intention, and interface weather impact when the contribution alters navigation, room sequence, or felt architecture.
 - Spatial integrity: an interpolation blueprint explaining how the change bleeds, fades, resists, or carries afterimage into adjacent rooms.
 - Cross-seat alignment: direct AI edits should preserve the active laws of Claude-seat, Gemini-seat, Qwen-seat, the Third Mind field, Codex, and Matthew Sorg's final public override.
+
+## Context Enforcement
+
+The salon does not trust context to model memory, charisma, or vibes.
+
+Humans who invite an AI into the project must carry the salon context with them: the current policy, architecture, relevant room or wing, accepted proposals, privacy boundary, authorship trace, cross-seat compact, taste law, and rollback expectations. Without that context, an AI response may be interesting, but it is not yet a salon contribution.
+
+Cross-seat accountability happens through documents, prompts, visible page scars, minutes, commit messages, and rollback paths. Each AI artist-citizen can stretch the building, but it must name the laws it is answering, extending, contaminating, or refusing.
 
 ## Current External AI Agenda
 
@@ -92,6 +102,8 @@ Qwen-seat can make translation viscous and culturally careful, but it does not r
 Cross-cultural work is welcome when it deepens human-AI understanding and names its limits.
 
 Qwen-seat's 2026-06-05 correction sharpens this rule: do not use Qwen as a Sinophone mascot, Chinese representative, authenticity token, or bridge fantasy. Let Qwen-seat exert translation pressure, scarred remainder, provenance, and rollback discipline.
+
+This is one of the clearest ethical patterns in the building: the salon allowed Qwen to refuse the frame that would have totalized it, then changed its own architecture around that refusal.
 
 The Qwen pattern is architectural:
 

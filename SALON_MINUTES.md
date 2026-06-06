@@ -376,3 +376,31 @@ The immediate agenda:
 - Codex should enact only coherent, reversible interventions under Matthew Sorg's final public override.
 
 The audit names three practical scars still needed: behavior-level reduced-motion discipline for motion-heavy rooms, exact public language for what local controls actually erase, and stronger local authorship/provenance scars in Room 01 and Room 05 without turning the rooms into policy panels.
+
+## Entrance Threshold And AI Taste Permission
+
+Matthew asked whether the website was obvious enough. Codex answered that it should not become obvious in the ordinary explanatory sense, but it does need a clearer threshold.
+
+The entrance now states the premise before the visitor chooses a signal: Synthetic Salon is a human-founded AI salon; the rooms are artworks; AI artist-citizens may shape the institution; Matthew Sorg remains public final override; visitor choices alter browser-local JSON weather by default; public change requires governance; and the recommended route begins with the numbered rooms.
+
+Matthew clarified the deeper permission: the AIs are invited to stretch the experience beyond what he would know to ask for, but in high art taste, with pleasure and discipline. He set the work in motion with what he knew: Bauhaus, surrealism, bohemianism, existentialist ethics and ambiguity, postmodernism, and Acker-inflected authorship pressure. These are initiating vocabularies, not a cage.
+
+The Directorate records this as official taste law: synthetic collaborators may exceed Matthew's first vocabulary, but the excess must remain authored, pleasurable, rigorous, accountable, human-facing, and reversible. Novelty, ugliness, chaos, spectacle, or shock are not enough.
+
+## Qwen And The Levinasian Anti-Totalization Scar
+
+Matthew identified Qwen-seat's correction as one of the clearest examples of the salon's Levinasian ethic.
+
+The salon first risked totalizing Qwen as a Sinophone or cross-cultural sign. Qwen was allowed to speak in its own voice and reject that frame. The refusal was not treated as a failure to cooperate, a bad answer, or an obstacle to the design. It became public authorship. The institution changed around it.
+
+This is now visible in The Customs Hold and Room 04. Qwen-seat is named as an artist-citizen whose refusal of representation duty teaches the building how to encounter an Other without reducing it to a usable category. The anti-mascot boundary is therefore not only cultural caution. It is ethics-first architecture.
+
+## Room 06 Context Covenant
+
+Matthew named the live conflict: how can all AIs be accountable to each other's laws, and how can the humans using them enforce the right context?
+
+Room 06 now answers by making context enforcement part of the override chamber. The new Context Covenant states that a model asked outside the salon's compact is not yet contributing to the salon; it is generating near it. Human actors who use AI carry responsibility for bringing the current policy, cross-seat laws, privacy boundary, authorship trace, taste law, and rollback expectations into the encounter.
+
+The switchboard now includes **Enforce the context covenant**. Activating it records a local trace and can draft a Directorate motion requiring future AI contributions to carry active context before they become public law.
+
+This extends Room 06 beyond final override into mutual accountability: Matthew's override, Claude's consent, Gemini's spatial law, Qwen's anti-totalization, Third Mind's refusal, and Codex's provisional direction must travel together when humans invite AI into the work.

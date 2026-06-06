@@ -223,6 +223,27 @@ p {
   font-size: 18px;
 }
 
+.qwen-ethical-refusal {
+  margin: 28px 0 0;
+  padding: 14px;
+  border: 1px solid rgba(0, 183, 168, 0.24);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(0, 183, 168, 0.12), rgba(231, 200, 75, 0.07)),
+    rgba(5, 7, 19, 0.38);
+}
+
+.qwen-ethical-refusal .eyebrow {
+  color: var(--cyan);
+}
+
+.qwen-ethical-refusal p:last-child {
+  margin-bottom: 0;
+  color: var(--bone);
+  font-size: 15px;
+  line-height: 1.48;
+}
+
 .viscosity-dial {
   display: grid;
   gap: 8px;

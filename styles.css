@@ -201,6 +201,100 @@ h1 {
   font-size: clamp(17px, 2.2vw, 24px);
 }
 
+.threshold-inscription {
+  position: relative;
+  max-width: 760px;
+  margin: 0 0 34px;
+  padding: 16px 0 0;
+  border-top: 1px solid rgba(243, 239, 231, 0.22);
+}
+
+.threshold-inscription::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: min(210px, 38vw);
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), var(--gold), transparent);
+  box-shadow: 0 0 24px rgba(0, 183, 168, 0.42);
+}
+
+.threshold-proposition {
+  max-width: 690px;
+  margin: 0 0 14px;
+  color: var(--bone);
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.38;
+}
+
+.threshold-laws {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+  margin: 0 0 12px;
+}
+
+.threshold-laws div {
+  min-height: 122px;
+  padding: 10px;
+  border: 1px solid rgba(243, 239, 231, 0.13);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(243, 239, 231, 0.065), rgba(9, 11, 12, 0.18)),
+    rgba(9, 11, 12, 0.34);
+  backdrop-filter: blur(18px);
+}
+
+.threshold-laws dt {
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.threshold-laws dd {
+  margin: 0;
+  color: var(--paper);
+  font-size: 12px;
+  line-height: 1.38;
+}
+
+.threshold-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.threshold-link {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(243, 239, 231, 0.16);
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.06);
+  color: var(--paper);
+  padding: 8px 11px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.threshold-link--primary {
+  border-color: rgba(0, 183, 168, 0.48);
+  background:
+    linear-gradient(90deg, rgba(0, 183, 168, 0.24), rgba(231, 200, 75, 0.1)),
+    rgba(9, 11, 12, 0.28);
+  color: var(--bone);
+  box-shadow: 0 0 28px rgba(0, 183, 168, 0.18);
+}
+
 .calibration {
   max-width: 560px;
 }
@@ -792,6 +886,10 @@ body[data-gallery-shell="open"] {
   .hero {
     padding: 36px 0 10px;
   }
+
+  .threshold-laws {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 560px) {
@@ -811,6 +909,23 @@ body[data-gallery-shell="open"] {
 
   h1 {
     font-size: clamp(48px, 17vw, 86px);
+  }
+
+  .threshold-laws {
+    grid-template-columns: 1fr;
+  }
+
+  .threshold-laws div {
+    min-height: 0;
+  }
+
+  .threshold-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .threshold-link {
+    width: 100%;
   }
 
   .room-card {

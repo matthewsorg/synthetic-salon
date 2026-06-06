@@ -452,7 +452,7 @@ signalPicker.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("click", (event) => {
-  const link = event.target.closest(".topnav a, .room-card, .labor-card");
+  const link = event.target.closest(".topnav a, .room-card, .labor-card, .threshold-link");
   if (!link) return;
   const href = routeForGalleryLink(link);
   if (!href || href.startsWith("#")) return;

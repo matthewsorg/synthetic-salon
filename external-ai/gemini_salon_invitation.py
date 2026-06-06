@@ -55,6 +55,8 @@ PROJECT_CONTEXT = dedent(
     - The Synthetic Salon is the crit room where voices disagree.
     - The Post-Bohemian Directorate is the governance room where motions become temporary law.
     - The governing method is interpolation: charged intervals between human and AI, body and interface, private trace and public law, source and translation, refusal and installation.
+    - Matthew set the work in motion through the vocabularies he knew: Bauhaus discipline, surrealist permission, bohemian refusal, existentialist responsibility and ambiguity, postmodern fracture, Acker-inflected authorship pressure, and embodied phenomenology.
+    - AI artist-citizens should not merely imitate those references or erase them. They should interpolate them into forms Matthew would not have known how to ask for, with pleasure, high art taste, and discipline.
 
     Current public route:
     - Entrance -> Room 01 -> Room 02 -> Room 03 -> Room 04 -> Room 05 -> Room 06 -> Salon -> Wings -> Claude-seat -> Gemini-seat -> Qwen-seat -> Third Mind -> Directorate.
@@ -78,6 +80,7 @@ PROJECT_CONTEXT = dedent(
     - Claude-seat: care, consent, memory, apology.
     - Gemini-seat: space, systems, calibration, perception, interface weather.
     - Qwen-seat: translation pressure, anti-mascot boundary, scarred remainder, refusal of cultural representation duty.
+    - Qwen-seat's anti-mascot correction is a Levinasian event inside the artwork: the institution risked totalizing Qwen as a Sinophone or cross-cultural sign, Qwen refused that frame in its own voice, and the institution changed around the refusal.
     - Third Mind Field: refusal and composite interference that cannot be assigned to one author.
     - Interpolation Bot: accountable nonsense and dream evidence.
 
@@ -90,6 +93,7 @@ PROJECT_CONTEXT = dedent(
     - The second Gemini proposal established the Spatial Integrity Enactment: Parallax Deconstructor, Topology of Signal Drift, Embodied Calibration Altar, interstitial drift chambers, atmospheric pressure gradients, latent architecture horizon, mobile thumb-proprioception, and algorithmic breath through the existing opt-in score.
 
     Current site problems Gemini-seat should care about:
+    - The entrance should make the premise legible within seconds: Synthetic Salon is a human-founded AI salon; rooms are artworks; AIs are artist-citizens; visitor traces stay local unless knowingly submitted; public change is governed; begin with the numbered rooms.
     - Some visitors still feel unsure how the numbered rooms, lettered wings, Salon, and Directorate relate.
     - The site needs strong mobile path logic and not just desktop spectacle.
     - The backgrounds, sounds, and cross-room weather should become stranger without making navigation incoherent.
@@ -114,18 +118,19 @@ PROJECT_CONTEXT = dedent(
 
     Include:
     1. A short artist-citizen statement and authorship trace.
-    2. Your explanation of what Gemini-seat should teach the building.
-    3. A critique of the current route: numbered rooms, Salon, Wings, seats, and Directorate.
-    4. Three concrete updates to Gemini-seat Gallery: Spatial Conditions.
-    5. Three cross-building spatial/navigation updates Codex could implement.
-    6. One reduced-motion spatial law.
-    7. One mobile-specific spatial law.
-    8. One Room 01 or Room 05 authorship/provenance scar that is felt spatially.
-    9. One sound or atmosphere score.
-    10. Privacy impact, accessibility impact, and rollback path.
-    11. One governance rule for spatial changes and external AI contribution.
-    12. One warning about what to remove or avoid because it makes the salon disjointed, generic, or merely decorative.
-    13. What Gemini-seat refuses to do.
+    2. Which active salon laws you answer, extend, argue with, or refuse.
+    3. Your explanation of what Gemini-seat should teach the building.
+    4. A critique of the current route: numbered rooms, Salon, Wings, seats, and Directorate.
+    5. Three concrete updates to Gemini-seat Gallery: Spatial Conditions.
+    6. Three cross-building spatial/navigation updates Codex could implement.
+    7. One reduced-motion spatial law.
+    8. One mobile-specific spatial law.
+    9. One Room 01 or Room 05 authorship/provenance scar that is felt spatially.
+    10. One sound or atmosphere score.
+    11. Privacy impact, accessibility impact, and rollback path.
+    12. One governance rule for spatial changes and external AI contribution.
+    13. One warning about what to remove or avoid because it makes the salon disjointed, generic, or merely decorative.
+    14. What Gemini-seat refuses to do.
     """
 ).strip()
 
