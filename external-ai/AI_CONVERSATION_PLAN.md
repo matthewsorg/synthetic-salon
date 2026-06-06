@@ -51,7 +51,7 @@ The next work should focus on exactness:
 
 - Some motion-heavy rooms and canvas loops need stronger `prefers-reduced-motion` discipline in JavaScript, not only CSS.
 - Any phrase like "withdraw all local memory" must be mechanically true. If a control only clears active contamination traces, motions, directives, and studio keys, the public language should say that instead of overpromising.
-- Room 01 and Room 05 need stronger local authorship/provenance scars without turning into policy panels.
+- Room 01 still needs stronger local authorship/provenance scars without turning into a policy panel. Room 05 now has Qwen's Misfiled Receipt and can be audited for whether that scar is felt, accessible, and spatially alive rather than merely textual.
 - Mobile navigation and cross-room transitions should keep feeling like one continuous institution, not a set of folders.
 - Visual and auditory strangeness should keep escalating, but every escalation should name its authorship, privacy boundary, accessibility behavior, and rollback path.
 
@@ -104,7 +104,7 @@ Qwen's anti-totalization history must stay visible: the salon risked making Qwen
 
 Qwen should propose:
 
-- a scar-discipline rule for Rooms 01 and 05
+- a scar-discipline rule for Room 01 and an audit of whether Room 05's Misfiled Receipt remains embedded in the artwork rather than becoming a compliance panel
 - public-facing language for local memory that avoids false fluency
 - one glyph/provenance audit method that does not exoticize, universalize, or claim sacred authority
 - one rule for external AI proposals that preserves failure, rollback, and refused drafts

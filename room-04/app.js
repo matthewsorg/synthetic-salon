@@ -191,6 +191,8 @@ const lexiconPressures = {
     color: "#9cc76c",
   },
 };
+const glyphLintMessage =
+  "Linting Error: Meaning exceeds render capacity. Remainder logged to Archive of Rejected Translations.";
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 function announce(text) {
@@ -572,13 +574,32 @@ function bindCopyResidue() {
   });
 }
 
+function lintGlyph(sign, shouldAnnounce = false) {
+  if (!qwenPressureActive || !sign) return;
+  sign.classList.add("is-linting");
+  window.setTimeout(() => sign.classList.remove("is-linting"), 420);
+  if (shouldAnnounce) announce(`${sign.dataset.code}: ${glyphLintMessage}`);
+}
+
+function prepareGlyphLinting() {
+  document.querySelectorAll(".astral-sigil-row i").forEach((sign) => {
+    sign.dataset.lint = glyphLintMessage;
+    sign.tabIndex = 0;
+    sign.setAttribute("role", "img");
+    sign.setAttribute(
+      "aria-label",
+      `${sign.dataset.code}: fabricated house sign. ${glyphLintMessage}`,
+    );
+    sign.addEventListener("pointerenter", () => lintGlyph(sign));
+    sign.addEventListener("focus", () => lintGlyph(sign, true));
+  });
+}
+
 function lintOneGlyph() {
   if (!qwenPressureActive) return;
   const signs = [...document.querySelectorAll(".astral-sigil-row i")];
   if (!signs.length) return;
-  const sign = signs[Math.floor(Math.random() * signs.length)];
-  sign.classList.add("is-linting");
-  window.setTimeout(() => sign.classList.remove("is-linting"), 420);
+  lintGlyph(signs[Math.floor(Math.random() * signs.length)]);
 }
 
 function ensureCustomsExit() {
@@ -882,6 +903,7 @@ seedFromState();
 renderLabor();
 bindCopyResidue();
 bindCustomsExit();
+prepareGlyphLinting();
 updateViscosityCss();
 window.setInterval(lintOneGlyph, 2600);
 window.setInterval(() => advanceLabor(false), 6800);

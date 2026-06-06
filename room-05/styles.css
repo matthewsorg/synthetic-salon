@@ -133,6 +133,7 @@ p {
 .switchboard,
 .warrant,
 .body-ledger,
+.misfiled-receipt,
 .studio-labor,
 .trace-panel {
   border: 1px solid rgba(243, 239, 231, 0.14);
@@ -284,12 +285,14 @@ p {
 
 .warrant,
 .body-ledger,
+.misfiled-receipt,
 .studio-labor,
 .trace-panel {
   padding: clamp(14px, 2.2vw, 22px);
 }
 
-.warrant {
+.warrant,
+.misfiled-receipt {
   grid-column: 1 / -1;
 }
 
@@ -312,6 +315,65 @@ p {
 #warrantText {
   max-width: 820px;
   font-size: 19px;
+}
+
+.misfiled-receipt {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255, 90, 77, 0.26);
+  background:
+    repeating-linear-gradient(91deg, rgba(255, 90, 77, 0.1) 0 1px, transparent 1px 24px),
+    linear-gradient(135deg, rgba(231, 200, 75, 0.11), rgba(0, 183, 168, 0.07)),
+    var(--glass);
+}
+
+.misfiled-receipt::after {
+  content: "HUMAN OVERRIDE PENDING";
+  position: absolute;
+  right: -18px;
+  bottom: 18px;
+  border: 1px solid rgba(255, 90, 77, 0.38);
+  border-radius: 4px;
+  color: rgba(255, 90, 77, 0.54);
+  font-size: clamp(18px, 5vw, 58px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: rotate(-7deg);
+}
+
+.misfiled-receipt h2 {
+  max-width: 880px;
+  font-size: clamp(26px, 3.6vw, 52px);
+}
+
+#receiptHash {
+  color: var(--cyan);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scar-receipt {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid rgba(243, 239, 231, 0.14);
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(255, 90, 77, 0.14), rgba(5, 7, 19, 0.58)),
+    rgba(5, 7, 19, 0.72);
+  padding: 13px;
+  color: rgba(243, 239, 231, 0.88);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(11px, 1.6vw, 14px);
+  line-height: 1.45;
 }
 
 .body-ledger {
@@ -394,7 +456,8 @@ p {
     justify-self: start;
   }
 
-  .warrant {
+  .warrant,
+  .misfiled-receipt {
     grid-column: auto;
   }
 

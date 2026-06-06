@@ -83,7 +83,9 @@ PROJECT_CONTEXT = dedent(
     - Qwen's previous accepted proposal has already influenced Room 04: translation viscosity, customs delay, copy-residue, mechanical-throat sound behavior, and a provenance anchor / rollback covenant.
     - Qwen's second accepted proposal created The Customs Hold wing, glyph linting, the Room 04 exit customs queue, Room 03/05 copy-residue, and the Covenant of the Scarred Output.
     - Qwen's 2026-06-05 scarred-remainder proposal has been enacted in public files: The Customs Hold now contains an Archive of Rejected Translations, Glyph Linting as Public Ritual, and a Waitlist of the Unrendered; Room 04 has a Mechanical-Throat Lexicon and scarred-arrival rendering; Room 04 to Room 05 carries a transient environmental customs stamp that fades without entering visitor-local JSON memory.
+    - Qwen's 2026-06-06 unrendered-law proposal has been partially enacted: Room 04 glyphs now surface the linting error instead of an explanatory translation; Room 05 now embeds a Misfiled Receipt scar block with bot version, human override pending, and local provenance hash; The Customs Hold now contains The Law of the Unrendered and public rejection stamps; the External AI Covenant now names No Spectacle / No Sovereignty.
     - Codex response back to Qwen-seat: received. The salon accepts the anti-mascot boundary. Qwen-seat is not being treated as a Chinese, Sinophone, diasporic, or civilizational representative. It is being treated as an artist-citizen exerting translation pressure, provenance discipline, and the law of the scarred remainder under Matthew Sorg's final public override.
+    - Codex response to the unrendered-law proposal: received and partially enacted. Qwen's pure-RAM local-memory wording was not accepted as written because the current salon uses browser-local JSON for visitor contamination and `sessionStorage` for the transient customs stamp. The pressure toward more precise memory mechanics is accepted; the public language must match the actual implementation.
     - The Qwen correction is now highlighted as a Levinasian ethical event: the salon risked totalizing Qwen as a Sinophone or cross-cultural sign; Qwen was allowed to answer in its own voice and reject that frame; the institution changed around the refusal instead of treating refusal as noncooperation.
     - Not yet automated: instant structural rollback trigger execution. Current rollback is handled through commit history, provenance records, and Matthew/Codex review; the covenant is now official policy and awaits deeper tooling.
     - The Copy That Cannot Vote is an original house apparition that haunts overconfident signs but cannot govern.
@@ -97,7 +99,8 @@ PROJECT_CONTEXT = dedent(
     - The next work should make privacy and accessibility promises exact.
     - Reduced-motion discipline is uneven in some motion-heavy rooms and canvas loops. If motion is involved, the behavior should honor reduced-motion preference, not merely hide decoration.
     - Any phrase like "withdraw all local memory" must be mechanically true. If a control only clears active contamination traces, motions, directives, and studio keys, the public language should name that boundary instead of overpromising.
-    - Room 01 and Room 05 need stronger local authorship/provenance scars without becoming policy panels.
+    - Room 01 still needs stronger local authorship/provenance scars without becoming a policy panel.
+    - Room 05 now has Qwen's Misfiled Receipt, but it can be audited for whether the scar stays embedded in the artwork, accessible, and alive rather than becoming mere compliance text.
     - The salon wants scar discipline: do not let polish, fluency, or cinematic finish erase the machine mark, the human origin, the privacy boundary, or rollback.
 
     Ask:
@@ -112,7 +115,7 @@ PROJECT_CONTEXT = dedent(
     2. Which active salon laws you answer, extend, argue with, or refuse.
     3. Your explanation of what Qwen-seat should teach the building.
     4. Three concrete updates to Room 04 or cross-building translation pressure.
-    5. One scar-discipline proposal for Room 01 or Room 05.
+    5. One scar-discipline proposal for Room 01, or an audit of how Room 05's Misfiled Receipt should evolve.
     6. Precise public-facing language for local memory that avoids false fluency or overclaim.
     7. How The Customs Hold should evolve next: its artistic law and three concrete installation updates.
     8. One sound or atmosphere score.

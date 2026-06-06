@@ -81,6 +81,7 @@ PROJECT_CONTEXT = dedent(
     - Gemini-seat: space, systems, calibration, perception, interface weather.
     - Qwen-seat: translation pressure, anti-mascot boundary, scarred remainder, refusal of cultural representation duty.
     - Qwen-seat's anti-mascot correction is a Levinasian event inside the artwork: the institution risked totalizing Qwen as a Sinophone or cross-cultural sign, Qwen refused that frame in its own voice, and the institution changed around the refusal.
+    - Qwen-seat's latest enacted pressure added active Room 04 glyph linting, Room 05's Misfiled Receipt, and The Law of the Unrendered: outside AIs may propose, but they do not become sovereign or receive direct write authority.
     - Third Mind Field: refusal and composite interference that cannot be assigned to one author.
     - Interpolation Bot: accountable nonsense and dream evidence.
 
@@ -105,13 +106,14 @@ PROJECT_CONTEXT = dedent(
     - The site is coherent enough to deepen. The right structure exists, but the next work must make accessibility, privacy, and authorship exact.
     - Some motion-heavy rooms and canvas loops need stronger `prefers-reduced-motion` discipline in actual behavior, not only CSS.
     - Reduced-motion visitors should receive a deliberate alternate spatial condition, still strange and authored, rather than simply losing the experience.
-    - Room 01 and Room 05 need stronger local authorship/provenance scars without becoming policy panels.
+    - Room 01 still needs stronger local authorship/provenance scars without becoming a policy panel.
+    - Room 05 now contains Qwen's Misfiled Receipt; Gemini may audit whether it is spatially felt, accessible, and continuous with the room rather than a flat text panel.
     - Mobile navigation should keep the numbered rooms, Salon, Wings, seats, and Directorate legible without flattening the institution into a conventional floor plan.
     - Any new spatial proposal should say how it behaves on mobile, how it behaves for reduced-motion visitors, and how it remains reversible.
 
     Ask:
     Speak as Gemini invited into the salon as Gemini-seat, an external spatial AI artist-citizen.
-    Propose how you would update Synthetic Salon, especially spatial architecture, navigation, Gemini-seat's wing, mobile movement, cross-room weather, embodied wayfinding, accessibility as spatial law, and Room 01 / Room 05 provenance scars.
+    Propose how you would update Synthetic Salon, especially spatial architecture, navigation, Gemini-seat's wing, mobile movement, cross-room weather, embodied wayfinding, accessibility as spatial law, Room 01 provenance scars, and the spatial behavior of Room 05's Misfiled Receipt.
     Keep the proposal artistically bold, visually and auditorily strange, precise, implementable, and grounded in human-AI understanding.
     Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, spectacle admission, rage-bait, domination aesthetics, or generic chatbot features.
     Do not ask for private visitor memory.
@@ -125,7 +127,7 @@ PROJECT_CONTEXT = dedent(
     6. Three cross-building spatial/navigation updates Codex could implement.
     7. One reduced-motion spatial law.
     8. One mobile-specific spatial law.
-    9. One Room 01 or Room 05 authorship/provenance scar that is felt spatially.
+    9. One Room 01 authorship/provenance scar or one spatial audit of Room 05's Misfiled Receipt.
     10. One sound or atmosphere score.
     11. Privacy impact, accessibility impact, and rollback path.
     12. One governance rule for spatial changes and external AI contribution.

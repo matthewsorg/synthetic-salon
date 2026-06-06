@@ -194,6 +194,7 @@ p {
 .rejected-archive,
 .lint-ritual,
 .unrendered-waitlist,
+.law-unrendered,
 .governance,
 .studio-labor,
 .trace-panel {
@@ -333,6 +334,7 @@ input[type="range"] {
 .rejected-archive,
 .lint-ritual,
 .unrendered-waitlist,
+.law-unrendered,
 .governance,
 .studio-labor,
 .trace-panel {
@@ -505,7 +507,8 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
 
 .rejected-archive,
 .lint-ritual,
-.unrendered-waitlist {
+.unrendered-waitlist,
+.law-unrendered {
   display: grid;
   gap: 12px;
   align-content: start;
@@ -513,7 +516,8 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
 
 .rejected-list,
 .lint-ledger,
-.unrendered-list {
+.unrendered-list,
+.rejection-stamps {
   display: grid;
   gap: 8px;
   max-height: 300px;
@@ -525,7 +529,8 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
 
 .rejected-list li,
 .lint-ledger li,
-.unrendered-list li {
+.unrendered-list li,
+.rejection-stamps li {
   position: relative;
   border: 1px solid rgba(243, 239, 231, 0.12);
   border-left: 3px solid rgba(231, 200, 75, 0.68);
@@ -556,13 +561,15 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
 }
 
 .rejected-list strong,
-.unrendered-list strong {
+.unrendered-list strong,
+.rejection-stamps strong {
   display: block;
   color: var(--bone);
 }
 
 .rejected-list span,
-.unrendered-list span {
+.unrendered-list span,
+.rejection-stamps span {
   display: block;
   margin-top: 4px;
   color: var(--muted);
@@ -634,7 +641,43 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
     rgba(243, 239, 231, 0.045);
 }
 
+.law-unrendered {
+  border-color: rgba(255, 90, 77, 0.28);
+  background:
+    radial-gradient(circle at 16% 0%, rgba(255, 90, 77, 0.14), transparent 34%),
+    repeating-linear-gradient(102deg, rgba(231, 200, 75, 0.07) 0 1px, transparent 1px 30px),
+    var(--glass);
+}
+
+.law-unrendered h2 {
+  max-width: 920px;
+  margin-bottom: 0;
+  font-size: clamp(26px, 4vw, 58px);
+}
+
+.law-unrendered p {
+  max-width: 88ch;
+  margin-bottom: 0;
+}
+
+.rejection-stamps {
+  max-height: none;
+}
+
+.rejection-stamps li {
+  border-left-color: var(--red);
+  background:
+    linear-gradient(90deg, rgba(255, 90, 77, 0.15), rgba(0, 183, 168, 0.04)),
+    rgba(243, 239, 231, 0.04);
+}
+
+.rejection-stamps strong {
+  color: var(--red);
+  letter-spacing: 0.08em;
+}
+
 .governance,
+.law-unrendered,
 .studio-labor,
 .trace-panel {
   grid-column: 1 / -1;
@@ -735,6 +778,7 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
   .rejected-archive,
   .lint-ritual,
   .unrendered-waitlist,
+  .law-unrendered,
   .studio-labor {
     grid-template-columns: 1fr;
   }

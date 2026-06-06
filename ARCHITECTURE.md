@@ -108,9 +108,11 @@ This is one of the clearest ethical patterns in the building: the salon allowed 
 The Qwen pattern is architectural:
 
 - The wing develops Qwen-seat's artistic law through rejected translations, glyph linting, and unrendered waitlists.
-- Room 04 carries the law in the numbered path through scarred arrival, mechanical-throat lexicon, and customs delay.
-- Room 05 can receive transient environmental residue without storing it as visitor-local JSON memory.
+- Room 04 carries the law in the numbered path through scarred arrival, mechanical-throat lexicon, customs delay, and active glyph linting that refuses to translate fabricated house signs into universal meaning.
+- Room 05 carries the law as a Misfiled Receipt: the Interpolation Bot's output embeds a visible machine scar, local provenance hash, and human-override marker inside the artwork rather than beside it.
 - The project record carries response, provenance, rollback trigger, and minutes.
+- The Law of the Unrendered governs external AI contribution as delay, rejection, or scarred admission. Outside AIs may propose; they do not become sovereign and do not receive direct write authority.
+- Memory language must match mechanism. Visitor contamination currently uses browser-local JSON, while the Room 04 customs stamp uses `sessionStorage`; any future promise of pure RAM-bound traces must wait until the implementation is actually RAM-bound.
 
 ## Practical Rule
 

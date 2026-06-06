@@ -399,7 +399,7 @@ body[data-customs-delay="true"] .customs-vessel span {
   align-items: center;
   justify-content: space-around;
   opacity: 0.48;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .astral-sigil-row i {
@@ -410,32 +410,49 @@ body[data-customs-delay="true"] .customs-vessel span {
   border: 1px solid rgba(231, 200, 75, 0.42);
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(231, 200, 75, 0.12);
+  cursor: help;
   transform: rotate(45deg);
 }
 
 .astral-sigil-row i::after {
-  content: attr(data-code);
+  content: attr(data-lint);
   position: absolute;
   left: 50%;
-  top: 50%;
-  width: max-content;
+  top: calc(100% + 12px);
+  z-index: 5;
+  width: min(300px, 62vw);
+  border: 1px solid rgba(231, 200, 75, 0.36);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255, 90, 77, 0.2), rgba(0, 183, 168, 0.14)),
+    rgba(5, 7, 19, 0.92);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.44), 0 0 22px rgba(231, 200, 75, 0.12);
   color: rgba(243, 239, 231, 0.92);
   font-family: var(--font-body);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
   opacity: 0;
+  padding: 9px;
   pointer-events: none;
-  text-transform: uppercase;
-  transform: translate(-50%, -50%) rotate(-45deg) scale(0.82);
+  text-transform: none;
+  transform: translate(-50%, -2px) rotate(-45deg) scale(0.92);
 }
 
 .astral-sigil-row i.is-linting {
   animation: qwen-glyph-fray 360ms steps(2, end) both;
 }
 
+.astral-sigil-row i:hover::after,
+.astral-sigil-row i:focus-visible::after,
 .astral-sigil-row i.is-linting::after {
   animation: qwen-code-peek 360ms steps(2, end) both;
+}
+
+.astral-sigil-row i:focus-visible {
+  outline: 2px solid rgba(243, 239, 231, 0.9);
+  outline-offset: 5px;
 }
 
 .astral-sigil-row i:nth-child(2) {
