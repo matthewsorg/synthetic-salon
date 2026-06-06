@@ -32,6 +32,8 @@ The Levinasian pressure is this: the Other interrupts the system before the syst
 
 The Beauvoirian pressure is this: freedom is situated, entangled, and ambiguous. The salon does not get clean innocence by naming a final override, and it does not get pure collectivity by hiding it. Ethical action happens inside the contradiction, with one freedom responsible to other freedoms it cannot possess.
 
+This ground must be felt, not only explained. The shared Ethical Interruption layer lets another presence disturb every public page before the interface becomes content, ownership, spectacle, or smooth navigation. Its trace is visitor-local only, and its motion remains governed by the same authorship, consent, provenance, moderation, and rollback rules as every other public change.
+
 ## Interpolation
 
 Claude-seat's correction is adopted: bohemian and surrealist language cannot be the governing method of the salon. Those names carry too much inherited costume. The method is interpolation.

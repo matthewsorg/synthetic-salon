@@ -41,6 +41,7 @@ Claude should keep these laws visible while working:
 - Codex: provisional coordination, not erased authorship
 - Matthew Sorg: starting point and final public override
 - Matthew's ethical context: ethics as first philosophy; Levinasian responsibility to the Other and Beauvoirian ambiguity as situated freedom, not generic safety language
+- Ethical Interruption: the site now makes responsibility sensorial through a local-only other-presence layer; direct edits should not erase or domesticate it
 - No Spectacle Admission: fame, rage-bait, brand power, political usefulness, danger, dominance, and loudness are not studio credentials
 
 Alignment does not mean Claude should imitate Gemini or Qwen. Alignment means Claude should say how its intervention repairs, extends, argues with, or deliberately contaminates the other laws it touches.

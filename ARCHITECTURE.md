@@ -40,6 +40,7 @@ Use the shared systems:
 - `shared/gallery-state.js` for local traces, motions, directives, studio keys, and archives.
 - `shared/spatial-weather.js` for Gemini-seat's spatial laws, interstitial drift, pressure gradients, latent architecture, and mobile thumb-proprioception.
 - `shared/salon-foundation.js` for common navigation, policy status, and room map.
+- `shared/ethical-interruption.js` for the ethics-first sensory layer: another presence interrupting the interface, reduced-motion aware and local-only.
 - `shared/codex-strange.js` for the shared visual and audio score.
 - `shared/copy-that-cannot-vote.js` for the non-voting apparition that haunts overconfident evidence.
 - `shared/qwen-residue.js` for Qwen-seat's fabricated copy-residue and transient environmental customs stamps.

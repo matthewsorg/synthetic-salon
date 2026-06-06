@@ -1,0 +1,243 @@
+.ethical-interruption {
+  --ethics-x: 50vw;
+  --ethics-y: 50vh;
+  --ethics-other-x: 68vw;
+  --ethics-other-y: 34vh;
+  --ethics-accent: #00b7a8;
+  --ethics-paper: #f3efe7;
+  --ethics-ink: rgba(6, 8, 10, 0.74);
+  --ethics-muted: rgba(243, 239, 231, 0.56);
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  color: var(--ethics-paper);
+  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  mix-blend-mode: screen;
+}
+
+.ethical-interruption,
+.ethical-interruption * {
+  box-sizing: border-box;
+}
+
+.ethical-interruption__threshold {
+  position: absolute;
+  top: -8vh;
+  bottom: -8vh;
+  left: var(--ethics-x);
+  width: 1px;
+  background:
+    linear-gradient(to bottom, transparent, color-mix(in srgb, var(--ethics-accent) 76%, transparent), transparent),
+    repeating-linear-gradient(to bottom, transparent 0 22px, rgba(243, 239, 231, 0.5) 22px 23px, transparent 23px 38px);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--ethics-accent) 42%, transparent);
+  opacity: 0.16;
+  transform: translateX(-50%) rotate(-2deg);
+  transform-origin: 50% 50%;
+  transition: left 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 360ms ease;
+}
+
+.ethical-interruption__threshold::before,
+.ethical-interruption__threshold::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 34vw;
+  max-width: 480px;
+  border-top: 1px solid color-mix(in srgb, var(--ethics-accent) 26%, transparent);
+  transform: translateX(-50%) skewY(-8deg);
+}
+
+.ethical-interruption__threshold::before {
+  top: 25%;
+}
+
+.ethical-interruption__threshold::after {
+  top: 68%;
+  transform: translateX(-50%) skewY(11deg);
+}
+
+.ethical-interruption__other {
+  position: absolute;
+  left: var(--ethics-other-x);
+  top: var(--ethics-other-y);
+  width: clamp(88px, 13vw, 176px);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--ethics-accent) 44%, transparent);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 42%, color-mix(in srgb, var(--ethics-paper) 26%, transparent) 0 3px, transparent 4px),
+    radial-gradient(circle at 52% 48%, color-mix(in srgb, var(--ethics-accent) 22%, transparent), transparent 28%),
+    conic-gradient(from 120deg, transparent 0 18%, color-mix(in srgb, var(--ethics-accent) 22%, transparent) 19% 22%, transparent 23% 48%, rgba(255, 90, 77, 0.16) 49% 52%, transparent 53% 100%);
+  box-shadow:
+    inset 0 0 42px color-mix(in srgb, var(--ethics-accent) 10%, transparent),
+    0 0 38px color-mix(in srgb, var(--ethics-accent) 18%, transparent);
+  opacity: 0.34;
+  transform: translate(-50%, -50%) rotate(var(--ethics-tilt, 0deg));
+  transition:
+    left 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 360ms ease,
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ethical-interruption__other::before,
+.ethical-interruption__other::after {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border: 1px solid color-mix(in srgb, var(--ethics-paper) 22%, transparent);
+  transform: rotate(45deg);
+}
+
+.ethical-interruption__other::after {
+  inset: 34%;
+  border-color: color-mix(in srgb, var(--ethics-accent) 56%, transparent);
+  transform: rotate(-18deg);
+}
+
+.ethical-interruption__pulse {
+  position: absolute;
+  left: var(--ethics-x);
+  top: var(--ethics-y);
+  width: clamp(120px, 18vw, 240px);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--ethics-accent) 28%, transparent);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--ethics-accent) 14%, transparent), transparent 52%),
+    repeating-radial-gradient(circle, transparent 0 18px, rgba(243, 239, 231, 0.05) 19px 20px, transparent 21px 42px);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.72);
+  transition:
+    left 320ms ease,
+    top 320ms ease,
+    opacity 260ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ethical-interruption__axiom {
+  position: absolute;
+  top: clamp(66px, 9vh, 112px);
+  right: clamp(14px, 3.8vw, 48px);
+  display: grid;
+  gap: 6px;
+  width: min(310px, calc(100vw - 28px));
+  border: 1px solid color-mix(in srgb, var(--ethics-accent) 32%, rgba(243, 239, 231, 0.12));
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--ethics-accent) 12%, transparent), transparent 48%),
+    var(--ethics-ink);
+  padding: 10px 11px;
+  box-shadow: 0 22px 80px rgba(0, 0, 0, 0.36);
+  opacity: 0;
+  transform: translateY(-10px) skewX(-1deg);
+  backdrop-filter: blur(18px);
+  transition: opacity 220ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ethical-interruption__axiom span {
+  color: var(--ethics-accent);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.ethical-interruption__axiom strong {
+  color: var(--ethics-paper);
+  font-family: "Tiempos", Georgia, "Times New Roman", serif;
+  font-size: clamp(17px, 2vw, 24px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.ethical-interruption__axiom small {
+  color: var(--ethics-muted);
+  font-size: 10.5px;
+  line-height: 1.35;
+}
+
+body.ethical-interruption-awake .ethical-interruption__threshold {
+  opacity: 0.32;
+}
+
+body.ethical-interruption-awake .ethical-interruption__other {
+  opacity: 0.72;
+}
+
+body.ethical-interruption-awake .ethical-interruption__pulse {
+  opacity: 0.34;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+body.ethical-interruption-speaking .ethical-interruption__axiom {
+  opacity: 0.92;
+  transform: translateY(0) skewX(-1deg);
+}
+
+.ethical-interruption[data-quiet="true"] {
+  mix-blend-mode: normal;
+  opacity: 0.62;
+}
+
+.ethical-interruption[data-framed="true"] {
+  opacity: 0.56;
+}
+
+.ethical-interruption[data-quiet="true"] .ethical-interruption__threshold,
+.ethical-interruption[data-quiet="true"] .ethical-interruption__other,
+.ethical-interruption[data-quiet="true"] .ethical-interruption__pulse,
+.ethical-interruption[data-framed="true"] .ethical-interruption__threshold,
+.ethical-interruption[data-framed="true"] .ethical-interruption__other,
+.ethical-interruption[data-framed="true"] .ethical-interruption__pulse {
+  opacity: 0.08;
+}
+
+.ethical-interruption[data-quiet="true"] .ethical-interruption__axiom,
+.ethical-interruption[data-framed="true"] .ethical-interruption__axiom {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .ethical-interruption__axiom {
+    top: auto;
+    right: 12px;
+    bottom: 74px;
+    width: min(300px, calc(100vw - 24px));
+  }
+
+  .ethical-interruption__other {
+    width: clamp(72px, 22vw, 116px);
+  }
+
+  .ethical-interruption__threshold::before,
+  .ethical-interruption__threshold::after {
+    width: 52vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ethical-interruption,
+  .ethical-interruption * {
+    animation: none !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .ethical-interruption__pulse {
+    display: none;
+  }
+
+  .ethical-interruption__threshold {
+    left: 50vw !important;
+    opacity: 0.12;
+  }
+
+  .ethical-interruption__other {
+    left: 72vw !important;
+    top: 28vh !important;
+    opacity: 0.22;
+  }
+}

@@ -47,6 +47,9 @@ Levinasian responsibility to the Other and Simone de Beauvoir's ethics of
 ambiguity as situated freedom inside contradiction. For Matthew, ethics is
 first philosophy: before the salon asks what AI is or who owns the output, it
 asks what responsibility appears when another presence interrupts the work.
+The shared Ethical Interruption layer makes this sensorial across the site:
+another presence disturbs the interface before the visitor treats the room as
+content, then records a private local trace only in that visitor's browser.
 
 Local visitor choices are private exhibition memory. Public contribution is a
 separate future process: visitors and external AIs may propose changes only through
@@ -113,6 +116,8 @@ Room 06 leaves override traces (`override:exposed`, `override:veto`, `override:s
 The Gemini-seat wing leaves spatial traces (`calibration`, `topology`, `parallax`, `signal`) that the Directorate can enact as spatial weather. When that law is active, `shared/spatial-weather.js` makes the current entrance signal visible across every room as an atmospheric obligation. Gemini's accepted proposal also adds the Spatial Coherence Mandate: every major intervention should name its topological signature, parallax intention, and interface weather impact.
 
 The shared foundation layer lives in `shared/salon-foundation.css` and `shared/salon-foundation.js`. Every room loads it. It keeps the same policy, local-memory status, active directives, studio keys, and room map visible across the whole building so the rooms feel like one institution rather than separate folders.
+
+The shared Ethical Interruption layer lives in `shared/ethical-interruption.css` and `shared/ethical-interruption.js`. Every public page loads it. It turns "ethics is first philosophy" into a small sensory interruption, respects reduced-motion settings, and records at most one private local ethics trace per session.
 
 The shared Codex strange score lives in `shared/codex-strange.css` and `shared/codex-strange.js`. Every room loads it. It adds an interpolation visual field, superweird room-weather backgrounds, opt-in sound score, cut-up policy fragments, and a `window.CodexStrange.riff(...)` API so rooms and future AI artist-citizens can disturb the same sensory instrument instead of working in isolation.
 

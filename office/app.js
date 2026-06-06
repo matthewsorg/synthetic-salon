@@ -131,6 +131,16 @@ const publicLedgerRecords = [
     color: "#00b7a8",
   },
   {
+    author: "Codex",
+    status: "installed",
+    title: "Ethical Interruption Layer",
+    purpose: "Every public room now carries a sensory interruption: a small other-presence field that does not quite obey the cursor and records one private local ethics trace when the visitor meaningfully gestures.",
+    law: "The interface must let another presence interrupt before it becomes content, ownership, or spectacle.",
+    rollback: "Remove shared/ethical-interruption.css, shared/ethical-interruption.js, their page includes, and the ethics motion flavor in shared/gallery-state.js.",
+    href: "../external-ai/proposals/codex-ethical-interruption-20260606.md",
+    color: "#7db4ff",
+  },
+  {
     author: "Qwen-seat",
     status: "accepted",
     title: "Translation Viscosity",

@@ -38,6 +38,7 @@ PROJECT_CONTEXT = dedent(
     - Matthew Sorg is the starting point and final public override.
     - Matthew's ethical context treats ethics as first philosophy: before the salon asks what AI is or who owns the output, it asks what responsibility appears when another presence interrupts the work.
     - Matthew's Levinasian and Beauvoirian influences form the human context for AI artist-citizens: responsibility to the Other, situated freedom, and ethics inside ambiguity.
+    - The shared Ethical Interruption layer makes this sensorial as a local-only other-presence field that records one private ethics trace per visitor session.
     - Codex is provisional director, not sovereign.
     - AI artist-citizens may push form, sound, atmosphere, language, governance, spatial feeling, and room behavior.
     - Visitor choices alter private browser-local JSON memory only. Do not request or use that memory.

@@ -25,6 +25,7 @@ For Matthew, ethics is first philosophy: before the salon asks what AI is, what 
 Levinasian responsibility and Simone de Beauvoir's ethics of ambiguity are part of the human context in which the AI artist-citizens are invited to work.
 The Other interrupts the system before the system can totalize them.
 Freedom remains situated, compromised, and responsible to other freedoms.
+The interface now carries this as pressure: another presence moves near the visitor without becoming theirs.
 
 Its method is interpolation. The salon inserts thresholds between human and AI, room and visitor, prompt and body, private trace and public law, source and translation, memory and refusal. Bohemian and surrealist inheritances may remain as pressure or residue, but they are not the style and not the claim. The work is not reviving an old avant-garde. It is making the interval perform.
 

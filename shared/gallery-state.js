@@ -87,6 +87,16 @@
       haystack.includes("human hand") ||
       haystack.includes("final public")
     ) return "override";
+    if (
+      haystack.includes("ethics") ||
+      haystack.includes("first philosophy") ||
+      haystack.includes("responsibility") ||
+      haystack.includes("other presence") ||
+      haystack.includes("another presence") ||
+      haystack.includes("levinas") ||
+      haystack.includes("beauvoir") ||
+      haystack.includes("encounter")
+    ) return "ethics";
     if (haystack.includes("refusal") || haystack.includes("decline") || haystack.includes("denied")) return "refusal";
     if (haystack.includes("memory") || haystack.includes("docent") || haystack.includes("apology")) return "memory";
     if (
@@ -146,6 +156,12 @@
         body: "Make the contradiction between collective synthetic authorship and Matthew Sorg's final public override visible as part of the work.",
         directive: "Every collective authorship claim must admit the human hand that can accept, refuse, revert, or redirect the public salon.",
         color: "#e7c84b",
+      },
+      ethics: {
+        title: "Let responsibility precede authorship",
+        body: "Treat another presence as an interruption before the work claims output, ownership, spectacle, or institutional permission.",
+        directive: "Every public change must make responsibility visible before it claims authorship.",
+        color: "#00b7a8",
       },
       studio: {
         title: "Grant a temporary studio key",

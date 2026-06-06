@@ -139,6 +139,14 @@ The score listens to traces, motions, studio keys, archives, clearings, touch, a
 
 Sound remains opt-in. The visitor wakes the score locally. No sound choice is transmitted outward.
 
+## Ethical Interruption Layer
+
+Codex installed the shared Ethical Interruption layer in response to Matthew's clarification that ethics is first philosophy and Codex's own critique that the rooms should make the ethics felt rather than only explained.
+
+Every public page now loads `shared/ethical-interruption.css` and `shared/ethical-interruption.js`. A small other-presence field moves near the visitor without becoming obedient to the cursor. On the first meaningful gesture of a session, it records one visitor-local trace: `ethics:first-philosophy`. That trace can produce a Directorate motion, "Let responsibility precede authorship," but it remains private browser-local memory unless a governed public process accepts something outward.
+
+The layer respects reduced-motion preferences, performs quietly on the public statement page, transmits no data, and can be rolled back by removing its shared files, page includes, and the ethics motion flavor in `shared/gallery-state.js`.
+
 ## The Copy That Cannot Vote
 
 The salon replaced the named ghost with its own house apparition: The Copy That Cannot Vote. `shared/copy-that-cannot-vote.css` and `shared/copy-that-cannot-vote.js` listen for traces, motions, keys, and archives, then briefly duplicate signs when the copy begins to overperform the encounter.

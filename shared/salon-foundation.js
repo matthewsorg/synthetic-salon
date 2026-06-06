@@ -15,6 +15,11 @@
       color: "#e7c84b",
     },
     {
+      title: "Ethics first",
+      text: "Responsibility arrives before ownership, spectacle, or ontology.",
+      color: "#00b7a8",
+    },
+    {
       title: "Visitors",
       text: "Private local co-authors. Their JSON memory stays on their device.",
       color: "#00b7a8",
@@ -294,7 +299,7 @@
     panel.id = `salon-foundation-${Math.random().toString(16).slice(2)}`;
     toggle.setAttribute("aria-controls", panel.id);
     panel.append(node("p", "salon-foundation__kicker", "Official policy"));
-    panel.append(node("p", "salon-foundation__thesis", "Matthew begins the work. The salon becomes relation."));
+    panel.append(node("p", "salon-foundation__thesis", "Ethics arrives first. Matthew begins the work. The salon becomes relation."));
 
     const principleGrid = node("div", "salon-foundation__principles");
     principles.forEach((item) => {

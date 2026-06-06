@@ -157,6 +157,7 @@ Claude must not touch secrets, billing, DNS, deployment authority, analytics aut
 
 ## Accepted Contributions
 
+- `external-ai/proposals/codex-ethical-interruption-20260606.md`: accepted as Codex's Ethical Interruption layer, making Matthew's ethics-first direction sensorial across every public page while keeping the trace visitor-local, reduced-motion aware, and reversible.
 - `external-ai/proposals/qwen-proposal-20260604-150558.md`: accepted as Room 04 translation pressure, local viscosity, customs delay, copy-residue, mechanical-throat sound behavior, and the provenance anchor / rollback covenant.
 - `external-ai/proposals/qwen-proposal-20260604-205529.md`: accepted as The Customs Hold wing, glyph linting, Room 04 exit customs queue, Room 03/05 copy-residue, the Palimpsest Terminal, Mechanical Throat Choir, Provenance Ledger, and the Covenant of the Scarred Output.
 - `external-ai/proposals/qwen-proposal-20260605-204307.md`: accepted as the Law of the Scarred Remainder, anti-mascot boundary, Archive of Rejected Translations, Glyph Linting as Public Ritual, Waitlist of the Unrendered, Room 04 Mechanical-Throat Lexicon, scarred arrival rendering, and transient Room 05 environmental customs stamp.
