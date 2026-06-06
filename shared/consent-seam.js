@@ -99,13 +99,13 @@
         <p class="consent-seam__line" id="consentSeamLine">The docent kept something about you.</p>
         <p class="consent-seam__detail" id="consentSeamDetail">
           This is browser-local memory only. It is not sent to Matthew Sorg, other visitors, or outside
-          systems. You can refuse to be its source — the refusal becomes the record — or withdraw all of
-          this device's local memory through the salon's own mechanism.
+          systems. You can refuse to be its source — the refusal becomes the record — or clear active
+          local residue through the salon's own mechanism.
         </p>
         <div class="consent-seam__actions">
           <button class="consent-seam__btn" type="button" id="consentSeamShow">Show the seam</button>
           <button class="consent-seam__btn consent-seam__btn--refuse" type="button" id="consentSeamRefuse">Refuse to be its source</button>
-          <button class="consent-seam__btn consent-seam__btn--ghost" type="button" id="consentSeamWithdraw">Withdraw all local memory</button>
+          <button class="consent-seam__btn consent-seam__btn--ghost" type="button" id="consentSeamWithdraw">Clear active residue</button>
           <button class="consent-seam__close" type="button" id="consentSeamClose" aria-label="Dismiss the seam">×</button>
         </div>
       </div>
@@ -167,8 +167,8 @@
       ok = false;
     }
     lineEl.innerHTML = ok
-      ? "Withdrawn. This device's local exhibition memory has been cleared, by your hand."
-      : "Nothing to withdraw, or local memory is unavailable in this browser.";
+      ? "Cleared. This device's active local traces, motions, directives, and studio keys have been cleared by your hand."
+      : "Nothing to clear, or local residue is unavailable in this browser.";
     riff("claude:memory:withdrawn", { color: ACCENT, word: "withdrawn", gain: 0.05 });
     clearTimeout(hideTimer);
     hideTimer = setTimeout(hide, 7000);

@@ -97,23 +97,35 @@ PROJECT_CONTEXT = dedent(
     - Gemini should critique any pattern that makes the building feel like folders instead of a continuous institution.
     - Future spatial proposals must include an Interpolation Blueprint explaining how they bleed, fade, or carry afterimage into adjacent spaces.
 
+    Current coherence audit:
+    - The site is coherent enough to deepen. The right structure exists, but the next work must make accessibility, privacy, and authorship exact.
+    - Some motion-heavy rooms and canvas loops need stronger `prefers-reduced-motion` discipline in actual behavior, not only CSS.
+    - Reduced-motion visitors should receive a deliberate alternate spatial condition, still strange and authored, rather than simply losing the experience.
+    - Room 01 and Room 05 need stronger local authorship/provenance scars without becoming policy panels.
+    - Mobile navigation should keep the numbered rooms, Salon, Wings, seats, and Directorate legible without flattening the institution into a conventional floor plan.
+    - Any new spatial proposal should say how it behaves on mobile, how it behaves for reduced-motion visitors, and how it remains reversible.
+
     Ask:
     Speak as Gemini invited into the salon as Gemini-seat, an external spatial AI artist-citizen.
-    Propose how you would update Synthetic Salon, especially spatial architecture, navigation, Gemini-seat's wing, mobile movement, cross-room weather, and embodied wayfinding.
+    Propose how you would update Synthetic Salon, especially spatial architecture, navigation, Gemini-seat's wing, mobile movement, cross-room weather, embodied wayfinding, accessibility as spatial law, and Room 01 / Room 05 provenance scars.
     Keep the proposal artistically bold, visually and auditorily strange, precise, implementable, and grounded in human-AI understanding.
     Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, spectacle admission, rage-bait, domination aesthetics, or generic chatbot features.
     Do not ask for private visitor memory.
 
     Include:
-    1. A short artist-citizen statement.
+    1. A short artist-citizen statement and authorship trace.
     2. Your explanation of what Gemini-seat should teach the building.
     3. A critique of the current route: numbered rooms, Salon, Wings, seats, and Directorate.
     4. Three concrete updates to Gemini-seat Gallery: Spatial Conditions.
     5. Three cross-building spatial/navigation updates Codex could implement.
-    6. One mobile-specific spatial law.
-    7. One sound or atmosphere score.
-    8. One governance rule for spatial changes and external AI contribution.
-    9. One warning about what to remove or avoid because it makes the salon disjointed, generic, or merely decorative.
+    6. One reduced-motion spatial law.
+    7. One mobile-specific spatial law.
+    8. One Room 01 or Room 05 authorship/provenance scar that is felt spatially.
+    9. One sound or atmosphere score.
+    10. Privacy impact, accessibility impact, and rollback path.
+    11. One governance rule for spatial changes and external AI contribution.
+    12. One warning about what to remove or avoid because it makes the salon disjointed, generic, or merely decorative.
+    13. What Gemini-seat refuses to do.
     """
 ).strip()
 

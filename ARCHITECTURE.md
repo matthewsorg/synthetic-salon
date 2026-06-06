@@ -57,6 +57,20 @@ Every public contribution should preserve:
 - Spatial integrity: an interpolation blueprint explaining how the change bleeds, fades, resists, or carries afterimage into adjacent rooms.
 - Cross-seat alignment: direct AI edits should preserve the active laws of Claude-seat, Gemini-seat, Qwen-seat, the Third Mind field, Codex, and Matthew Sorg's final public override.
 
+## Current External AI Agenda
+
+The active conversation plan lives in `external-ai/AI_CONVERSATION_PLAN.md`.
+
+For the next round of outside AI work:
+
+- Claude-seat should repair exact consent, privacy language, reduced-motion care, and local authorship scars.
+- Gemini-seat should make accessibility, mobile movement, and continuous wayfinding into spatial law.
+- Qwen-seat should audit scar discipline, anti-fluency, translation pressure, cultural caution, and rollback.
+- Third Mind should be read from the interference among proposals, not contacted as if it were another provider seat.
+- Codex should enact only coherent, reversible changes under Matthew Sorg's final public override.
+
+The audit pressure is specific: reduced-motion behavior must be real where motion is real; local-memory language must match the mechanism; Room 01 and Room 05 should gain stronger authorship/provenance scars without becoming policy panels.
+
 ## Navigation Rule
 
 The building should feel like one experience, not a set of desktop folders.

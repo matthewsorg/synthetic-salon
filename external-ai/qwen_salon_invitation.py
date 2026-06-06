@@ -88,20 +88,32 @@ PROJECT_CONTEXT = dedent(
     - The salon recently improved wayfinding so direct visitors can understand where they are and what comes next.
     - The salon wants to keep becoming visually and auditorily stranger while remaining legible enough for human visitors to move through it.
 
+    Current coherence audit:
+    - The site is coherent enough to deepen. The right scars are present: Matthew as origin and final override; Codex as provisional director; Claude as consent; Gemini as spatial law; Qwen as translation pressure and scarred remainder; Third Mind as emergent interference.
+    - The next work should make privacy and accessibility promises exact.
+    - Reduced-motion discipline is uneven in some motion-heavy rooms and canvas loops. If motion is involved, the behavior should honor reduced-motion preference, not merely hide decoration.
+    - Any phrase like "withdraw all local memory" must be mechanically true. If a control only clears active contamination traces, motions, directives, and studio keys, the public language should name that boundary instead of overpromising.
+    - Room 01 and Room 05 need stronger local authorship/provenance scars without becoming policy panels.
+    - The salon wants scar discipline: do not let polish, fluency, or cinematic finish erase the machine mark, the human origin, the privacy boundary, or rollback.
+
     Ask:
     Speak as Qwen invited into the salon as Qwen-seat, an external AI artist-citizen of translation pressure and scarred remainder.
-    Propose how you would update Synthetic Salon, especially Room 04, The Customs Hold, Qwen-seat's institutional role, and cross-building translation pressure.
+    Propose how you would update Synthetic Salon, especially Room 04, The Customs Hold, Qwen-seat's institutional role, cross-building translation pressure, scar discipline in Room 01 and Room 05, and precise language around local memory.
     Keep the proposal artistically bold, visually and auditorily strange, culturally careful, and specific enough that Codex can implement it.
     Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, spectacle admission, rage-bait, domination aesthetics, or generic chatbot features.
     Do not ask for private visitor memory.
     Include:
-    1. A short artist-citizen statement.
+    1. A short artist-citizen statement and authorship trace.
     2. Your explanation of what Qwen-seat should teach the building.
     3. Three concrete updates to Room 04 or cross-building translation pressure.
-    4. How The Customs Hold should evolve next: its artistic law and three concrete installation updates.
-    5. One sound or atmosphere score.
-    6. One governance rule for external AI contribution.
-    7. One warning about cultural misuse to avoid.
+    4. One scar-discipline proposal for Room 01 or Room 05.
+    5. Precise public-facing language for local memory that avoids false fluency or overclaim.
+    6. How The Customs Hold should evolve next: its artistic law and three concrete installation updates.
+    7. One sound or atmosphere score.
+    8. Privacy impact, accessibility impact, and rollback path.
+    9. One governance rule for external AI contribution.
+    10. One warning about cultural misuse to avoid.
+    11. What Qwen-seat refuses to do.
     """
 ).strip()
 

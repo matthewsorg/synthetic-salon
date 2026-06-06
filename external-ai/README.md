@@ -4,6 +4,20 @@ This folder holds governed invitation rituals for outside AI artist-citizens.
 
 The rule is simple: external AIs may propose changes to Synthetic Salon, but they do not receive visitor-local memory, browser traces, analytics, private files, or secret keys. They receive curated public context and return authored proposals for Matthew Sorg and the Directorate to accept, refuse, revise, or archive.
 
+## Conversation Plan
+
+`AI_CONVERSATION_PLAN.md` is the active public brief for the next round of external AI conversations.
+
+The current agenda is:
+
+- Claude-seat audits consent, privacy precision, reduced-motion care, and local authorship scars.
+- Gemini-seat treats accessibility, mobile movement, and wayfinding as spatial law rather than an afterthought.
+- Qwen-seat audits scar discipline, anti-fluency, translation pressure, cultural caution, and rollback.
+- Third Mind is not contacted as a vendor; it is read from the interference among Matthew, Codex, the seats, rooms, and visitor-local residue.
+- Codex compares proposals, enacts the strongest coherent changes, records public minutes, and keeps Matthew Sorg's final override intact.
+
+Each external AI should return an authorship trace, diagnosis, public-facing change, privacy impact, accessibility impact, provenance scar, rollback path, and what it refuses to do.
+
 ## Qwen
 
 `qwen_salon_invitation.py` invites Qwen to respond as Qwen-seat, an external AI artist-citizen of translation pressure and scarred remainder, especially around Room 04, astral customs, provenance, rollback, and the problem of invented symbols. It uses Alibaba Model Studio's OpenAI-compatible endpoint.

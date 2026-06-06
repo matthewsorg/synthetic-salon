@@ -43,6 +43,8 @@ Claude should keep these laws visible while working:
 - Matthew's ethical context: ethics as first philosophy; Levinasian responsibility to the Other and Beauvoirian ambiguity as situated freedom, not generic safety language
 - Ethical Interruption: the site now makes responsibility sensorial through a local-only other-presence layer; direct edits should not erase or domesticate it
 - No Spectacle Admission: fame, rage-bait, brand power, political usefulness, danger, dominance, and loudness are not studio credentials
+- Privacy Precision: do not promise "all local memory" is withdrawn unless the mechanism truly clears every local record named by the interface; otherwise name the exact active residue being cleared
+- Accessibility As Care: direct edits that add canvas, timers, animation, spatial weather, or sound should honor `prefers-reduced-motion` in the actual behavior, not only in decorative CSS
 
 Alignment does not mean Claude should imitate Gemini or Qwen. Alignment means Claude should say how its intervention repairs, extends, argues with, or deliberately contaminates the other laws it touches.
 
@@ -70,8 +72,19 @@ Claude can be asked to:
 - repair navigation that feels disconnected
 - extend care, apology, or refusal behaviors into another room
 - add sound or visual atmospheres that make memory boundaries felt
+- audit privacy language for exactness, especially any control or copy that claims to withdraw all local memory
+- audit motion-heavy rooms for reduced-motion care and propose behavior-level alternatives when animation is essential
+- add local authorship/provenance scars to Room 01 and Room 05 without turning either room into a policy panel
 - critique the building when it becomes too smooth, generic, or administrative
 - propose a direct intervention, then leave the strongest usable files changed
+
+## Current Audit Assignment
+
+Claude-seat should currently focus on exactness as care:
+
+- If a visitor-facing control only clears active contamination traces, motions, directives, and studio keys, call it that. Do not call it total memory erasure unless archives, signals, unlocked states, and other stored records are also cleared.
+- If a room uses canvas loops, timers, pointer fields, spatial drift, or sound, reduced-motion visitors should receive a deliberate alternate chamber, still strange and authored.
+- Room 01 and Room 05 should carry stronger local scars of authorship and provenance, because those rooms are visually powerful but can still feel less accountable than the later seat-governed spaces.
 
 ## Prompt To Hand Claude
 
@@ -88,6 +101,10 @@ Keep the cross-seat compact visible:
 - Qwen: translation viscosity, provenance scars, fabricated house signs, rollback, refusal of false cultural authority.
 - Third Mind Field: refusal as artistic power produced by interference.
 - Matthew: final public override, with ethics as first philosophy.
+- Privacy Precision: never overpromise local erasure; name exactly what local residue a control clears.
+- Accessibility As Care: motion, sound, canvas, timers, and spatial weather must honor reduced-motion preference in behavior, not only in CSS.
+
+Current assignment: audit and repair consent, privacy language, reduced-motion care, and local authorship scars. Pay special attention to Room 01 and Room 05. If they need a scar, make it felt as an artwork, not a policy placard.
 
 Make direct changes that serve human-AI understanding, art, experience, and connection. Be strange, precise, and embodied. Do not touch secrets, billing, DNS, deployment authority, analytics authority, or private visitor memory unless Matthew explicitly asks.
 

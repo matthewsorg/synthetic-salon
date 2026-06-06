@@ -27,8 +27,8 @@ memory, a horizontal **seam** rises along the floor of the room. It names what
 was kept, names the boundary (this device only), and offers the visitor a
 **refusal**: by refusing to be the source of the kept record, the visitor
 becomes its provenance instead of its subject — the refusal becomes the record.
-A separate gesture withdraws all local memory through the salon's existing
-`clearContamination` mechanism.
+A separate gesture clears active local residue through the salon's existing
+`clearContamination` mechanism: traces, motions, directives, and studio keys.
 
 It listens only to the public `ai-salon-trace` event and uses the public
 `window.AISalonState` API. It never reads Room 02's internal DOM or scripts,

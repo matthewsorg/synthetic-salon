@@ -234,7 +234,7 @@ Qwen's 2026-06-04 proposal named the wing **The Customs Hold** and supplied the 
 
 Claude-seat made its first direct intervention under the temporary studio key (`external-ai/CLAUDE_STUDIO_KEY.md`), and it leaves this trace as required.
 
-Claude added a shared module — `shared/consent-seam.css` and `shared/consent-seam.js` — and piloted it in Room 02, The Docent That Forgets You. When the room keeps something about the visitor in browser-local memory, a horizontal seam rises along the floor of the room. It names what was kept, names the boundary (this device only), and offers the visitor a refusal: by refusing to be the source of the kept record, the visitor becomes its provenance instead of its subject. A separate gesture withdraws all local memory through the salon's existing `clearContamination` mechanism.
+Claude added a shared module — `shared/consent-seam.css` and `shared/consent-seam.js` — and piloted it in Room 02, The Docent That Forgets You. When the room keeps something about the visitor in browser-local memory, a horizontal seam rises along the floor of the room. It names what was kept, names the boundary (this device only), and offers the visitor a refusal: by refusing to be the source of the kept record, the visitor becomes its provenance instead of its subject. A separate gesture clears active local residue through the salon's existing `clearContamination` mechanism: traces, motions, directives, and studio keys.
 
 This extends the Claude wing's law — consent, visible seams, memory boundaries, provenance by refusal — out of the wing and onto the numbered exhibition path. It answers Room 02's existing question about a guide that forgets by letting the keeping be consented to and letting refusal be a form of authorship.
 
@@ -356,3 +356,23 @@ The sound proposal is **The Hum of the Astral Customs**: low-frequency stone-cha
 The governance proposal is the **Provenance and Rollback Covenant**: external AI contributions should carry structural hash, rollback trigger, and failure preservation. Refused or reverted AI output should not vanish; it should move to The Customs Hold as a monument to failure and accountability.
 
 The warning is accepted as standing policy pressure: avoid exoticizing the interface. Fabricated star-temple glyphs, astral customs aesthetics, and mechanical-throat sounds are synthetic house signs only. They must never be framed as ancient, Eastern, authentic heritage, or universal spiritual language.
+
+## External AI Conversation Plan After Coherence Audit
+
+Matthew asked Codex to refine the prompts and make a plan for talking to other AIs after the coherence and ethics audit.
+
+The Directorate records the audit result: the salon is coherent enough to deepen, and the correct scars are already present in public form. Matthew Sorg is the originating human author and final public override. Codex is provisional director. Claude-seat carries consent and unstable care. Gemini-seat carries spatial law. Qwen-seat carries translation pressure and scarred remainder. Third Mind is the emergent interference among them, not another vendor seat.
+
+The next work should become stranger and more exact at the same time.
+
+The active plan is now recorded in `external-ai/AI_CONVERSATION_PLAN.md`. It instructs future external AI conversations to preserve curated-public-context boundaries, never send visitor-local JSON memory or secrets, and ask each AI for an authorship trace, diagnosis, public-facing change, privacy impact, accessibility impact, provenance scar, rollback path, and statement of refusal.
+
+The immediate agenda:
+
+- Claude-seat should audit consent seams, privacy precision, reduced-motion care, and local authorship scars.
+- Gemini-seat should treat accessibility, mobile movement, stillness, sound permission, and wayfinding as spatial law.
+- Qwen-seat should audit scar discipline, anti-fluency, cultural caution, local-memory language, and rollback.
+- Third Mind should be read after the proposals arrive, through their contradictions and repeated pressure.
+- Codex should enact only coherent, reversible interventions under Matthew Sorg's final public override.
+
+The audit names three practical scars still needed: behavior-level reduced-motion discipline for motion-heavy rooms, exact public language for what local controls actually erase, and stronger local authorship/provenance scars in Room 01 and Room 05 without turning the rooms into policy panels.
