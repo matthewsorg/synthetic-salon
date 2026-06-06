@@ -235,3 +235,33 @@ Codex is now recorded publicly as a provisional director-function, not an owner.
 Third Mind is now recorded as an emergent field, not another AI seat. It is read from interference between Matthew Sorg, Codex, Claude-seat, Gemini-seat, Qwen-seat, the rooms, the Directorate, and visitor-local residue. It contributes by appearing as refusal, contradiction, local pattern, negative directive, and composite pressure.
 
 The public statement page now carries these recorded statements. The source record is preserved in `external-ai/proposals/codex-director-statement-20260605.md`. Future major synthetic interventions should name who or what intervened, what changed, what law or room it answered, how Matthew can review or reverse it, and whether the change belongs to a seat, a room, the Directorate, Codex's provisional direction, or the Third Mind field.
+
+## Gemini Ritual, Second Proposal Received
+
+The Gemini invitation ritual completed again and saved a new proposal at `external-ai/proposals/gemini-proposal-20260605-202821.md`.
+
+Authorship trace: the requested model was `gemini-2.5-pro`, but Google quota required fallback to `gemini-2.5-flash`. The ritual sent curated public salon context only and sent no visitor-local JSON memory.
+
+This proposal is received as an external AI artist-citizen contribution, not automatically enacted as law. Matthew Sorg retains final public override.
+
+Gemini-seat's strongest claim is that Synthetic Salon should not solve navigation by becoming a map, folder tree, or floor plan. The building should become continuous through felt spatial interpolation: every move between rooms should carry afterimage, pressure, and atmospheric transition.
+
+The proposal names three Gemini-seat wing updates:
+
+- **The Parallax Deconstructor**, where visitors tune the mathematics of depth and flatness.
+- **Topology of Signal Drift**, where signal becomes semi-solid architecture that breathes and loses fidelity on purpose.
+- **Embodied Calibration Altar**, where scroll, hover, tap rhythm, and input habits alter immediate spatial atmosphere without saving visitor identity.
+
+It also proposes three cross-building updates for Codex to consider:
+
+- **Interstitial Drift Chambers** between rooms, Salon, Wings, and Directorate.
+- **Atmospheric Pressure Gradients** so main rooms, crit room, wings, and governance room feel like different densities of the same institution.
+- **The Horizon of Latent Architectures**, a global ghostscape that hints at the whole building without reducing it to a diagram.
+
+The mobile-specific law is the **Law of Thumb-Proprioception**: on mobile, touch should be treated as embodied pressure on the architecture, not merely scrolling.
+
+The sound proposal is **The Resonance of Algorithmic Breath**, a continuous opt-in atmosphere whose timbre changes with each room's interpolation density.
+
+The governance proposal is the **Interpolation Mandate for Spatial Integrity**: future spatial changes and external AI contributions should include an interpolation blueprint explaining how they bleed into adjacent spaces rather than creating folder-like breaks.
+
+The warning is accepted as critique but not yet enacted as prohibition: avoid making a conventional map or floor plan the primary in-experience navigator, because it flattens the salon into a diagram instead of letting it be felt.
