@@ -163,7 +163,7 @@ function drawGlyph(x, y, r, color, code, t, viscosity) {
   if ((t * 0.001 + x) % 9 < 0.22) {
     ctx.globalAlpha = 0.35;
     ctx.fillStyle = "#f3efe7";
-    ctx.font = "700 10px Sohne, system-ui, sans-serif";
+    ctx.font = "700 10px 'Instrument Sans', Inter, system-ui, sans-serif";
     ctx.fillText(code, -r * 0.45, 4);
   }
   ctx.restore();

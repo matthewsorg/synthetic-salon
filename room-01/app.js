@@ -580,7 +580,7 @@ function drawTranslationResidue(t) {
     ctx.stroke();
     if (i % 3 === 0 && size.w >= 620) {
       ctx.fillStyle = colorAlpha("#e7c84b", 0.2);
-      ctx.font = "700 10px Sohne, system-ui, sans-serif";
+      ctx.font = "700 10px 'Instrument Sans', Inter, system-ui, sans-serif";
       ctx.fillText("REMAINDER", x + 10, y - 8);
     }
   }

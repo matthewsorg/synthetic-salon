@@ -1,3 +1,51 @@
+:root {
+  --font-display: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Instrument Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.salon-skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  padding: 9px 12px;
+  border: 1px solid rgba(243, 239, 231, 0.28);
+  border-radius: 8px;
+  background: rgba(8, 9, 11, 0.94);
+  color: #f3efe7;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform 160ms ease;
+}
+
+.salon-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid #00b7a8;
+  outline-offset: 3px;
+}
+
+.salon-noscript {
+  position: relative;
+  z-index: 10;
+  width: min(900px, calc(100vw - 32px));
+  margin: 12px auto;
+  padding: 12px 14px;
+  border: 1px solid rgba(231, 200, 75, 0.44);
+  border-radius: 8px;
+  background: rgba(8, 9, 11, 0.9);
+  color: #f3efe7;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+main[tabindex="-1"]:focus {
+  outline: none;
+}
+
 .salon-foundation {
   --foundation-ink: rgba(8, 9, 11, 0.88);
   --foundation-paper: #d9d3c6;
@@ -14,7 +62,7 @@
   z-index: 9;
   width: min(520px, calc(100vw - 32px));
   color: var(--foundation-paper);
-  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Instrument Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   pointer-events: none;
   transition: width 180ms ease;
 }
@@ -132,7 +180,7 @@
 .salon-foundation__thesis {
   margin: 0;
   color: var(--foundation-bone);
-  font-family: "Tiempos", Georgia, "Times New Roman", serif;
+  font-family: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;
   font-size: clamp(24px, 3.2vw, 38px);
   line-height: 0.96;
 }
@@ -230,7 +278,7 @@
   width: min(1180px, calc(100vw - 48px));
   margin: -8px auto 16px;
   color: var(--route-paper);
-  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Instrument Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .salon-route,
@@ -412,8 +460,22 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
   .salon-foundation__panel,
-  .salon-foundation__map a {
+  .salon-foundation__map a,
+  .salon-skip-link {
     transition: none;
   }
 }

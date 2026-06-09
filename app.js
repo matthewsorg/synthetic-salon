@@ -17,6 +17,7 @@ const shellNext = document.getElementById("shellNext");
 const shellMapList = document.getElementById("shellMapList");
 const thresholdVeil = document.getElementById("thresholdVeil");
 const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+const salonMotion = window.AISalonMotion;
 
 const signals = {
   reflection: {
@@ -168,7 +169,11 @@ let animationFrame = 0;
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 function prefersReducedMotion() {
-  return Boolean(reducedMotionQuery?.matches);
+  return Boolean(salonMotion?.prefersReducedMotion?.() ?? reducedMotionQuery?.matches);
+}
+
+function shouldAnimateCanvas() {
+  return !prefersReducedMotion() && (salonMotion?.isVisible?.() ?? document.visibilityState !== "hidden");
 }
 
 function galleryRootPath() {
@@ -361,7 +366,7 @@ function drawRoomApertures(t, moving) {
     ctx.stroke();
 
     ctx.fillStyle = `rgba(243, 239, 231, ${0.09 + hover * 0.12})`;
-    ctx.font = `${Math.round(r * 0.38)}px Tiempos, Georgia, serif`;
+    ctx.font = `${Math.round(r * 0.38)}px Newsreader, "Source Serif 4", Georgia, serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(point.label, point.x, point.y + 4);
@@ -412,6 +417,11 @@ function drawScene(t, moving) {
 }
 
 function draw(t) {
+  if (!shouldAnimateCanvas()) {
+    animationFrame = 0;
+    drawScene(0, false);
+    return;
+  }
   drawScene(t, true);
   animationFrame = requestAnimationFrame(draw);
 }
@@ -429,7 +439,7 @@ function renderStillCanvas() {
 }
 
 function syncMotionPreference() {
-  if (prefersReducedMotion()) {
+  if (!shouldAnimateCanvas()) {
     renderStillCanvas();
     return;
   }
@@ -516,10 +526,14 @@ window.addEventListener("pointerleave", () => {
 });
 
 window.addEventListener("resize", resize);
-if (reducedMotionQuery?.addEventListener) {
+if (salonMotion?.onChange) {
+  salonMotion.onChange(syncMotionPreference);
+} else if (reducedMotionQuery?.addEventListener) {
   reducedMotionQuery.addEventListener("change", syncMotionPreference);
+  document.addEventListener("visibilitychange", syncMotionPreference);
 } else {
   reducedMotionQuery?.addListener?.(syncMotionPreference);
+  document.addEventListener("visibilitychange", syncMotionPreference);
 }
 
 resize();

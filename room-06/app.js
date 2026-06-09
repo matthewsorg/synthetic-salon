@@ -2,6 +2,8 @@
 
 const canvas = document.getElementById("overrideStage");
 const ctx = canvas.getContext("2d", { alpha: false });
+const salonMotion = window.AISalonMotion;
+const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 
 const el = {
   live: document.getElementById("live"),
@@ -139,6 +141,36 @@ let active = "expose";
 let pressure = 0;
 let laborIndex = 0;
 let pointer = { x: 0, y: 0, active: false };
+let animationFrame = 0;
+
+function prefersReducedMotion() {
+  return Boolean(salonMotion?.prefersReducedMotion?.() ?? reducedMotionQuery?.matches);
+}
+
+function shouldAnimateCanvas() {
+  return !prefersReducedMotion() && (salonMotion?.isVisible?.() ?? document.visibilityState !== "hidden");
+}
+
+function stopCanvasAnimation() {
+  if (!animationFrame) return;
+  cancelAnimationFrame(animationFrame);
+  animationFrame = 0;
+}
+
+function renderStillCanvas() {
+  stopCanvasAnimation();
+  document.body.dataset.reducedMotion = "true";
+  draw(0, false);
+}
+
+function syncMotionPreference() {
+  if (!shouldAnimateCanvas()) {
+    renderStillCanvas();
+    return;
+  }
+  delete document.body.dataset.reducedMotion;
+  if (!animationFrame) animationFrame = requestAnimationFrame(draw);
+}
 
 function announce(text) {
   el.live.textContent = text;
@@ -267,7 +299,8 @@ function seedFromState() {
   }
 }
 
-function drawVoiceBands(t, colors) {
+function drawVoiceBands(t, colors, moving = true) {
+  const time = moving ? t : 0;
   ctx.save();
   ctx.globalCompositeOperation = "lighter";
   for (let i = 0; i < 9; i += 1) {
@@ -275,7 +308,7 @@ function drawVoiceBands(t, colors) {
     const amp = 22 + i * 4 + pressure * 3;
     ctx.beginPath();
     for (let x = -20; x <= size.w + 20; x += 26) {
-      const wave = Math.sin(x * 0.009 + t * 0.00048 + i) * amp;
+      const wave = Math.sin(x * 0.009 + time * 0.00048 + i) * amp;
       const pull = pointer.active ? Math.max(0, 1 - Math.abs(pointer.x - x) / 340) * (pointer.y - y) * 0.08 : 0;
       const px = x;
       const py = y + wave + pull;
@@ -290,9 +323,10 @@ function drawVoiceBands(t, colors) {
   ctx.restore();
 }
 
-function drawOverrideLine(t, colors) {
-  const x = pointer.active ? pointer.x : size.w * (0.52 + Math.sin(t * 0.00018) * 0.05);
-  const lean = Math.sin(t * 0.00022 + pressure) * 42;
+function drawOverrideLine(t, colors, moving = true) {
+  const time = moving ? t : 0;
+  const x = pointer.active ? pointer.x : size.w * (0.52 + Math.sin(time * 0.00018) * 0.05);
+  const lean = Math.sin(time * 0.00022 + pressure) * 42;
   const glow = ctx.createLinearGradient(x - 50, 0, x + 50, size.h);
   glow.addColorStop(0, "rgba(231, 200, 75, 0)");
   glow.addColorStop(0.44, `${colors[(pressure + 1) % colors.length]}99`);
@@ -320,33 +354,41 @@ function drawOverrideLine(t, colors) {
   ctx.restore();
 }
 
-function drawParticles(t, colors) {
+function drawParticles(t, colors, moving = true) {
+  const time = moving ? t : 0;
   ctx.save();
   ctx.globalCompositeOperation = "lighter";
   particles.forEach((particle) => {
     const targetX = pointer.active ? pointer.x : size.w * 0.52;
     const targetY = pointer.active ? pointer.y : size.h * 0.48;
     const pull = 0.002 + pressure * 0.0004;
-    particle.vx += ((targetX - particle.x) / Math.max(size.w, 1)) * pull + Math.sin(t * 0.0007 + particle.phase) * 0.006;
-    particle.vy += ((targetY - particle.y) / Math.max(size.h, 1)) * pull + Math.cos(t * 0.00062 + particle.phase) * 0.006;
-    particle.x += particle.vx;
-    particle.y += particle.vy;
-    particle.vx *= 0.992;
-    particle.vy *= 0.992;
-    if (particle.x < -40) particle.x = size.w + 40;
-    if (particle.x > size.w + 40) particle.x = -40;
-    if (particle.y < -40) particle.y = size.h + 40;
-    if (particle.y > size.h + 40) particle.y = -40;
+    if (moving) {
+      particle.vx += ((targetX - particle.x) / Math.max(size.w, 1)) * pull + Math.sin(time * 0.0007 + particle.phase) * 0.006;
+      particle.vy += ((targetY - particle.y) / Math.max(size.h, 1)) * pull + Math.cos(time * 0.00062 + particle.phase) * 0.006;
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+      particle.vx *= 0.992;
+      particle.vy *= 0.992;
+      if (particle.x < -40) particle.x = size.w + 40;
+      if (particle.x > size.w + 40) particle.x = -40;
+      if (particle.y < -40) particle.y = size.h + 40;
+      if (particle.y > size.h + 40) particle.y = -40;
+    }
     ctx.fillStyle = colors[particle.lane];
     ctx.globalAlpha = 0.08 + Math.min(pressure, 9) * 0.008;
     ctx.beginPath();
-    ctx.arc(particle.x, particle.y, particle.r + Math.sin(t * 0.001 + particle.phase), 0, Math.PI * 2);
+    ctx.arc(particle.x, particle.y, particle.r + Math.sin(time * 0.001 + particle.phase), 0, Math.PI * 2);
     ctx.fill();
   });
   ctx.restore();
 }
 
-function draw(t) {
+function draw(t = 0, moving = true) {
+  if (moving && !shouldAnimateCanvas()) {
+    animationFrame = 0;
+    draw(0, false);
+    return;
+  }
   const bg = ctx.createLinearGradient(0, 0, size.w, size.h);
   bg.addColorStop(0, "#06080a");
   bg.addColorStop(0.38, "#111013");
@@ -356,11 +398,11 @@ function draw(t) {
   ctx.fillRect(0, 0, size.w, size.h);
 
   const colors = ["#00b7a8", "#e7c84b", "#ff5a4d", "#7db4ff", "#9cc76c"];
-  drawVoiceBands(t, colors);
-  drawParticles(t, colors);
-  drawOverrideLine(t, colors);
+  drawVoiceBands(t, colors, moving);
+  drawParticles(t, colors, moving);
+  drawOverrideLine(t, colors, moving);
 
-  requestAnimationFrame(draw);
+  if (moving) animationFrame = requestAnimationFrame(draw);
 }
 
 el.buttons.forEach((button) => {
@@ -371,17 +413,32 @@ el.laborButton.addEventListener("click", () => advanceLabor(true));
 
 window.addEventListener("pointermove", (event) => {
   pointer = { x: event.clientX, y: event.clientY, active: true };
+  if (!shouldAnimateCanvas()) renderStillCanvas();
 });
 
 window.addEventListener("pointerleave", () => {
   pointer.active = false;
+  if (!shouldAnimateCanvas()) renderStillCanvas();
 });
 
-window.addEventListener("resize", resize);
+window.addEventListener("resize", () => {
+  resize();
+  if (!shouldAnimateCanvas()) renderStillCanvas();
+});
+
+if (salonMotion?.onChange) {
+  salonMotion.onChange(syncMotionPreference);
+} else if (reducedMotionQuery?.addEventListener) {
+  reducedMotionQuery.addEventListener("change", syncMotionPreference);
+  document.addEventListener("visibilitychange", syncMotionPreference);
+} else {
+  reducedMotionQuery?.addListener?.(syncMotionPreference);
+  document.addEventListener("visibilitychange", syncMotionPreference);
+}
 window.addEventListener("ai-salon-trace", () => window.AISalonState?.renderTraceList("traceList", { limit: 6 }));
 
 resize();
 renderLabor();
 runGesture("expose", false);
 seedFromState();
-requestAnimationFrame(draw);
+syncMotionPreference();

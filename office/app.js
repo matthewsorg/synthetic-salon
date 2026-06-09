@@ -692,7 +692,7 @@ function drawDais(t) {
     ctx.fill();
     ctx.globalAlpha = 0.72;
     ctx.fillStyle = "#f3efe7";
-    ctx.font = "13px Sohne, system-ui, sans-serif";
+    ctx.font = "13px 'Instrument Sans', Inter, system-ui, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(seat.label, x, y + 1);

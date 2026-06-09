@@ -86,7 +86,7 @@
   box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(16px);
   color: #f3efe7;
-  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: "Instrument Sans", Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -193,7 +193,7 @@ body.law-active {
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(16px);
   color: #f3efe7;
-  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: "Instrument Sans", Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -395,7 +395,7 @@ body[data-spatial-zone="salon"] .salon {
 .gemini-drift-chamber strong {
   max-width: min(760px, 86vw);
   color: #f3efe7;
-  font-family: "Tiempos", Georgia, "Times New Roman", serif;
+  font-family: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;
   font-size: clamp(34px, 8vw, 86px);
   font-weight: 400;
   line-height: 0.92;

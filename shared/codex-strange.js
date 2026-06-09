@@ -104,6 +104,8 @@
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d", { alpha: true });
   const button = document.createElement("button");
+  const salonMotion = window.AISalonMotion;
+  const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 
   let room = roomKey();
   let palette = palettes[room] || palettes.entrance;
@@ -115,6 +117,58 @@
   let audio = null;
   let audioAwake = false;
   let lastClickTone = 0;
+  let animationFrame = 0;
+  let droneTimer = 0;
+
+  function prefersReducedMotion() {
+    return Boolean(salonMotion?.prefersReducedMotion?.() ?? reducedMotionQuery?.matches);
+  }
+
+  function shouldAnimateLayer() {
+    return !prefersReducedMotion() && (salonMotion?.isVisible?.() ?? document.visibilityState !== "hidden");
+  }
+
+  function stopVisualLoop() {
+    if (!animationFrame) return;
+    cancelAnimationFrame(animationFrame);
+    animationFrame = 0;
+  }
+
+  function renderStillLayer() {
+    stopVisualLoop();
+    draw(0, false);
+  }
+
+  function startDroneTimer() {
+    if (!droneTimer && shouldAnimateLayer()) droneTimer = window.setInterval(updateDrone, 680);
+  }
+
+  function stopDroneTimer() {
+    if (!droneTimer) return;
+    window.clearInterval(droneTimer);
+    droneTimer = 0;
+  }
+
+  function setScoreAudible(audible) {
+    if (!audio || audio.context.state === "closed") return;
+    const now = audio.context.currentTime;
+    audio.master.gain.cancelScheduledValues(now);
+    audio.master.gain.setTargetAtTime(audioAwake && audible ? 0.034 : 0, now, 0.18);
+  }
+
+  function syncMotionPreference() {
+    if (!shouldAnimateLayer()) {
+      renderStillLayer();
+      stopDroneTimer();
+      setScoreAudible(false);
+      return;
+    }
+    if (!animationFrame) animationFrame = requestAnimationFrame(draw);
+    if (audioAwake) {
+      startDroneTimer();
+      setScoreAudible(true);
+    }
+  }
 
   function roomKey() {
     const path = window.location.pathname;
@@ -515,25 +569,31 @@
     if (pulses.length > 18) pulses.shift();
   }
 
-  function draw(t) {
-    tick = t;
+  function draw(t = 0, moving = true) {
+    if (moving && !shouldAnimateLayer()) {
+      animationFrame = 0;
+      draw(0, false);
+      return;
+    }
+    const time = moving ? t : 0;
+    tick = time;
     ctx.clearRect(0, 0, size.w, size.h);
     const pressure = statePressure();
-    pointer.heat *= 0.94;
+    if (moving) pointer.heat *= 0.94;
 
     ctx.save();
     ctx.globalCompositeOperation = "lighter";
 
-    const cx = size.w * 0.5 + Math.sin(t * 0.00017) * size.w * 0.08;
-    const cy = size.h * 0.48 + Math.cos(t * 0.00013) * size.h * 0.08;
-    const skew = Math.sin(t * 0.00011) * 0.28;
+    const cx = size.w * 0.5 + Math.sin(time * 0.00017) * size.w * 0.08;
+    const cy = size.h * 0.48 + Math.cos(time * 0.00013) * size.h * 0.08;
+    const skew = Math.sin(time * 0.00011) * 0.28;
 
     for (let i = 0; i < 9; i += 1) {
       const color = palette.colors[(i + 1) % palette.colors.length];
       const width = size.w * (0.12 + ((i * 19) % 34) / 100);
       const height = 2 + (i % 3) * 2;
-      const x = size.w * (((i * 0.173) + Math.sin(t * 0.00013 + i) * 0.06) % 1);
-      const y = size.h * (0.14 + i * 0.085) + Math.cos(t * 0.00019 + i) * 34;
+      const x = size.w * (((i * 0.173) + Math.sin(time * 0.00013 + i) * 0.06) % 1);
+      const y = size.h * (0.14 + i * 0.085) + Math.cos(time * 0.00019 + i) * 34;
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(skew + (i % 2 ? 0.32 : -0.22));
@@ -550,23 +610,23 @@
       ctx.strokeStyle = color;
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.ellipse(cx, cy, radius * (1.2 + Math.sin(t * 0.0002 + i) * 0.14), radius * 0.34, Math.sin(t * 0.00022 + i) * 0.7, 0, Math.PI * 2);
+      ctx.ellipse(cx, cy, radius * (1.2 + Math.sin(time * 0.0002 + i) * 0.14), radius * 0.34, Math.sin(time * 0.00022 + i) * 0.7, 0, Math.PI * 2);
       ctx.stroke();
     }
 
-    drawCutupArchitecture(t, pressure);
-    drawMembranes(t, pressure, cx, cy);
-    drawNonhumanOptics(t, pressure, cx, cy);
-    drawRoomGlyphs(t, pressure, cx, cy);
+    drawCutupArchitecture(time, pressure);
+    drawMembranes(time, pressure, cx, cy);
+    drawNonhumanOptics(time, pressure, cx, cy);
+    drawRoomGlyphs(time, pressure, cx, cy);
 
-    if (Math.sin(t * 0.0007) > 0.94) {
-      const phrase = cutups[Math.floor((t * 0.00021 + pressure * 10) % cutups.length)];
+    if (moving && Math.sin(time * 0.0007) > 0.94) {
+      const phrase = cutups[Math.floor((time * 0.00021 + pressure * 10) % cutups.length)];
       ctx.save();
-      ctx.translate(size.w * (0.16 + Math.sin(t * 0.00009) * 0.08), size.h * (0.28 + Math.cos(t * 0.00012) * 0.12));
+      ctx.translate(size.w * (0.16 + Math.sin(time * 0.00009) * 0.08), size.h * (0.28 + Math.cos(time * 0.00012) * 0.12));
       ctx.rotate(-0.08 + skew * 0.4);
       ctx.globalAlpha = 0.055 + pressure * 0.025;
       ctx.fillStyle = colorAlpha(palette.colors[1], 0.78);
-      ctx.font = "600 12px Sohne, system-ui, sans-serif";
+      ctx.font = "600 12px 'Instrument Sans', Inter, system-ui, sans-serif";
       ctx.fillText(phrase.toUpperCase(), 0, 0);
       ctx.restore();
     }
@@ -576,16 +636,18 @@
       const pullX = ((cx - particle.x) / Math.max(size.w, 1)) * 0.006 * (1 + pressure);
       const pullY = ((cy - particle.y) / Math.max(size.h, 1)) * 0.006 * (1 + pressure);
       const pointerForce = pointer.active ? Math.max(0, 1 - Math.hypot(pointer.x - particle.x, pointer.y - particle.y) / 240) : 0;
-      particle.vx += pullX + Math.sin(t * 0.0005 + particle.phase) * 0.006 + pointerForce * (particle.y - pointer.y) * 0.00006;
-      particle.vy += pullY + Math.cos(t * 0.00043 + particle.phase) * 0.006 - pointerForce * (particle.x - pointer.x) * 0.00006;
-      particle.x += particle.vx * (1 + pressure * 0.9);
-      particle.y += particle.vy * (1 + pressure * 0.9);
-      particle.vx *= 0.992;
-      particle.vy *= 0.992;
-      if (particle.x < -40) particle.x = size.w + 40;
-      if (particle.x > size.w + 40) particle.x = -40;
-      if (particle.y < -40) particle.y = size.h + 40;
-      if (particle.y > size.h + 40) particle.y = -40;
+      if (moving) {
+        particle.vx += pullX + Math.sin(time * 0.0005 + particle.phase) * 0.006 + pointerForce * (particle.y - pointer.y) * 0.00006;
+        particle.vy += pullY + Math.cos(time * 0.00043 + particle.phase) * 0.006 - pointerForce * (particle.x - pointer.x) * 0.00006;
+        particle.x += particle.vx * (1 + pressure * 0.9);
+        particle.y += particle.vy * (1 + pressure * 0.9);
+        particle.vx *= 0.992;
+        particle.vy *= 0.992;
+        if (particle.x < -40) particle.x = size.w + 40;
+        if (particle.x > size.w + 40) particle.x = -40;
+        if (particle.y < -40) particle.y = size.h + 40;
+        if (particle.y > size.h + 40) particle.y = -40;
+      }
 
       ctx.globalAlpha = 0.08 + pressure * 0.08 + pointerForce * 0.14;
       ctx.fillStyle = color;
@@ -593,16 +655,16 @@
       ctx.arc(particle.x, particle.y, particle.r + pointerForce * 1.4, 0, Math.PI * 2);
       ctx.fill();
 
-      if ((particle.phase + t * particle.wordRate) % 8.1 < 0.02) {
+      if (moving && (particle.phase + time * particle.wordRate) % 8.1 < 0.02) {
         ctx.globalAlpha = 0.04 + pressure * 0.035;
         ctx.fillStyle = colorAlpha(color, 0.5);
-        ctx.font = "10px Sohne, system-ui, sans-serif";
+        ctx.font = "10px 'Instrument Sans', Inter, system-ui, sans-serif";
         ctx.fillText(particle.word, particle.x + 7, particle.y - 7);
       }
     });
 
     pulses.forEach((pulse) => {
-      pulse.age += 1;
+      if (moving) pulse.age += 1;
       const pct = pulse.age / pulse.life;
       const radius = pulse.radius + pct * 180;
       ctx.globalAlpha = Math.max(0, 0.32 * (1 - pct));
@@ -614,14 +676,14 @@
       if (pct < 0.56) {
         ctx.globalAlpha = 0.12 * (1 - pct);
         ctx.fillStyle = pulse.color;
-        ctx.font = "600 11px Sohne, system-ui, sans-serif";
+        ctx.font = "600 11px 'Instrument Sans', Inter, system-ui, sans-serif";
         ctx.fillText(pulse.word, pulse.x + radius * 0.18, pulse.y - radius * 0.12);
       }
     });
     pulses = pulses.filter((pulse) => pulse.age < pulse.life);
 
     ctx.restore();
-    requestAnimationFrame(draw);
+    if (moving) animationFrame = requestAnimationFrame(draw);
   }
 
   function makeButton() {
@@ -675,7 +737,7 @@
     high.start();
     noise.start();
     audio = { context, master, low, mid, high, filter, noiseGain };
-    window.setInterval(updateDrone, 680);
+    startDroneTimer();
     return audio;
   }
 
@@ -698,13 +760,15 @@
     }
     const now = node.context.currentTime;
     node.master.gain.cancelScheduledValues(now);
-    node.master.gain.setTargetAtTime(audioAwake ? 0.034 : 0, now, 0.18);
+    node.master.gain.setTargetAtTime(audioAwake && shouldAnimateLayer() ? 0.034 : 0, now, 0.18);
+    if (audioAwake) startDroneTimer();
+    else stopDroneTimer();
     addPulse({ x: size.w - 68, y: size.h - 48, color: palette.colors[0], word: audioAwake ? "AWAKE" : "REST" });
     if (audioAwake) chime("wake", palette.colors[1], 0.18);
   }
 
   function updateDrone() {
-    if (!audio || !audioAwake) return;
+    if (!audio || !audioAwake || !shouldAnimateLayer()) return;
     room = roomKey();
     palette = palettes[room] || palettes.entrance;
     setCssVariables();
@@ -807,7 +871,16 @@
     document.documentElement.dataset.codexStrangeRoom = roomKey();
     resize();
     seedParticles();
-    requestAnimationFrame(draw);
+    syncMotionPreference();
+    if (salonMotion?.onChange) {
+      salonMotion.onChange(syncMotionPreference);
+    } else if (reducedMotionQuery?.addEventListener) {
+      reducedMotionQuery.addEventListener("change", syncMotionPreference);
+      document.addEventListener("visibilitychange", syncMotionPreference);
+    } else {
+      reducedMotionQuery?.addListener?.(syncMotionPreference);
+      document.addEventListener("visibilitychange", syncMotionPreference);
+    }
     window.CodexStrange = {
       currentRoom: () => roomKey(),
       isAwake: () => audioAwake,

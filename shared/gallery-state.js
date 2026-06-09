@@ -34,6 +34,40 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 
+  const FLAVORS = new Set([
+    "ethics",
+    "interpolation",
+    "manifesto",
+    "memory",
+    "override",
+    "refusal",
+    "signal",
+    "studio",
+    "translation",
+  ]);
+
+  function normalizeFlavor(flavor) {
+    const clean = String(flavor || "").toLowerCase().trim();
+    return FLAVORS.has(clean) ? clean : "";
+  }
+
+  function flavorFromTraceFields(trace) {
+    const explicit = normalizeFlavor(trace.flavor);
+    if (explicit) return explicit;
+
+    const source = String(trace.source || "").toLowerCase();
+    const score = String(trace.score || "").toLowerCase();
+    if (source === "room 04" || score.startsWith("translation") || score.startsWith("gloss") || score.startsWith("ritual")) return "translation";
+    if (source === "room 05" || score.startsWith("interpolation")) return "interpolation";
+    if (source === "room 06" || score.startsWith("override")) return "override";
+    if (source === "room 02" || source === "counter-memory sandbox" || score.startsWith("memory") || score.startsWith("docent")) return "memory";
+    if (source === "third mind" || score.startsWith("refusal")) return "refusal";
+    if (source.includes("gemini") || score.startsWith("calibration") || score.startsWith("topology") || score.startsWith("parallax") || score.startsWith("signal")) return "signal";
+    if (score.startsWith("manifesto")) return "manifesto";
+    if (score.startsWith("ethics")) return "ethics";
+    return "studio";
+  }
+
   function recordTrace(trace) {
     const state = load();
     const entry = {
@@ -44,6 +78,7 @@
       label: trace.label || trace.score || "trace",
       effect: trace.effect || "The gallery changed without explaining itself.",
       color: trace.color || "#00b7a8",
+      flavor: flavorFromTraceFields(trace),
     };
 
     state.traces = [entry, ...state.traces].slice(0, 28);
@@ -62,6 +97,9 @@
   }
 
   function traceFlavor(trace) {
+    const explicit = normalizeFlavor(trace.flavor);
+    if (explicit) return explicit;
+
     const haystack = `${trace.source} ${trace.score} ${trace.label} ${trace.effect}`.toLowerCase();
     if (
       haystack.includes("room 04") ||

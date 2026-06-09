@@ -31,6 +31,10 @@
     <link rel="stylesheet" href="./shared/mobile.css?v=mobile-1" />
   </head>
   <body>
+    <a class="salon-skip-link" href="#entrance">Skip to main content</a>
+    <noscript>
+      <div class="salon-noscript">The room requires a body that can run scripts. Without JavaScript, the salon can only offer static labels and an unperformed threshold.</div>
+    </noscript>
     <canvas id="salonMap" aria-hidden="true"></canvas>
     <div class="grain" aria-hidden="true"></div>
 
@@ -53,7 +57,7 @@
       </nav>
     </header>
 
-    <main id="entrance" class="entrance">
+    <main id="entrance" class="entrance" tabindex="-1">
       <section class="hero" aria-labelledby="salonTitle">
         <p class="eyebrow">Synthetic Salon</p>
         <h1 id="salonTitle">The entrance fails to welcome you.</h1>

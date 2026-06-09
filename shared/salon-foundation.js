@@ -2,6 +2,43 @@
 
 (function initSalonFoundation() {
   const script = document.currentScript;
+  const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+
+  if (!window.AISalonMotion) {
+    const listeners = new Set();
+    const state = () => ({
+      reducedMotion: Boolean(motionQuery?.matches),
+      visible: document.visibilityState !== "hidden",
+      shouldAnimate: !motionQuery?.matches && document.visibilityState !== "hidden",
+    });
+    const emit = () => {
+      const current = state();
+      document.documentElement.dataset.reducedMotion = String(current.reducedMotion);
+      document.documentElement.dataset.salonVisible = String(current.visible);
+      listeners.forEach((listener) => listener(current));
+    };
+
+    window.AISalonMotion = {
+      state,
+      prefersReducedMotion: () => state().reducedMotion,
+      isVisible: () => state().visible,
+      shouldAnimate: () => state().shouldAnimate,
+      onChange(listener) {
+        listeners.add(listener);
+        listener(state());
+        return () => listeners.delete(listener);
+      },
+    };
+
+    if (motionQuery?.addEventListener) {
+      motionQuery.addEventListener("change", emit);
+    } else {
+      motionQuery?.addListener?.(emit);
+    }
+    document.addEventListener("visibilitychange", emit);
+    emit();
+  }
+
   if (!script || document.querySelector(".salon-foundation")) return;
 
   const rootUrl = new URL("../", script.src);

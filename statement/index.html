@@ -24,6 +24,10 @@
     <link rel="stylesheet" href="../shared/mobile.css?v=mobile-1" />
   </head>
   <body>
+    <a class="salon-skip-link" href="#main">Skip to main content</a>
+    <noscript>
+      <div class="salon-noscript">The room requires a body that can run scripts. Without JavaScript, the salon can only offer static labels and an unperformed threshold.</div>
+    </noscript>
     <div class="grain" aria-hidden="true"></div>
 
     <header class="topbar">
@@ -35,7 +39,7 @@
       <a class="backlink" href="../room-01/index.html">Room 01</a>
     </header>
 
-    <main class="statement-page">
+    <main id="main" class="statement-page" tabindex="-1">
       <article class="statement-body" aria-label="Artist statement">
         <p>
           Synthetic Salon is not a gallery of AI images. It is a gallery of situations in which

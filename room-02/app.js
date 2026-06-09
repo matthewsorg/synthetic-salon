@@ -2,6 +2,8 @@
 
 const canvas = document.getElementById("memoryStage");
 const ctx = canvas.getContext("2d", { alpha: false });
+const salonMotion = window.AISalonMotion;
+const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 
 const el = {
   live: document.getElementById("live"),
@@ -85,6 +87,7 @@ let stillTimer = null;
 let pendingCounterMemory = null;
 let audio = null;
 let lastPointerPulse = 0;
+let animationFrame = 0;
 
 function colorAlpha(hex, alpha) {
   const value = hex.replace("#", "");
@@ -97,6 +100,35 @@ function colorAlpha(hex, alpha) {
 
 function palette() {
   return modePalettes[mode] || modePalettes.false;
+}
+
+function prefersReducedMotion() {
+  return Boolean(salonMotion?.prefersReducedMotion?.() ?? reducedMotionQuery?.matches);
+}
+
+function shouldAnimateCanvas() {
+  return !prefersReducedMotion() && (salonMotion?.isVisible?.() ?? document.visibilityState !== "hidden");
+}
+
+function stopCanvasAnimation() {
+  if (!animationFrame) return;
+  cancelAnimationFrame(animationFrame);
+  animationFrame = 0;
+}
+
+function renderStillCanvas() {
+  stopCanvasAnimation();
+  document.body.dataset.reducedMotion = "true";
+  draw(0, false);
+}
+
+function syncMotionPreference() {
+  if (!shouldAnimateCanvas()) {
+    renderStillCanvas();
+    return;
+  }
+  delete document.body.dataset.reducedMotion;
+  if (!animationFrame) animationFrame = requestAnimationFrame(draw);
 }
 
 function announce(text) {
@@ -305,7 +337,13 @@ function memoryPulse(x, y, color, scale = 1) {
   while (pulses.length > 18) pulses.shift();
 }
 
-function draw(t) {
+function draw(t = 0, moving = true) {
+  if (moving && !shouldAnimateCanvas()) {
+    animationFrame = 0;
+    draw(0, false);
+    return;
+  }
+  const time = moving ? t : 0;
   const colors = palette();
   const bg = ctx.createLinearGradient(0, 0, size.w, size.h);
   bg.addColorStop(0, "#07090d");
@@ -318,12 +356,12 @@ function draw(t) {
   ctx.save();
   ctx.globalCompositeOperation = "lighter";
   for (let i = 0; i < 13; i += 1) {
-    const x = size.w * (0.12 + i * 0.1) + Math.sin(t * 0.0004 + i) * 24;
+    const x = size.w * (0.12 + i * 0.1) + Math.sin(time * 0.0004 + i) * 24;
     ctx.strokeStyle = colorAlpha(colors[i % colors.length], 0.05 + (i % 3) * 0.018);
     ctx.lineWidth = 1 + (i % 4);
     ctx.beginPath();
     ctx.moveTo(x, 0);
-    ctx.lineTo(x + Math.sin(t * 0.0003 + i) * 80, size.h);
+    ctx.lineTo(x + Math.sin(time * 0.0003 + i) * 80, size.h);
     ctx.stroke();
   }
   ctx.restore();
@@ -346,9 +384,11 @@ function draw(t) {
   ctx.save();
   ctx.globalCompositeOperation = "lighter";
   fragments.forEach((fragment) => {
-    fragment.x += fragment.speed * (mode === "forget" ? 0.74 : mode === "observe" ? 0.42 : 1.25);
-    if (fragment.x > size.w + fragment.w) fragment.x = -fragment.w;
-    const y = fragment.y + Math.sin(t * 0.001 + fragment.phase + turn * 0.2) * 9;
+    if (moving) {
+      fragment.x += fragment.speed * (mode === "forget" ? 0.74 : mode === "observe" ? 0.42 : 1.25);
+      if (fragment.x > size.w + fragment.w) fragment.x = -fragment.w;
+    }
+    const y = fragment.y + Math.sin(time * 0.001 + fragment.phase + turn * 0.2) * 9;
     ctx.globalAlpha = fragment.alpha;
     ctx.fillStyle = colors[fragment.colorIndex % colors.length];
     ctx.shadowColor = colors[fragment.colorIndex % colors.length];
@@ -360,8 +400,10 @@ function draw(t) {
 
   pulses = pulses.filter((pulse) => pulse.life > 0.015);
   pulses.forEach((pulse) => {
-    pulse.life *= 0.965;
-    pulse.spin += 0.01;
+    if (moving) {
+      pulse.life *= 0.965;
+      pulse.spin += 0.01;
+    }
     const r = pulse.radius * (1.15 - pulse.life + pulse.scale * 0.25);
     ctx.globalAlpha = pulse.life * 0.38;
     ctx.strokeStyle = pulse.color;
@@ -379,8 +421,10 @@ function draw(t) {
   });
   ctx.restore();
 
-  updateDrone();
-  requestAnimationFrame(draw);
+  if (moving) {
+    updateDrone();
+    animationFrame = requestAnimationFrame(draw);
+  }
 }
 
 function ensureAudio() {
@@ -490,17 +534,32 @@ window.addEventListener("pointermove", (event) => {
     lastPointerPulse = performance.now();
   }
   resetStillTimer();
+  if (!shouldAnimateCanvas()) renderStillCanvas();
 });
 
 window.addEventListener("pointerleave", () => {
   pointer.active = false;
+  if (!shouldAnimateCanvas()) renderStillCanvas();
 });
 
-window.addEventListener("resize", resize);
+window.addEventListener("resize", () => {
+  resize();
+  if (!shouldAnimateCanvas()) renderStillCanvas();
+});
+
+if (salonMotion?.onChange) {
+  salonMotion.onChange(syncMotionPreference);
+} else if (reducedMotionQuery?.addEventListener) {
+  reducedMotionQuery.addEventListener("change", syncMotionPreference);
+  document.addEventListener("visibilitychange", syncMotionPreference);
+} else {
+  reducedMotionQuery?.addListener?.(syncMotionPreference);
+  document.addEventListener("visibilitychange", syncMotionPreference);
+}
 
 resize();
 renderBase();
 setMode("false", false);
 window.AISalonState?.renderTraceList("traceList", { limit: 4 });
 window.addEventListener("ai-salon-trace", () => window.AISalonState?.renderTraceList("traceList", { limit: 4 }));
-requestAnimationFrame(draw);
+syncMotionPreference();

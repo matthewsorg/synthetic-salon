@@ -12,7 +12,7 @@
   z-index: 6;
   pointer-events: none;
   color: var(--ethics-paper);
-  font-family: "Sohne", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Instrument Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   mix-blend-mode: screen;
 }
 
@@ -147,7 +147,7 @@
 
 .ethical-interruption__axiom strong {
   color: var(--ethics-paper);
-  font-family: "Tiempos", Georgia, "Times New Roman", serif;
+  font-family: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;
   font-size: clamp(17px, 2vw, 24px);
   font-weight: 400;
   line-height: 1.02;

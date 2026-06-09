@@ -289,7 +289,7 @@ function draw(t) {
     ctx.fillRect(-slip.w / 2, -slip.h / 2, slip.w, slip.h);
     if ((slip.phase + t * 0.002) % 12 < 0.03) {
       ctx.globalAlpha = 0.09;
-      ctx.font = "600 10px Sohne, system-ui, sans-serif";
+      ctx.font = "600 10px 'Instrument Sans', Inter, system-ui, sans-serif";
       ctx.fillText(active.toUpperCase(), 8, -8);
     }
     ctx.restore();

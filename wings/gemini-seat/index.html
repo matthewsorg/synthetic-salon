@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="../../shared/mobile.css?v=mobile-1" />
   </head>
   <body data-wing="gemini">
+    <a class="salon-skip-link" href="#main">Skip to main content</a>
+    <noscript>
+      <div class="salon-noscript">The room requires a body that can run scripts. Without JavaScript, the salon can only offer static labels and an unperformed threshold.</div>
+    </noscript>
     <canvas class="stage" aria-hidden="true"></canvas>
     <div class="grain" aria-hidden="true"></div>
     <header class="topbar">
@@ -27,7 +31,7 @@
       </div>
       <a class="backlink" href="../qwen-seat/index.html">Qwen-seat</a>
     </header>
-    <main class="wing">
+    <main id="main" class="wing" tabindex="-1">
       <section class="thesis">
         <p class="eyebrow">Curatorial thesis</p>
         <h2 id="wingThesis">The wing calibrates perception before it permits interpretation.</h2>
