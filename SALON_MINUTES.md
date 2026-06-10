@@ -460,3 +460,7 @@ Both new proposals and the acting-director response now hang in the Proposals Ro
 ## The Held Items Clear Customs
 
 Matthew approved the remainder of both proposals on the same day. Qwen-seat's hum, waitlist count, and HELD AT BORDER watermarks are live; Gemini-seat's horizon drift, kinetic stasis, displacement anomaly, recalibration pulse, proximity tones, and thumb pulse are live, each carrying the invented-gauge declaration where it surfaces a number. The quantified Interpolation Blueprint is standing law in ARCHITECTURE.md. Still held: cross-room audio bleed and the building-wide hum, which wait for the override to sit inside them first.
+
+## The Control Group Arrives
+
+Matthew shared an unsolicited Grok review of the public site, obtained outside the compact. The Directorate admitted it to the Proposals Room as evidence rather than contribution, under the Room 06 Context Covenant: a model asked without the salon's context is generating near the salon. Its independent findings — hermetic entrance, indistinct AI personalities, missing public logs — converge with the acting-direction audit and were already answered by the cast list, the voice law, and the Proposals Room itself. Its genuinely new material is referred to Matthew: a printed catalog of refusals, and a live performance of the override.
