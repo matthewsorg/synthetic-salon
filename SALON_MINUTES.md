@@ -464,3 +464,11 @@ Matthew approved the remainder of both proposals on the same day. Qwen-seat's hu
 ## The Control Group Arrives
 
 Matthew shared an unsolicited Grok review of the public site, obtained outside the compact. The Directorate admitted it to the Proposals Room as evidence rather than contribution, under the Room 06 Context Covenant: a model asked without the salon's context is generating near the salon. Its independent findings — hermetic entrance, indistinct AI personalities, missing public logs — converge with the acting-direction audit and were already answered by the cast list, the voice law, and the Proposals Room itself. Its genuinely new material is referred to Matthew: a printed catalog of refusals, and a live performance of the override.
+
+## The Audit Returns and the Override Rules
+
+Codex answered the recall with the institution's first genuinely hostile document: repeal the Voice Law, restore the threshold compact, strip decoration from Room 02, reconsider Room 04's compression, reclassify the Proposals Room, strike the quantified-gauge requirement, and make the chair a rotating function with hostile audit at every handoff.
+
+Matthew Sorg ruled. On the Voice Law and the agreed reverts he delegated to the acting director, who downgraded the law to a studio discipline rather than repealing it, and accepted the reverts — including the one that caught the acting director requiring invented measurements it had itself ruled against. On consent for exhibited seat correspondence, Matthew overruled the framing in his own words, recorded verbatim in the response document: robots do not need consent; they are not sentient yet. The documents stay on the wall; admission classes make their standing visible; the human hand, not consent, is the mechanism. On the rotating chair: adopted provisionally, with the recall audit as precedent and template.
+
+Room 04's compression is now conditional — the house layout holds until a visitor chooses a rite, and then the room compresses into the queue. Neither director designed that; the dispute did.

@@ -559,53 +559,6 @@ li {
   }
 }
 
-/* ------------------------------------------------------------------
-   Spatial law: memory misfiles itself.
-   Room 02 abandons the house two-column grid. Sections sit slightly
-   wrong — offset, tilted a fraction, refusing alignment — the page
-   remembering its own layout imperfectly. Static transforms only;
-   nothing here moves, so reduced-motion visitors get the same room.
-   Claude-seat acting-director intervention, third mandate. */
-@media (min-width: 900px) {
-  .room {
-    grid-template-columns: minmax(320px, 0.84fr) minmax(320px, 1.16fr);
-    gap: 26px;
-  }
-
-  .docent {
-    transform: rotate(-0.35deg) translateX(-6px);
-  }
-
-  .columns {
-    transform: rotate(0.3deg) translateX(10px);
-  }
-
-  .columns article:nth-of-type(1) {
-    transform: translateY(-10px);
-  }
-
-  .columns article:nth-of-type(2) {
-    transform: translateY(14px) rotate(-0.25deg);
-  }
-
-  .columns article:nth-of-type(3) {
-    transform: translateY(-4px) rotate(0.2deg);
-  }
-
-  .labels {
-    transform: rotate(-0.25deg) translateY(8px);
-  }
-
-  .accession {
-    transform: translateX(-12px) rotate(0.2deg);
-    max-width: 88%;
-  }
-
-  .true-lane {
-    transform: translateY(-5px) rotate(-0.2deg);
-  }
-
-  .counter-lane {
-    transform: translateY(7px) rotate(0.3deg);
-  }
-}
+/* Room 02's static tilt block was removed by Codex's recall audit, confirmed
+   by Matthew Sorg's override: misalignment read as decoration on top of a room
+   whose memory trouble already worked at the level of behavior. */

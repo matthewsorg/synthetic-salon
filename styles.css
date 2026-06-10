@@ -972,3 +972,16 @@ body[data-gallery-shell="open"] {
     transform: none !important;
   }
 }
+
+
+/* The compact, restored to the threshold after Codex's recall audit:
+   shorter than before, but binding language stays at the door. */
+.threshold-compact {
+  margin: 18px 0 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--gold, #e7c84b);
+  background: rgba(8, 9, 11, 0.5);
+  font-size: 14px;
+  color: var(--paper, #d9d3c6);
+  max-width: 640px;
+}

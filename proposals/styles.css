@@ -215,3 +215,32 @@ body {
     gap: 2px;
   }
 }
+
+
+/* Document classes, added after Codex's recall audit: admission status is
+   visible on every record. */
+.doc-class {
+  color: var(--muted);
+  border: 1px solid rgba(243, 239, 231, 0.18);
+  border-radius: 3px;
+  padding: 1px 8px;
+}
+
+.docs--evidence {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px dashed rgba(243, 239, 231, 0.22);
+}
+
+.evidence-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(18px, 2.4vw, 24px);
+  margin: 0 0 6px;
+}
+
+.evidence-note {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 620px;
+}

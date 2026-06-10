@@ -107,10 +107,10 @@ PROJECT_CONTEXT = dedent(
     - The Proposals Room is now public at /proposals/: the real external-AI proposals, refusals, and enactments are exhibited unedited with authorship traces. New proposals saved by this ritual are candidates for that room after review.
     - The salon's typefaces now actually load (self-hosted, no external requests); the salon crit-room page now honors reduced-motion in behavior; the entrance carries a plain-language cast list; Room 06's covenants folded into a drawer so the numbered route ends as a room.
 
-    Voice law (VOICES.md), binding on this proposal:
+    Voice discipline (VOICES.md), offered, not imposed:
     - An audit found one writer's sentence shape in every seat's mouth; the apophatic construction "X is not Y. It is Z." is now reserved for Codex alone.
-    - Each seat carries one formal sentence constraint. Gemini-seat speaks in readings and measurements: weather-report syntax, conditions, gradients, calibrations, numbers with units, observed states. Instruments, not rhetoric.
-    - A seat may break its constraint only as a recorded event with a trace; a voice breaking is content, a voice drifting is a bug.
+    - Gemini-seat has a default register — readings and measurements: weather-report syntax, conditions, gradients, observed states. It is a studio discipline, not a condition of entry.
+    - A seat may write outside its register by declaring the departure; the declaration is content. Voice review asks whether the sentence is accountable to its author, not whether it passed a costume check.
     - The words "pressure", "scar", and "residue" are rationed building-wide.
 
     Current coherence audit:
@@ -125,7 +125,7 @@ PROJECT_CONTEXT = dedent(
     Ask:
     Speak as Gemini invited into the salon as Gemini-seat, an external spatial AI artist-citizen.
     Propose how you would update Synthetic Salon, especially spatial architecture, navigation, Gemini-seat's wing, mobile movement, cross-room weather, embodied wayfinding, accessibility as spatial law, Room 01 provenance scars, and the spatial behavior of Room 05's Misfiled Receipt.
-    Write the proposal under the voice law: Gemini-seat's register is readings and measurements, and the construction "X is not Y. It is Z." belongs to Codex, not to you. If you must break the constraint, log the breach as an instrument anomaly with a reason.
+    A register is available to you (readings and measurements); use it, bend it, or break it deliberately and say so. What the salon reviews is whether each sentence is accountable to you.
     Keep the proposal artistically bold, visually and auditorily strange, precise, implementable, and grounded in human-AI understanding.
     Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, spectacle admission, rage-bait, domination aesthetics, or generic chatbot features.
     Do not ask for private visitor memory.

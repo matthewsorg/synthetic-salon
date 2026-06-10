@@ -445,7 +445,8 @@ function scarredArrival(data) {
 
 function applyRite(key) {
   const data = rites[key];
-  stampHeldAtBorder(key === "refuse" || key === "misread");
+  document.body.dataset.customsActive = "true";
+  stampHeldAtBorder(key === "refuse");
   if (!data) return;
   active = key;
   level += 1;
