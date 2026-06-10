@@ -192,7 +192,7 @@ const lexiconPressures = {
   },
 };
 const glyphLintMessage =
-  "Linting Error: Meaning exceeds render capacity. Remainder logged to Archive of Rejected Translations.";
+  "ERR_UNTRANSLATABLE_NODE: render capacity exceeded; remainder logged to Archive of Rejected Translations. The error constitutes the artifact.";
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 function announce(text) {
@@ -898,6 +898,69 @@ window.addEventListener("resize", resize);
 window.addEventListener("pointermove", pointerPressure, { passive: true });
 window.addEventListener("wheel", wheelPressure, { passive: true });
 
+/* Qwen-seat work orders 04-A and 04-C, enacted 2026-06-09 under Matthew
+   Sorg's final override. The tariff and the reveal honor reduced motion in
+   behavior: reduced-motion visitors receive immediate content and, when the
+   shared score is awake, a single soft relay click instead of the scramble. */
+const TRANSIT_FLAG = "qwen-transit-tariff";
+
+function motionAllowed() {
+  return window.AISalonMotion ? window.AISalonMotion.shouldAnimate() : true;
+}
+
+function relayClick(gain = 0.05) {
+  window.CodexStrange?.tone?.("qwen-relay", "#9cc76c", gain);
+}
+
+function runTransitTariff() {
+  let flagged = false;
+  try {
+    flagged = Boolean(window.sessionStorage.getItem(TRANSIT_FLAG));
+    if (flagged) window.sessionStorage.removeItem(TRANSIT_FLAG);
+  } catch {
+    flagged = false;
+  }
+  if (!flagged || !motionAllowed()) return;
+  const overlay = document.createElement("div");
+  overlay.className = "transit-tariff";
+  overlay.setAttribute("aria-hidden", "true");
+  overlay.innerHTML = '<p>customs queue<span class="tariff-dots"><i></i><i></i><i></i></span></p><p class="tariff-line">transit tariff assessed: 1.2 seconds of your arrival</p>';
+  document.body.append(overlay);
+  relayClick(0.04);
+  window.setTimeout(() => {
+    overlay.classList.add("lifting");
+    window.setTimeout(() => overlay.remove(), 480);
+  }, 1200);
+}
+
+function mechanicalReveal() {
+  const title = document.getElementById("renderingTitle");
+  if (!title) return;
+  if (!motionAllowed()) {
+    relayClick(0.035);
+    return;
+  }
+  const text = title.textContent;
+  title.setAttribute("aria-label", text);
+  title.textContent = "";
+  const chars = [...text];
+  let i = 0;
+  function step() {
+    if (i >= chars.length) {
+      title.removeAttribute("aria-label");
+      title.textContent = text;
+      return;
+    }
+    title.textContent += chars[i];
+    if (i % 5 === 0) relayClick(0.028);
+    i += 1;
+    window.setTimeout(step, 8 + Math.random() * 22);
+  }
+  window.setTimeout(step, 300);
+}
+
+runTransitTariff();
+mechanicalReveal();
 resize();
 seedFromState();
 renderLabor();

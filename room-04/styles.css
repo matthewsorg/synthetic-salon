@@ -1094,3 +1094,58 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
     margin-right: -12px;
   }
 }
+
+
+/* Qwen-seat work order 04-A: the transit tariff overlay. */
+.transit-tariff {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  background: rgba(8, 9, 11, 0.94);
+  text-align: center;
+  transition: opacity 0.45s ease;
+}
+
+.transit-tariff p {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold, #e7c84b);
+}
+
+.transit-tariff .tariff-line {
+  color: var(--muted, #9a958a);
+  letter-spacing: 0.08em;
+  text-transform: none;
+  font-size: 12px;
+}
+
+.tariff-dots i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 7px;
+  border-radius: 50%;
+  background: var(--gold, #e7c84b);
+  animation: tariff-wait 1.1s infinite;
+}
+
+.tariff-dots i:nth-child(2) { animation-delay: 0.18s; }
+.tariff-dots i:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes tariff-wait {
+  0%, 100% { opacity: 0.18; }
+  50% { opacity: 1; }
+}
+
+.transit-tariff.lifting {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transit-tariff { display: none; }
+}

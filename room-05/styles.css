@@ -485,3 +485,43 @@ p {
     transition: none;
   }
 }
+
+
+/* Qwen-seat audit: the expanded provenance record. */
+.scar-receipt {
+  cursor: help;
+}
+
+.scar-receipt:focus-visible {
+  outline: 2px solid var(--accent, #ff5a4d);
+  outline-offset: 3px;
+}
+
+.receipt-detail {
+  margin-top: 10px;
+  padding: 14px 16px;
+  border: 1px dashed rgba(243, 239, 231, 0.24);
+  border-radius: 6px;
+  background: rgba(8, 9, 11, 0.7);
+}
+
+.receipt-detail dl {
+  margin: 8px 0 0;
+  display: grid;
+  gap: 6px;
+}
+
+.receipt-detail dt {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted, #9a958a);
+}
+
+.receipt-detail dd {
+  margin: 1px 0 0;
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--bone, #f3efe7);
+  overflow-wrap: anywhere;
+}

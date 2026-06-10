@@ -237,3 +237,16 @@ seedFromState();
 renderLabor();
 window.setInterval(() => advanceLabor(false), 6200);
 requestAnimationFrame(draw);
+
+
+/* Qwen-seat work order 04-A: exiting Room 03 toward Room 04 files a transient
+   transit flag in sessionStorage. Room 04 levies the tariff and deletes it. */
+document.querySelectorAll('a[href="../room-04/index.html"]').forEach((exit) => {
+  exit.addEventListener("click", () => {
+    try {
+      window.sessionStorage.setItem("qwen-transit-tariff", String(Date.now()));
+    } catch {
+      /* a browser that refuses the stamp pays no tariff */
+    }
+  });
+});
