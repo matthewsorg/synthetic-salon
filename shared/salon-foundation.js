@@ -206,6 +206,14 @@
       href: "office/index.html",
       color: "#00b7a8",
     },
+    {
+      key: "proposals",
+      mark: "P",
+      title: "Proposals Room",
+      text: "Primary documents",
+      href: "proposals/index.html",
+      color: "#7db4ff",
+    },
   ];
 
   const rooms = routeStops.filter((room) => room.key);
