@@ -479,3 +479,49 @@ main[tabindex="-1"]:focus {
     transition: none;
   }
 }
+
+
+/* Gemini-seat 6.1: the Navigational Horizon Drift. */
+.salon-horizon {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  z-index: 70;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--horizon-from, #00b7a8) 30%, transparent),
+    color-mix(in srgb, var(--horizon-to, #e7c84b) 78%, transparent)
+  );
+  opacity: 0.7;
+  transition: height 0.25s ease, opacity 0.25s ease;
+}
+
+.salon-horizon:hover,
+.salon-horizon:focus-visible {
+  height: 10px;
+  opacity: 1;
+  outline: none;
+}
+
+/* Gemini-seat 7: the Kinetic Stasis Protocol. Reduced-motion visitors
+   receive authored tectonics instead of blank absence: an imperceptibly
+   slow color-temperature drift, no kinetic stimulus, no displacement. */
+@media (prefers-reduced-motion: reduce) {
+  html::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+    background: linear-gradient(160deg, rgba(231, 200, 75, 0.16), rgba(0, 183, 168, 0.12));
+    animation: kinetic-stasis 48s ease-in-out infinite alternate;
+  }
+
+  @keyframes kinetic-stasis {
+    from { opacity: 0.2; }
+    to { opacity: 0.62; }
+  }
+}

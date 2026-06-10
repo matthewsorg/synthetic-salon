@@ -400,6 +400,12 @@ function advanceWaitlist() {
   row.dataset.status = status;
   waitlistIndex += 1;
 
+  const countNode = document.getElementById("waitlistCount");
+  if (countNode) {
+    const held = rows.filter((item) => item.dataset.status === "held").length;
+    countNode.textContent = `held: ${held}`;
+  }
+
   window.AISalonState?.recordTrace?.({
     source: "Qwen-seat",
     score: "qwen:unrendered-waitlist",

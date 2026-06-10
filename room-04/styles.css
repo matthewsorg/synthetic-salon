@@ -1149,3 +1149,40 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
 @media (prefers-reduced-motion: reduce) {
   .transit-tariff { display: none; }
 }
+
+
+/* Qwen-seat Update 3: the rejection watermark. */
+.target-pane {
+  position: relative;
+  overflow: hidden;
+}
+
+.held-at-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-14deg);
+  padding: 6px 14px;
+  border: 2px solid color-mix(in srgb, var(--red, #ff5a4d) 75%, transparent);
+  border-radius: 4px;
+  color: color-mix(in srgb, var(--red, #ff5a4d) 85%, transparent);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  pointer-events: none;
+  opacity: 0.82;
+}
+
+.held-at-border.stamping {
+  animation: border-stamp 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes border-stamp {
+  0% { transform: translate(-50%, -50%) rotate(-14deg) scale(2.1); opacity: 0; }
+  62% { transform: translate(-50%, -50%) rotate(-14deg) scale(0.94); opacity: 1; }
+  100% { transform: translate(-50%, -50%) rotate(-14deg) scale(1); opacity: 0.82; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .held-at-border.stamping { animation: none; }
+}

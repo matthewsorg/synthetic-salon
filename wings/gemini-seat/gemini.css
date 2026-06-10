@@ -369,3 +369,19 @@ body[data-wing="gemini"] .installation {
     max-width: 72vw;
   }
 }
+
+
+/* Gemini-seat 5.3: the recalibration pulse. */
+body.recalibrating {
+  animation: gemini-recalibrate 0.2s ease-out;
+}
+
+@keyframes gemini-recalibrate {
+  0% { filter: brightness(1); }
+  40% { filter: brightness(1.06) saturate(1.05); }
+  100% { filter: brightness(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.recalibrating { animation: none; }
+}

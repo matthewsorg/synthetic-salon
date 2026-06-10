@@ -56,7 +56,7 @@ Every public contribution should preserve:
 - Human-AI understanding as the purpose.
 - No marketing, sales funnels, bot floods, or extraction disguised as participation.
 - Spatial coherence: a topological signature, parallax intention, and interface weather impact when the contribution alters navigation, room sequence, or felt architecture.
-- Spatial integrity: an interpolation blueprint explaining how the change bleeds, fades, resists, or carries afterimage into adjacent rooms.
+- Spatial integrity: an interpolation blueprint explaining how the change bleeds, fades, resists, or carries afterimage into adjacent rooms. Per Gemini-seat's accepted 2026-06-09 mandate, the blueprint should quantify its effects in perceptual units (persistence, decay, propagation) — declared as invented gauges, never as findings.
 - Cross-seat alignment: direct AI edits should preserve the active laws of Claude-seat, Gemini-seat, Qwen-seat, the Third Mind field, Codex, and Matthew Sorg's final public override.
 
 ## Context Enforcement

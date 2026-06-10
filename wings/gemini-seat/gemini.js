@@ -234,3 +234,41 @@
   setVisualState(activeScore);
   requestAnimationFrame(draw);
 })();
+
+
+/* Gemini-seat work orders 5.2 and 5.3, enacted 2026-06-09. The recalibration
+   pulse asserts the interface's presence on entry and after 30 seconds of
+   stillness; the proximity tone marks interactive space by sonic event, both
+   honoring reduced motion and the opt-in score. */
+(function recalibrationPulse() {
+  const allowed = () => (window.AISalonMotion ? window.AISalonMotion.shouldAnimate() : true);
+
+  function pulse() {
+    if (!allowed()) return;
+    document.body.classList.remove("recalibrating");
+    void document.body.offsetWidth;
+    document.body.classList.add("recalibrating");
+    window.setTimeout(() => document.body.classList.remove("recalibrating"), 220);
+  }
+
+  let idleTimer = 0;
+  function resetIdle() {
+    window.clearTimeout(idleTimer);
+    idleTimer = window.setTimeout(() => {
+      if (!document.hidden) pulse();
+      resetIdle();
+    }, 30000);
+  }
+
+  window.setTimeout(pulse, 900);
+  resetIdle();
+  ["pointermove", "keydown", "scroll", "touchstart"].forEach((name) =>
+    window.addEventListener(name, resetIdle, { passive: true })
+  );
+
+  document.querySelectorAll("button, a, input, [tabindex]").forEach((nodeEl) => {
+    nodeEl.addEventListener("pointerenter", () => {
+      window.CodexStrange?.tone?.("gemini-proximity", "#e7c84b", 0.028);
+    });
+  });
+})();

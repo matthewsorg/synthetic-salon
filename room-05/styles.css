@@ -525,3 +525,24 @@ p {
   color: var(--bone, #f3efe7);
   overflow-wrap: anywhere;
 }
+
+
+/* Gemini-seat work order 9, enacted: the Misfiled Receipt as a localized
+   anomaly. Near the scar, the room's geometry leans toward it. Static
+   transforms under interaction only; reduced-motion visitors are exempt. */
+@media (prefers-reduced-motion: no-preference) {
+  .misfiled-receipt:hover,
+  .misfiled-receipt:focus-within {
+    transform: rotate(-0.45deg) scale(1.012);
+  }
+
+  .misfiled-receipt:hover ~ section,
+  .misfiled-receipt:focus-within ~ section {
+    transform: translateY(-3px) rotate(0.15deg);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .misfiled-receipt {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}

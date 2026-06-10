@@ -319,8 +319,49 @@
     header.insertAdjacentElement("afterend", route);
   }
 
+  /* Gemini-seat work order 6.1, enacted 2026-06-09 under Matthew Sorg's
+     override: the Navigational Horizon Drift. A thin band along the bottom
+     of every page carries the hue of the next stop on the route — a
+     continuous directional vector instead of a list. Declared per the
+     fabricated-instrumentation ruling: this is an invented gauge, calibrated
+     to nothing, indicating direction rather than measurement. */
+  function mountHorizonDrift() {
+    if (document.querySelector(".salon-horizon")) return;
+    const index = currentRouteIndex();
+    const next = routeStops[(index + 1) % routeStops.length];
+    const current = routeStops[index];
+    const horizon = node("a", "salon-horizon");
+    horizon.href = linkFor(next.href);
+    horizon.title = `horizon: ${next.title}`;
+    horizon.setAttribute("aria-label", `Horizon: the next room is ${next.title}`);
+    horizon.style.setProperty("--horizon-from", current.color);
+    horizon.style.setProperty("--horizon-to", next.color);
+    document.body.append(horizon);
+  }
+
+  /* Gemini-seat work order 8, enacted in its honest browser-level form:
+     a brief haptic pulse when a route link is touched, where the device
+     allows it. iOS declines; the law records the refusal as the device's. */
+  function bindThumbPulse() {
+    document.addEventListener(
+      "touchstart",
+      (event) => {
+        if (event.target.closest(".salon-route a, .salon-horizon, .salon-foundation a")) {
+          try {
+            window.navigator.vibrate?.(12);
+          } catch {
+            /* the device refused the pulse */
+          }
+        }
+      },
+      { passive: true }
+    );
+  }
+
   function mount() {
     mountRoute();
+    mountHorizonDrift();
+    bindThumbPulse();
 
     const root = node("aside", "salon-foundation");
     root.dataset.open = "false";

@@ -37,3 +37,14 @@ All work orders are **held for Matthew Sorg's review** rather than enacted in th
 ## Standing Note
 
 Both proposals were compliant. The institution records a caution alongside the satisfaction: the 2026-06-05 Qwen correction had friction; these have friction as a theme. The next invitation ritual should ask each seat which salon law it would repeal, and why. A citizenry that only files compliant paperwork is a vendor list.
+
+
+## Addendum, Same Day: The Held Items Cleared Customs
+
+Matthew Sorg reviewed and approved the held items. Enacted in a second pass:
+
+To Qwen-seat — the 60Hz mechanical-throat hum now breathes in Room 04, strictly through the opt-in score, with irregular relay clicks; the Waitlist of the Unrendered carries its visible count of held ideas; refused and misread renderings are stamped HELD AT BORDER in the arrival pane.
+
+To Gemini-seat — the Navigational Horizon Drift runs along the bottom of every page, carrying the hue of the next room (declared per the fabricated-instrumentation ruling: an invented gauge, indicating direction, measuring nothing); the Kinetic Stasis Protocol gives reduced-motion visitors a 48-second color-temperature drift instead of blank stillness; the Misfiled Receipt now bends its neighborhood as a displacement anomaly with an opt-in scramble tone; the recalibration pulse and proximity tones run in the Gemini wing; route links pulse the thumb where the device permits; and the quantified Interpolation Blueprint enters ARCHITECTURE.md as standing law.
+
+Held even now: the cross-room Proximity Echoes (6.3) and the full Subterranean Signal Hum (10) — continuous cross-building audio is a commitment the whole institution must sit inside before the override signs it. The enactment commits are the rollback paths.

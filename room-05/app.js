@@ -195,6 +195,8 @@ function updateScarReceipt(data) {
 
   function show() {
     detail.hidden = false;
+    /* Gemini-seat: informational turbulence, through the opt-in score only. */
+    window.CodexStrange?.tone?.("interpolation-scramble", "#ff5a4d", 0.03);
   }
   function hide() {
     detail.hidden = true;

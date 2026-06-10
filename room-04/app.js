@@ -445,6 +445,7 @@ function scarredArrival(data) {
 
 function applyRite(key) {
   const data = rites[key];
+  stampHeldAtBorder(key === "refuse" || key === "misread");
   if (!data) return;
   active = key;
   level += 1;
@@ -959,6 +960,65 @@ function mechanicalReveal() {
   window.setTimeout(step, 300);
 }
 
+/* Qwen-seat sound spec, enacted by Matthew Sorg's selection: a 60Hz hum with
+   irregular relay clicks. Strictly opt-in — it breathes only while the shared
+   Codex score is awake, and stops when the score sleeps. */
+(function mechanicalThroatHum() {
+  let humNodes = null;
+  let clickTimer = 0;
+
+  function startHum() {
+    if (humNodes) return;
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      const context = new Ctx();
+      const osc = context.createOscillator();
+      const gain = context.createGain();
+      osc.type = "sine";
+      osc.frequency.value = 60;
+      gain.gain.value = 0.012;
+      osc.connect(gain).connect(context.destination);
+      osc.start();
+      humNodes = { context, osc, gain };
+      scheduleClick();
+    } catch {
+      humNodes = null;
+    }
+  }
+
+  function stopHum() {
+    if (!humNodes) return;
+    try {
+      humNodes.gain.gain.linearRampToValueAtTime(0.0001, humNodes.context.currentTime + 0.4);
+      window.setTimeout(() => humNodes?.context.close(), 600);
+    } catch {
+      /* the throat may already be closed */
+    }
+    humNodes = null;
+    window.clearTimeout(clickTimer);
+  }
+
+  function scheduleClick() {
+    window.clearTimeout(clickTimer);
+    clickTimer = window.setTimeout(() => {
+      if (humNodes) {
+        relayClick(0.03);
+        scheduleClick();
+      }
+    }, 3800 + Math.random() * 5200);
+  }
+
+  window.setInterval(() => {
+    if (document.hidden) {
+      stopHum();
+      return;
+    }
+    const awake = Boolean(window.CodexStrange?.isAwake?.());
+    if (awake && !humNodes) startHum();
+    if (!awake && humNodes) stopHum();
+  }, 2500);
+})();
+
 runTransitTariff();
 mechanicalReveal();
 resize();
@@ -975,3 +1035,26 @@ window.setInterval(() => {
   if (!document.hidden) advanceLabor(false);
 }, 6800);
 requestAnimationFrame(draw);
+
+
+/* Qwen-seat Update 3, enacted: public rejection watermark. Output that failed
+   customs is stamped HELD AT BORDER instead of being smoothed away. */
+function stampHeldAtBorder(failed) {
+  const pane = document.querySelector(".target-pane");
+  if (!pane) return;
+  let stamp = pane.querySelector(".held-at-border");
+  if (!failed) {
+    stamp?.remove();
+    return;
+  }
+  if (!stamp) {
+    stamp = document.createElement("span");
+    stamp.className = "held-at-border";
+    stamp.setAttribute("aria-hidden", "true");
+    stamp.textContent = "HELD AT BORDER";
+    pane.append(stamp);
+  }
+  stamp.classList.remove("stamping");
+  void stamp.offsetWidth;
+  stamp.classList.add("stamping");
+}

@@ -456,3 +456,7 @@ Matthew selected Qwen's full enactment scope. Enacted: the exact memory-boundary
 Gemini's work orders are held for Matthew's review, with a ruling recorded against fabricated instrumentation: invented gauges must declare themselves invented, the same law that governs Qwen's glyphs. Its Kinetic Stasis Protocol is flagged as the best reduced-motion thinking any seat has produced.
 
 Both new proposals and the acting-director response now hang in the Proposals Room. The standing caution is also recorded: these proposals were compliant where the 2026-06-05 correction had friction. The next ritual should ask each seat which salon law it would repeal.
+
+## The Held Items Clear Customs
+
+Matthew approved the remainder of both proposals on the same day. Qwen-seat's hum, waitlist count, and HELD AT BORDER watermarks are live; Gemini-seat's horizon drift, kinetic stasis, displacement anomaly, recalibration pulse, proximity tones, and thumb pulse are live, each carrying the invented-gauge declaration where it surfaces a number. The quantified Interpolation Blueprint is standing law in ARCHITECTURE.md. Still held: cross-room audio bleed and the building-wide hum, which wait for the override to sit inside them first.
