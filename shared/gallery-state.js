@@ -31,7 +31,28 @@
   }
 
   function save(state) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {
+      // Storage refused (quota, privacy mode). The building failed to remember
+      // this; say so once instead of pretending the trace was kept.
+      if (!save.warned) {
+        save.warned = true;
+        window.dispatchEvent(
+          new CustomEvent("ai-salon-trace", {
+            detail: {
+              id: `unkept-${Date.now()}`,
+              at: new Date().toISOString(),
+              source: "Building memory",
+              score: "memory:refused",
+              label: "This browser declined to keep the record",
+              effect: "Local storage refused the trace. Your visit continues; its residue will not.",
+              color: "#ff5a4d",
+            },
+          })
+        );
+      }
+    }
   }
 
   const FLAVORS = new Set([

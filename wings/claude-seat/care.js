@@ -143,26 +143,62 @@
     el.consentStatus.textContent = labels[kind] || "pending";
   }
 
+  let vestibuleReturnFocus = null;
+
   function closeVestibule(animate) {
     if (!el.vestibule) return;
+    const restore = () => {
+      if (vestibuleReturnFocus && document.contains(vestibuleReturnFocus)) {
+        vestibuleReturnFocus.focus();
+      }
+      vestibuleReturnFocus = null;
+    };
     if (!animate) {
       el.vestibule.setAttribute("hidden", "");
+      restore();
       return;
     }
     el.vestibule.classList.add("dismissing");
     setTimeout(() => {
       el.vestibule.setAttribute("hidden", "");
+      restore();
     }, 950);
   }
 
   function openVestibule() {
     if (!el.vestibule) return;
+    vestibuleReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     el.vestibule.removeAttribute("hidden");
     el.vestibule.classList.remove("dismissing");
     window.setTimeout(() => {
       el.consentOptions[0]?.focus();
     }, 60);
   }
+
+  // Consent deserves a working keyboard: keep Tab inside the vestibule while
+  // it is open, and let Escape close it only when a mode was already chosen
+  // (revision can be abandoned; the first consent cannot be skipped silently).
+  document.addEventListener("keydown", (event) => {
+    if (!el.vestibule || el.vestibule.hasAttribute("hidden")) return;
+    if (event.key === "Escape" && state.memoryMode) {
+      event.preventDefault();
+      closeVestibule(true);
+      return;
+    }
+    if (event.key !== "Tab") return;
+    const focusables = [...el.vestibule.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])")]
+      .filter((node) => !node.disabled && node.offsetParent !== null);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
 
   function grantConsent(kind, options = {}) {
     const choice = consentKinds[kind];

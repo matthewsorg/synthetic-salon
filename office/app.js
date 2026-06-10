@@ -602,6 +602,7 @@ function preferredLobbyist() {
 }
 
 function spawnAutomatedCurator() {
+  if (document.hidden) return;
   const state = window.AISalonState?.currentState();
   if (!state) return;
   const pendingCount = (state.motions || []).filter((motion) => motion.status === "pending").length;

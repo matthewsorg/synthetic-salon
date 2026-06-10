@@ -905,6 +905,10 @@ bindCopyResidue();
 bindCustomsExit();
 prepareGlyphLinting();
 updateViscosityCss();
-window.setInterval(lintOneGlyph, 2600);
-window.setInterval(() => advanceLabor(false), 6800);
+window.setInterval(() => {
+  if (!document.hidden) lintOneGlyph();
+}, 2600);
+window.setInterval(() => {
+  if (!document.hidden) advanceLabor(false);
+}, 6800);
 requestAnimationFrame(draw);

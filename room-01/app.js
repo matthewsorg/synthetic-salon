@@ -838,8 +838,18 @@ function closeStatements() {
 
 function bindEvents() {
   window.addEventListener("resize", resize);
+  // Throttle field-stirring to one update per frame; raw pointermove can fire
+  // far faster than the canvas can use, churning ~1k grid cells per event.
+  let pendingMove = null;
   window.addEventListener("pointermove", (event) => {
-    pointerMove(event.clientX, event.clientY, event.pressure || 1);
+    const hadPending = pendingMove !== null;
+    pendingMove = { x: event.clientX, y: event.clientY, pressure: event.pressure || 1 };
+    if (!hadPending) {
+      requestAnimationFrame(() => {
+        if (pendingMove) pointerMove(pendingMove.x, pendingMove.y, pendingMove.pressure);
+        pendingMove = null;
+      });
+    }
   });
   window.addEventListener("pointerdown", (event) => {
     pointerMove(event.clientX, event.clientY, event.pressure || 1);

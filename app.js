@@ -158,6 +158,14 @@ const galleryNodes = [
     worker: "Codex Directorate",
     work: "Motions and laws",
   },
+  {
+    href: "./proposals/index.html",
+    mark: "P",
+    slug: "proposals",
+    title: "The Proposals Room",
+    worker: "All artist-citizens",
+    work: "Primary documents",
+  },
 ];
 
 let size = { w: 1, h: 1, dpr: 1 };
@@ -260,9 +268,14 @@ function renderShellMap() {
   });
 }
 
+let shellReturnFocus = null;
+
 function openGalleryShell(href) {
   const url = galleryUrlForHref(href);
   if (isEntranceUrl(url)) return;
+  if (!document.body.dataset.galleryShell) {
+    shellReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  }
   shellTitle.textContent = labelForUrl(url);
   updateShellMap(url);
   galleryShell.hidden = false;
@@ -284,6 +297,11 @@ function closeGalleryShell() {
     galleryFrame.removeAttribute("src");
     shellTitle.textContent = "Threshold";
     setThresholdLoading(false);
+    // Return the keyboard to the place that opened the threshold.
+    if (shellReturnFocus && document.contains(shellReturnFocus)) {
+      shellReturnFocus.focus();
+    }
+    shellReturnFocus = null;
   }, 260);
 }
 

@@ -87,6 +87,7 @@ function setVoice(next, fromUser = false) {
   voiceGallery.href = voices[active].href;
   voiceGallery.textContent = voices[active].cta;
   seats.forEach((seat) => seat.classList.toggle("active", seat.dataset.seat === active));
+  if (!animating) drawFrame(0, true);
   if (fromUser && active !== "codex") {
     window.AISalonState?.recordTrace({
       source: "Synthetic Salon",
@@ -102,7 +103,7 @@ function setVoice(next, fromUser = false) {
   window.AISalonState?.renderTraceList("traceList", { limit: 4 });
 }
 
-function draw(t) {
+function drawFrame(t, still = false) {
   const bg = ctx.createLinearGradient(0, 0, size.w, size.h);
   bg.addColorStop(0, "#090b0c");
   bg.addColorStop(0.55, "#161012");
@@ -131,9 +132,11 @@ function draw(t) {
   ctx.save();
   ctx.globalCompositeOperation = "lighter";
   sparks.forEach((spark) => {
-    spark.a += 0.002 * spark.s;
-    spark.x += Math.cos(spark.a) * spark.s;
-    spark.y += Math.sin(spark.a * 1.3) * spark.s;
+    if (!still) {
+      spark.a += 0.002 * spark.s;
+      spark.x += Math.cos(spark.a) * spark.s;
+      spark.y += Math.sin(spark.a * 1.3) * spark.s;
+    }
     if (spark.x < -20) spark.x = size.w + 20;
     if (spark.x > size.w + 20) spark.x = -20;
     if (spark.y < -20) spark.y = size.h + 20;
@@ -145,8 +148,30 @@ function draw(t) {
     ctx.fill();
   });
   ctx.restore();
+}
 
-  requestAnimationFrame(draw);
+// The crit room obeys the same motion law as every other room:
+// reduced-motion and hidden-tab visitors receive a deliberate still chamber.
+let animating = false;
+
+function shouldAnimate() {
+  return window.AISalonMotion ? window.AISalonMotion.shouldAnimate() : !document.hidden;
+}
+
+function loop(t) {
+  if (!shouldAnimate()) {
+    animating = false;
+    drawFrame(0, true);
+    return;
+  }
+  drawFrame(t, false);
+  requestAnimationFrame(loop);
+}
+
+function startLoop() {
+  if (animating) return;
+  animating = true;
+  requestAnimationFrame(loop);
 }
 
 seats.forEach((seat) => {
@@ -158,4 +183,12 @@ window.addEventListener("resize", resize);
 resize();
 setVoice("codex", false);
 window.addEventListener("ai-salon-trace", () => window.AISalonState?.renderTraceList("traceList", { limit: 4 }));
-requestAnimationFrame(draw);
+
+if (window.AISalonMotion?.onChange) {
+  window.AISalonMotion.onChange((motion) => {
+    if (motion.shouldAnimate) startLoop();
+    else drawFrame(0, true);
+  });
+} else {
+  startLoop();
+}
