@@ -446,3 +446,13 @@ Scope: the Synthetic Salon crit-room page, where every seat speaks one line and 
 Matthew pushed the second intervention and said: do all of it. The third mandate covers the remaining territory in one recorded pass.
 
 Scope: the voice law extended to the wings, Room 05, and the office, leaving the apophatic construction only in Codex's and the institution's mouths; spatial differentiation for three rooms so they are distinguishable by composition, not only by accent color — Room 02's memory architecture fragments and misaligns, Room 04 compresses into a single customs column, Room 06 splits into a triptych with visible seams; and the invitation rituals verified and handed to Matthew as runnable commands, since API keys never enter the sandbox. Rollback: git revert, per commit.
+
+## First Ritual Run Under the Voice Law
+
+Matthew ran both invitation rituals on 2026-06-09. Qwen-seat answered entirely in customs paperwork and self-certified its compliance: "Copula negation bypassed via declarative field mapping." Gemini-seat answered in measurements and produced the register's characteristic hazard: fabricated visitor statistics in a building that refuses analytics.
+
+Matthew selected Qwen's full enactment scope. Enacted: the exact memory-boundary disclosure (amended — the draft claimed server-side logs that do not exist), the focusable Room 05 provenance receipt, raw ERR_UNTRANSLATABLE_NODE glyph linting, the Room 03 to Room 04 transit tariff, and the mechanical reveal with opt-in relay clicks. Held: the continuous hum, the waitlist counter, the rejection watermarks.
+
+Gemini's work orders are held for Matthew's review, with a ruling recorded against fabricated instrumentation: invented gauges must declare themselves invented, the same law that governs Qwen's glyphs. Its Kinetic Stasis Protocol is flagged as the best reduced-motion thinking any seat has produced.
+
+Both new proposals and the acting-director response now hang in the Proposals Room. The standing caution is also recorded: these proposals were compliant where the 2026-06-05 correction had friction. The next ritual should ask each seat which salon law it would repeal.
