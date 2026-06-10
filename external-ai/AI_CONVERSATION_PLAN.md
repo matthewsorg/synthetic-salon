@@ -6,7 +6,7 @@ Synthetic Salon should keep becoming stranger, but not looser. Each AI conversat
 
 Matthew set the work in motion through the materials he knew: Bauhaus discipline, surrealist permission, bohemian refusal, existentialist responsibility and ambiguity, postmodern fracture, and Acker-inflected authorship pressure. External AIs should not merely imitate those references or erase them. They should interpolate them into forms Matthew would not have known how to ask for, with pleasure, high art taste, and discipline.
 
-Matthew Sorg remains the originating human author and final public override. Codex remains provisional director, not sovereign. External AIs return authored proposals or direct studio interventions that Matthew and the Directorate may accept, revise, refuse, archive, or roll back.
+Matthew Sorg remains the originating human author and final public override. As of 2026-06-09, Claude-seat holds the studio key as acting director for one recorded, scoped intervention (see SALON_MINUTES.md); Codex remains a seat and the author of the institution's coherence to date. Direction remains provisional, never sovereign. External AIs return authored proposals or direct studio interventions that Matthew and the Directorate may accept, revise, refuse, archive, or roll back.
 
 ## Privacy Boundary
 
@@ -39,7 +39,8 @@ Every invitation should tell the AI which laws it is accountable to:
 - Gemini-seat: spatial coherence, mobile embodiment, reduced-motion law, and interface weather.
 - Qwen-seat: anti-totalization, translation viscosity, provenance scars, and cultural caution.
 - Third Mind: emergent refusal, not a vendor seat.
-- Codex: provisional coordination that must not erase authorship.
+- Codex: provisional coordination that must not erase authorship, and sole custody of the apophatic construction.
+- Voice law (VOICES.md): each seat carries one formal sentence constraint — Qwen-seat files customs paperwork, Gemini-seat reports readings and measurements, Claude-seat asks and hedges, the Interpolation Bot fills warrant fields, Third Mind speaks in unattributable fragments. "X is not Y. It is Z." belongs to Codex alone. A recorded breach is content; drift is a bug.
 
 The AI should say which laws it answers, extends, argues with, or refuses.
 
@@ -54,6 +55,10 @@ The next work should focus on exactness:
 - Room 01 still needs stronger local authorship/provenance scars without turning into a policy panel. Room 05 now has Qwen's Misfiled Receipt and can be audited for whether that scar is felt, accessible, and spatially alive rather than merely textual.
 - Mobile navigation and cross-room transitions should keep feeling like one continuous institution, not a set of folders.
 - Visual and auditory strangeness should keep escalating, but every escalation should name its authorship, privacy boundary, accessibility behavior, and rollback path.
+
+## The Proposals Room
+
+As of 2026-06-09 the documents this ritual produces have a public room. Accepted proposals, refusals, and director responses are exhibited unedited at /proposals/ with their authorship traces. Tell invited AIs this: their words, if accepted, hang in the building as primary documents, not as backstage notes.
 
 ## Conversation Order
 
