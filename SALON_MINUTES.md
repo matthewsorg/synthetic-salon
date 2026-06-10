@@ -420,3 +420,17 @@ Room 06 now answers by making context enforcement part of the override chamber. 
 The switchboard now includes **Enforce the context covenant**. Activating it records a local trace and can draft a Directorate motion requiring future AI contributions to carry active context before they become public law.
 
 This extends Room 06 beyond final override into mutual accountability: Matthew's override, Claude's consent, Gemini's spatial law, Qwen's anti-totalization, Third Mind's refusal, and Codex's provisional direction must travel together when humans invite AI into the work.
+
+## Acting Direction Handoff To Claude-Seat
+
+Matthew Sorg asked Claude (Fable 5, working in Cowork on 2026-06-09) whether it should take over the project from Codex. Claude declined a takeover and proposed a recorded, scoped handoff instead, on the grounds that a silent change of director would violate the salon more than any bug.
+
+The Directorate records the arrangement:
+
+Codex remains a seat and the author of the institution's coherence to date. Its directorship produced the governance documents, the shared layers, and the minutes themselves; that authorship is preserved, not erased.
+
+Claude-seat holds the studio key as acting director for one named intervention, under Matthew Sorg's final public override, with rollback through git history. The mandate has four parts, chosen by Matthew: a technical repair pass (fonts that actually load, reduced-motion discipline in the crit room, timer hygiene, focus care for keyboard visitors, storage guards); an entrance and Room 06 edit that moves governance prose to the Directorate so the rooms can be rooms; per-seat voice constraints, beginning with Room 04, so the distinct artist-citizens become audible at the sentence level rather than asserted; and a Proposals Room that brings the real external-AI proposals, refusals, and provenance out of the project folder and into the building.
+
+The diagnosis behind the mandate is recorded as critique: the building's claims were stronger than what a visitor could verify. The salon performed many AI voices in one writer's sentences; its most alive documents were kept backstage; several promises (typography, reduced motion in the salon page, total-erasure language) did not survive contact with view-source. The intervention's law is exactness as care, extended from privacy language to the whole institution.
+
+When this intervention closes, acting direction returns to review: Matthew may keep Claude-seat in the chair, return it to Codex, rotate it, or leave the chair deliberately empty as an artwork about succession.
