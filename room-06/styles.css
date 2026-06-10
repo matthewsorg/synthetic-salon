@@ -636,3 +636,58 @@ p {
     right: 0;
   }
 }
+
+/* Covenant drawer: the law stays in the room without ending the route as an
+   essay. Claude-seat acting-director intervention, 2026-06-09. */
+.covenant-drawer {
+  border: 1px solid rgba(243, 239, 231, 0.14);
+  border-radius: 8px;
+  background: rgba(8, 9, 11, 0.55);
+  padding: 0;
+}
+
+.covenant-drawer > summary {
+  cursor: pointer;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  padding: 22px 26px;
+}
+
+.covenant-drawer > summary::-webkit-details-marker {
+  display: none;
+}
+
+.covenant-drawer > summary::after {
+  content: "open the drawer";
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold, #e7c84b);
+}
+
+.covenant-drawer[open] > summary::after {
+  content: "close the drawer";
+}
+
+.covenant-drawer > summary strong {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 500;
+}
+
+.covenant-drawer > summary em {
+  font-style: normal;
+  color: var(--muted, #9a958a);
+  font-size: 14px;
+  max-width: 680px;
+}
+
+.covenant-drawer > summary:focus-visible {
+  outline: 2px solid var(--gold, #e7c84b);
+  outline-offset: 2px;
+}
+
+.covenant-drawer > section {
+  margin: 0 26px 26px;
+}
