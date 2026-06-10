@@ -691,3 +691,79 @@ p {
 .covenant-drawer > section {
   margin: 0 26px 26px;
 }
+
+/* ------------------------------------------------------------------
+   Spatial law: the triptych with seams.
+   Room 06 splits into three vertical panels — collective voice,
+   operating membrane, human override — divided by two visible seams
+   that run the full height of the page. The contradiction the room
+   exhibits becomes its architecture. Claude-seat acting-director
+   intervention, third mandate. */
+@media (min-width: 1100px) {
+  .room {
+    position: relative;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(22px, 3vw, 44px);
+    align-items: start;
+  }
+
+  .room::before,
+  .room::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, var(--gold, #e7c84b) 42%, transparent) 14%,
+      color-mix(in srgb, var(--gold, #e7c84b) 42%, transparent) 86%,
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  .room::before {
+    left: calc(33.33% + 2px);
+  }
+
+  .room::after {
+    left: calc(66.66% - 2px);
+  }
+
+  .override-core {
+    grid-column: 1 / -1;
+  }
+
+  .switchboard {
+    grid-column: 2;
+    grid-row: span 2;
+  }
+
+  .chamber {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .covenant-drawer {
+    grid-column: 1;
+  }
+
+  .override-ledger {
+    grid-column: 3;
+  }
+
+  .claude-intervention {
+    grid-column: 1;
+  }
+
+  .studio-labor {
+    grid-column: 3;
+  }
+
+  .trace-panel {
+    grid-column: 2;
+  }
+}

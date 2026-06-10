@@ -1062,3 +1062,35 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
     animation: none;
   }
 }
+
+/* ------------------------------------------------------------------
+   Spatial law: the customs queue.
+   Room 04 refuses the house two-column grid and compresses into one
+   narrow column — desks in sequence, one visitor wide. The walls come
+   in; wayfinding becomes waiting. Claude-seat acting-director
+   intervention, third mandate. */
+@media (min-width: 900px) {
+  .room {
+    grid-template-columns: minmax(0, 680px);
+    justify-content: center;
+    gap: 14px;
+    padding-top: 30px;
+  }
+
+  .rendering,
+  .chamber,
+  .mechanical-lexicon,
+  .accession,
+  .receipt,
+  .studio-labor,
+  .provenance-anchor,
+  .trace-panel {
+    grid-column: 1;
+  }
+
+  .receipt,
+  .accession {
+    margin-left: 34px;
+    margin-right: -12px;
+  }
+}
