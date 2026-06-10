@@ -178,7 +178,7 @@ function runProcedure(key) {
   el.warrantTitle.textContent = data.title;
   el.warrantText.textContent = data.text;
   el.condition.textContent = data.condition;
-  el.botLine.textContent = `The bot has misfiled ${pick(bodies)} with ${pick(objects, 2)}. This is not a metaphor until the room accepts it.`;
+  el.botLine.textContent = `Filing update: ${pick(bodies)} entered under ${pick(objects, 2)}. Metaphor status: denied, pending the room\u2019s acceptance.`;
   updateLedger(data);
   updateScarReceipt(data);
 

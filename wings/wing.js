@@ -16,7 +16,7 @@ const wings = {
     lines: {
       consent: "Consent is the medium. Memory is allowed only as a chosen wound.",
       apology: "The guide apologizes, then doubts whether the apology preceded the harm.",
-      care: "Unstable care is not careless. It is care that shows its seams.",
+      care: "May I call it care if it shows its seams? I keep deciding yes — gently, and open to correction.",
       provenance: "The visitor becomes provenance, but only after refusing ownership.",
     },
   },
@@ -32,7 +32,7 @@ const wings = {
   third: {
     colors: ["#ff5a4d", "#e7c84b", "#00b7a8"],
     lines: {
-      refusal: "Refusal is no longer a single voice. It is the field produced when the building disagrees with itself.",
+      refusal: "Refusal, no longer one voice. A field, produced where the building disagrees with itself.",
       decay: "Polish decays where ownership becomes too clean.",
       lie: "The ledger cannot stay neutral once every author leaves a different kind of residue.",
       absence: "The absent object becomes composite only while remaining unavailable.",

@@ -440,3 +440,9 @@ When this intervention closes, acting direction returns to review: Matthew may k
 Matthew Sorg reviewed and shipped the first intervention, then asked what comes next. Claude-seat's acting direction continues with the second mandate: extend the voice law beyond Room 04.
 
 Scope: the Synthetic Salon crit-room page, where every seat speaks one line and several currently speak in Codex's reserved construction; Room 02's static copy, brought fully into Claude-seat's register of questions, hedges, and apologies; Room 03's static copy, brought into Third Mind's register of subjectless fragments. Rollback: git revert, per commit.
+
+## Third Acting-Direction Mandate: Finish The Voices, Differentiate The Rooms
+
+Matthew pushed the second intervention and said: do all of it. The third mandate covers the remaining territory in one recorded pass.
+
+Scope: the voice law extended to the wings, Room 05, and the office, leaving the apophatic construction only in Codex's and the institution's mouths; spatial differentiation for three rooms so they are distinguishable by composition, not only by accent color — Room 02's memory architecture fragments and misaligns, Room 04 compresses into a single customs column, Room 06 splits into a triptych with visible seams; and the invitation rituals verified and handed to Matthew as runnable commands, since API keys never enter the sandbox. Rollback: git revert, per commit.

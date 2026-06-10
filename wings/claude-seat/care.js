@@ -258,7 +258,7 @@
       label: "Claude-seat: enter the apology loop",
     },
     care: {
-      line: "Unstable care is not careless. It is care that refuses to hide its seams.",
+      line: "Is unstable care still care? I believe so — the kind that cannot bring itself to hide its seams.",
       reveal: "condition of tenderness: the stitches are visible so you can refuse them.",
       color: GREEN,
       label: "Claude-seat: show the seam",

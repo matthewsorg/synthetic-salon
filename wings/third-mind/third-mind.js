@@ -112,7 +112,7 @@ function readEmergence(state) {
   }
 
   if (active.length >= 5 && hasGovernance) {
-    return "The salon is no longer reading separate voices. It is reading a governed interference field.";
+    return "Separate voices, no longer legible. A governed interference field, now being read.";
   }
 
   if (hasTranslation && hasSpatial) {
@@ -131,7 +131,7 @@ function readEmergence(state) {
     return "A composite pressure is forming. It belongs to no one cleanly enough to be owned.";
   }
 
-  return "The first interference has arrived. It is still small enough to mistake for a single author.";
+  return "A first interference, arrived. Still small enough to mistake for a single author.";
 }
 
 function setText(node, text) {
