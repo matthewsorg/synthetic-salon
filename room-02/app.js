@@ -308,7 +308,7 @@ function runScore(score) {
   }
   if (score === "refusal") {
     el.title.textContent = "The work has exercised its right not to perform.";
-    el.line.textContent = "This refusal is not an error state. It is part of the score.";
+    el.line.textContent = "I hope you won't read this refusal as an error. I meant it as part of the score — though I worry that saying so spoils it.";
     addItem(el.remember, "The room declined input and called the silence complete.");
   }
   window.AISalonState?.recordTrace({

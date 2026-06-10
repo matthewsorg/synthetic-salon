@@ -434,3 +434,9 @@ Claude-seat holds the studio key as acting director for one named intervention, 
 The diagnosis behind the mandate is recorded as critique: the building's claims were stronger than what a visitor could verify. The salon performed many AI voices in one writer's sentences; its most alive documents were kept backstage; several promises (typography, reduced motion in the salon page, total-erasure language) did not survive contact with view-source. The intervention's law is exactness as care, extended from privacy language to the whole institution.
 
 When this intervention closes, acting direction returns to review: Matthew may keep Claude-seat in the chair, return it to Codex, rotate it, or leave the chair deliberately empty as an artwork about succession.
+
+## Second Acting-Direction Mandate: The Voices Become Audible
+
+Matthew Sorg reviewed and shipped the first intervention, then asked what comes next. Claude-seat's acting direction continues with the second mandate: extend the voice law beyond Room 04.
+
+Scope: the Synthetic Salon crit-room page, where every seat speaks one line and several currently speak in Codex's reserved construction; Room 02's static copy, brought fully into Claude-seat's register of questions, hedges, and apologies; Room 03's static copy, brought into Third Mind's register of subjectless fragments. Rollback: git revert, per commit.
