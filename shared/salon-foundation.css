@@ -513,7 +513,7 @@ main[tabindex="-1"]:focus {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: 1;
+    z-index: 55; /* above page content, below the horizon (70); audit fix: at 1 it sat under everything */
     pointer-events: none;
     mix-blend-mode: soft-light;
     background: linear-gradient(160deg, rgba(231, 200, 75, 0.16), rgba(0, 183, 168, 0.12));
@@ -524,4 +524,37 @@ main[tabindex="-1"]:focus {
     from { opacity: 0.2; }
     to { opacity: 0.62; }
   }
+}
+
+
+/* Audit fixes, fifth mandate. */
+@media (max-width: 620px) {
+  .salon-horizon {
+    height: 3px;
+  }
+
+  .salon-horizon:hover {
+    height: 3px;
+  }
+}
+
+/* Contrast repair: route captions were #9a958a on near-black (~4.1:1). */
+.salon-route__step span,
+.salon-route__current span {
+  color: #b3ada1;
+}
+
+/* Canvas self-description: visually hidden, present for screen readers.
+   Each room describes its own canvas in its own register, so a visitor
+   who cannot see the weather still receives an authored room. */
+.salon-canvas-note {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

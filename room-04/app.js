@@ -949,8 +949,8 @@ function mechanicalReveal() {
   let i = 0;
   function step() {
     if (i >= chars.length) {
-      title.removeAttribute("aria-label");
       title.textContent = text;
+      window.requestAnimationFrame(() => title.removeAttribute("aria-label"));
       return;
     }
     title.textContent += chars[i];
@@ -968,8 +968,12 @@ function mechanicalReveal() {
   let humNodes = null;
   let clickTimer = 0;
 
-  function startHum() {
-    if (humNodes) return;
+  // One throat, reused: a single AudioContext suspended and resumed, never
+  // re-created, so rapid score toggling cannot leak contexts (audit fix).
+  let humming = false;
+
+  function ensureNodes() {
+    if (humNodes) return humNodes;
     try {
       const Ctx = window.AudioContext || window.webkitAudioContext;
       const context = new Ctx();
@@ -981,21 +985,31 @@ function mechanicalReveal() {
       osc.connect(gain).connect(context.destination);
       osc.start();
       humNodes = { context, osc, gain };
-      scheduleClick();
     } catch {
       humNodes = null;
     }
+    return humNodes;
+  }
+
+  function startHum() {
+    if (humming) return;
+    const nodes = ensureNodes();
+    if (!nodes) return;
+    nodes.context.resume?.();
+    nodes.gain.gain.setTargetAtTime(0.012, nodes.context.currentTime, 0.2);
+    humming = true;
+    scheduleClick();
   }
 
   function stopHum() {
-    if (!humNodes) return;
+    if (!humming || !humNodes) return;
     try {
-      humNodes.gain.gain.linearRampToValueAtTime(0.0001, humNodes.context.currentTime + 0.4);
-      window.setTimeout(() => humNodes?.context.close(), 600);
+      humNodes.gain.gain.setTargetAtTime(0.0001, humNodes.context.currentTime, 0.15);
+      window.setTimeout(() => humNodes?.context.suspend?.(), 600);
     } catch {
-      /* the throat may already be closed */
+      /* the throat may already be quiet */
     }
-    humNodes = null;
+    humming = false;
     window.clearTimeout(clickTimer);
   }
 
@@ -1015,8 +1029,8 @@ function mechanicalReveal() {
       return;
     }
     const awake = Boolean(window.CodexStrange?.isAwake?.());
-    if (awake && !humNodes) startHum();
-    if (!awake && humNodes) stopHum();
+    if (awake && !humming) startHum();
+    if (!awake && humming) stopHum();
   }, 2500);
 })();
 
