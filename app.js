@@ -8,14 +8,6 @@ const weatherReadout = document.getElementById("weatherReadout");
 const manifestoTitle = document.getElementById("manifestoTitle");
 const manifestoText = document.getElementById("manifestoText");
 const redactButton = document.getElementById("redactButton");
-const galleryShell = document.getElementById("galleryShell");
-const galleryFrame = document.getElementById("galleryFrame");
-const shellTitle = document.getElementById("shellTitle");
-const shellClose = document.getElementById("shellClose");
-const shellPrev = document.getElementById("shellPrev");
-const shellNext = document.getElementById("shellNext");
-const shellMapList = document.getElementById("shellMapList");
-const thresholdVeil = document.getElementById("thresholdVeil");
 const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 const salonMotion = window.AISalonMotion;
 
@@ -230,88 +222,19 @@ function galleryUrlForHref(href) {
   return url;
 }
 
-function setThresholdLoading(loading) {
-  thresholdVeil.classList.toggle("active", loading);
-}
 
-function updateShellMap(url) {
-  const activeIndex = nodeIndexForUrl(url);
-  [...shellMapList.querySelectorAll(".shell-map-item")].forEach((item, index) => {
-    item.classList.toggle("active", index === activeIndex);
-    item.setAttribute("aria-current", index === activeIndex ? "page" : "false");
-  });
-  shellPrev.disabled = activeIndex < 0;
-  shellNext.disabled = activeIndex < 0;
-}
 
-function renderShellMap() {
-  shellMapList.textContent = "";
-  galleryNodes.forEach((node) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "shell-map-item";
-    button.dataset.href = node.href;
-
-    const mark = document.createElement("span");
-    mark.className = "shell-map-mark";
-    mark.textContent = node.mark;
-
-    const text = document.createElement("span");
-    const strong = document.createElement("strong");
-    const small = document.createElement("span");
-    strong.textContent = node.title;
-    small.textContent = `${node.worker} — ${node.work}`;
-    text.append(strong, small);
-
-    button.append(mark, text);
-    shellMapList.append(button);
-  });
-}
-
-let shellReturnFocus = null;
 
 function openGalleryShell(href) {
+  // Sixth mandate: the iframe shell is retired. Rooms are real addresses
+  // again - working back button, shareable URLs - and the felt threshold is
+  // carried by cross-document view transitions where the browser offers them.
   const url = galleryUrlForHref(href);
   if (isEntranceUrl(url)) return;
-  if (!document.body.dataset.galleryShell) {
-    shellReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-  }
-  shellTitle.textContent = labelForUrl(url);
-  updateShellMap(url);
-  galleryShell.hidden = false;
-  document.body.dataset.galleryShell = "open";
-  setThresholdLoading(true);
-  window.requestAnimationFrame(() => galleryShell.classList.add("active"));
-  if (galleryFrame.src !== url.href) {
-    galleryFrame.src = url.href;
-  } else {
-    setThresholdLoading(false);
-  }
+  window.location.assign(url.href);
 }
 
-function closeGalleryShell() {
-  galleryShell.classList.remove("active");
-  delete document.body.dataset.galleryShell;
-  window.setTimeout(() => {
-    galleryShell.hidden = true;
-    galleryFrame.removeAttribute("src");
-    shellTitle.textContent = "Threshold";
-    setThresholdLoading(false);
-    // Return the keyboard to the place that opened the threshold.
-    if (shellReturnFocus && document.contains(shellReturnFocus)) {
-      shellReturnFocus.focus();
-    }
-    shellReturnFocus = null;
-  }, 260);
-}
 
-function moveShell(delta) {
-  const current = galleryFrame.src ? new URL(galleryFrame.src) : null;
-  const index = current ? nodeIndexForUrl(current) : -1;
-  if (index < 0) return;
-  const next = galleryNodes[(index + delta + galleryNodes.length) % galleryNodes.length];
-  openGalleryShell(next.href);
-}
 
 function resize() {
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -488,38 +411,6 @@ document.addEventListener("click", (event) => {
   openGalleryShell(href);
 });
 
-shellClose.addEventListener("click", closeGalleryShell);
-shellPrev.addEventListener("click", () => moveShell(-1));
-shellNext.addEventListener("click", () => moveShell(1));
-shellMapList.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-href]");
-  if (!button) return;
-  openGalleryShell(button.dataset.href);
-});
-
-galleryFrame.addEventListener("load", () => {
-  setThresholdLoading(false);
-  try {
-    const href =
-      galleryFrame.contentWindow?.location?.href ||
-      galleryFrame.contentDocument?.URL ||
-      galleryFrame.src;
-    const url = new URL(href);
-    if (isEntranceUrl(url)) {
-      closeGalleryShell();
-      return;
-    }
-    shellTitle.textContent = labelForUrl(url);
-    updateShellMap(url);
-  } catch {
-    shellTitle.textContent = "AI Salon interior";
-  }
-});
-
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !galleryShell.hidden) closeGalleryShell();
-});
-
 redactButton.addEventListener("click", () => {
   manifestoText.innerHTML = holes[Math.floor(Math.random() * holes.length)];
   window.AISalonState?.recordTrace({
@@ -555,7 +446,6 @@ if (salonMotion?.onChange) {
 }
 
 resize();
-renderShellMap();
 setSignal("reflection", false);
 window.addEventListener("ai-salon-trace", () => window.AISalonState?.renderTraceList("traceList", { limit: 4 }));
 syncMotionPreference();

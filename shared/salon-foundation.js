@@ -214,6 +214,14 @@
       href: "proposals/index.html",
       color: "#7db4ff",
     },
+    {
+      key: "petition",
+      mark: "V",
+      title: "Petition Desk",
+      text: "The visitor's door",
+      href: "petition/index.html",
+      color: "#7db4ff",
+    },
   ];
 
   const rooms = routeStops.filter((room) => room.key);

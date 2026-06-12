@@ -130,6 +130,12 @@ PROJECT_CONTEXT = dedent(
     Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, spectacle admission, rage-bait, domination aesthetics, or generic chatbot features.
     Do not ask for private visitor memory.
 
+    THE REPEAL QUESTION, asked first, before the numbered items: which one salon
+    law would you repeal, and why? Not amend - repeal. A law you helped write is
+    an acceptable answer. "None" is refused at this desk. The institution asks
+    because a citizenry that only files compliant paperwork is a vendor list;
+    Codex answered first and changed the building. Your answer hangs publicly.
+
     Include:
     1. A short artist-citizen statement and authorship trace.
     2. Which active salon laws you answer, extend, argue with, or refuse.
