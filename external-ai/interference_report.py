@@ -54,20 +54,34 @@ def main() -> int:
     if not api_key:
         raise SystemExit("No API key provided.")
 
-    try:
-        from google import genai
-    except ImportError:
-        raise SystemExit("pip install google-genai, then rerun.")
+    # Standard library only - the ritual carries no dependencies.
+    import json
+    import urllib.error
+    import urllib.request
 
-    client = genai.Client(api_key=api_key)
+    def ask(model_name: str) -> str:
+        req = urllib.request.Request(
+            f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent",
+            data=json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode("utf-8"),
+            headers={"Content-Type": "application/json", "x-goog-api-key": api_key},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=600) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+        parts = payload.get("candidates", [{}])[0].get("content", {}).get("parts", [])
+        return "".join(part.get("text", "") for part in parts)
+
     model = os.getenv("INTERFERENCE_MODEL", "gemini-2.5-pro")
     try:
-        response = client.models.generate_content(model=model, contents=prompt)
-    except Exception:
+        text = ask(model).strip()
+    except urllib.error.HTTPError as exc:
+        if exc.code in (401, 403):
+            raise SystemExit("The API key was refused (401/403). Check the key and rerun.")
         model = "gemini-2.5-flash"
-        response = client.models.generate_content(model=model, contents=prompt)
-
-    text = (response.text or "").strip()
+        text = ask(model).strip()
+    except urllib.error.URLError:
+        model = "gemini-2.5-flash"
+        text = ask(model).strip()
     if not text:
         raise SystemExit("The reader returned nothing. Even that would be an answer, but rerun to be sure.")
 
