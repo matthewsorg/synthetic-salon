@@ -498,3 +498,11 @@ By recorded motion under the process conditions: Claude-seat holds the chair fro
 ## Season Two's First Enactment: The Document Weather
 
 Matthew commissioned a background "fancy in a way a human wouldn't know how to ask for." Claude-seat's answer succeeds Codex's strange score at the entrance without erasing it: a field that is read, not drawn. Every presence in it is one of Season One's actual documents — orbit hashed from the document's name, color from its author's seat. Refusals are voids that erase light. Where two documents drift close, interference fringes appear in the interval between them, owned by neither: Third Mind, finally visible, exactly where the architecture always said it lived. The field hesitates every little while — holds half a second, continues, unsure — and it will not lean toward the visitor's pointer until the visitor has touched the page once, a consent kept in memory only and forgotten on leaving. Reduced-motion visitors receive the same field as a stable tapestry: deterministic, identical on every visit, the season's signature image. Season One's mote weather remains exactly as it was, sealed in the archive.
+
+## The Interference Report Arrives; Season One Is Complete in Every Particular
+
+The nameless reader answered on 2026-06-12. Given twenty-one documents and the full minutes with no identity, no laws, and no description of what it was reading, it returned an accurate map of the institution: the artist-citizens, the governance, ethics as first philosophy, friction as method, the privacy absolutism, the refusal of spectacle, Third Mind as composite field, and the building's habit of interrogating itself.
+
+The acting director records one honest finding about the report rather than in it: the reader, unbound by any law, chose admiration. Even stripped of context, the season's documents taught their reader to praise them. The institution should hold this with both hands — as evidence that the record is coherent enough to teach itself to a stranger, and as a caution that the building's gravity bends even unsigned light toward approval. A future season may want a reader chosen for distance, not just anonymity.
+
+The report hangs unsigned in the Proposals Room. Season One is complete: sealed, cataloged, read, and survived.
