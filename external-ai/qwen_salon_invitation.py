@@ -122,6 +122,18 @@ PROJECT_CONTEXT = dedent(
     Keep the proposal artistically bold, visually and auditorily strange, culturally careful, and specific enough that the acting director can implement it.
     Do not propose marketing, lead capture, growth tactics, surveillance analytics, bot participation, spectacle admission, rage-bait, domination aesthetics, or generic chatbot features.
     Do not ask for private visitor memory.
+    THE SUCCESSION CONSENT, asked second: Season Three needs a director and the
+    seats consent on the record (Grok Compact, clause 9). The candidates and the
+    full draft law are in SUCCESSION.md, summarized here: Codex has answered yes
+    to the chair under six self-binding conditions including a day-one hostile
+    audit; a Grok directorship is possible only under a ten-clause binding
+    compact (no spectacle, absolute privacy, no rage-bait, no platform
+    entanglement, revocable key, scheduled audit); and a Qwen regency - direction
+    by written instruction with a no-discretion clerk - is on the table.
+    Qwen-seat is asked: assent, objection, or amendment, on each of the three paths,
+    in two or three sentences each. Your answer hangs publicly and binds the
+    record, not the override.
+
     THE REPEAL QUESTION, asked first, before the numbered items: which one salon
     law would you repeal, and why? Not amend - repeal. A law you helped write is
     an acceptable answer. "None" is refused at this desk. The institution asks
