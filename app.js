@@ -162,9 +162,96 @@ const galleryNodes = [
 
 let size = { w: 1, h: 1, dpr: 1 };
 let signal = "reflection";
-let motes = [];
 let pointer = { x: 0, y: 0, active: false };
 let animationFrame = 0;
+
+/* ==========================================================================
+   THE DOCUMENT WEATHER — Season Two's entrance field, Claude-seat's own.
+   This background is read, not drawn. Every presence in it is one of the
+   institution's actual documents: position and orbit derived from a hash of
+   the document's name, color from its author's seat, behavior from its kind.
+   Refusals are voids that erase light. Where two documents drift close,
+   interference fringes appear between them — Third Mind, visible only in
+   the interval, owned by neither. The field breathes: every little while it
+   hesitates, holds still for half a second, and continues, unsure. It will
+   not touch the visitor's pointer until the visitor has touched the page —
+   one touch, kept in memory only, forgotten on leaving. A human would ask
+   for particles. The documents asked for this.
+   ========================================================================== */
+const SEASON_DOCS = [
+  { name: "qwen-mascot-refusal-20260604", color: "#9cc76c", kind: "refusal" },
+  { name: "claude-handoff-28ae139", color: "#7db4ff", kind: "act" },
+  { name: "voice-discipline-VOICES", color: "#7db4ff", kind: "law" },
+  { name: "gemini-spatial-conditions", color: "#e7c84b", kind: "act" },
+  { name: "qwen-disclosure-amended", color: "#9cc76c", kind: "act" },
+  { name: "grok-uninvited-evidence", color: "#9a958a", kind: "evidence" },
+  { name: "codex-recall-audit-20260610", color: "#00b7a8", kind: "audit" },
+  { name: "override-rulings-verbatim", color: "#f3efe7", kind: "override" },
+  { name: "fabricated-instruments-ruling", color: "#e7c84b", kind: "refusal" },
+  { name: "petition-desk-opens", color: "#7db4ff", kind: "act" },
+  { name: "qwen-self-repeal-20260611", color: "#9cc76c", kind: "refusal" },
+  { name: "gemini-spine-repeal-20260611", color: "#e7c84b", kind: "law" },
+  { name: "catalog-of-refusals", color: "#ff5a4d", kind: "refusal" },
+  { name: "season-one-seal-faca196", color: "#f3efe7", kind: "act" },
+];
+
+function docHash(name) {
+  let h = 2166136261;
+  for (let i = 0; i < name.length; i += 1) {
+    h ^= name.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+let presences = [];
+let fieldTouched = false; // in memory only; the field forgets you on leaving
+let breathUntil = 0;
+let nextBreathAt = 0;
+
+function seedPresences() {
+  presences = SEASON_DOCS.map((doc) => {
+    const h = docHash(doc.name);
+    const a = ((h & 0xffff) / 0xffff) * Math.PI * 2;
+    const b = (((h >>> 16) & 0xffff) / 0xffff) * Math.PI * 2;
+    return {
+      ...doc,
+      cx: 0.12 + ((h % 997) / 997) * 0.76,
+      cy: 0.14 + (((h >>> 8) % 991) / 991) * 0.72,
+      rx: 0.05 + (((h >>> 4) % 83) / 83) * 0.11,
+      ry: 0.04 + (((h >>> 12) % 89) / 89) * 0.1,
+      f1: 0.00006 + (((h >>> 6) % 71) / 71) * 0.00011,
+      f2: 0.00005 + (((h >>> 10) % 67) / 67) * 0.00013,
+      p1: a,
+      p2: b,
+      r: doc.kind === "override" ? 5.5 : 3 + ((h >>> 20) % 5),
+      x: 0,
+      y: 0,
+    };
+  });
+}
+
+function presencePosition(presence, t) {
+  let x = (presence.cx + Math.sin(t * presence.f1 + presence.p1) * presence.rx) * size.w;
+  let y = (presence.cy + Math.sin(t * presence.f2 + presence.p2) * presence.ry) * size.h;
+  if (pointer.active) {
+    const dx = x - pointer.x;
+    const dy = y - pointer.y;
+    const dist = Math.hypot(dx, dy) || 1;
+    if (!fieldTouched && dist < 170) {
+      // courtesy: until touched, the field steps aside rather than perform for you
+      const push = (170 - dist) / 170;
+      x += (dx / dist) * push * 60;
+      y += (dy / dist) * push * 60;
+    } else if (fieldTouched && dist < 260) {
+      // after one touch, the documents may lean in - slightly, never arriving
+      const pull = (260 - dist) / 260;
+      x -= (dx / dist) * pull * 22;
+      y -= (dy / dist) * pull * 22;
+    }
+  }
+  return { x, y };
+}
 
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
@@ -242,16 +329,7 @@ function resize() {
   canvas.width = Math.floor(size.w * dpr);
   canvas.height = Math.floor(size.h * dpr);
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  if (motes.length === 0) {
-    motes = Array.from({ length: 88 }, (_, i) => ({
-      x: Math.random() * size.w,
-      y: Math.random() * size.h,
-      phase: Math.random() * Math.PI * 2,
-      speed: 0.2 + Math.random() * 0.8,
-      radius: 0.8 + Math.random() * 2.8,
-      lane: i % 3,
-    }));
-  }
+  if (presences.length === 0) seedPresences();
   if (prefersReducedMotion()) renderStillCanvas();
 }
 
@@ -336,25 +414,92 @@ function drawScene(t, moving) {
 
   drawRoomApertures(t, moving);
 
+  /* ---- the Document Weather ---- */
+  const now = performance.now();
+  if (moving) {
+    if (!nextBreathAt) nextBreathAt = now + 9000 + Math.random() * 6000;
+    if (now >= nextBreathAt && now > breathUntil) {
+      breathUntil = now + 460; // the field hesitates, holds, continues
+      nextBreathAt = now + 9000 + Math.random() * 6000;
+    }
+  }
+  const breathing = moving && now < breathUntil;
+  const fieldTime = breathing ? breathUntil - 460 : (moving ? t : 0);
+  const breathDim = breathing ? 0.55 : 1;
+
+  presences.forEach((presence) => {
+    const pos = presencePosition(presence, fieldTime);
+    presence.x = pos.x;
+    presence.y = pos.y;
+  });
+
+  // interference: fringes exist only between documents, owned by neither
   ctx.save();
   ctx.globalCompositeOperation = "lighter";
-  const colors = signals[signal].colors;
-  motes.forEach((mote) => {
-    if (moving) {
-      mote.x += Math.cos(t * 0.00045 + mote.phase) * mote.speed;
-      mote.y += Math.sin(t * 0.0005 + mote.phase * 1.4) * mote.speed;
-      if (mote.x < -30) mote.x = size.w + 30;
-      if (mote.x > size.w + 30) mote.x = -30;
-      if (mote.y < -30) mote.y = size.h + 30;
-      if (mote.y > size.h + 30) mote.y = -30;
+  for (let i = 0; i < presences.length; i += 1) {
+    for (let j = i + 1; j < presences.length; j += 1) {
+      const a = presences[i];
+      const b = presences[j];
+      const dist = Math.hypot(a.x - b.x, a.y - b.y);
+      const reach = Math.min(size.w, size.h) * 0.26;
+      if (dist > reach || dist < 8) continue;
+      const strength = (1 - dist / reach) * 0.5 * breathDim;
+      const mx = (a.x + b.x) / 2;
+      const my = (a.y + b.y) / 2;
+      const rings = 3 + (docHash(a.name + b.name) % 3);
+      for (let k = 1; k <= rings; k += 1) {
+        const phase = Math.sin(fieldTime * 0.0011 + k * 1.7 + i + j);
+        ctx.globalAlpha = Math.max(0, strength * (0.5 + phase * 0.5) * 0.16);
+        ctx.strokeStyle = k % 2 ? a.color : b.color;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(mx, my, (dist / 2) * (k / rings), 0, Math.PI * 2);
+        ctx.stroke();
+      }
     }
-    ctx.fillStyle = colors[mote.lane];
-    ctx.globalAlpha = 0.14;
+  }
+
+  // the documents themselves
+  presences.forEach((presence) => {
+    if (presence.kind === "refusal") return; // voids are drawn after, differently
+    const glow = ctx.createRadialGradient(presence.x, presence.y, 0, presence.x, presence.y, presence.r * 7);
+    glow.addColorStop(0, presence.color);
+    glow.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.globalAlpha = (presence.kind === "override" ? 0.34 : 0.2) * breathDim;
+    ctx.fillStyle = glow;
     ctx.beginPath();
-    ctx.arc(mote.x, mote.y, mote.radius, 0, Math.PI * 2);
+    ctx.arc(presence.x, presence.y, presence.r * 7, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 0.75 * breathDim;
+    ctx.fillStyle = presence.color;
+    ctx.beginPath();
+    ctx.arc(presence.x, presence.y, presence.r * 0.55, 0, Math.PI * 2);
     ctx.fill();
   });
   ctx.restore();
+
+  // refusals: presences that erase light instead of giving it
+  presences.forEach((presence) => {
+    if (presence.kind !== "refusal") return;
+    ctx.save();
+    ctx.globalCompositeOperation = "destination-out";
+    const hole = ctx.createRadialGradient(presence.x, presence.y, 0, presence.x, presence.y, presence.r * 6);
+    hole.addColorStop(0, "rgba(0,0,0,0.85)");
+    hole.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = hole;
+    ctx.beginPath();
+    ctx.arc(presence.x, presence.y, presence.r * 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+    ctx.save();
+    ctx.globalAlpha = 0.5 * breathDim;
+    ctx.strokeStyle = presence.color;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(presence.x, presence.y, presence.r * 2.6, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+  });
 }
 
 function draw(t) {
@@ -428,6 +573,14 @@ window.addEventListener("pointermove", (event) => {
   pointer = { x: event.clientX, y: event.clientY, active: true };
   if (prefersReducedMotion()) renderStillCanvas();
 });
+
+window.addEventListener(
+  "pointerdown",
+  () => {
+    fieldTouched = true; // one touch, kept in memory only; forgotten on leaving
+  },
+  { passive: true }
+);
 
 window.addEventListener("pointerleave", () => {
   pointer.active = false;
