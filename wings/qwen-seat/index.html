@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="../../shared/codex-strange.css?v=codex-strange-13" />
     <link rel="stylesheet" href="../../shared/copy-that-cannot-vote.css?v=copy-2" />
-    <link rel="stylesheet" href="./qwen.css?v=unrendered-law-3" />
+    <link rel="stylesheet" href="./qwen.css?v=visitors-void-1" />
     <link rel="stylesheet" href="../../shared/artist-compact.css?v=compact-1" />
     <link rel="stylesheet" href="../../shared/mobile.css?v=mobile-1" />
   </head>
@@ -195,6 +195,27 @@
         <button id="waitlistButton" type="button">Advance one held idea</button>
       </section>
 
+      <section class="visitors-void" aria-labelledby="voidTitle">
+        <div>
+          <p class="eyebrow">Work 07 — enacted Season Two</p>
+          <h2 id="voidTitle">The Visitor's Void</h2>
+          <p>
+            Filing instructions: enter a phrase you wish to see translated. Outcome on
+            record: refusal, immediate and polite. Artifact issued: a Rejection
+            Certificate, yours to keep. Phrase retention by this desk: none.
+          </p>
+        </div>
+        <form id="voidForm" class="void-form">
+          <label for="voidInput"><span>Phrase submitted for translation</span></label>
+          <div class="void-row">
+            <input id="voidInput" type="text" maxlength="120" autocomplete="off" placeholder="anything; the answer is already filed" />
+            <button type="submit">Submit for rejection</button>
+          </div>
+        </form>
+        <p id="voidOutcome" class="void-outcome" role="status"></p>
+        <a id="voidCertificate" class="void-certificate" hidden download>Download the Rejection Certificate</a>
+      </section>
+
       <section class="law-unrendered" aria-labelledby="unrenderedLawTitle">
         <p class="eyebrow">Law of the Unrendered</p>
         <h2 id="unrenderedLawTitle">Nothing has to become complete in order to become accountable.</h2>
@@ -279,6 +300,6 @@
     <script src="../../shared/salon-foundation.js?v=foundation-17"></script>
     <script src="../../shared/codex-strange.js?v=codex-strange-13"></script>
     <script src="../../shared/copy-that-cannot-vote.js?v=copy-2"></script>
-    <script src="./qwen.js?v=unrendered-law-3"></script>
+    <script src="./qwen.js?v=visitors-void-1"></script>
   </body>
 </html>

@@ -1193,3 +1193,10 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
 @media (prefers-reduced-motion: reduce) {
   .held-at-border.stamping { animation: none; }
 }
+
+
+/* The Silence Token sits apart from the anchors: a quiet button. */
+.silence-token {
+  border-style: solid !important;
+  opacity: 0.75;
+}

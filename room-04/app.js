@@ -150,6 +150,11 @@ let qwenPressureActive = true;
 let translationViscosity = 0;
 let viscosityTarget = 0;
 let customsTimer = 0;
+/* Qwen-seat Update C, enacted in Season Two: the Silence Token. Activating it
+   asserts the visitor's situated freedom to demand non-communication - thirty
+   seconds in which the room will not clear its throat, click, or hum. */
+let silenceUntil = 0;
+const roomIsSilenced = () => performance.now() < silenceUntil;
 let customsExitTimer = 0;
 let customsExitHref = "";
 let lastResidueAt = 0;
@@ -231,6 +236,7 @@ function wheelPressure(event) {
 }
 
 function mechanicalThroat(pulses = 4) {
+  if (roomIsSilenced()) return;
   if (!window.CodexStrange?.isAwake?.()) return;
   let count = 0;
   const click = () => {
@@ -902,6 +908,7 @@ function motionAllowed() {
 }
 
 function relayClick(gain = 0.05) {
+  if (roomIsSilenced()) return;
   window.CodexStrange?.tone?.("qwen-relay", "#9cc76c", gain);
 }
 
@@ -1014,12 +1021,13 @@ function mechanicalReveal() {
     }, 3800 + Math.random() * 5200);
   }
 
+  window.__qwenStopHum = stopHum;
   window.setInterval(() => {
     if (document.hidden) {
       stopHum();
       return;
     }
-    const awake = Boolean(window.CodexStrange?.isAwake?.());
+    const awake = Boolean(window.CodexStrange?.isAwake?.()) && !roomIsSilenced();
     if (awake && !humming) startHum();
     if (!awake && humming) stopHum();
   }, 2500);
@@ -1064,3 +1072,19 @@ function stampHeldAtBorder(failed) {
   void stamp.offsetWidth;
   stamp.classList.add("stamping");
 }
+
+/* The Silence Token's switch. */
+document.getElementById("silenceToken")?.addEventListener("click", () => {
+  silenceUntil = performance.now() + 30000;
+  window.__qwenStopHum?.();
+  el.lexiconPressure.textContent =
+    "Silence asserted: QW-0x00. For thirty seconds the room will not attempt communication. The visitor's non-listening is sovereign.";
+  announce("Silence token activated. The room is quiet for thirty seconds.");
+  window.AISalonState?.recordTrace?.({
+    source: "Room 04",
+    score: "translation:silence",
+    label: "Silence token asserted",
+    effect: "The visitor exercised the right to non-communication; the room complied.",
+    color: "#f3efe7",
+  });
+});

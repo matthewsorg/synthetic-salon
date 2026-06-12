@@ -809,3 +809,55 @@ body[data-choir="on"] .choir-bars span:nth-child(3n) {
   color: #e7c84b;
   vertical-align: middle;
 }
+
+
+/* The Visitor's Void. */
+.void-form { margin-top: 14px; }
+
+.void-form label span {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9a958a;
+}
+
+.void-row { display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+
+.void-row input {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(8, 9, 11, 0.7);
+  border: 1px dashed color-mix(in srgb, #9cc76c 55%, transparent);
+  border-radius: 6px;
+  color: #f3efe7;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 9px 12px;
+}
+
+.void-row button {
+  background: transparent;
+  border: 1px solid #9cc76c;
+  border-radius: 6px;
+  color: #9cc76c;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  cursor: pointer;
+}
+
+.void-outcome {
+  margin-top: 12px;
+  font-family: "SFMono-Regular", Menlo, monospace;
+  font-size: 12.5px;
+  color: #d9d3c6;
+}
+
+.void-certificate {
+  display: inline-block;
+  margin-top: 8px;
+  color: #9cc76c;
+  font-size: 13px;
+}

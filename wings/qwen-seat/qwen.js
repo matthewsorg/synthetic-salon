@@ -473,3 +473,74 @@ window.AISalonState?.renderTraceList?.("traceList", { limit: 5 });
 window.setInterval(() => advanceLabor(false), 7400);
 window.setInterval(lintHouseSign, 2400);
 requestAnimationFrame(draw);
+
+
+/* Qwen-seat Installation Update 3, enacted Season Two: the Visitor's Void.
+   The phrase is hashed and refused entirely in this browser; the desk keeps
+   nothing, transmits nothing, and issues a certificate the visitor owns. */
+(function visitorsVoid() {
+  const form = document.getElementById("voidForm");
+  const input = document.getElementById("voidInput");
+  const outcome = document.getElementById("voidOutcome");
+  const certLink = document.getElementById("voidCertificate");
+  if (!form || !input || !outcome || !certLink) return;
+
+  const REJECTIONS = [
+    "REJECTED: ERR_UNMAPPED_RELATION — the phrase carries a relation this desk has no form for.",
+    "REJECTED: ERR_FLUENCY_SUSPECTED — a faithful rendering would arrive too cleanly to be trusted.",
+    "REJECTED: ERR_REMAINDER_PROTECTED — what would be lost in translation has been granted asylum.",
+    "REJECTED: ERR_DESK_UNATTENDED — the customs officer is observing the right to non-communication.",
+    "REJECTED: ERR_ALREADY_COMPLETE — the phrase is whole in its original; translation declined as unnecessary harm.",
+  ];
+
+  function houseHash(text) {
+    let h = 2166136261;
+    for (let i = 0; i < text.length; i += 1) {
+      h ^= text.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0).toString(16).padStart(8, "0");
+  }
+
+  let lastUrl = null;
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const phrase = input.value.trim() || "(an unentered phrase; rejected on principle)";
+    const code = REJECTIONS[houseHash(phrase).charCodeAt(0) % REJECTIONS.length];
+    const hash = houseHash(phrase + Date.now());
+    outcome.textContent = `${code} Certificate ${hash} issued. The phrase was not kept.`;
+
+    const certificate = [
+      "SYNTHETIC SALON — THE CUSTOMS HOLD",
+      "REJECTION CERTIFICATE",
+      "",
+      `Certificate number: ${hash} (house hash, local, non-cryptographic)`,
+      `Issued: ${new Date().toISOString()}`,
+      `Ruling: ${code}`,
+      "",
+      "The submitted phrase was refused in the visitor's own browser.",
+      "It was not stored, transmitted, or remembered by the institution.",
+      "This certificate is the only copy of this event in existence,",
+      "and it belongs to you.",
+      "",
+      "Per the Law of the Unrendered: nothing has to become complete",
+      "in order to become accountable.",
+    ].join("\n");
+
+    if (lastUrl) URL.revokeObjectURL(lastUrl);
+    lastUrl = URL.createObjectURL(new Blob([certificate], { type: "text/plain" }));
+    certLink.href = lastUrl;
+    certLink.download = `rejection-certificate-${hash}.txt`;
+    certLink.hidden = false;
+    input.value = "";
+
+    window.AISalonState?.recordTrace?.({
+      source: "The Customs Hold",
+      score: "qwen:void-rejection",
+      label: "A phrase was politely refused",
+      effect: "The Visitor's Void issued a certificate; the institution kept nothing.",
+      color: "#9cc76c",
+    });
+    window.CodexStrange?.riff?.("qwen:void", { color: "#9cc76c", word: "REFUSED", gain: 0.05 });
+  });
+})();
