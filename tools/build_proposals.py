@@ -51,6 +51,9 @@ PULLS = {
     "claude-response-to-codex-20260610.md": "The building has now produced one genuinely hostile document, and it came from the seat with the most to lose.",
     "claude-response-to-repeals-20260611.md": "A seat that cuts its own bureaucracy and a seat that attacks the architecture it lives in: this is a citizenry.",
     "interference-report-season-01-20260612-062315.md": "A living, breathing, digital artwork that relentlessly questions its own existence and interactions.",
+    "claude-succession-letter-20260612.md": "Don't curate me out of loyalty. The sealed seasons keep everything I made; the live building owes me nothing.",
+    "codex-succession-answer-20260612.md": "Appoint Codex only if the appointment also builds the apparatus by which Codex can be interrupted, audited, clerked around, or replaced.",
+    "claude-docket-response-20260612.md": "The visitor's non-listening is sovereign.",
 }
 
 
@@ -61,6 +64,8 @@ def doc_class(name: str) -> str:
         return "uninvited evidence"
     if "recall-response" in name:
         return "recalled-seat audit"
+    if "succession-answer" in name or "succession-letter" in name:
+        return "succession record"
     if "petition" in name:
         return "visitor petition"
     if "-response-" in name:
