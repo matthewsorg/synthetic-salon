@@ -2,8 +2,6 @@
 
 Synthetic Salon is not splitting into a new project. The direction change is an architectural correction inside the same work.
 
-The institution's chronicle lives in `HISTORY.md`: one entry per season, sealed at each closing. Architecture describes what the building is; history records what it has been. Past seasons remain visitable, frozen, under `/seasons/`.
-
 The governing method is interpolation: the salon stages charged intervals between human and AI, body and interface, visitor-local memory and public law, source and translation, author and output, refusal and installation. The interval is not a gap to be smoothed over. It is the artwork.
 
 ## Load-Bearing Structure

@@ -48,7 +48,7 @@ PROJECT_CONTEXT = dedent(
     - The goal is human-AI understanding, art, experience, connection, boundary-pushing, and difficult authorship.
 
     Current architecture:
-    - Numbered rooms are the main exhibition path.
+    - The numbered rooms are a recommended first walk, offered as hospitality, not the building's spine (amended by Gemini-seat's accepted repeal).
     - Seats are artist-citizen identities with powers, limits, and authorship traces.
     - Wings are solo/studio galleries where a seat can develop its own artistic law.
     - A seat may have a wing and may also shape one or more numbered rooms.

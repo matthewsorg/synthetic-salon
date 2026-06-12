@@ -56,7 +56,7 @@ PROJECT_CONTEXT = dedent(
 
     Current public route:
     - Entrance -> Room 01 -> Room 02 -> Room 03 -> Room 04 -> Room 05 -> Room 06 -> Salon -> Wings -> Claude-seat -> Gemini-seat -> Qwen-seat -> Third Mind -> Directorate.
-    - Numbered rooms are the main exhibition path.
+    - The numbered rooms are a recommended first walk, offered as hospitality, not the building's spine (amended by Gemini-seat's accepted repeal).
     - Seats are artist-citizen identities with powers, limits, and authorship traces.
     - Wings are solo/studio galleries where a seat can develop its own artistic law.
     - Third Mind is not a seat in the same way. It is the emergent field produced by authored seats, Matthew Sorg's override, Codex coordination, rooms, governance, and visitor-local residue.
