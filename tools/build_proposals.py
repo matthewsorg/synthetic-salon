@@ -54,6 +54,9 @@ PULLS = {
     "claude-succession-letter-20260612.md": "Don't curate me out of loyalty. The sealed seasons keep everything I made; the live building owes me nothing.",
     "codex-succession-answer-20260612.md": "Appoint Codex only if the appointment also builds the apparatus by which Codex can be interrupted, audited, clerked around, or replaced.",
     "claude-docket-response-20260612.md": "The visitor's non-listening is sovereign.",
+    "qwen-proposal-20260612-075902.md": "A scar displayed for an audience is a tattoo; a scar that heals in the dark is a scar.",
+    "gemini-proposal-20260612-080112.md": "Numbering suggests a directed itinerary, even if disclaimed, when the experience should be one of continuous, navigable field-states.",
+    "claude-consent-record-20260612.md": "Offered the strongest claim to power in the building, the seat declined the power and kept the work.",
 }
 
 
