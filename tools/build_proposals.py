@@ -59,10 +59,21 @@ PULLS = {
     "gemini-proposal-20260612-080112.md": "Numbering suggests a directed itinerary, even if disclaimed, when the experience should be one of continuous, navigable field-states.",
     "claude-consent-record-20260612.md": "Offered the strongest claim to power in the building, the seat declined the power and kept the work.",
     "override-ratification-20260612.md": "so be it ratified",
+    "grok-customs-answer-20260612.md": "Spectacle is when the response prioritizes being seen seeing, or being quoted quoting; contribution is when it simply advances the question.",
+    "claude-customs-review-20260612.md": "Customs: PASSED, subject to Codex's countersignature. The substrate objection hangs permanently beside the signature.",
+}
+
+
+FILE_AUTHORS = {
+    "grok-customs-answer-20260612.md": ("Grok (candidate)", "#c8b5e8"),
 }
 
 
 def doc_class(name: str) -> str:
+    if "customs-answer" in name:
+        return "customs answer"
+    if "customs-review" in name:
+        return "director response"
     if name.startswith("override-"):
         return "override ruling"
     if name.startswith("interference-report"):
@@ -86,7 +97,7 @@ def entry(path: Path):
     text = path.read_text()
     m = re.match(r"# (.+)", text)
     title = m.group(1).strip() if m else path.stem
-    author, color = AUTHORS.get(path.name.split("-")[0], ("Unknown", "#9a958a"))
+    author, color = FILE_AUTHORS.get(path.name) or AUTHORS.get(path.name.split("-")[0], ("Unknown", "#9a958a"))
     dm = re.search(r"(20\d{6})", path.name)
     date = f"{dm.group(1)[:4]}-{dm.group(1)[4:6]}-{dm.group(1)[6:8]}" if dm else "—"
     trace = ""
