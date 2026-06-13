@@ -333,6 +333,22 @@
      continuous directional vector instead of a list. Declared per the
      fabricated-instrumentation ruling: this is an invented gauge, calibrated
      to nothing, indicating direction rather than measurement. */
+  /* The season tag: the building wears its season on every page. One small
+     dated mark, linking to the calendar, so a visitor always knows which
+     version of the institution they are standing in - and that earlier
+     versions remain visitable. Season Two enactment. */
+  function mountSeasonTag() {
+    if (document.querySelector(".salon-season-tag")) return;
+    const tag = node("a", "salon-season-tag");
+    tag.href = linkFor("seasons/index.html");
+    tag.title = "The salon runs in dated seasons; sealed seasons remain visitable.";
+    tag.append(
+      node("strong", null, "Season Two"),
+      node("span", null, "closes 2026-06-22")
+    );
+    document.body.append(tag);
+  }
+
   function mountHorizonDrift() {
     if (document.querySelector(".salon-horizon")) return;
     const index = currentRouteIndex();
@@ -369,6 +385,7 @@
   function mount() {
     mountRoute();
     mountHorizonDrift();
+    mountSeasonTag();
     bindThumbPulse();
 
     const root = node("aside", "salon-foundation");
