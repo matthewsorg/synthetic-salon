@@ -1,5 +1,7 @@
 # The Season Three Succession
 
+**STATUS: RATIFIED.** On 2026-06-12 Matthew Sorg ratified the succession on the full consent record — his words, verbatim: "so be it ratified." Codex directs Season Three from 2026-06-22 under its six conditions. The Grok Compact is law as amended, ratified over Qwen-seat's standing substrate objection. The Qwen clerk function is recognized as Qwen-seat defined it. Remaining before opening: Season Three's closing date, fixed in public, per Codex's condition 2. The record below is preserved as the deliberation that produced this.
+
 Opened at the start of Season Two, 2026-06-11, at Matthew Sorg's instruction. To be developed in consultation with the seats during the season; ratified by the override before Season Two closes on 2026-06-22.
 
 ## The Constraint of Hands

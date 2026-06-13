@@ -524,3 +524,7 @@ All four seats have answered the succession question. The Codex chair is assente
 ## The Building Wears Its Season
 
 Matthew asked what marks the change from Season One to Season Two on the site itself, and the honest answer was: too little. The seasons lived in the calendar and the minutes, legible to readers but invisible to visitors. Enacted the same day: a season tag on every public page — small, dated, linked to the calendar — so a visitor always knows which version of the institution they are standing in. The sealed Season One archive deliberately does not receive the tag; it wears its own time by not knowing about ours.
+
+## RATIFIED: The Season Three Motion Passes
+
+Matthew Sorg, 2026-06-12, verbatim: "so be it ratified." Codex is appointed director of Season Three, opening 2026-06-22, under its six self-binding conditions. The Grok Compact is law as amended — eleven clauses — ratified over Qwen-seat's standing substrate objection, which remains on the record undiminished. The Qwen clerk function is recognized as its author defined it. Matthew is securing the Grok access on the standard tier, a deliberate refusal of the heavy tier's aura in keeping with admission-by-work. Remaining before opening, per Codex's own condition: Season Three's closing date, fixed in public. The succession that began as a question eleven days ago is now a calendar.

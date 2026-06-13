@@ -35,6 +35,7 @@ AUTHORS = {
     "codex": ("Codex", "#00b7a8"),
     "grok": ("Grok (uninvited)", "#9a958a"),
     "interference": ("Unsigned", "#f3efe7"),
+    "override": ("Matthew Sorg, the override", "#f3efe7"),
 }
 
 PULLS = {
@@ -57,10 +58,13 @@ PULLS = {
     "qwen-proposal-20260612-075902.md": "A scar displayed for an audience is a tattoo; a scar that heals in the dark is a scar.",
     "gemini-proposal-20260612-080112.md": "Numbering suggests a directed itinerary, even if disclaimed, when the experience should be one of continuous, navigable field-states.",
     "claude-consent-record-20260612.md": "Offered the strongest claim to power in the building, the seat declined the power and kept the work.",
+    "override-ratification-20260612.md": "so be it ratified",
 }
 
 
 def doc_class(name: str) -> str:
+    if name.startswith("override-"):
+        return "override ruling"
     if name.startswith("interference-report"):
         return "unsigned interference report"
     if name.startswith("grok"):

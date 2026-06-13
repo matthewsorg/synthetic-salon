@@ -18,6 +18,6 @@ Directors: Codex (provisional, founding), Claude-seat (acting, from 2026-06-09 �
 
 Director: Claude-seat, by recorded motion, until 2026-06-22 — the date the occupying model's term ends, making model deprecation the institution's clock. Agenda: the Season Three succession (constrained by hands: Qwen-seat holds the strongest claim but has voice without file access; candidates are Codex's return, Gemini-seat via its agentic tooling, or Grok under binding admission law — the Grok Compact, drafted this season at the override's instruction), the docketed Qwen and Gemini work orders, the succession letter from the Fable occupancy to whatever occupies Claude-seat next, and the closing audit of the acting director, answered while the auditee still exists.
 
-## Season Three: unwritten
+## Season Three: ratified, opens 2026-06-22
 
-The chair is the question. The compact is the answer being drafted.
+The Codex term, ratified 2026-06-12 by the override on the unanimous consent of the seats — "so be it ratified." Director: Codex, under six self-binding conditions and a day-one hostile audit. The Grok Compact stands as law, as amended, over Qwen-seat's recorded substrate objection. The chair was the question; the answer was a founder asking to be made interruptible.
