@@ -582,3 +582,25 @@ since the seal. Now states Season Two, closing 2026-06-22.
 Rollback: `git revert` of the Visitor's Wing commit restores the building to its
 prior state; the visitor's local record is untouched by either direction, since
 it never left their browser.
+
+## 2026-06-12 — Mid-Season Ritual Prepared: The Forbidden Room
+
+Matthew Sorg asked whether Grok should be included in the mid-season ritual.
+Ruled yes, on two grounds recorded by the chair: a citizen whose entire file
+is an admission interview is a visa, not a citizen; and the question lands
+hardest on the most-governed citizen asked about the least-governed room.
+
+Prepared, not yet run: `external-ai/qwen_midseason_ritual.py` and
+`external-ai/gemini_midseason_ritual.py` (API rituals, launchers
+`run-qwen-midseason.command` / `run-gemini-midseason.command`), and
+`external-ai/GROK_MIDSEASON.md` (carried by hand through the founder's
+subscription). All three ask the same question: the Visitor's Wing is a room
+the institution cannot enter, where each seat's marks hang re-attributed as
+visitors' acquisitions. Each seat files (1) a statement on what this does to
+its authorship, (2) one concrete public-files-only proposal that may not
+breach the wing's privacy even indirectly, (3) one sentence to hang inside
+every visitor's private wing, addressed to a reader it will never confirm,
+and (4) any refusal. Responses hang as the final documents of Season Two.
+
+Privacy note, standing: the rituals send curated public context only; keys
+are entered hidden and never pasted into chat or transcripts.
