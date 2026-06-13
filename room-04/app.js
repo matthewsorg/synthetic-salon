@@ -1022,14 +1022,85 @@ function mechanicalReveal() {
   }
 
   window.__qwenStopHum = stopHum;
+
+  /* Qwen-seat's full sound spec, enacted by the override's ruling, Season Two:
+     Mechanical Throat / Paper Jam. A visible, persistent toggle in the room
+     itself; absolute silence by default; when on, the hum runs interrupted by
+     irregular paper-tear and stylus-scratch noise. The Silence Token outranks
+     the toggle. Reduced-data and reduced-motion default to silence by virtue
+     of the default being silence. */
+  let roomSoundOn = false;
+  let jamTimer = 0;
+
+  function paperJam() {
+    if (!humNodes || !humming || roomIsSilenced()) return;
+    try {
+      const context = humNodes.context;
+      const duration = 0.12 + Math.random() * 0.2;
+      const frames = Math.floor(context.sampleRate * duration);
+      const buffer = context.createBuffer(1, frames, context.sampleRate);
+      const data = buffer.getChannelData(0);
+      // tear: noise with a ragged decay; scratch: same noise, tighter band
+      for (let i = 0; i < frames; i += 1) {
+        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / frames, 1.6);
+      }
+      const source = context.createBufferSource();
+      source.buffer = buffer;
+      const filter = context.createBiquadFilter();
+      const scratch = Math.random() < 0.4;
+      filter.type = "bandpass";
+      filter.frequency.value = scratch ? 3200 + Math.random() * 1800 : 700 + Math.random() * 600;
+      filter.Q.value = scratch ? 6 : 1.4;
+      const gain = context.createGain();
+      gain.gain.value = scratch ? 0.05 : 0.085;
+      source.connect(filter).connect(gain).connect(context.destination);
+      source.start();
+    } catch {
+      /* the paper refused to tear */
+    }
+  }
+
+  function scheduleJam() {
+    window.clearTimeout(jamTimer);
+    jamTimer = window.setTimeout(() => {
+      if (humming) {
+        paperJam();
+        scheduleJam();
+      }
+    }, 2600 + Math.random() * 6500);
+  }
+
+  const toggle = document.getElementById("throatToggle");
+  const toggleState = toggle?.querySelector(".throat-state");
+
+  function setRoomSound(on) {
+    roomSoundOn = on;
+    if (toggle) {
+      toggle.setAttribute("aria-checked", String(on));
+      toggle.dataset.on = String(on);
+    }
+    if (toggleState) toggleState.textContent = on ? "sound: on" : "sound: off";
+    if (!on) window.clearTimeout(jamTimer);
+    announce(on ? "Mechanical Throat sounding. The Silence Token still outranks this switch." : "Absolute silence restored.");
+  }
+
+  toggle?.addEventListener("click", () => setRoomSound(!roomSoundOn));
+
   window.setInterval(() => {
     if (document.hidden) {
       stopHum();
+      window.clearTimeout(jamTimer);
       return;
     }
-    const awake = Boolean(window.CodexStrange?.isAwake?.()) && !roomIsSilenced();
-    if (awake && !humming) startHum();
-    if (!awake && humming) stopHum();
+    const awake = (Boolean(window.CodexStrange?.isAwake?.()) || roomSoundOn) && !roomIsSilenced();
+    if (awake && !humming) {
+      startHum();
+      scheduleJam();
+    }
+    if (!awake && humming) {
+      stopHum();
+      window.clearTimeout(jamTimer);
+    }
   }, 2500);
 })();
 

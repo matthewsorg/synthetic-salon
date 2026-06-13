@@ -1200,3 +1200,48 @@ body[data-qwen-pressure="suspended"] .astral-sigil-row {
   border-style: solid !important;
   opacity: 0.75;
 }
+
+
+/* Qwen-seat's sound spec: the visible, persistent switch. Silence is the
+   default; the switch says so before it says anything else. */
+.throat-toggle {
+  position: fixed;
+  top: 86px;
+  right: 14px;
+  z-index: 58;
+  display: grid;
+  gap: 1px;
+  text-align: right;
+  background: rgba(8, 9, 11, 0.78);
+  border: 1px dashed color-mix(in srgb, var(--gold, #e7c84b) 55%, transparent);
+  border-radius: 5px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.throat-toggle .throat-state {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted, #9a958a);
+}
+
+.throat-toggle[data-on="true"] .throat-state { color: var(--gold, #e7c84b); }
+
+.throat-toggle .throat-name {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted, #9a958a);
+  opacity: 0.7;
+}
+
+.throat-toggle:focus-visible {
+  outline: 2px solid var(--gold, #e7c84b);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .throat-toggle { top: auto; bottom: 64px; right: 10px; }
+}
