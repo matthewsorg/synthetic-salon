@@ -1,0 +1,273 @@
+/* The Visitor's Wing — assembled in the visitor's browser, from the visitor's
+   record, visible to no one else. Season Two, Claude-seat occupancy. */
+
+:root {
+  --bone: #f3efe7;
+  --paper: #d9d3c6;
+  --muted: #9a958a;
+  --cyan: #00b7a8;
+  --font-display: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Instrument Sans", Inter, "Segoe UI", system-ui, sans-serif;
+  --wing-tint: #00b7a8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0b0d0f, #08090b);
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+#personalWeather {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px clamp(18px, 4vw, 44px);
+  border-bottom: 1px solid rgba(243, 239, 231, 0.12);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(20px, 3vw, 30px);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.backlink {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(243, 239, 231, 0.3);
+  padding-bottom: 2px;
+}
+
+.backlink:hover,
+.backlink:focus-visible { color: var(--cyan); border-color: var(--cyan); }
+
+.visitors-wing {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(28px, 6vw, 64px) clamp(18px, 4vw, 44px) 110px;
+  display: grid;
+  gap: clamp(34px, 6vw, 58px);
+}
+
+.wing-thesis h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(24px, 4.2vw, 38px);
+  line-height: 1.18;
+  margin: 0 0 14px;
+  max-width: 17em;
+}
+
+.wing-thesis p {
+  color: var(--paper);
+  font-size: 16px;
+  max-width: 640px;
+}
+
+.wing-section {
+  border-top: 1px solid rgba(243, 239, 231, 0.12);
+  padding-top: 22px;
+}
+
+.wing-big {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(19px, 2.8vw, 26px);
+  margin: 6px 0 0;
+  max-width: 24em;
+  color: var(--bone);
+}
+
+.wing-hint {
+  color: var(--muted);
+  font-size: 13.5px;
+  max-width: 600px;
+}
+
+.works-list,
+.laws-list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.works-list li,
+.laws-list li {
+  border: 1px solid rgba(243, 239, 231, 0.13);
+  border-left: 3px solid var(--work-color, var(--cyan));
+  border-radius: 7px;
+  background: rgba(8, 9, 11, 0.62);
+  padding: 14px 18px;
+}
+
+.works-list .work-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.works-list .work-head b { color: var(--work-color, var(--cyan)); font-weight: 600; }
+
+.works-list strong {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.works-list span,
+.laws-list span {
+  display: block;
+  margin-top: 4px;
+  color: var(--paper);
+  font-size: 13.5px;
+}
+
+.laws-list strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.works-list .empty,
+.laws-list .empty {
+  border-style: dashed;
+  border-left-width: 1px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.rulings-list {
+  margin: 18px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.rulings-list div {
+  border: 1px solid rgba(243, 239, 231, 0.13);
+  border-radius: 7px;
+  background: rgba(8, 9, 11, 0.62);
+  padding: 12px 18px;
+}
+
+.rulings-list dt {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rulings-list dd {
+  margin: 5px 0 0;
+  color: var(--paper);
+  font-size: 14.5px;
+}
+
+.wing-absent {
+  color: var(--paper);
+  font-size: 14.5px;
+  max-width: 620px;
+  border-left: 2px solid rgba(243, 239, 231, 0.22);
+  padding-left: 16px;
+}
+
+.wing-burn button {
+  margin-top: 10px;
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffb1a8;
+  background: rgba(255, 90, 77, 0.08);
+  border: 1px solid rgba(255, 90, 77, 0.45);
+  border-radius: 6px;
+  padding: 12px 22px;
+  cursor: pointer;
+}
+
+.wing-burn button:hover,
+.wing-burn button:focus-visible {
+  background: rgba(255, 90, 77, 0.16);
+  outline: 2px solid rgba(255, 90, 77, 0.45);
+  outline-offset: 2px;
+}
+
+.wing-burn button[disabled] {
+  opacity: 0.45;
+  cursor: default;
+}
+
+#burnResult { min-height: 1.4em; }
+
+@media (max-width: 620px) {
+  .works-list li, .laws-list li, .rulings-list div { padding: 12px 13px; }
+}
+
+/* Sentences left by artists who cannot enter — the only public text in the wing. */
+.wing-sentence-list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+
+.wing-sentence-list li {
+  border-left: 2px solid rgba(243, 239, 231, 0.22);
+  padding-left: 18px;
+}
+
+.wing-sentence {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(17px, 2.4vw, 21px);
+  line-height: 1.4;
+  color: var(--bone);
+  margin: 0;
+}

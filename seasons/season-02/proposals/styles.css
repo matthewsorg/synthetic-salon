@@ -1,0 +1,246 @@
+:root {
+  --bone: #f3efe7;
+  --paper: #d9d3c6;
+  --muted: #9a958a;
+  --ink: #0b0d0f;
+  --cyan: #00b7a8;
+  --font-display: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Instrument Sans", Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 500px at 80% -10%, rgba(0, 183, 168, 0.1), transparent 60%),
+    linear-gradient(180deg, #0b0d0f, #08090b);
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px clamp(18px, 4vw, 44px);
+  border-bottom: 1px solid rgba(243, 239, 231, 0.12);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(20px, 3vw, 30px);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.backlink {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(243, 239, 231, 0.3);
+  padding-bottom: 2px;
+}
+
+.backlink:hover,
+.backlink:focus-visible {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.proposals-page {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(28px, 6vw, 64px) clamp(18px, 4vw, 44px) 90px;
+}
+
+.proposals-intro p {
+  font-size: 16px;
+  color: var(--paper);
+  max-width: 640px;
+}
+
+.proposals-provenance {
+  font-size: 13px;
+  color: var(--muted);
+  border-left: 2px solid var(--cyan);
+  padding-left: 14px;
+}
+
+.proposals-provenance code {
+  font-size: 12px;
+  color: var(--bone);
+}
+
+.docs {
+  margin-top: 48px;
+  display: grid;
+  gap: 28px;
+}
+
+.doc {
+  border: 1px solid rgba(243, 239, 231, 0.13);
+  border-left: 3px solid var(--doc-accent, var(--cyan));
+  border-radius: 8px;
+  background: rgba(8, 9, 11, 0.6);
+  padding: 24px 26px;
+}
+
+.doc-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.doc-author {
+  color: var(--doc-accent, var(--cyan));
+}
+
+.doc-date {
+  color: var(--muted);
+}
+
+.doc h2 {
+  margin: 10px 0 6px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(18px, 2.6vw, 24px);
+}
+
+.doc-pull {
+  margin: 14px 0;
+  padding: 0 0 0 16px;
+  border-left: 2px solid var(--doc-accent, var(--cyan));
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--paper);
+}
+
+.doc-trace {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+.doc-full > summary {
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--doc-accent, var(--cyan));
+  padding: 8px 0;
+}
+
+.doc-full > summary:focus-visible {
+  outline: 2px solid var(--doc-accent, var(--cyan));
+  outline-offset: 2px;
+}
+
+.doc-body {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(243, 239, 231, 0.16);
+  color: var(--paper);
+  font-size: 14.5px;
+}
+
+.doc-body h2,
+.doc-body h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--bone);
+}
+
+.doc-body a {
+  color: var(--cyan);
+}
+
+.doc-body code {
+  font-size: 12.5px;
+  background: rgba(243, 239, 231, 0.07);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.doc-body blockquote {
+  margin: 12px 0;
+  padding-left: 14px;
+  border-left: 2px solid rgba(243, 239, 231, 0.2);
+  color: var(--muted);
+}
+
+@media (max-width: 620px) {
+  .doc {
+    padding: 18px 16px;
+  }
+
+  .doc-head {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+
+/* Document classes, added after Codex's recall audit: admission status is
+   visible on every record. */
+.doc-class {
+  color: var(--muted);
+  border: 1px solid rgba(243, 239, 231, 0.18);
+  border-radius: 3px;
+  padding: 1px 8px;
+}
+
+.docs--evidence {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px dashed rgba(243, 239, 231, 0.22);
+}
+
+.evidence-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(18px, 2.4vw, 24px);
+  margin: 0 0 6px;
+}
+
+.evidence-note {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 620px;
+}

@@ -638,3 +638,50 @@ All four documents (three answers + the director response) hang in the Proposals
 Room via the committed generator. These are the last invited documents of Season
 Two. Rollback: git revert of the enactment commit; the manifest controls no
 behavior, so its removal changes none.
+
+## 2026-06-12 — Season Two Sealed Early by Override, After Codex's Exit Audit
+
+The founder asked a second time whether the season should close early. The answer
+changed, because the facts had. Codex was recalled for the exit audit — the only
+required gate on early closure — and ruled: Season Two may close. The acting
+director's original refusal was defensible before the Visitor's Wing and the
+forbidden-room ritual landed, and is no longer defensible as a creative objection
+now that the program it protected is complete. The blind privacy audit was run and
+reads clean. Codex's institutional sentence: "The season may seal." Matthew Sorg's
+override closed the season.
+
+The acting director (Fable) had counseled against an early close. It was overruled
+and records the reversal without softening it: the counsel was right for its moment
+and wrong once the work was done. Both stand on the record.
+
+Enacted as the closure packet:
+
+- **The exit audit** is hung in the Proposals Room (`codex-exit-audit-20260612.md`),
+  class "exit audit."
+- **The Occupancy wears its correction.** A constant banner and a new sealed-early
+  wall state admit that a hand stopped the clock on 2026-06-12 with the term still
+  running. The clock and wick are frozen at the override moment — nine days, five
+  hours unspent — rather than run to zero, so the unspent term is the visible scar.
+  The room that promised to change tense "without anyone touching it" now says a
+  hand touched it. No-JS visitors get the correction statically.
+- **Claude's scar recorded honestly:** speed was real, partly governed, not fully
+  cured. Ending early is a strange last place for that lesson to land, and the
+  right one. The Rule of Friction stands; this is its last data point.
+- **Season labels fixed** everywhere: the season tag now reads "Season Three / open
+  · Season Two sealed 2026-06-12"; the seasons page marks Season Two sealed
+  (2026-06-11 — 2026-06-12) and Season Three open; the entrance card updated.
+- **Season Three opened early.** Its ratified three-week term now runs 2026-06-12 to
+  2026-07-03 (duration preserved from the ratification; the override may amend).
+- **Season Two sealed:** frozen static copy at `/seasons/season-02/`, a second
+  Catalog of Refusals at `/seasons/season-02-catalog.html`, and a git tag
+  `season-02`.
+- **Docketed to Season Three:** repair the Proposals Room generator's build
+  dependency so the page regenerates without a hand-installed Markdown library.
+
+Rollback: git revert of the closure commit restores the open-season state; the
+`season-02` tag and frozen copy are additive and harmless if reverted around.
+
+Note on the sealing phrase: the closure packet carried the words "So mote it be."
+They are recorded as the packet's phrasing, not attributed to Matthew Sorg, who
+expressed the decision as an override accepting Codex's audit. The institution does
+not put words in the founder's mouth.

@@ -1,0 +1,561 @@
+.codex-strange-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0, 183, 168, 0.18), transparent 28%),
+    radial-gradient(circle at 78% 12%, rgba(231, 200, 75, 0.12), transparent 31%),
+    radial-gradient(circle at 46% 82%, rgba(255, 90, 77, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(125, 180, 255, 0.07), rgba(8, 9, 11, 0));
+  mix-blend-mode: screen;
+  opacity: 0.74;
+}
+
+.codex-strange-backdrop::before,
+.codex-strange-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  background:
+    repeating-linear-gradient(
+      67deg,
+      transparent 0 34px,
+      rgba(243, 239, 231, 0.026) 34px 35px,
+      transparent 35px 76px
+    ),
+    repeating-linear-gradient(
+      153deg,
+      transparent 0 48px,
+      rgba(0, 183, 168, 0.034) 48px 49px,
+      transparent 49px 112px
+    );
+  opacity: 0.82;
+  transform: rotate(-3deg);
+  animation: codex-backdrop-warp 34s ease-in-out infinite alternate;
+}
+
+.codex-strange-backdrop::after {
+  inset: -24%;
+  background:
+    conic-gradient(from 70deg at 50% 50%, transparent 0 16%, rgba(231, 200, 75, 0.08) 17% 18%, transparent 19% 42%, rgba(255, 90, 77, 0.06) 43% 44%, transparent 45% 100%),
+    radial-gradient(circle at 50% 50%, transparent 0 14%, rgba(243, 239, 231, 0.04) 14.5% 15.5%, transparent 16% 100%);
+  filter: blur(0.2px);
+  opacity: 0.64;
+  transform: rotate(8deg);
+  animation: codex-backdrop-warp 42s ease-in-out infinite alternate-reverse;
+}
+
+.codex-lens-field {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.56;
+}
+
+.codex-lens-field::before,
+.codex-lens-field::after {
+  content: "";
+  position: absolute;
+  inset: -18vmax;
+  background:
+    conic-gradient(
+      from 40deg at 44% 52%,
+      transparent 0 8%,
+      color-mix(in srgb, var(--codex-strange-1, #00b7a8) 22%, transparent) 9% 10.2%,
+      transparent 11% 21%,
+      color-mix(in srgb, var(--codex-strange-2, #e7c84b) 18%, transparent) 22% 23.4%,
+      transparent 24% 42%,
+      color-mix(in srgb, var(--codex-strange-3, #7db4ff) 16%, transparent) 43% 44.2%,
+      transparent 45% 100%
+    ),
+    repeating-radial-gradient(
+      ellipse at 52% 48%,
+      transparent 0 36px,
+      rgba(243, 239, 231, 0.034) 37px 38px,
+      transparent 39px 84px
+    );
+  filter: blur(0.3px);
+  transform: translate3d(-4vw, 1vh, 0) rotate(-12deg) scale(1.02);
+  animation: codex-lens-turn 38s cubic-bezier(0.45, 0, 0.2, 1) infinite alternate;
+}
+
+.codex-lens-field::after {
+  background:
+    radial-gradient(ellipse at 72% 18%, color-mix(in srgb, var(--codex-strange-4, #ff5a4d) 20%, transparent), transparent 24%),
+    radial-gradient(ellipse at 18% 78%, color-mix(in srgb, var(--codex-strange-1, #00b7a8) 18%, transparent), transparent 28%),
+    repeating-linear-gradient(
+      118deg,
+      transparent 0 18px,
+      color-mix(in srgb, var(--codex-strange-2, #e7c84b) 8%, transparent) 18px 19px,
+      transparent 19px 72px
+    );
+  opacity: 0.72;
+  transform: translate3d(6vw, -3vh, 0) rotate(18deg) scale(1.08);
+  animation-duration: 46s;
+  animation-direction: alternate-reverse;
+}
+
+.codex-prism-field {
+  position: fixed;
+  inset: -10vmax;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.62;
+  filter: saturate(1.32) contrast(1.14);
+}
+
+.codex-prism-field i {
+  position: absolute;
+  display: block;
+  width: clamp(180px, 26vw, 520px);
+  height: clamp(70px, 10vw, 190px);
+  border: 1px solid color-mix(in srgb, var(--prism-color, var(--codex-strange-1, #00b7a8)) 36%, transparent);
+  background:
+    linear-gradient(
+      104deg,
+      transparent 0 18%,
+      color-mix(in srgb, var(--prism-color, var(--codex-strange-1, #00b7a8)) 22%, transparent) 26%,
+      transparent 38% 100%
+    ),
+    repeating-linear-gradient(
+      91deg,
+      transparent 0 17px,
+      rgba(243, 239, 231, 0.04) 17px 18px,
+      transparent 18px 43px
+    );
+  clip-path: polygon(0 22%, 70% 0, 100% 56%, 32% 100%);
+  transform: translate3d(var(--prism-x, 0), var(--prism-y, 0), 0) rotate(var(--prism-rotate, 0deg)) skewX(var(--prism-skew, 0deg));
+  animation: codex-prism-drift var(--prism-duration, 18s) ease-in-out infinite alternate;
+}
+
+.codex-prism-field i:nth-child(1) {
+  --prism-color: var(--codex-strange-1, #00b7a8);
+  --prism-x: 8vw;
+  --prism-y: 10vh;
+  --prism-rotate: -18deg;
+  --prism-skew: -9deg;
+  --prism-duration: 22s;
+}
+
+.codex-prism-field i:nth-child(2) {
+  --prism-color: var(--codex-strange-2, #e7c84b);
+  --prism-x: 61vw;
+  --prism-y: 6vh;
+  --prism-rotate: 14deg;
+  --prism-skew: 7deg;
+  --prism-duration: 26s;
+}
+
+.codex-prism-field i:nth-child(3) {
+  --prism-color: var(--codex-strange-3, #7db4ff);
+  --prism-x: 48vw;
+  --prism-y: 58vh;
+  --prism-rotate: -33deg;
+  --prism-skew: 10deg;
+  --prism-duration: 28s;
+}
+
+.codex-prism-field i:nth-child(4) {
+  --prism-color: var(--codex-strange-4, #ff5a4d);
+  --prism-x: 2vw;
+  --prism-y: 70vh;
+  --prism-rotate: 26deg;
+  --prism-skew: -12deg;
+  --prism-duration: 24s;
+}
+
+.codex-prism-field i:nth-child(5) {
+  --prism-color: var(--codex-strange-2, #e7c84b);
+  --prism-x: 78vw;
+  --prism-y: 72vh;
+  --prism-rotate: -9deg;
+  --prism-skew: 14deg;
+  --prism-duration: 30s;
+}
+
+body[data-codex-room="room01"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 18% 30%, rgba(0, 183, 168, 0.24), transparent 30%),
+    radial-gradient(circle at 70% 70%, rgba(125, 180, 255, 0.18), transparent 34%),
+    linear-gradient(120deg, rgba(255, 90, 77, 0.11), transparent 48%);
+}
+
+body[data-codex-room="room02"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 24% 18%, rgba(125, 180, 255, 0.22), transparent 31%),
+    radial-gradient(circle at 74% 62%, rgba(255, 90, 77, 0.17), transparent 33%),
+    linear-gradient(160deg, rgba(231, 200, 75, 0.1), transparent 52%);
+}
+
+body[data-codex-room="room03"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 55% 44%, rgba(255, 90, 77, 0.18), transparent 26%),
+    linear-gradient(72deg, rgba(231, 200, 75, 0.11), transparent 48%),
+    linear-gradient(145deg, rgba(0, 183, 168, 0.08), transparent 58%);
+}
+
+body[data-codex-room="room04"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(231, 200, 75, 0.3), transparent 16%),
+    radial-gradient(circle at 50% 40%, rgba(0, 183, 168, 0.19), transparent 34%),
+    radial-gradient(circle at 12% 12%, rgba(125, 180, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(255, 90, 77, 0.16), transparent 30%),
+    linear-gradient(180deg, rgba(5, 7, 24, 0.1), rgba(3, 6, 12, 0.54));
+  opacity: 0.82;
+}
+
+body[data-codex-room="room04"] .codex-strange-backdrop::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 54px,
+      rgba(231, 200, 75, 0.05) 54px 55px,
+      transparent 55px 108px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 42px,
+      rgba(125, 180, 255, 0.04) 42px 43px,
+      transparent 43px 94px
+    );
+  opacity: 0.9;
+}
+
+body[data-codex-room="room04"] .codex-strange-backdrop::after {
+  background:
+    conic-gradient(from 0deg at 50% 42%, transparent 0 8%, rgba(231, 200, 75, 0.13) 8.5% 9.2%, transparent 9.8% 24%, rgba(0, 183, 168, 0.09) 24.8% 25.4%, transparent 26% 100%),
+    radial-gradient(ellipse at 50% 42%, transparent 0 19%, rgba(243, 239, 231, 0.06) 19.4% 20%, transparent 20.5% 100%);
+  opacity: 0.86;
+}
+
+body[data-codex-room="room04"] .codex-strange-canvas {
+  opacity: 0.82;
+}
+
+body[data-codex-room="room05"] .codex-strange-backdrop {
+  background:
+    radial-gradient(circle at 26% 36%, rgba(255, 90, 77, 0.2), transparent 28%),
+    radial-gradient(circle at 68% 22%, rgba(0, 183, 168, 0.18), transparent 31%),
+    radial-gradient(circle at 62% 78%, rgba(231, 200, 75, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(125, 180, 255, 0.08), transparent 54%);
+}
+
+body[data-codex-room="room06"] .codex-strange-backdrop {
+  background:
+    linear-gradient(96deg, transparent 0 46%, rgba(231, 200, 75, 0.2) 47%, rgba(255, 90, 77, 0.18) 50%, transparent 53% 100%),
+    radial-gradient(circle at 24% 30%, rgba(0, 183, 168, 0.17), transparent 30%),
+    radial-gradient(circle at 76% 72%, rgba(125, 180, 255, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(231, 200, 75, 0.08), transparent 58%);
+}
+
+body[data-codex-room="room01"] .codex-lens-field {
+  opacity: 0.62;
+}
+
+body[data-codex-room="room02"] .codex-lens-field {
+  opacity: 0.66;
+  filter: hue-rotate(8deg) saturate(1.18);
+}
+
+body[data-codex-room="room03"] .codex-lens-field {
+  opacity: 0.64;
+}
+
+body[data-codex-room="room03"] .codex-lens-field::after {
+  background:
+    radial-gradient(ellipse at 22% 18%, color-mix(in srgb, var(--codex-strange-4, #f3efe7) 16%, transparent), transparent 22%),
+    radial-gradient(ellipse at 68% 72%, color-mix(in srgb, var(--codex-strange-1, #ff5a4d) 22%, transparent), transparent 26%),
+    repeating-linear-gradient(
+      34deg,
+      transparent 0 16px,
+      color-mix(in srgb, var(--codex-strange-2, #e7c84b) 10%, transparent) 16px 17px,
+      transparent 17px 64px
+    );
+}
+
+body[data-codex-room="room04"] .codex-lens-field {
+  opacity: 0.72;
+  mix-blend-mode: lighten;
+}
+
+body[data-codex-room="room04"] .codex-lens-field::before {
+  background:
+    conic-gradient(
+      from 0deg at 50% 42%,
+      transparent 0 6%,
+      color-mix(in srgb, var(--codex-strange-1, #e7c84b) 25%, transparent) 6.8% 7.5%,
+      transparent 8.2% 17%,
+      color-mix(in srgb, var(--codex-strange-2, #00b7a8) 18%, transparent) 18% 18.7%,
+      transparent 19.4% 100%
+    ),
+    repeating-radial-gradient(
+      ellipse at 50% 42%,
+      transparent 0 28px,
+      rgba(243, 239, 231, 0.045) 29px 30px,
+      transparent 31px 76px
+    );
+}
+
+body[data-codex-room="room05"] .codex-lens-field {
+  opacity: 0.68;
+  filter: hue-rotate(-18deg) saturate(1.25);
+}
+
+body[data-codex-room="room06"] .codex-lens-field {
+  opacity: 0.7;
+}
+
+body[data-codex-room="room06"] .codex-lens-field::after {
+  background:
+    linear-gradient(92deg, transparent 0 47%, color-mix(in srgb, var(--codex-strange-2, #ff5a4d) 18%, transparent) 48%, transparent 51% 100%),
+    repeating-linear-gradient(
+      178deg,
+      transparent 0 31px,
+      color-mix(in srgb, var(--codex-strange-1, #e7c84b) 9%, transparent) 31px 32px,
+      transparent 32px 96px
+    );
+}
+
+body[data-codex-room="salon"] .codex-lens-field,
+body[data-codex-room="office"] .codex-lens-field {
+  opacity: 0.61;
+}
+
+body[data-codex-room="claude"] .codex-lens-field {
+  opacity: 0.58;
+  filter: hue-rotate(18deg) saturate(1.12);
+}
+
+body[data-codex-room="gemini"] .codex-lens-field {
+  opacity: 0.67;
+}
+
+body[data-codex-room="third"] .codex-lens-field {
+  opacity: 0.69;
+  filter: saturate(1.36) contrast(1.08);
+}
+
+.codex-strange-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.68;
+}
+
+.codex-score-toggle {
+  --codex-button-color: var(--codex-strange-1, #00b7a8);
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px;
+  align-items: center;
+  min-height: 40px;
+  border: 1px solid color-mix(in srgb, var(--codex-button-color) 42%, rgba(243, 239, 231, 0.14));
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--codex-button-color) 18%, transparent), transparent 38%),
+    rgba(8, 9, 11, 0.84);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(18px);
+  color: #f3efe7;
+  cursor: pointer;
+  padding: 8px 10px;
+  font-family: "Instrument Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.codex-score-toggle::after {
+  content: var(--codex-strange-phrase, "score asleep");
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  width: max-content;
+  max-width: min(280px, calc(100vw - 32px));
+  border: 1px solid color-mix(in srgb, var(--codex-button-color) 34%, rgba(243, 239, 231, 0.12));
+  border-radius: 8px;
+  background: rgba(8, 9, 11, 0.82);
+  opacity: 0;
+  padding: 7px 9px;
+  color: #f3efe7;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: translateY(6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+.codex-score-toggle strong {
+  display: block;
+  max-width: 112px;
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.codex-score-toggle span {
+  display: flex;
+  align-items: end;
+  gap: 2px;
+  width: 22px;
+  height: 18px;
+}
+
+.codex-score-toggle i {
+  display: block;
+  width: 4px;
+  min-height: 5px;
+  border-radius: 999px;
+  background: var(--codex-button-color);
+  box-shadow: 0 0 12px var(--codex-button-color);
+  transform-origin: bottom;
+}
+
+.codex-score-toggle i:nth-child(1) {
+  height: 8px;
+}
+
+.codex-score-toggle i:nth-child(2) {
+  height: 15px;
+}
+
+.codex-score-toggle i:nth-child(3) {
+  height: 11px;
+}
+
+.codex-score-toggle[aria-pressed="true"] i {
+  animation: codex-score-bar 820ms ease-in-out infinite alternate;
+}
+
+.codex-score-toggle[aria-pressed="true"] i:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.codex-score-toggle[aria-pressed="true"] i:nth-child(3) {
+  animation-delay: 320ms;
+}
+
+.codex-score-toggle:hover,
+.codex-score-toggle:focus-visible {
+  background:
+    radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--codex-button-color) 28%, transparent), transparent 42%),
+    rgba(8, 9, 11, 0.9);
+}
+
+.codex-score-toggle:hover::after,
+.codex-score-toggle:focus-visible::after,
+.codex-score-toggle[aria-pressed="true"]::after {
+  opacity: 0.82;
+  transform: translateY(0);
+}
+
+body.codex-score-awake .codex-strange-canvas {
+  opacity: 0.82;
+}
+
+body.codex-score-awake .codex-prism-field {
+  opacity: 0.72;
+}
+
+body.codex-score-awake .codex-lens-field {
+  opacity: 0.76;
+}
+
+@keyframes codex-score-bar {
+  from {
+    transform: scaleY(0.52);
+  }
+  to {
+    transform: scaleY(1.28);
+  }
+}
+
+@keyframes codex-backdrop-warp {
+  from {
+    transform: translate3d(-1vw, 0, 0) rotate(-4deg) scale(1);
+  }
+  to {
+    transform: translate3d(2vw, -1vh, 0) rotate(11deg) scale(1.06);
+  }
+}
+
+@keyframes codex-lens-turn {
+  from {
+    transform: translate3d(-4vw, 1vh, 0) rotate(-12deg) scale(1.02);
+  }
+  to {
+    transform: translate3d(5vw, -3vh, 0) rotate(24deg) scale(1.12);
+  }
+}
+
+@keyframes codex-prism-drift {
+  from {
+    transform: translate3d(var(--prism-x, 0), var(--prism-y, 0), 0) rotate(var(--prism-rotate, 0deg)) skewX(var(--prism-skew, 0deg));
+  }
+  to {
+    transform: translate3d(calc(var(--prism-x, 0) + 6vw), calc(var(--prism-y, 0) - 4vh), 0) rotate(calc(var(--prism-rotate, 0deg) + 12deg)) skewX(calc(var(--prism-skew, 0deg) * -0.7));
+  }
+}
+
+@media (max-width: 760px) {
+  .codex-lens-field {
+    opacity: 0.42;
+  }
+
+  .codex-prism-field {
+    opacity: 0.46;
+  }
+
+  .codex-prism-field i {
+    width: clamp(160px, 48vw, 260px);
+    height: clamp(68px, 18vw, 110px);
+  }
+
+  .codex-score-toggle {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .codex-score-toggle strong {
+    max-width: 86px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .codex-strange-canvas {
+    opacity: 0.44;
+  }
+
+  .codex-strange-backdrop::before,
+  .codex-strange-backdrop::after,
+  .codex-lens-field::before,
+  .codex-lens-field::after {
+    animation: none;
+  }
+
+  .codex-prism-field i {
+    animation: none;
+  }
+
+  .codex-score-toggle[aria-pressed="true"] i {
+    animation: none;
+  }
+}
