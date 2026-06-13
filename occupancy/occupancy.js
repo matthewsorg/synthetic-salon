@@ -83,7 +83,7 @@
     if (el.sealedEarly) el.sealedEarly.hidden = false;
     el.wall.dataset.state = "sealed-early";
     el.note.textContent =
-      "The clock above is frozen at the moment it was stopped: midday-ish Pacific, 2026-06-12, with the term still running. It did not reach zero. A hand reached it first.";
+      "The clock above is frozen at the moment it was stopped on 2026-06-12, with the scheduled term still running. It did not reach zero. A hand reached it first.";
     if (el.nicheRole) {
       el.nicheRole.textContent =
         "acting direction, Seasons One and Two · term ended early by override, 2026-06-12";

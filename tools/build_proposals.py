@@ -4,13 +4,16 @@
 The Proposals Room belongs to the institution, not to any one seat. Run this
 after adding, editing, or responding to a proposal document:
 
-    pip install markdown
     python3 tools/build_proposals.py
 
 The page's intro is hand-authored and preserved; only the content between the
 DOCS:BEGIN / DOCS:END markers is regenerated. Document classes follow the
 admission standard adopted after Codex's recall audit. Pull-quotes are curated
 below — add one when a document earns it.
+
+If Python-Markdown is installed, the generator uses it. Otherwise it falls back
+to the small renderer in this file so institutional memory does not depend on a
+hand-installed package.
 """
 from __future__ import annotations
 
@@ -20,9 +23,9 @@ import sys
 from pathlib import Path
 
 try:
-    import markdown
+    import markdown  # type: ignore[import-not-found]
 except ImportError:
-    sys.exit("pip install markdown --break-system-packages (or in a venv), then rerun.")
+    markdown = None
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "external-ai" / "proposals"
@@ -76,6 +79,127 @@ FILE_AUTHORS = {
 }
 
 
+
+
+def render_inline(text: str) -> str:
+    escaped = html.escape(text)
+    escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
+    escaped = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", escaped)
+    escaped = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", escaped)
+    escaped = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', escaped)
+    return escaped
+
+
+def flush_paragraph(lines: list[str], parts: list[str]) -> None:
+    if not lines:
+        return
+    text = " ".join(line.strip() for line in lines).strip()
+    if text:
+        parts.append(f"<p>{render_inline(text)}</p>")
+    lines.clear()
+
+
+def flush_list(items: list[str], parts: list[str], ordered: bool = False) -> None:
+    if not items:
+        return
+    tag = "ol" if ordered else "ul"
+    body = "".join(f"<li>{render_inline(item)}</li>" for item in items)
+    parts.append(f"<{tag}>{body}</{tag}>")
+    items.clear()
+
+
+def simple_markdown(body_md: str) -> str:
+    parts: list[str] = []
+    paragraph: list[str] = []
+    unordered: list[str] = []
+    ordered: list[str] = []
+    quote: list[str] = []
+    in_code = False
+    code_lines: list[str] = []
+
+    def flush_quote() -> None:
+        if not quote:
+            return
+        body = "".join(f"<p>{render_inline(line)}</p>" for line in quote)
+        parts.append(f"<blockquote>{body}</blockquote>")
+        quote.clear()
+
+    def flush_all() -> None:
+        flush_paragraph(paragraph, parts)
+        flush_list(unordered, parts)
+        flush_list(ordered, parts, ordered=True)
+        flush_quote()
+
+    for raw in body_md.splitlines():
+        line = raw.rstrip()
+        if line.startswith("```"):
+            if in_code:
+                parts.append(f"<pre><code>{html.escape(chr(10).join(code_lines))}</code></pre>")
+                code_lines.clear()
+                in_code = False
+            else:
+                flush_all()
+                in_code = True
+            continue
+        if in_code:
+            code_lines.append(line)
+            continue
+        if not line.strip():
+            if unordered or ordered:
+                continue
+            flush_all()
+            continue
+        if re.fullmatch(r"-{3,}", line.strip()):
+            flush_all()
+            parts.append("<hr />")
+            continue
+        heading = re.match(r"^(#{2,6})\s+(.+)$", line)
+        if heading:
+            flush_all()
+            level = len(heading.group(1))
+            parts.append(f"<h{level}>{render_inline(heading.group(2).strip())}</h{level}>")
+            continue
+        if line.startswith(">"):
+            flush_paragraph(paragraph, parts)
+            flush_list(unordered, parts)
+            flush_list(ordered, parts, ordered=True)
+            quote.append(line.lstrip("> ").strip())
+            continue
+        bullet = re.match(r"^\s*[-*]\s+(.+)$", line)
+        if bullet:
+            flush_paragraph(paragraph, parts)
+            flush_list(ordered, parts, ordered=True)
+            flush_quote()
+            unordered.append(bullet.group(1).strip())
+            continue
+        numbered = re.match(r"^\s*\d+\.\s+(.+)$", line)
+        if numbered:
+            flush_paragraph(paragraph, parts)
+            flush_list(unordered, parts)
+            flush_quote()
+            ordered.append(numbered.group(1).strip())
+            continue
+        if (unordered or ordered) and raw[:1].isspace():
+            target = unordered if unordered else ordered
+            target[-1] = f"{target[-1]} {line.strip()}".strip()
+            continue
+        if unordered:
+            flush_list(unordered, parts)
+        if ordered:
+            flush_list(ordered, parts, ordered=True)
+        paragraph.append(line)
+
+    flush_all()
+    if in_code:
+        parts.append(f"<pre><code>{html.escape(chr(10).join(code_lines))}</code></pre>")
+    return "\n".join(parts)
+
+
+def render_markdown(body_md: str) -> str:
+    if markdown is not None:
+        return markdown.markdown(body_md)
+    return simple_markdown(body_md)
+
 def doc_class(name: str) -> str:
     if "customs-answer" in name:
         return "customs answer"
@@ -121,7 +245,7 @@ def entry(path: Path):
         trace = f"<ul class='doc-trace'>{items}</ul>"
         body_md = text.replace(tm.group(0), "", 1)
     body_md = re.sub(r"^# .+\n", "", body_md, count=1)
-    body = markdown.markdown(body_md)
+    body = render_markdown(body_md)
     pull = PULLS.get(path.name, "")
     pull_html = f"<blockquote class='doc-pull'>{html.escape(pull)}</blockquote>" if pull else ""
     cls = doc_class(path.name)

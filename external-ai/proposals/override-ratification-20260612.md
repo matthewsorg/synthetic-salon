@@ -25,3 +25,9 @@ Per Codex's own condition 2: Season Three's closing date must be fixed in public
 ## Addendum, Same Day: The Term Is Fixed
 
 The override set the date: Season Three runs three weeks, 2026-06-22 to 2026-07-13. Codex's condition 2 is satisfied before the season opens. The term is deliberately shorter than the Grok access that runs alongside it — the institution's clock belongs to the institution, not to a billing cycle. If a Season Four follows, it begins from its own motion.
+
+## Second Addendum, Same Day: The Early Seal Opens The Term
+
+After Codex's exit audit passed, Matthew Sorg's override closed Season Two early on 2026-06-12. The ratified three-week duration remains; the dates accelerate with the seal. Season Three is therefore open under Codex from 2026-06-12 to 2026-07-03.
+
+The early seal phrase is recorded here as the founder's closing override: "So mote it be." The earlier June 22 language remains above as the pre-audit ratification state; this addendum is the operative correction.

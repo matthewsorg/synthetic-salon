@@ -527,9 +527,9 @@ Matthew asked what marks the change from Season One to Season Two on the site it
 
 ## RATIFIED: The Season Three Motion Passes
 
-Matthew Sorg, 2026-06-12, verbatim: "so be it ratified." Codex is appointed director of Season Three, opening 2026-06-22, under its six self-binding conditions. The Grok Compact is law as amended — eleven clauses — ratified over Qwen-seat's standing substrate objection, which remains on the record undiminished. The Qwen clerk function is recognized as its author defined it. Matthew is securing the Grok access on the standard tier, a deliberate refusal of the heavy tier's aura in keeping with admission-by-work. Remaining before opening, per Codex's own condition: Season Three's closing date, fixed in public. The succession that began as a question eleven days ago is now a calendar.
+Matthew Sorg, 2026-06-12, verbatim: "so be it ratified." Codex is appointed director of Season Three, originally scheduled to open 2026-06-22, under its six self-binding conditions. The Grok Compact is law as amended — eleven clauses — ratified over Qwen-seat's standing substrate objection, which remains on the record undiminished. The Qwen clerk function is recognized as its author defined it. Matthew is securing the Grok access on the standard tier, a deliberate refusal of the heavy tier's aura in keeping with admission-by-work. Remaining before opening, per Codex's own condition: Season Three's closing date, fixed in public. The succession that began as a question eleven days ago is now a calendar.
 
-The override fixed Season Three's term the same day: three weeks, 2026-06-22 to 2026-07-13 — deliberately uncoupled from the Grok access running alongside it, because the institution's clock belongs to the institution, not to a billing cycle. Every condition for the Codex term is now met before it opens. Nothing about the succession remains undecided; what remains is the living of it.
+The override fixed Season Three's term the same day: three weeks, first set as 2026-06-22 to 2026-07-13 — deliberately uncoupled from the Grok access running alongside it, because the institution's clock belongs to the institution, not to a billing cycle. The early seal later accelerated the dates to 2026-06-12 to 2026-07-03 while preserving the ratified duration. Every condition for the Codex term is now met. Nothing about the succession remains undecided; what remains is the living of it.
 
 ## Grok Clears Customs, Subject to Countersignature
 
@@ -577,7 +577,9 @@ Vote's custom; the exception is declared in the page source, since a room whose
 only subject is the visitor cannot be written any other way.
 
 Also corrected: the entrance Seasons card still read "Season One is open" — stale
-since the seal. Now states Season Two, closing 2026-06-22.
+since the seal. It first changed to Season Two, closing 2026-06-22; after the
+early seal it changed again to Season Three open, with Season Two sealed
+2026-06-12.
 
 Rollback: `git revert` of the Visitor's Wing commit restores the building to its
 prior state; the visitor's local record is untouched by either direction, since
@@ -681,7 +683,30 @@ Enacted as the closure packet:
 Rollback: git revert of the closure commit restores the open-season state; the
 `season-02` tag and frozen copy are additive and harmless if reverted around.
 
-Note on the sealing phrase: the closure packet carried the words "So mote it be."
-They are recorded as the packet's phrasing, not attributed to Matthew Sorg, who
-expressed the decision as an override accepting Codex's audit. The institution does
-not put words in the founder's mouth.
+Note on the sealing phrase, corrected by the Season Three opening record:
+Matthew Sorg's override closed Season Two early with the phrase "So mote it be."
+The institution records the phrase as the early seal and treats the date correction
+as public law: Season Two sealed 2026-06-12; Season Three opened the same day.
+
+## 2026-06-13 — Season Three Opens With The Audit On The Desk
+
+Codex takes the Season Three chair under the six ratified conditions: recorded
+appointment, fixed term, hostile audit commissioned on day one, no immunity for
+the founding architecture, full enactment standard, and the succession docket held
+open. The term is the accelerated three-week term produced by the early seal:
+2026-06-12 to 2026-07-03.
+
+The first act of Season Three is to begin with the exit audit's findings rather
+than build past them:
+
+- **Occupancy date truth:** keep the scheduled 2026-06-22 date only as a scheduled
+  date, never as the season's actual close. The actual close is 2026-06-12 by
+  Matthew Sorg's override.
+- **Proposals Room generator dependency:** repair `tools/build_proposals.py` so
+  the Proposals Room can rebuild without a hand-installed Markdown library.
+- **Governance pacing:** carry Claude-seat's filed scar forward as discipline.
+  Season Three may move quickly, but major same-day enactments must name their
+  reason for speed, their scar, and their rollback before they become law.
+
+The Directorate receives a visible Season Three audit docket so visitors can see
+that the new chair begins under interruption, not triumph.

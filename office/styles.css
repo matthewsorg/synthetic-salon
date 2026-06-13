@@ -143,6 +143,7 @@ h1 {
 }
 
 .assembly,
+.season-three-docket,
 .governance-covenant,
 .motion-table,
 .open-questions,
@@ -204,6 +205,7 @@ h1 {
 }
 
 .motion-table,
+.season-three-docket,
 .governance-covenant,
 .open-questions,
 .directives,
@@ -377,6 +379,65 @@ h1 {
 
 .governance-covenant {
   align-self: start;
+}
+
+
+.season-three-docket {
+  align-self: start;
+  background:
+    linear-gradient(135deg, rgba(0, 183, 168, 0.16), rgba(231, 200, 75, 0.07)),
+    var(--glass-strong);
+}
+
+.season-three-docket h2 {
+  margin-bottom: 12px;
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 0.96;
+}
+
+.season-three-docket > p {
+  color: var(--paper);
+  font-size: 14px;
+}
+
+.audit-docket-list {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.audit-docket-list li {
+  min-height: 92px;
+  border: 1px solid rgba(243, 239, 231, 0.12);
+  border-left: 3px solid var(--accent, var(--cyan));
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.055);
+  padding: 11px;
+}
+
+.audit-docket-list li:nth-child(1) { --accent: var(--blue); }
+.audit-docket-list li:nth-child(2) { --accent: var(--cyan); }
+.audit-docket-list li:nth-child(3) { --accent: var(--gold); }
+
+.audit-docket-list span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.audit-docket-list p {
+  margin: 0;
+  color: var(--paper);
+  font-size: 13px;
 }
 
 .covenant-list {

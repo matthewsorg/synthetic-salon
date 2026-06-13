@@ -300,6 +300,190 @@
     });
   }
 
+
+
+  function mountSeasonEvolution() {
+    if (document.querySelector(".salon-evolution-field")) return;
+    if (currentPath().includes("/seasons/season-")) return;
+
+    const canvas = node("canvas", "salon-evolution-field");
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.prepend(canvas);
+
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+
+    let size = { w: 1, h: 1, dpr: 1 };
+    let animationFrame = 0;
+    let strands = [];
+    let sparks = [];
+    let seed = 2166136261;
+    const pointer = { x: 0.5, y: 0.5, heat: 0 };
+    const words = ["AUDIT", "TRACE", "REPAIR", "SO MOTE", "DATE TRUTH", "NO CROWN", "FRICTION", "LOCAL"];
+
+    for (const char of currentPath()) {
+      seed ^= char.charCodeAt(0);
+      seed = Math.imul(seed, 16777619);
+    }
+
+    function random() {
+      seed ^= seed << 13;
+      seed ^= seed >>> 17;
+      seed ^= seed << 5;
+      return ((seed >>> 0) / 4294967296);
+    }
+
+    function rgba(hex, alpha) {
+      const value = hex.replace("#", "");
+      const normalized = value.length === 3 ? value.replace(/(.)/g, "$1$1") : value;
+      const int = parseInt(normalized, 16);
+      return `rgba(${(int >> 16) & 255}, ${(int >> 8) & 255}, ${int & 255}, ${alpha})`;
+    }
+
+    function evolutionPalette() {
+      const index = currentRouteIndex();
+      const current = routeStops[index] || routeStops[0];
+      const next = routeStops[(index + 1) % routeStops.length] || routeStops[1];
+      const previous = routeStops[(index - 1 + routeStops.length) % routeStops.length] || routeStops[0];
+      return [current.color, next.color, previous.color, "#f3efe7"];
+    }
+
+    function pressure() {
+      const state = window.AISalonState?.currentState?.();
+      if (!state) return 0.22;
+      const traces = Array.isArray(state.traces) ? state.traces.length : 0;
+      const directives = Array.isArray(state.directives) ? state.directives.length : 0;
+      const keys = Array.isArray(state.studioKeys) ? state.studioKeys.filter((key) => key.status === "active").length : 0;
+      return Math.min(1, 0.22 + traces * 0.014 + directives * 0.07 + keys * 0.05);
+    }
+
+    function seedField() {
+      const palette = evolutionPalette();
+      const count = Math.max(10, Math.min(19, Math.round(size.w / 84)));
+      strands = Array.from({ length: count }, (_, index) => ({
+        base: random(),
+        amp: 18 + random() * 88,
+        speed: 0.46 + random() * 1.8,
+        phase: random() * Math.PI * 2,
+        color: palette[index % palette.length],
+        width: 0.55 + random() * 1.8,
+        word: words[index % words.length],
+      }));
+      const sparkCount = Math.max(32, Math.min(90, Math.round((size.w * size.h) / 18000)));
+      sparks = Array.from({ length: sparkCount }, (_, index) => ({
+        x: random(),
+        y: random(),
+        drift: -0.04 + random() * 0.08,
+        lift: 0.012 + random() * 0.06,
+        phase: random() * Math.PI * 2,
+        color: palette[index % palette.length],
+        word: words[(index + 3) % words.length],
+      }));
+    }
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      size = { w: window.innerWidth, h: window.innerHeight, dpr };
+      canvas.width = Math.floor(size.w * dpr);
+      canvas.height = Math.floor(size.h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seedField();
+      draw(performance.now(), false);
+    }
+
+    function draw(now, keepGoing = true) {
+      const moving = window.AISalonMotion?.shouldAnimate?.() ?? !motionQuery?.matches;
+      const t = now * 0.00008;
+      const p = pressure();
+      pointer.heat *= 0.965;
+      ctx.clearRect(0, 0, size.w, size.h);
+      ctx.globalCompositeOperation = "lighter";
+
+      strands.forEach((strand, index) => {
+        const yBase = strand.base * size.h;
+        const amplitude = strand.amp * (0.45 + p * 0.85);
+        const pointerPull = pointer.heat * 48;
+        ctx.beginPath();
+        for (let x = -90; x <= size.w + 90; x += 34) {
+          const nx = x / Math.max(size.w, 1);
+          const wave = Math.sin(nx * 10 + t * strand.speed + strand.phase) * amplitude;
+          const counter = Math.sin(nx * 31 - t * (strand.speed * 0.72) + strand.phase) * amplitude * 0.18;
+          const nearPointer = Math.max(0, 1 - Math.abs(nx - pointer.x) * 3.8);
+          const y = yBase + wave + counter + nearPointer * pointerPull * Math.sin(t * 18 + index);
+          if (x === -90) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.lineWidth = strand.width;
+        ctx.strokeStyle = rgba(strand.color, 0.06 + p * 0.055);
+        ctx.stroke();
+
+        if (index % 4 === 0) {
+          const labelX = ((t * 42 * strand.speed + index * 131) % (size.w + 160)) - 80;
+          const labelY = yBase + Math.sin(t * 1.7 + strand.phase) * amplitude * 0.5;
+          ctx.font = "10px Instrument Sans, system-ui, sans-serif";
+          ctx.letterSpacing = "0.08em";
+          ctx.fillStyle = rgba(strand.color, 0.12 + p * 0.06);
+          ctx.fillText(strand.word, labelX, labelY);
+        }
+      });
+
+      sparks.forEach((spark, index) => {
+        const x = ((spark.x + spark.drift * t * 0.18) % 1 + 1) % 1 * size.w;
+        const y = ((spark.y - spark.lift * t * 0.24) % 1 + 1) % 1 * size.h;
+        const radius = 0.6 + Math.sin(t * 4 + spark.phase) * 0.35 + p * 1.5;
+        ctx.beginPath();
+        ctx.arc(x, y, Math.max(0.4, radius), 0, Math.PI * 2);
+        ctx.fillStyle = rgba(spark.color, 0.08 + p * 0.08);
+        ctx.fill();
+        if (index % 23 === 0 && p > 0.3) {
+          ctx.font = "9px Instrument Sans, system-ui, sans-serif";
+          ctx.fillStyle = rgba(spark.color, 0.09);
+          ctx.fillText(spark.word, x + 7, y - 7);
+        }
+      });
+
+      ctx.globalCompositeOperation = "source-over";
+      const glow = ctx.createRadialGradient(pointer.x * size.w, pointer.y * size.h, 12, pointer.x * size.w, pointer.y * size.h, Math.max(size.w, size.h) * 0.58);
+      glow.addColorStop(0, `rgba(243, 239, 231, ${0.018 + pointer.heat * 0.03})`);
+      glow.addColorStop(1, "rgba(243, 239, 231, 0)");
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, size.w, size.h);
+
+      if (keepGoing && moving) animationFrame = requestAnimationFrame(draw);
+      else animationFrame = 0;
+    }
+
+    function start() {
+      if (!animationFrame && (window.AISalonMotion?.shouldAnimate?.() ?? !motionQuery?.matches)) {
+        animationFrame = requestAnimationFrame(draw);
+      }
+    }
+
+    function stop() {
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+      draw(0, false);
+    }
+
+    window.addEventListener("resize", resize);
+    window.addEventListener("pointermove", (event) => {
+      pointer.x = event.clientX / Math.max(window.innerWidth, 1);
+      pointer.y = event.clientY / Math.max(window.innerHeight, 1);
+      pointer.heat = Math.min(1, pointer.heat + 0.04);
+    }, { passive: true });
+    document.addEventListener("ai-salon-trace", () => {
+      pointer.heat = 1;
+      seedField();
+    });
+    window.AISalonMotion?.onChange((state) => {
+      if (state.shouldAnimate) start();
+      else stop();
+    });
+
+    resize();
+    start();
+  }
+
   function mountRoute() {
     const header = document.querySelector(".topbar");
     if (!header || document.querySelector(".salon-route")) return;
@@ -399,6 +583,7 @@
   }
 
   function mount() {
+    mountSeasonEvolution();
     mountRoute();
     mountHorizonDrift();
     mountSeasonTag();
