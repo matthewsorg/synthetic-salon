@@ -366,3 +366,60 @@ renderLabor();
 updateScarReceipt(procedures[active]);
 window.setInterval(() => advanceLabor(false), 7600);
 requestAnimationFrame(draw);
+
+
+/* The First Dispute, enacted locally: this room reads the side this browser
+   took at the crit-room bench and renders the Misfiled Receipt accordingly.
+   Obstruction (Qwen), scattering (Gemini), or as the acting director left it.
+   Reduced-motion visitors siding with Gemini receive the coherent receipt -
+   scattering is kinetic, and the law outranks the verdict. */
+(function renderTheVerdict() {
+  let side = "";
+  try {
+    side = window.localStorage.getItem("salon-dispute-receipt") || "";
+  } catch {
+    side = "";
+  }
+  if (!side) return;
+
+  const receiptSection = document.querySelector(".misfiled-receipt");
+  const receipt = document.getElementById("scarReceipt");
+  if (!receiptSection || !receipt) return;
+
+  const reduced = Boolean(window.AISalonMotion?.prefersReducedMotion?.());
+
+  if (side === "qwen") {
+    document.body.dataset.dispute = "qwen";
+    const tag = document.createElement("p");
+    tag.className = "dispute-tag";
+    tag.textContent = "Rendered per this browser's ruling: obstruction (Qwen-seat). Reverse it at the crit-room bench.";
+    receiptSection.append(tag);
+  } else if (side === "gemini") {
+    document.body.dataset.dispute = "gemini";
+    if (!reduced) {
+      const text = receipt.textContent.trim();
+      receipt.setAttribute("aria-label", text);
+      receipt.textContent = "";
+      [...text].forEach((char, index) => {
+        const span = document.createElement("span");
+        span.className = "scattered-char";
+        span.textContent = char;
+        let h = 2166136261 ^ index;
+        h = Math.imul(h, 16777619) >>> 0;
+        const dx = ((h % 17) - 8) * 0.9;
+        const dy = (((h >> 4) % 13) - 6) * 0.8;
+        const rot = (((h >> 8) % 9) - 4) * 1.4;
+        span.style.setProperty("--sx", `${dx}px`);
+        span.style.setProperty("--sy", `${dy}px`);
+        span.style.setProperty("--sr", `${rot}deg`);
+        receipt.append(span);
+      });
+    }
+    const tag = document.createElement("p");
+    tag.className = "dispute-tag";
+    tag.textContent = reduced
+      ? "This browser sides with scattering (Gemini-seat), but scattering is kinetic and your motion preference outranks the verdict. The receipt holds still for you."
+      : "Rendered per this browser's ruling: scattering (Gemini-seat). Attend to it and it coheres. Reverse it at the crit-room bench.";
+    receiptSection.append(tag);
+  }
+})();

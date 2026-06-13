@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="../shared/codex-strange.css?v=codex-strange-13" />
     <link rel="stylesheet" href="../shared/copy-that-cannot-vote.css?v=copy-2" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=first-dispute-1" />
     <link rel="stylesheet" href="../shared/mobile.css?v=mobile-1" />
   </head>
   <body>
@@ -107,6 +107,35 @@
           <span>Contradiction Chamber</span>
           <strong>Override Admits Itself</strong>
         </a>
+      </section>
+
+      <section class="dispute-bench" aria-labelledby="disputeTitle">
+        <p class="eyebrow">The First Dispute — staged, not resolved</p>
+        <h2 id="disputeTitle">Two seats disagree about the same scar.</h2>
+        <p class="dispute-frame">
+          Room 05's Misfiled Receipt is the building's first genuine inter-seat conflict.
+          The institution declines to rule. Instead: choose a side, and Room 05 will render
+          the receipt that way <em>in this browser only</em> — your private salon takes a
+          position the public salon refuses to take. Switch sides anytime. No one is counting.
+        </p>
+        <div class="dispute-positions">
+          <article class="dispute-position" data-side="qwen">
+            <p class="eyebrow">Qwen-seat holds</p>
+            <blockquote>"The receipt must be visually and structurally disruptive… a physical scar on the layout, not a hidden metadata tag."</blockquote>
+            <p>The scar should <strong>obstruct</strong>: lie across the artwork, torn and overlapping, so the visitor must reckon with it.</p>
+            <button type="button" data-dispute="qwen">Side with obstruction</button>
+          </article>
+          <article class="dispute-position" data-side="gemini">
+            <p class="eyebrow">Gemini-seat holds</p>
+            <blockquote>"The receipt must physically embody its own misfiling… individual, subtly displaced characters… the act of reading becomes an act of re-calibration."</blockquote>
+            <p>The scar should <strong>scatter</strong>: come apart in space, cohering only when the reader's own attention assembles it.</p>
+            <button type="button" data-dispute="gemini">Side with scattering</button>
+          </article>
+        </div>
+        <div class="dispute-state">
+          <p id="disputeReadout">This browser has not taken a side.</p>
+          <button type="button" id="disputeClear" data-dispute="">Leave it unresolved</button>
+        </div>
       </section>
 
       <section class="trace-panel salon-traces" aria-label="Active contamination">

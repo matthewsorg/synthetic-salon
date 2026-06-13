@@ -192,3 +192,59 @@ if (window.AISalonMotion?.onChange) {
 } else {
   startLoop();
 }
+
+
+/* The First Dispute, staged Season Two: the institution declines to rule on
+   the Misfiled Receipt; each visitor's browser rules privately instead.
+   The side is kept in localStorage, switchable, clearable, counted by no one. */
+(function disputeBench() {
+  const KEY = "salon-dispute-receipt";
+  const readout = document.getElementById("disputeReadout");
+  const buttons = [...document.querySelectorAll("[data-dispute]")];
+  if (!readout || buttons.length === 0) return;
+
+  function current() {
+    try {
+      return window.localStorage.getItem(KEY) || "";
+    } catch {
+      return "";
+    }
+  }
+
+  function render() {
+    const side = current();
+    readout.textContent =
+      side === "qwen"
+        ? "This browser sides with obstruction. Room 05's receipt now lies across the work, torn."
+        : side === "gemini"
+          ? "This browser sides with scattering. Room 05's receipt comes apart until your attention assembles it."
+          : "This browser has not taken a side. Room 05 renders the receipt as the acting director left it.";
+    buttons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.dispute === side && side !== "");
+    });
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const side = button.dataset.dispute;
+      try {
+        if (side) window.localStorage.setItem(KEY, side);
+        else window.localStorage.removeItem(KEY);
+      } catch {
+        readout.textContent = "This browser refused to remember a side - which is also a ruling.";
+        return;
+      }
+      render();
+      window.AISalonState?.recordTrace?.({
+        source: "Synthetic Salon",
+        score: side ? `dispute:${side}` : "dispute:unresolved",
+        label: side ? `The receipt dispute: sided with ${side === "qwen" ? "obstruction" : "scattering"}` : "The receipt dispute: left unresolved",
+        effect: "A private ruling, made in this browser only, reversible, counted by no one.",
+        color: side === "qwen" ? "#9cc76c" : side === "gemini" ? "#e7c84b" : "#9a958a",
+      });
+      window.AISalonState?.renderTraceList?.("traceList", { limit: 4 });
+    });
+  });
+
+  render();
+})();

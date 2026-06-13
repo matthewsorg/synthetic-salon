@@ -546,3 +546,36 @@ p {
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
+
+
+/* The First Dispute: local verdicts, rendered. */
+body[data-dispute="qwen"] .misfiled-receipt {
+  transform: rotate(1.4deg);
+  margin-top: -64px;
+  margin-left: 26px;
+  margin-right: -14px;
+  z-index: 6;
+  position: relative;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
+  border-top: 2px dashed rgba(156, 199, 108, 0.6);
+  clip-path: polygon(0 4%, 3% 0, 97% 2%, 100% 6%, 99% 96%, 96% 100%, 2% 98%, 0 94%);
+}
+
+body[data-dispute="gemini"] .scattered-char {
+  display: inline-block;
+  transform: translate(var(--sx), var(--sy)) rotate(var(--sr));
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: pre;
+}
+
+body[data-dispute="gemini"] .misfiled-receipt:hover .scattered-char,
+body[data-dispute="gemini"] .misfiled-receipt:focus-within .scattered-char {
+  transform: translate(0, 0) rotate(0);
+}
+
+.dispute-tag {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #9a958a;
+  font-style: italic;
+}
