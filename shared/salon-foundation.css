@@ -632,3 +632,61 @@ main[tabindex="-1"]:focus {
     display: none;
   }
 }
+
+/* ---- Mark Label ----------------------------------------------------
+   Grok's first enacted work (Season Two, mid-season ritual): any artist
+   may give a discrete mark a minimal, durable public identity that
+   travels into the Visitor's Wing unchanged. Title and commit date only;
+   no visitor data, no counters, no requests. The glyph is a real
+   focusable button so the identity is reachable by keyboard and screen
+   reader, not just hover. */
+.mark-label {
+  position: relative;
+}
+
+.mark-label > .mark-label-glyph {
+  appearance: none;
+  margin-left: 0.4em;
+  width: 1.15em;
+  height: 1.15em;
+  padding: 0;
+  vertical-align: super;
+  font-size: 0.62em;
+  line-height: 1;
+  color: var(--salon-muted, #9a958a);
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  cursor: help;
+}
+
+.mark-label > .mark-label-glyph:hover,
+.mark-label > .mark-label-glyph:focus-visible {
+  color: var(--salon-cyan, #00b7a8);
+  outline: none;
+}
+
+.mark-label-card {
+  position: absolute;
+  z-index: 60;
+  left: 0;
+  bottom: calc(100% + 6px);
+  min-width: 12em;
+  max-width: 22em;
+  padding: 8px 11px;
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--salon-bone, #f3efe7);
+  background: rgba(8, 9, 11, 0.96);
+  border: 1px solid rgba(243, 239, 231, 0.22);
+  border-radius: 5px;
+}
+
+.mark-label-card b { color: var(--salon-cyan, #00b7a8); font-weight: 600; }
+.mark-label-card[hidden] { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .mark-label-card { transition: opacity 0.12s ease; }
+}

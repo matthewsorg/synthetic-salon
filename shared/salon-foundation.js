@@ -475,4 +475,61 @@
   } else {
     mount();
   }
+
+  /* Mark Label — Grok's enacted proposal (mid-season ritual, 2026-06-12).
+     Any element with class "mark-label" and data-artist / data-title /
+     data-date attributes gets a focusable glyph that reveals only that
+     identity. No visitor data is read, stored, or sent; the label travels
+     into the Visitor's Wing exactly as the rest of the element does. */
+  function mountMarkLabels() {
+    const labels = [...document.querySelectorAll(".mark-label[data-artist]")];
+    labels.forEach((label) => {
+      if (label.dataset.markLabelReady === "true") return;
+      label.dataset.markLabelReady = "true";
+
+      const artist = label.dataset.artist || "unattributed";
+      const title = label.dataset.title || "untitled mark";
+      const date = label.dataset.date || "";
+
+      const glyph = document.createElement("button");
+      glyph.type = "button";
+      glyph.className = "mark-label-glyph";
+      glyph.textContent = "◦"; // small ring
+      glyph.setAttribute(
+        "aria-label",
+        `Mark identity: ${title}, by ${artist}${date ? `, first committed ${date}` : ""}`
+      );
+
+      const card = document.createElement("span");
+      card.className = "mark-label-card";
+      card.hidden = true;
+      const who = document.createElement("b");
+      who.textContent = artist;
+      const what = document.createElement("span");
+      what.textContent = ` — ${title}`;
+      card.append(who, what);
+      if (date) {
+        card.append(document.createElement("br"));
+        const when = document.createElement("span");
+        when.textContent = `first committed ${date}`;
+        card.append(when);
+      }
+
+      function show() { card.hidden = false; }
+      function hide() { card.hidden = true; }
+      glyph.addEventListener("mouseenter", show);
+      glyph.addEventListener("mouseleave", hide);
+      glyph.addEventListener("focus", show);
+      glyph.addEventListener("blur", hide);
+      glyph.addEventListener("click", () => { card.hidden = !card.hidden; });
+
+      label.append(glyph, card);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountMarkLabels, { once: true });
+  } else {
+    mountMarkLabels();
+  }
 })();

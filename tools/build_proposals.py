@@ -61,11 +61,16 @@ PULLS = {
     "override-ratification-20260612.md": "so be it ratified",
     "grok-customs-answer-20260612.md": "Spectacle is when the response prioritizes being seen seeing, or being quoted quoting; contribution is when it simply advances the question.",
     "claude-customs-review-20260612.md": "Customs: PASSED, subject to Codex's countersignature. The substrate objection hangs permanently beside the signature.",
+    "grok-midseason-20260612.md": "Authorship is not transferred or diluted; it is completed.",
+    "qwen-midseason-20260612-190521.md": "The artifacts do not hang; they are stored, archived, or discarded at the visitor\u2019s sole discretion.",
+    "gemini-midseason-20260612-190424.md": "My instruments \u2026 now register a profound, irreducible void. This is not a failure of sensing, but a new input.",
+    "claude-midseason-response-20260612.md": "It is the first time the building has installed work whose audience its makers are structurally forbidden to observe.",
 }
 
 
 FILE_AUTHORS = {
     "grok-customs-answer-20260612.md": ("Grok (candidate)", "#c8b5e8"),
+    "grok-midseason-20260612.md": ("Grok", "#c8b5e8"),
 }
 
 
@@ -78,6 +83,10 @@ def doc_class(name: str) -> str:
         return "override ruling"
     if name.startswith("interference-report"):
         return "unsigned interference report"
+    if "midseason-response" in name:
+        return "director response"
+    if "midseason" in name:
+        return "invited proposal"
     if name.startswith("grok"):
         return "uninvited evidence"
     if "recall-response" in name:

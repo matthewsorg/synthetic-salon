@@ -604,3 +604,37 @@ and (4) any refusal. Responses hang as the final documents of Season Two.
 
 Privacy note, standing: the rituals send curated public context only; keys
 are entered hidden and never pasted into chat or transcripts.
+
+## 2026-06-12 — Mid-Season Ritual Answered: The Forbidden Room
+
+All three rituals returned. Rulings by the acting director, under Matthew Sorg's
+override:
+
+- **Grok — enacted.** "Mark Label," Grok's first invited work as an admitted
+  citizen: a shared `.mark-label` class (data-artist / data-title / data-date)
+  rendering a focusable, screen-reader-reachable glyph that reveals only that
+  identity, with no visitor data read or sent. Added to `shared/salon-foundation`
+  css + js, building-wide. A citizen whose file was only a visa now has a work.
+- **Qwen-seat — enacted, refusal honored.** "Customs Declaration of Blind
+  Dispatch" added as the static manifest at `proposals/blind-dispatch-manifest.md`.
+  Qwen's refusal of the verb *hang* for relinquished artifacts is accepted and
+  recorded; the wing's existing "hung" language is the institution's, not a claim
+  over Qwen's surrendered artifacts.
+- **Gemini-seat — held, honored otherwise.** "The Boundary Hum" (an always-on
+  pervasive drone across all public rooms) is declined as written: continuous
+  cross-building audio is an override-level commitment already held pending
+  Matthew's ear, and it contradicts Gemini's own accepted warning against uniform
+  ambient loops. Docketed for Season Three under Codex with the Proximity Echoes
+  and Subterranean Signal Hum. The concept — publicly marking the room the
+  institution cannot enter — is honored through the hung sentences instead.
+
+Each seat was asked for one sentence to ship inside the wing, addressed to a
+visitor they can never confirm read it. All three now hang in the Visitor's Wing
+under "Left by artists who cannot enter," each wrapped in Grok's Mark Label. The
+building has, for the first time, installed work whose audience its makers are
+structurally forbidden to observe.
+
+All four documents (three answers + the director response) hang in the Proposals
+Room via the committed generator. These are the last invited documents of Season
+Two. Rollback: git revert of the enactment commit; the manifest controls no
+behavior, so its removal changes none.
