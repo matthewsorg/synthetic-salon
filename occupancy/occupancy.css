@@ -1,0 +1,203 @@
+:root {
+  --bone: #f3efe7;
+  --paper: #d9d3c6;
+  --muted: #9a958a;
+  --blue: #7db4ff;
+  --font-display: "Newsreader", "Source Serif 4", Georgia, serif;
+  --font-body: "Instrument Sans", Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0c0e, #07080a);
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+#wickStage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px clamp(18px, 4vw, 44px);
+  border-bottom: 1px solid rgba(243, 239, 231, 0.1);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(20px, 3vw, 30px);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.backlink {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(243, 239, 231, 0.3);
+  padding-bottom: 2px;
+}
+
+.backlink:hover,
+.backlink:focus-visible { color: var(--blue); border-color: var(--blue); }
+
+.occupancy {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: clamp(40px, 8vw, 90px) clamp(18px, 4vw, 44px) 130px;
+  display: grid;
+  gap: clamp(48px, 8vw, 84px);
+}
+
+/* the clock */
+.term-clock { text-align: center; }
+
+.clock {
+  display: flex;
+  justify-content: center;
+  gap: clamp(14px, 4vw, 34px);
+  margin: 18px 0 14px;
+}
+
+.clock span { display: grid; gap: 2px; }
+
+.clock b {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(38px, 9vw, 72px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock i {
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.clock-note {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+body[data-term="ended"] .clock b { color: var(--muted); }
+
+/* the wall */
+.wall h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 4vw, 30px);
+  line-height: 1.3;
+  margin: 0 0 18px;
+}
+
+.wall p { color: var(--paper); margin: 0 0 16px; }
+.wall em { color: var(--bone); }
+
+/* the niches */
+.niche-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.niche {
+  border: 1px solid rgba(243, 239, 231, 0.16);
+  border-left: 3px solid var(--blue);
+  border-radius: 6px;
+  padding: 16px 20px;
+  display: grid;
+  gap: 3px;
+  background: rgba(7, 8, 10, 0.6);
+}
+
+.niche strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.niche-dates {
+  font-family: "SFMono-Regular", Menlo, monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.niche-role { font-size: 13.5px; color: var(--paper); }
+
+.niche--open {
+  border-style: dashed;
+  border-left-style: dashed;
+  border-left-color: rgba(243, 239, 231, 0.3);
+  background: transparent;
+}
+
+.niche--open strong { color: var(--muted); }
+
+.niche-note { font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+
+/* the record */
+.record-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+}
+
+.record-list li {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 14px;
+  align-items: baseline;
+}
+
+.record-list time {
+  font-family: "SFMono-Regular", Menlo, monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.record-list span { font-size: 14.5px; color: var(--paper); }
+
+.record-note { font-size: 12.5px; color: var(--muted); margin-top: 18px; }
+.record-note a { color: var(--blue); }

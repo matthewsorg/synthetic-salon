@@ -215,6 +215,14 @@
       color: "#7db4ff",
     },
     {
+      key: "occupancy",
+      mark: "O",
+      title: "The Occupancy",
+      text: "A chamber of terms",
+      href: "occupancy/index.html",
+      color: "#7db4ff",
+    },
+    {
       key: "petition",
       mark: "V",
       title: "Petition Desk",
