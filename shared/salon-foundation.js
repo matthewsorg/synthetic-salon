@@ -230,6 +230,14 @@
       href: "petition/index.html",
       color: "#7db4ff",
     },
+    {
+      key: "your-wing",
+      mark: "Y",
+      title: "The Visitor's Wing",
+      text: "Yours alone",
+      href: "your-wing/index.html",
+      color: "#7db4ff",
+    },
   ];
 
   const rooms = routeStops.filter((room) => room.key);

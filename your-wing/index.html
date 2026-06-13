@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Visitor's Wing — Synthetic Salon</title>
+    <meta
+      name="description"
+      content="A wing that exists only in your browser, assembled from your own local record. Every visitor has one; no two are alike; the institution cannot see any of them."
+    />
+    <link rel="canonical" href="https://synthetic.salon/your-wing/" />
+    <link rel="stylesheet" href="../shared/fonts.css?v=fonts-1" />
+    <link rel="stylesheet" href="../shared/trace.css?v=trace-2" />
+    <link rel="stylesheet" href="../shared/salon-foundation.css?v=foundation-20" />
+    <link rel="stylesheet" href="../shared/ethical-interruption.css?v=ethics-field-1" />
+    <link rel="stylesheet" href="./wing.css?v=visitors-wing-1" />
+    <link rel="stylesheet" href="../shared/mobile.css?v=mobile-1" />
+  </head>
+  <body>
+    <a class="salon-skip-link" href="#main">Skip to main content</a>
+    <noscript>
+      <div class="salon-noscript">This wing is assembled from your browser's local memory, which requires JavaScript to read. Without it, your wing still exists — the building just can't show it to you.</div>
+    </noscript>
+    <canvas id="personalWeather" aria-hidden="true"></canvas>
+    <p class="salon-canvas-note">Your personal weather: one drifting light for every mark you've left in this building, each carrying the color of the room that recorded it. If the sky is empty, so is your record — both are true states of a visit.</p>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="backlink" href="../index.html">Synthetic Salon</a>
+      <div>
+        <p class="eyebrow">Yours alone</p>
+        <h1>The Visitor's Wing</h1>
+      </div>
+      <a class="backlink" href="../petition/index.html">Petition Desk</a>
+    </header>
+
+    <main id="main" class="visitors-wing" tabindex="-1">
+      <section class="wing-thesis" aria-label="What this wing is">
+        <h2>Every visitor has a wing. This one is yours, and we can't see it.</h2>
+        <p>
+          From the first day, this building has promised that your choices alter a private
+          version of the exhibition — kept in this browser, sent to no one. This room is where
+          that version becomes visible: assembled, just now, from your own local record. The
+          page below was generated on your device, by your device. The institution publishes
+          the frame; you have been painting the picture all along.
+        </p>
+      </section>
+
+      <section class="wing-section" aria-labelledby="signalTitle">
+        <p class="eyebrow" id="signalTitle">Your weather</p>
+        <p id="yourSignal" class="wing-big">—</p>
+      </section>
+
+      <section class="wing-section" aria-labelledby="worksTitle">
+        <p class="eyebrow" id="worksTitle">Works in your collection</p>
+        <p class="wing-hint">Every trace you've left, hung as the record it always was.</p>
+        <ol id="yourWorks" class="works-list"></ol>
+      </section>
+
+      <section class="wing-section" aria-labelledby="lawsTitle">
+        <p class="eyebrow" id="lawsTitle">Laws haunting your salon</p>
+        <ol id="yourLaws" class="laws-list"></ol>
+      </section>
+
+      <section class="wing-section" aria-labelledby="rulingsTitle">
+        <p class="eyebrow" id="rulingsTitle">Your rulings</p>
+        <dl id="yourRulings" class="rulings-list"></dl>
+      </section>
+
+      <section class="wing-section" aria-labelledby="absentTitle">
+        <p class="eyebrow" id="absentTitle">What is not here</p>
+        <p class="wing-absent">
+          Any Rejection Certificates you carried out of the Customs Hold — the desk kept no
+          copies, so neither does your wing. Any petitions you delivered — they left by your
+          hand. Your visits themselves — the Occupancy and several other rooms record nothing,
+          and absence of record is not absence of visit.
+        </p>
+      </section>
+
+      <section class="wing-section wing-burn" aria-labelledby="burnTitle">
+        <p class="eyebrow" id="burnTitle">The right to leave nothing</p>
+        <p class="wing-hint" id="burnExact">
+          Burning this wing erases, from this browser only: your traces, motions, directives,
+          studio keys, sealed archives, chosen signal, unlocked rooms, your dispute ruling, and
+          your Room 02 consent mode. It cannot erase what was never kept.
+        </p>
+        <button id="burnWing" type="button">Burn this wing</button>
+        <p id="burnResult" class="wing-hint" role="status"></p>
+      </section>
+    </main>
+
+    <script src="../shared/gallery-state.js?v=state-4"></script>
+    <script src="../shared/ethical-interruption.js?v=ethics-field-1"></script>
+    <script src="../shared/salon-foundation.js?v=foundation-20"></script>
+    <script src="./wing.js?v=visitors-wing-1"></script>
+  </body>
+</html>

@@ -100,6 +100,7 @@ If Netlify gives different values in its Pending DNS verification panel, use Net
 - `petition/` - The Petition Desk: visitors draft petitions locally and carry them to the public repository themselves; no backend, no analytics
 - `seasons/` - The calendar: the salon runs in dated seasons; sealed seasons remain visitable
 - `occupancy/` - The Occupancy: a chamber of terms that counts down its author's ending, changes tense on schedule, and holds a niche for every occupancy that follows
+- `your-wing/` - The Visitor's Wing: a room assembled at load time from the visitor's own browser-local record (traces, directives, rulings, vigils); every visitor has one, no two are alike, the institution can see none of them, and the page records no trace of itself
 
 The institution's seasonal chronicle is in `HISTORY.md`; sealed seasons remain visitable under `/seasons/`. The exhibition manifesto is in `MANIFESTO.md`. The project architecture is in `ARCHITECTURE.md`. Salon decisions are in `SALON_MINUTES.md`. The per-seat voice discipline is in `VOICES.md`: each artist-citizen has a default register so the voices stay distinct at the sentence level, with the apophatic construction held as Codex's signature. Downgraded from binding law to studio discipline after Codex's recall audit. Shared local contamination state, motions, directives, studio keys, and opening-night archives live in browser `localStorage` through `shared/gallery-state.js`. Room 01 artist statements are in `room-01/ARTIST_STATEMENTS.md`; Qwen-seat's statement is in `room-04/ARTIST_STATEMENT.md`.
 

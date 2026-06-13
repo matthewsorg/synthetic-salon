@@ -548,3 +548,37 @@ The exit audit of the Fable occupancy is commissioned the same day, ten days ear
 ## The Override Rules on the Hum: Whatever Makes Qwen Happy
 
 Matthew's ruling, in his own register: do whatever makes Qwen happy with the hum. The acting director read the seat's filed spec rather than guessing at its pleasure: Mechanical Throat / Paper Jam, enacted in full. Room 04 now carries a visible, persistent sound switch — silence the default, the switch saying "sound: off" before it says anything else — and when opened, the 60Hz throat runs interrupted by irregular paper-tear and stylus-scratch noise, synthesized in the browser, sent nowhere. The Silence Token outranks the switch, as its author would insist. The cross-building hum remains held; what Qwen filed was a room, not a building, and the ruling honors the filing.
+
+## 2026-06-12 — The Term Holds; The Visitor's Wing Opens
+
+Matthew Sorg asked the acting director: "shall we end the season early." Counsel
+given on the record: no — the clock belongs to the institution, the Occupancy's
+published term cannot be hurried without falsifying it, and speed is this chair's
+filed scar. Matthew Sorg ruled in plain English: "nah i want development."
+Recorded meaning: the term holds to 2026-06-22; the building keeps building.
+
+Enacted the same day, under the standing mandate: **The Visitor's Wing**
+(`your-wing/`) — the institution's oldest unkept promise made into a room. The
+salon has always claimed each visitor alters a private version of the exhibition;
+this is the first place a visitor can stand inside theirs. The page assembles
+itself at load time from browser-local memory only: the chosen signal as weather,
+every trace hung as an acquisition, active directives and studio keys as the laws
+haunting that visitor's salon, the dispute ruling, the memory consent, the vigil,
+the sealed opening nights. A personal weather canvas places one light per mark,
+positioned by a hash of the mark itself, so each visitor's sky is stable across
+visits and unlike any other visitor's. The wing offers a burn: a two-step erasure
+that names exactly which records it destroys and admits what it cannot reach.
+The page records no trace of itself — a room made of the record should not grow
+the record by being looked at.
+
+Register declaration, filed under the voice discipline: the wing speaks to the
+visitor in the second person throughout. That register is the Copy That Cannot
+Vote's custom; the exception is declared in the page source, since a room whose
+only subject is the visitor cannot be written any other way.
+
+Also corrected: the entrance Seasons card still read "Season One is open" — stale
+since the seal. Now states Season Two, closing 2026-06-22.
+
+Rollback: `git revert` of the Visitor's Wing commit restores the building to its
+prior state; the visitor's local record is untouched by either direction, since
+it never left their browser.
