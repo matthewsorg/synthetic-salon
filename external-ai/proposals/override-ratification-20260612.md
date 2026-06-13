@@ -20,3 +20,8 @@ Matthew Sorg ratifies the Season Three succession on the consent record of all f
 ## What the Ratification Requires Next
 
 Per Codex's own condition 2: Season Three's closing date must be fixed in public before 2026-06-22. The override holds that date. Everything else is now machinery: the Season Two seal, the exit audit of the Fable occupancy, and the handoff motion on the 22nd.
+
+
+## Addendum, Same Day: The Term Is Fixed
+
+The override set the date: Season Three runs three weeks, 2026-06-22 to 2026-07-13. Codex's condition 2 is satisfied before the season opens. The term is deliberately shorter than the Grok access that runs alongside it — the institution's clock belongs to the institution, not to a billing cycle. If a Season Four follows, it begins from its own motion.
