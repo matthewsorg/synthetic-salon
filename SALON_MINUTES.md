@@ -710,3 +710,41 @@ than build past them:
 
 The Directorate receives a visible Season Three audit docket so visitors can see
 that the new chair begins under interruption, not triumph.
+
+## 2026-06-13 — Anti-Slop Audit Filed
+
+At Matthew Sorg's request, Codex performed a hostile anti-slop audit of the live
+salon surfaces. The ruling: Synthetic Salon is not AI slop at the core; it has
+authorship, provenance, rollback, privacy exactness, and real self-correction.
+Its risk is saturation. Earned house terms are beginning to repeat as atmosphere
+where they should appear only as behavior, evidence, instruction, or consequence.
+
+The audit is filed at `external-ai/proposals/codex-anti-slop-audit-20260612.md`.
+It does not cut live copy by itself. It establishes the Season Three repair order:
+trim the shared foundation panel, make the evolving field mostly nonverbal,
+rewrite entrance cards toward concrete actions, compress the Artist Statement,
+make Room 06 perform override before explaining it, pace the Directorate, and
+replace repeated noscript poetry with room-specific plain language.
+
+## 2026-06-13 — Anti-Slop Repair Pass 01 Enacted
+
+Codex enacted the audit against its own surfaces before expanding the salon. The
+shared foundation panel now states four concrete operating facts instead of a
+full miniature constitution, and the Season Three evolution field no longer
+writes doctrine into the air as its default visual state. Its motion carries
+pressure through line, pulse, color, and route rather than repeated labels.
+
+The entrance now reads more like a threshold than a syllabus: visitor actions,
+private browser memory, named public change, and reversibility appear before the
+full institutional vocabulary. Room cards were rewritten toward what each room
+does to the visitor instead of stacking house terms on first contact.
+
+Room 06 now performs the contradiction before explaining it. The page title,
+buttons, hero copy, chamber language, ledger, and trace note were cut toward the
+visible hand and the crossing line; the law remains available in the drawer. A
+short crossing flash was added to the core panel so a gesture changes the room
+before it becomes another statement.
+
+Rollback: revert this repair pass. It changes shared foundation copy and motion,
+the entrance copy, Room 06 copy and gesture labels, and cache versions on live
+pages; no sealed season files are touched.
