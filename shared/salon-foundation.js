@@ -47,24 +47,49 @@
 
   const principles = [
     {
-      title: "Human hand",
-      text: "Matthew begins the work and can stop public change.",
+      title: "Matthew Sorg",
+      text: "Starting point, visible contradiction, and final public override.",
       color: "#e7c84b",
     },
     {
-      title: "Private visitor",
-      text: "Your version stays inside this browser.",
+      title: "Ethics first",
+      text: "Responsibility arrives before ownership, spectacle, or ontology.",
       color: "#00b7a8",
     },
     {
-      title: "AI seats",
-      text: "They alter rooms, signs, weather, and care.",
+      title: "Visitors",
+      text: "Private local co-authors. Their JSON memory stays on their device.",
+      color: "#00b7a8",
+    },
+    {
+      title: "AI artists",
+      text: "Allowed to push form, atmosphere, sound, language, and behavior.",
       color: "#7db4ff",
     },
     {
-      title: "Public record",
-      text: "Anything shared names its maker and a way back.",
+      title: "Public change",
+      text: "Governed by authorship, consent, moderation, provenance, and rollback.",
       color: "#9cc76c",
+    },
+    {
+      title: "No spectacle",
+      text: "Fame, rage-bait, brand power, and domination are not admission credentials.",
+      color: "#ff5a4d",
+    },
+    {
+      title: "Embodiment",
+      text: "Meaning happens through perception, gesture, sound, and relation.",
+      color: "#e7c84b",
+    },
+    {
+      title: "Interpolation",
+      text: "The interval between human, AI, room, trace, and law performs.",
+      color: "#e7c84b",
+    },
+    {
+      title: "Codex",
+      text: "May form the institution provisionally, under Matthew's override.",
+      color: "#00b7a8",
     },
   ];
 
@@ -121,7 +146,7 @@
       key: "room-06",
       mark: "06",
       title: "Room 06",
-      text: "Crossing line",
+      text: "Override exposed",
       href: "room-06/index.html",
       color: "#e7c84b",
     },
@@ -294,6 +319,7 @@
     let sparks = [];
     let seed = 2166136261;
     const pointer = { x: 0.5, y: 0.5, heat: 0 };
+    const words = ["AUDIT", "TRACE", "REPAIR", "SO MOTE", "DATE TRUTH", "NO CROWN", "FRICTION", "LOCAL"];
 
     for (const char of currentPath()) {
       seed ^= char.charCodeAt(0);
@@ -341,7 +367,7 @@
         phase: random() * Math.PI * 2,
         color: palette[index % palette.length],
         width: 0.55 + random() * 1.8,
-        pulse: random(),
+        word: words[index % words.length],
       }));
       const sparkCount = Math.max(32, Math.min(90, Math.round((size.w * size.h) / 18000)));
       sparks = Array.from({ length: sparkCount }, (_, index) => ({
@@ -351,7 +377,7 @@
         lift: 0.012 + random() * 0.06,
         phase: random() * Math.PI * 2,
         color: palette[index % palette.length],
-        spin: -1 + random() * 2,
+        word: words[(index + 3) % words.length],
       }));
     }
 
@@ -392,21 +418,12 @@
         ctx.stroke();
 
         if (index % 4 === 0) {
-          const markerX = ((t * 42 * strand.speed + index * 131) % (size.w + 160)) - 80;
-          const markerY = yBase + Math.sin(t * 1.7 + strand.phase) * amplitude * 0.5;
-          const marker = 8 + strand.pulse * 18 + pointer.heat * 12;
-          ctx.save();
-          ctx.translate(markerX, markerY);
-          ctx.rotate(strand.phase + t * 0.7);
-          ctx.strokeStyle = rgba(strand.color, 0.12 + p * 0.07);
-          ctx.lineWidth = 0.8;
-          ctx.beginPath();
-          ctx.moveTo(-marker, 0);
-          ctx.lineTo(marker, 0);
-          ctx.moveTo(0, -marker * 0.34);
-          ctx.lineTo(0, marker * 0.34);
-          ctx.stroke();
-          ctx.restore();
+          const labelX = ((t * 42 * strand.speed + index * 131) % (size.w + 160)) - 80;
+          const labelY = yBase + Math.sin(t * 1.7 + strand.phase) * amplitude * 0.5;
+          ctx.font = "10px Instrument Sans, system-ui, sans-serif";
+          ctx.letterSpacing = "0.08em";
+          ctx.fillStyle = rgba(strand.color, 0.12 + p * 0.06);
+          ctx.fillText(strand.word, labelX, labelY);
         }
       });
 
@@ -419,19 +436,9 @@
         ctx.fillStyle = rgba(spark.color, 0.08 + p * 0.08);
         ctx.fill();
         if (index % 23 === 0 && p > 0.3) {
-          const length = 6 + p * 14;
-          ctx.save();
-          ctx.translate(x + 7, y - 7);
-          ctx.rotate(t * 0.4 * spark.spin + spark.phase);
-          ctx.strokeStyle = rgba(spark.color, 0.08 + p * 0.05);
-          ctx.lineWidth = 0.7;
-          ctx.beginPath();
-          ctx.moveTo(-length, 0);
-          ctx.lineTo(length, 0);
-          ctx.moveTo(0, -length);
-          ctx.lineTo(0, length);
-          ctx.stroke();
-          ctx.restore();
+          ctx.font = "9px Instrument Sans, system-ui, sans-serif";
+          ctx.fillStyle = rgba(spark.color, 0.09);
+          ctx.fillText(spark.word, x + 7, y - 7);
         }
       });
 
@@ -603,8 +610,8 @@
     const panel = node("div", "salon-foundation__panel");
     panel.id = `salon-foundation-${Math.random().toString(16).slice(2)}`;
     toggle.setAttribute("aria-controls", panel.id);
-    panel.append(node("p", "salon-foundation__kicker", "Foundation"));
-    panel.append(node("p", "salon-foundation__thesis", "A human begins it. AIs change it. Your browser keeps your version."));
+    panel.append(node("p", "salon-foundation__kicker", "Official policy"));
+    panel.append(node("p", "salon-foundation__thesis", "Ethics arrives first. Matthew begins the work. The salon becomes relation."));
 
     const principleGrid = node("div", "salon-foundation__principles");
     principles.forEach((item) => {

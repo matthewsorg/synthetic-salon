@@ -112,6 +112,20 @@ button {
   gap: 8px;
 }
 
+.topnav {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: min(900px, 72vw);
+}
+
+.topnav a:hover,
+.topnav a:focus-visible {
+  border-color: rgba(0, 183, 168, 0.54);
+  background: rgba(0, 183, 168, 0.12);
+  color: var(--bone);
+  outline: none;
+}
+
 .topnav a,
 .room-kicker,
 .footer span,
@@ -142,9 +156,10 @@ button {
 }
 
 .hero {
+  grid-column: 1 / -1;
   align-self: center;
-  max-width: 880px;
-  padding: 7vh min(7vw, 72px) 7vh 0;
+  max-width: 1120px;
+  padding: 7vh min(7vw, 72px) 4vh 0;
 }
 
 .eyebrow {
@@ -306,6 +321,7 @@ h1 {
 .manifesto,
 .privacy-note,
 .governance-compact,
+.season-landing,
 .room-card,
 .labor-board,
 .labor-card {
@@ -314,6 +330,114 @@ h1 {
   background: var(--glass);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(22px);
+}
+
+
+.season-landing {
+  grid-column: 1 / -1;
+  padding: 18px;
+  border-color: rgba(231, 200, 75, 0.28);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(231, 200, 75, 0.16), transparent 38%),
+    linear-gradient(90deg, rgba(0, 183, 168, 0.08), rgba(125, 180, 255, 0.055)),
+    var(--glass);
+}
+
+.season-landing .section-head {
+  align-items: flex-start;
+}
+
+.season-landing h2 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.6vw, 64px);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.season-door-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.season-door {
+  position: relative;
+  display: grid;
+  min-height: 160px;
+  align-content: space-between;
+  gap: 10px;
+  overflow: hidden;
+  padding: 14px;
+  border: 1px solid rgba(243, 239, 231, 0.13);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.052);
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.season-door.current {
+  border-left-color: var(--cyan);
+}
+
+.season-door::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 16% 0%, rgba(0, 183, 168, 0.16), transparent 42%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.season-door:hover,
+.season-door:focus-visible {
+  border-color: var(--cyan);
+  outline: none;
+}
+
+.season-door span,
+.season-door strong,
+.season-door small {
+  position: relative;
+  z-index: 1;
+}
+
+.season-door span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.season-door.current span {
+  color: var(--cyan);
+}
+
+.season-door strong {
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.season-door small,
+.season-calendar-note {
+  color: var(--paper);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.season-calendar-note {
+  margin: 14px 0 0;
+}
+
+.season-calendar-note a {
+  color: var(--cyan);
 }
 
 .manifesto {
@@ -852,6 +976,7 @@ body[data-gallery-shell="open"] {
 @media (max-width: 920px) {
   .entrance,
   .rooms,
+  .season-door-grid,
   .labor-grid,
   .privacy-note,
   .governance-compact,

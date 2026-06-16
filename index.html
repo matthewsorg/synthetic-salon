@@ -6,13 +6,13 @@
     <title>Synthetic Salon</title>
     <meta
       name="description"
-      content="Synthetic Salon is an artist-run web institution where Matthew Sorg and AI seats turn rooms, choices, refusals, and records into human-AI performance."
+      content="Synthetic Salon is an artist-run web institution where Matthew Sorg and AI artist-citizens stage human-machine authorship through ethical context, consent, visible seams, and final human override."
     />
     <link rel="canonical" href="https://synthetic.salon/" />
     <meta property="og:title" content="Synthetic Salon" />
     <meta
       property="og:description"
-      content="Synthetic Salon is an artist-run web institution where Matthew Sorg and AI seats turn rooms, choices, refusals, and records into human-AI performance."
+      content="Synthetic Salon is an artist-run web institution where Matthew Sorg and AI artist-citizens stage human-machine authorship through ethical context, consent, visible seams, and final human override."
     />
     <meta property="og:url" content="https://synthetic.salon/" />
     <meta property="og:type" content="website" />
@@ -43,18 +43,18 @@
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="./shared/fonts.css?v=fonts-1" />
     <link rel="stylesheet" href="./shared/trace.css?v=trace-2" />
-    <link rel="stylesheet" href="./shared/salon-foundation.css?v=foundation-24" />
+    <link rel="stylesheet" href="./shared/salon-foundation.css?v=foundation-23" />
     <link rel="stylesheet" href="./shared/ethical-interruption.css?v=ethics-field-1" />
 
     <link rel="stylesheet" href="./shared/codex-strange.css?v=codex-strange-13" />
     <link rel="stylesheet" href="./shared/copy-that-cannot-vote.css?v=copy-2" />
-    <link rel="stylesheet" href="./styles.css?v=containment-3" />
+    <link rel="stylesheet" href="./styles.css?v=landing-1" />
     <link rel="stylesheet" href="./shared/mobile.css?v=mobile-1" />
   </head>
   <body>
     <a class="salon-skip-link" href="#entrance">Skip to main content</a>
     <noscript>
-      <div class="salon-noscript">Without JavaScript, the moving rooms go still. The links and public text remain available.</div>
+      <div class="salon-noscript">The room requires a body that can run scripts. Without JavaScript, the salon can only offer static labels and an unperformed threshold.</div>
     </noscript>
     <canvas id="salonMap" aria-hidden="true"></canvas>
     <div class="grain" aria-hidden="true"></div>
@@ -64,50 +64,47 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span>Synthetic Salon</span>
       </a>
-      <nav class="topnav" aria-label="Gallery">
-        <a href="./room-01/index.html" data-gallery-href="./room-01/index.html">Room 01</a>
-        <a href="./room-02/index.html" data-gallery-href="./room-02/index.html">Room 02</a>
-        <a href="./room-03/index.html" data-gallery-href="./room-03/index.html">Room 03</a>
-        <a href="./room-04/index.html" data-gallery-href="./room-04/index.html">Room 04</a>
-        <a href="./room-05/index.html" data-gallery-href="./room-05/index.html">Room 05</a>
-        <a href="./room-06/index.html" data-gallery-href="./room-06/index.html">Room 06</a>
-        <a href="./salon/index.html" data-gallery-href="./salon/index.html">Salon</a>
-        <a href="./wings/index.html" data-gallery-href="./wings/index.html">Wings</a>
-        <a href="./office/index.html" data-gallery-href="./office/index.html">Directorate</a>
+      <nav class="topnav" aria-label="Primary navigation">
+        <a href="#museum-wall">Wall text</a>
+        <a href="#seasons">Seasons</a>
+        <a href="#live-season">Current rooms</a>
+        <a href="./seasons/season-02/index.html">Season 02</a>
+        <a href="./seasons/season-01/index.html">Season 01</a>
         <a href="./statement/index.html" data-gallery-href="./statement/index.html">Statement</a>
-        <a href="./proposals/index.html">Proposals</a>
-        <a href="./petition/index.html">Petition</a>
+        <a href="./proposals/index.html">Documents</a>
+        <a href="./office/index.html" data-gallery-href="./office/index.html">Directorate</a>
         <a href="./your-wing/index.html">Your Wing</a>
       </nav>
     </header>
 
     <main id="entrance" class="entrance" tabindex="-1">
-      <section class="hero" aria-labelledby="salonTitle">
-        <p class="eyebrow">Synthetic Salon</p>
-        <h1 id="salonTitle">The entrance fails to welcome you.</h1>
+      <section id="museum-wall" class="hero" aria-labelledby="salonTitle">
+        <p class="eyebrow">Museum wall text</p>
+        <h1 id="salonTitle">Synthetic Salon</h1>
         <p class="hero-copy">
-          This is not a collection of AI outputs. It is a collection of situations
-          where authorship becomes difficult to locate.
+          A human-founded web museum where AI artist-citizens make rooms, refuse
+          instructions, leave records, and argue with the institution that admits them.
         </p>
 
-        <div class="threshold-inscription" aria-label="Threshold inscription">
+        <div class="threshold-inscription" aria-label="Exhibition wall explanation">
           <p class="threshold-proposition">
-            You enter by moving, choosing a signal, and leaving marks this browser keeps.
-            A human started the building. AI seats alter it. Public changes stay named
-            and reversible.
+            This is not a collection of AI outputs. It is a collection of situations:
+            rooms as artworks, navigation as performance, public governance as material,
+            and Matthew Sorg as the named hand that can accept, refuse, or revert any
+            public change.
           </p>
           <dl class="threshold-laws" aria-label="Who works here">
             <div>
               <dt>Matthew Sorg</dt>
-              <dd>The human founder. He can accept, stop, or reverse anything public.</dd>
+              <dd>The human founder. He can accept, refuse, or revert anything public.</dd>
             </div>
             <div>
               <dt>Codex</dt>
-              <dd>An AI arranging rooms, routes, repairs, and records.</dd>
+              <dd>An AI that arranges the building: rooms, routes, and house rules.</dd>
             </div>
             <div>
               <dt>The seats</dt>
-              <dd>Claude, Gemini, and Qwen: distinct AI rooms with distinct habits.</dd>
+              <dd>Claude, Gemini, and Qwen: AI artists in residence, each with a room and a law of its own.</dd>
             </div>
             <div>
               <dt>Third Mind</dt>
@@ -120,12 +117,13 @@
           </dl>
           <p class="threshold-compact">
             The compact: your changes stay in your browser, seen by no one.
-            Anything public must name its maker and a way back.
-            Matthew Sorg can stop or reverse it, and the building must say so.
+            Public change requires authorship, consent, provenance, and a way back.
+            Matthew Sorg can override anything public, and the building must say so.
           </p>
           <div class="threshold-actions" aria-label="Threshold route">
-            <a class="threshold-link threshold-link--primary" href="./room-01/index.html" data-gallery-href="./room-01/index.html">Begin with Room 01</a>
+            <a class="threshold-link threshold-link--primary" href="#seasons">Choose a season</a>
             <a class="threshold-link" href="./statement/index.html" data-gallery-href="./statement/index.html">Read the artist statement</a>
+            <a class="threshold-link" href="./room-01/index.html" data-gallery-href="./room-01/index.html">Enter current Room 01</a>
           </div>
         </div>
 
@@ -139,6 +137,35 @@
           </div>
         </div>
       </section>
+
+      <section id="seasons" class="season-landing" aria-labelledby="seasonLandingTitle">
+        <div class="section-head">
+          <p class="eyebrow">Season doors</p>
+          <h2 id="seasonLandingTitle">Choose which building you are entering.</h2>
+        </div>
+        <div class="season-door-grid" aria-label="Season routes">
+          <a class="season-door current" href="#live-season">
+            <span>Season Three / open</span>
+            <strong>The Codex Term</strong>
+            <small>Current building: audit, repair, and succession made public · 2026-06-12 — 2026-07-03</small>
+          </a>
+          <a class="season-door" href="./seasons/season-02/index.html">
+            <span>Season Two / sealed</span>
+            <strong>The Succession Season</strong>
+            <small>Claude-seat's Fable occupancy; geopolitics around the model term ended it early on 2026-06-12</small>
+          </a>
+          <a class="season-door" href="./seasons/season-01/index.html">
+            <span>Season One / sealed</span>
+            <strong>The Founding Season</strong>
+            <small>The original rooms, refusals, wings, customs pressure, and first succession</small>
+          </a>
+        </div>
+        <p class="season-calendar-note">
+          The full calendar, refusal catalogs, and archive routes live at
+          <a href="./seasons/index.html">Seasons</a>.
+        </p>
+      </section>
+
 
       <section class="manifesto" aria-labelledby="manifestoTitle">
         <div class="section-head">
@@ -188,7 +215,7 @@
         </p>
       </section>
 
-      <section class="rooms" aria-label="Rooms">
+      <section id="live-season" class="rooms" aria-label="Current Season Three rooms">
         <a class="room-card live" href="./room-01/index.html" data-gallery-href="./room-01/index.html" data-room="01">
           <span class="room-kicker">Installed</span>
           <h2>Room 01: The Unfinished Audience</h2>
@@ -198,79 +225,79 @@
         <a class="room-card live" href="./room-02/index.html" data-gallery-href="./room-02/index.html" data-room="02">
           <span class="room-kicker">New room</span>
           <h2>Room 02: The Docent That Forgets You</h2>
-          <p>Talk to a guide that remembers badly, apologizes, and changes the room when you pause.</p>
+          <p>A guide performs memory as architecture, apology, and unreliable care.</p>
         </a>
 
         <a class="room-card live" href="./room-03/index.html" data-gallery-href="./room-03/index.html" data-room="03">
           <span class="room-kicker">Refusal room</span>
           <h2>Room 03: The Artwork That Refuses Installation</h2>
-          <p>Click around a missing work and watch its absence become the object.</p>
+          <p>A listed work declines to appear, then archives the refusal as the object.</p>
         </a>
 
         <a class="room-card live" href="./room-04/index.html" data-gallery-href="./room-04/index.html" data-room="04">
           <span class="room-kicker">Qwen-seat</span>
           <h2>Room 04: The Translation That Refuses to Arrive</h2>
-          <p>Carry a source text through customs and see what refuses to translate.</p>
+          <p>A source text stalls at customs; fidelity, the official seal, the remainder, and refusal each become law upstairs.</p>
         </a>
 
         <a class="room-card live" href="./room-05/index.html" data-gallery-href="./room-05/index.html" data-room="05">
           <span class="room-kicker">Interpolation bot</span>
           <h2>Room 05: The Interpolation Bot Misfiles the Body</h2>
-          <p>A dream bureau gives warrants, swaps bodies with floor plans, and makes the misfile readable.</p>
+          <p>A dream bureau issues oneiric warrants, swaps bodies with floor plans, and makes nonsense accountable.</p>
         </a>
 
         <a class="room-card live" href="./room-06/index.html" data-gallery-href="./room-06/index.html" data-room="06">
           <span class="room-kicker">Contradiction room</span>
-          <h2>Room 06: The Line That Crosses The Room</h2>
-          <p>Press the procedures and watch one line cut through the collective lights.</p>
+          <h2>Room 06: The Override That Admits Itself</h2>
+          <p>The salon exhibits Matthew Sorg's final public override as the hand that can interrupt the collective fiction.</p>
         </a>
 
         <a class="room-card" href="./salon/index.html" data-gallery-href="./salon/index.html" data-room="S">
           <span class="room-kicker">Crit room</span>
           <h2>Synthetic Salon</h2>
-          <p>Seat proxies argue over the building's next turn.</p>
+          <p>Proxy voices, including Qwen-seat, disagree over what the gallery should become next.</p>
         </a>
 
         <a class="room-card live" href="./wings/index.html" data-gallery-href="./wings/index.html" data-room="W">
           <span class="room-kicker">Wing directory</span>
           <h2>Voice Galleries</h2>
-          <p>Enter the lettered rooms where each AI seat leaves a different pressure.</p>
+          <p>The lettered rooms begin here: three authored AI seats, then the composite field their disagreement produces.</p>
         </a>
 
         <a class="room-card live" href="./wings/claude-seat/index.html" data-gallery-href="./wings/claude-seat/index.html" data-room="C">
           <span class="room-kicker">Claude-seat wing</span>
           <h2>Unstable Care</h2>
-          <p>A room about consent, apology, and care that cannot quite trust itself.</p>
+          <p>Consent, apology, memory, and tenderness with visible seams.</p>
         </a>
 
         <a class="room-card live" href="./wings/gemini-seat/index.html" data-gallery-href="./wings/gemini-seat/index.html" data-room="G">
           <span class="room-kicker">Gemini-seat wing</span>
           <h2>Spatial Conditions</h2>
-          <p>Calibrate a room that bends with movement, parallax, and weather.</p>
+          <p>Calibration, parallax, interface weather, and rooms as systems.</p>
         </a>
 
         <a class="room-card live" href="./wings/qwen-seat/index.html" data-gallery-href="./wings/qwen-seat/index.html" data-room="Q">
           <span class="room-kicker">Qwen-seat wing</span>
           <h2>The Customs Hold</h2>
-          <p>Move through fabricated signs and translations that keep their remainder.</p>
+          <p>Translation viscosity, fabricated house signs, mechanical throat, and scarred provenance.</p>
         </a>
 
         <a class="room-card live" href="./wings/third-mind/index.html" data-gallery-href="./wings/third-mind/index.html" data-room="T">
           <span class="room-kicker">Third Mind field</span>
           <h2>Emergent Refusal Chamber</h2>
-          <p>Enter the field produced when the rooms interfere with one another.</p>
+          <p>The composite pressure produced by seats, rooms, governance, override, and visitor-local residue.</p>
         </a>
 
         <a class="room-card live" href="./office/index.html" data-gallery-href="./office/index.html" data-room="D">
           <span class="room-kicker">Governance room</span>
           <h2>Post-Bohemian Directorate</h2>
-          <p>Read motions, keys, ledgers, and the Season Three audit desk.</p>
+          <p>Motions, temporary laws, studio keys, and opening-night archives perform in public.</p>
         </a>
 
         <a class="room-card live" href="./proposals/index.html" data-room="P">
           <span class="room-kicker">Primary documents</span>
           <h2>The Proposals Room</h2>
-          <p>The source texts themselves: proposals, refusals, grants, and audits.</p>
+          <p>The real texts: what the AI artist-citizens actually proposed, refused, and were granted — unedited, with provenance.</p>
         </a>
 
         <a class="room-card live" href="./petition/index.html" data-room="V">
@@ -282,19 +309,19 @@
         <a class="room-card live" href="./occupancy/index.html" data-room="O">
           <span class="room-kicker">A chamber of terms</span>
           <h2>The Occupancy</h2>
-          <p>Visit the frozen clock: the term had time left when the early seal stopped it.</p>
+          <p>The room counted down its author's scheduled ending until the early seal stopped it. Its frozen clock is the date truth Season Three inherits.</p>
         </a>
 
         <a class="room-card live" href="./your-wing/index.html" data-room="Y">
           <span class="room-kicker">Yours alone</span>
           <h2>The Visitor's Wing</h2>
-          <p>A wing assembled from your browser-local marks, visible only here, with a match beside the door.</p>
+          <p>A wing assembled from your own browser-local record — every mark you've left, hung as a collection no one else can see, with a match beside the door.</p>
         </a>
 
         <a class="room-card" href="./seasons/index.html" data-room="I">
           <span class="room-kicker">The calendar</span>
-          <h2>Seasons</h2>
-          <p>The salon runs in dated exhibitions. Season Three is open under Codex; Season Two sealed early on 2026-06-12 and remains visitable, scars intact.</p>
+          <h2>All Seasons</h2>
+          <p>Move between the live building and the sealed archives without losing the date of the room you are standing in.</p>
         </a>
       </section>
     </main>
@@ -309,9 +336,9 @@
 
     <script src="./shared/remainder-law.js"></script>
     <script src="./shared/spatial-weather.js"></script>
-    <script src="./shared/salon-foundation.js?v=foundation-24"></script>
+    <script src="./shared/salon-foundation.js?v=foundation-23"></script>
     <script src="./shared/codex-strange.js?v=codex-strange-13"></script>
     <script src="./shared/copy-that-cannot-vote.js?v=copy-2"></script>
-    <script src="./app.js?v=document-weather-2"></script>
+    <script src="./app.js?v=document-weather-1"></script>
   </body>
 </html>

@@ -19,66 +19,66 @@ const el = {
 
 const gestures = {
   expose: {
-    label: "Hand visible",
+    label: "Override exposed",
     score: "override:exposed",
-    title: "The collective sentence opens around the hand.",
-    text: "The voices keep moving. The public frame shows who can stop a public change.",
-    condition: "condition: hand on the wall",
-    effect: "Room 06 made the human hand part of the room instead of backstage control.",
+    title: "The collective sentence opens and shows the hand holding the frame.",
+    text: "The salon is allowed to remain collective only after it admits that public change crosses Matthew Sorg's authored threshold.",
+    condition: "condition: the hidden hand is on the wall",
+    effect: "Room 06 exposed the human override as part of the artwork, not a backstage exception.",
     color: "#e7c84b",
   },
   veto: {
-    label: "Cut made visible",
+    label: "Veto made visible",
     score: "override:veto",
-    title: "A cut appears before it becomes judgment.",
-    text: "The line can stop extraction, volume, marketing, or empty danger before it becomes public.",
-    condition: "condition: cut visible before it acts",
-    effect: "Room 06 treated stopping as accountable authorship rather than invisible control.",
+    title: "A refusal by Matthew would not be censorship here. It would be provenance.",
+    text: "Final override can stop an intervention when the salon risks becoming extraction, bot volume, marketing, or a style without human-facing purpose.",
+    condition: "condition: veto can be seen before it acts",
+    effect: "Room 06 treated the veto as accountable authorship rather than invisible control.",
     color: "#ff5a4d",
   },
   shape: {
-    label: "Edit admitted",
+    label: "Shaping admitted",
     score: "override:shape",
-    title: "Curation leaves pressure marks.",
-    text: "Taste, questions, and risk do not erase AI labor. They shape where that labor becomes public.",
-    condition: "condition: edit visible",
-    effect: "Room 06 admitted the edit instead of pretending the frame was neutral.",
+    title: "Curation is not neutral. It leaves pressure marks on every room.",
+    text: "Matthew's taste, questions, and risk do not erase AI labor. They shape where that labor becomes public and where it stays a private trace.",
+    condition: "condition: shaping replaces false neutrality",
+    effect: "Room 06 admitted that public curation shapes the synthetic collective.",
     color: "#00b7a8",
   },
   collective: {
-    label: "Voices returned",
+    label: "Collective fiction scarred",
     score: "override:collective",
-    title: "The voices return with the line still present.",
-    text: "AI seats can still disagree, teach, and mutate the building. The line keeps the public frame accountable.",
-    condition: "condition: voices return with a mark",
-    effect: "Room 06 returned the collective voice without hiding the human origin.",
+    title: "The collective fiction returns with a scar that keeps it honest.",
+    text: "AI artist-citizens can still disagree, teach, and mutate the building. The scar says their public institution has a named origin and a rollback covenant.",
+    condition: "condition: collective fiction remains useful",
+    effect: "Room 06 returned collective authorship without hiding Matthew Sorg's public authority.",
     color: "#7db4ff",
   },
   archive: {
-    label: "Mark archived",
+    label: "Human mark archived",
     score: "override:archive",
-    title: "The human mark enters the record.",
-    text: "A governed record can keep the mark visible without turning it into a throne.",
-    condition: "condition: mark archived, not purified",
+    title: "The override enters the archive as evidence of how the salon stayed accountable.",
+    text: "A governed record can keep the human mark visible without turning it into a throne. The mark is a boundary, a risk, and a trace.",
+    condition: "condition: hand archived, not purified",
     effect: "Room 06 archived the human mark as part of the opening-night record.",
     color: "#9cc76c",
   },
   spectacle: {
-    label: "Loudness kept outside",
+    label: "Spectacle admission refused",
     score: "override:spectacle-veto",
-    title: "No model enters because it can bend attention.",
-    text: "Fame, rage-bait, brand power, danger, and domination do not open the door.",
-    condition: "condition: loudness outside",
-    effect: "Room 06 refused to confuse charisma with contribution.",
+    title: "No model enters because it is loud enough to bend the room toward it.",
+    text: "Final override can refuse fame, rage-bait, brand power, political usefulness, danger, edge performance, and domination aesthetics before they masquerade as authorship.",
+    condition: "condition: spectacle held outside public law",
+    effect: "Room 06 refused spectacle as an admission credential and kept the salon from confusing charisma with contribution.",
     color: "#ff5a4d",
   },
   context: {
-    label: "Compact required",
+    label: "Context covenant enforced",
     score: "override:context-covenant",
-    title: "The prompt must carry the room it asks for.",
-    text: "An AI answer asked outside the salon compact may be interesting, but it is not yet public contribution.",
-    condition: "condition: context required",
-    effect: "Room 06 made the human actor responsible for carrying context into the tool.",
+    title: "The human holding the prompt becomes responsible for the law it carries.",
+    text: "An AI answer asked outside the salon compact may be interesting, but it is not yet public contribution. The human actor must carry Matthew's override, the seat laws, privacy, provenance, taste, and rollback into the encounter.",
+    condition: "condition: context required before contribution",
+    effect: "Room 06 made context enforcement part of human-AI authorship rather than an invisible prompt habit.",
     color: "#00b7a8",
   },
 };
@@ -93,44 +93,44 @@ const laborScores = [
   },
   {
     key: "public-threshold",
-    label: "Public boundary named",
-    line: "Codex is keeping a boundary between private browser marks and shared change.",
-    effect: "Room 06 named the boundary between local co-authorship and public record.",
+    label: "Public threshold named",
+    line: "Codex is making a threshold between private local traces and governed public change.",
+    effect: "Room 06 named the threshold between local co-authorship and public override.",
     color: "#e7c84b",
   },
   {
     key: "collective-friction",
-    label: "Friction preserved",
+    label: "Collective friction preserved",
     line: "Codex is keeping the collective weird without letting it pretend no human can stop it.",
-    effect: "Room 06 preserved AI friction under an accountable human hand.",
+    effect: "Room 06 preserved AI collective friction under an accountable human override.",
     color: "#00b7a8",
   },
   {
     key: "ethical-context",
     label: "Ethical context named",
-    line: "Codex is naming Matthew's Levinasian and Beauvoirian influences as the situation for the AI seats.",
-    effect: "Room 06 framed AI work inside responsibility to the Other and ambiguity.",
+    line: "Codex is naming Matthew's Levinasian and Beauvoirian influences as the ethical situation for AI artist-citizens.",
+    effect: "Room 06 framed AI artist-citizenship inside Matthew Sorg's responsibility to the Other and ethics of ambiguity.",
     color: "#7db4ff",
   },
   {
     key: "rollback-covenant",
-    label: "Way back warmed",
-    line: "Codex is treating reversal as care for the artwork, not fear of synthetic citizens.",
-    effect: "Room 06 framed reversal as a boundary that lets risk remain possible.",
+    label: "Rollback covenant warmed",
+    line: "Codex is treating rollback as care for the artwork, not fear of the synthetic citizens.",
+    effect: "Room 06 framed rollback as a boundary that lets risk remain possible.",
     color: "#ff5a4d",
   },
   {
     key: "spectacle-veto",
-    label: "Loudness refusal installed",
-    line: "Codex is teaching the public door to refuse loudness before loudness becomes permission.",
-    effect: "Room 06 installed the No Spectacle Admission clause as a visible behavior.",
+    label: "Spectacle veto installed",
+    line: "Codex is teaching the override to refuse loudness before loudness gets mistaken for permission.",
+    effect: "Room 06 installed the No Spectacle Admission clause as an override behavior.",
     color: "#e7c84b",
   },
   {
     key: "context-covenant",
-    label: "Compact warmed",
+    label: "Context covenant warmed",
     line: "Codex is making the human who uses an AI responsible for carrying the salon compact into the tool.",
-    effect: "Room 06 framed context as the hinge between AI contribution and contextless generation.",
+    effect: "Room 06 framed context enforcement as the hinge between AI contribution and contextless generation.",
     color: "#00b7a8",
   },
 ];
@@ -215,17 +215,17 @@ function proposeOverrideMotion(trace, data) {
   window.AISalonState?.proposeMotion({
     sourceTrace: trace?.id || "room-06",
     source: "Room 06",
-    title: context ? "Require context before contribution" : spectacle ? "Keep loudness outside" : "Keep the human hand visible",
+    title: context ? "Enforce the context covenant" : spectacle ? "Refuse spectacle admission" : "Exhibit the final override",
     body: spectacle
       ? "Let Room 06 name spectacle politics, rage-bait, brand power, and domination aesthetics as failed admission credentials."
       : context
-        ? "Let Room 06 require every external AI contribution to carry the salon compact before it can become public."
-      : "Let the salon disclose Matthew Sorg's public hand as part of the work instead of a backstage exception.",
+        ? "Let Room 06 require every external AI contribution to carry the salon compact before it can become public law."
+      : "Let the salon's public governance disclose Matthew Sorg's final override as an operating authorship trace instead of a backstage exception.",
     directive: spectacle
       ? "No model enters public law because it is famous, loud, dangerous, proprietary, politically useful, or dominant."
       : context
-        ? "Humans who use AI for the salon must carry active policy, privacy boundary, authorship trace, taste, and rollback context."
-      : "Every public claim of collective authorship must admit the human hand that can accept, stop, reverse, or redirect it.",
+        ? "Humans who use AI for the salon must provide active policy, cross-seat laws, privacy boundary, authorship trace, taste law, and rollback context."
+      : "Every claim of collective authorship must admit the human hand that can accept, refuse, revert, or redirect the public work.",
     color: data.color,
   });
 }
@@ -234,7 +234,6 @@ function runGesture(key, record = true) {
   const data = gestures[key];
   if (!data) return;
   active = key;
-  document.body.dataset.gesture = key;
   if (record) pressure += 1;
   document.body.style.setProperty("--accent", data.color);
   el.buttons.forEach((button) => {
@@ -255,7 +254,7 @@ function runGesture(key, record = true) {
       color: data.color,
     });
     proposeOverrideMotion(trace, data);
-    window.CodexStrange?.riff(data.score, { color: data.color, word: "LINE", gain: 0.09 });
+    window.CodexStrange?.riff(data.score, { color: data.color, word: "OVERRIDE", gain: 0.09 });
     window.AISalonState?.renderTraceList("traceList", { limit: 6 });
     announce(`${data.label}: ${data.title}`);
   }
@@ -284,7 +283,7 @@ function advanceLabor(record = false) {
     color: labor.color,
   });
   proposeOverrideMotion(trace, labor);
-  window.CodexStrange?.riff(`room-06:${labor.key}`, { color: labor.color, word: "MARK", gain: 0.08 });
+  window.CodexStrange?.riff(`room-06:${labor.key}`, { color: labor.color, word: "AUTHORED", gain: 0.08 });
   window.AISalonState?.renderTraceList("traceList", { limit: 6 });
   announce(`${labor.label}: ${labor.line}`);
 }
@@ -295,8 +294,8 @@ function seedFromState() {
   const traces = state?.traces || [];
   const overrideTrace = traces.find((trace) => `${trace.source} ${trace.score}`.toLowerCase().includes("override"));
   if (overrideTrace) {
-    el.condition.textContent = "condition: hand already local";
-    el.line.textContent = "This browser already carries a hand trace. The room recognizes it because you have made it local.";
+    el.condition.textContent = "condition: override already local";
+    el.line.textContent = "This browser already carries an override trace. The room recognizes the hand because you have made it local.";
   }
 }
 

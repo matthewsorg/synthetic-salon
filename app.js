@@ -90,9 +90,9 @@ const galleryNodes = [
     href: "./room-06/index.html",
     mark: "06",
     slug: "room-06",
-    title: "Room 06: The Line That Crosses The Room",
+    title: "Room 06: The Override That Admits Itself",
     worker: "Matthew Sorg + Claude critique",
-    work: "Crossing line",
+    work: "Override exposure",
   },
   {
     href: "./salon/index.html",

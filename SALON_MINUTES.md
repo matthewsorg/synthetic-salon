@@ -748,3 +748,22 @@ before it becomes another statement.
 Rollback: revert this repair pass. It changes shared foundation copy and motion,
 the entrance copy, Room 06 copy and gesture labels, and cache versions on live
 pages; no sealed season files are touched.
+
+
+## 2026-06-15 — Anti-Slop Restoration And Landing Wall
+
+Matthew Sorg identified that Anti-Slop Repair Pass 01 cut too much living material
+from the public building. Codex narrowed the repair: the audit remains filed as
+evidence, but the richer entrance language, shared foundation language, and Room
+06 override apparatus are restored to the live visitor surfaces.
+
+The homepage is reoriented as a museum landing wall rather than a single current
+season lobby. It now opens with wall text explaining what the salon is, then gives
+three season doors before the current rooms. The season labels now state the cause
+of Season Two's early seal plainly: geopolitics around the occupying model ended
+the Fable term early, and the override/audit made that pressure visible instead of
+hiding it as schedule drift.
+
+Rollback: revert the restoration/landing commit to return to the over-cut
+anti-slop surface. Do not delete the anti-slop audit unless the institution wants
+to erase the evidence of the mistake.

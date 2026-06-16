@@ -182,62 +182,6 @@ p {
   font-size: 18px;
 }
 
-.override-core::after {
-  content: "";
-  position: absolute;
-  inset: -24%;
-  pointer-events: none;
-  opacity: 0;
-  background: linear-gradient(
-    112deg,
-    transparent 47%,
-    color-mix(in srgb, var(--accent) 72%, transparent) 49%,
-    rgba(243, 239, 231, 0.42) 50%,
-    color-mix(in srgb, var(--accent) 58%, transparent) 51%,
-    transparent 53%
-  );
-  mix-blend-mode: screen;
-  transform: translateX(-18%) rotate(-2deg);
-}
-
-body[data-gesture] .override-core::after {
-  animation: line-cut 620ms ease-out;
-}
-
-body[data-gesture="veto"] .voice-field,
-body[data-gesture="spectacle"] .voice-field {
-  opacity: 0.46;
-  filter: blur(1px);
-}
-
-body[data-gesture="collective"] .voice-field {
-  animation: voice-return 920ms ease-out;
-}
-
-@keyframes line-cut {
-  0% {
-    opacity: 0;
-    transform: translateX(-30%) rotate(-2deg);
-  }
-  26% {
-    opacity: 0.52;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(28%) rotate(-2deg);
-  }
-}
-
-@keyframes voice-return {
-  0% {
-    opacity: 0.38;
-    transform: scale(0.96) rotate(var(--voice-tilt, 0deg));
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .override-apparatus {
   position: absolute;
   right: clamp(18px, 5vw, 76px);
@@ -267,21 +211,18 @@ body[data-gesture="collective"] .voice-field {
 .voice-field-a {
   inset: 14% 27% 44% 10%;
   border-color: rgba(0, 183, 168, 0.44);
-  --voice-tilt: 18deg;
   transform: rotate(18deg);
 }
 
 .voice-field-b {
   inset: 20% 10% 30% 32%;
   border-color: rgba(125, 180, 255, 0.36);
-  --voice-tilt: -29deg;
   transform: rotate(-29deg);
 }
 
 .voice-field-c {
   inset: 43% 25% 12% 18%;
   border-color: rgba(255, 90, 77, 0.34);
-  --voice-tilt: 54deg;
   transform: rotate(54deg);
 }
 
