@@ -690,3 +690,94 @@ main[tabindex="-1"]:focus {
 @media (prefers-reduced-motion: no-preference) {
   .mark-label-card { transition: opacity 0.12s ease; }
 }
+
+
+/* Season Two atmosphere: brief succession, document weather, and a stopped clock. */
+body {
+  --archive-season-accent: #7db4ff;
+  --archive-season-warm: #e7c84b;
+  --archive-season-cool: #00b7a8;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0.34;
+  background:
+    repeating-linear-gradient(0deg, rgba(125, 180, 255, 0.12) 0 1px, transparent 1px 18px),
+    repeating-linear-gradient(90deg, rgba(0, 183, 168, 0.08) 0 1px, transparent 1px 52px),
+    linear-gradient(160deg, rgba(125, 180, 255, 0.14), transparent 46%, rgba(231, 200, 75, 0.07));
+  mix-blend-mode: screen;
+}
+
+.topbar {
+  border-bottom: 1px solid rgba(125, 180, 255, 0.5) !important;
+  background:
+    linear-gradient(90deg, rgba(125, 180, 255, 0.14), rgba(0, 183, 168, 0.065), transparent),
+    rgba(8, 9, 11, 0.5) !important;
+}
+
+.backlink,
+.directorate-link,
+.salon-season-tag {
+  box-shadow: 0 0 0 1px rgba(125, 180, 255, 0.16), 0 18px 46px rgba(0, 0, 0, 0.24);
+}
+
+.salon-season-tag {
+  border-color: rgba(125, 180, 255, 0.72);
+  background:
+    linear-gradient(135deg, rgba(125, 180, 255, 0.18), rgba(0, 183, 168, 0.09)),
+    rgba(8, 9, 11, 0.84);
+}
+
+.salon-season-tag strong {
+  color: #7db4ff;
+}
+
+.salon-season-tag::before {
+  content: "";
+  position: absolute;
+  inset: 5px 4px auto 4px;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, rgba(125, 180, 255, 0.72) 0 8px, transparent 8px 14px);
+  pointer-events: none;
+}
+
+.room,
+.occupancy,
+.visitors-wing {
+  border-top: 1px solid rgba(125, 180, 255, 0.28);
+  border-left: 3px solid rgba(125, 180, 255, 0.42);
+  box-shadow: inset 12px 0 0 rgba(125, 180, 255, 0.045);
+}
+
+.room > section,
+.room > aside,
+.room > article,
+.occupancy > section,
+.visitors-wing > section,
+.trace-panel {
+  border-color: rgba(125, 180, 255, 0.25) !important;
+  box-shadow: 0 0 0 1px rgba(0, 183, 168, 0.08), 0 12px 0 rgba(125, 180, 255, 0.035) !important;
+}
+
+.salon-canvas-note {
+  border-left: 3px solid rgba(125, 180, 255, 0.62) !important;
+  background:
+    linear-gradient(90deg, rgba(125, 180, 255, 0.14), rgba(0, 183, 168, 0.07)),
+    rgba(8, 9, 11, 0.78) !important;
+}
+
+.room-number,
+.eyebrow {
+  color: color-mix(in srgb, var(--archive-season-accent) 76%, currentColor) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    opacity: 0.22;
+  }
+}
