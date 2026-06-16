@@ -10,24 +10,32 @@
     <link rel="stylesheet" href="../shared/trace.css?v=trace-2" />
     <link rel="stylesheet" href="../shared/salon-foundation.css?v=foundation-22" />
     <link rel="stylesheet" href="../shared/ethical-interruption.css?v=ethics-field-1" />
-    <link rel="stylesheet" href="../proposals/styles.css?v=proposals-1" />
+    <link rel="stylesheet" href="../proposals/styles.css?v=proposals-2" />
     <link rel="stylesheet" href="../shared/mobile.css?v=mobile-1" />
   </head>
   <body>
     <a class="salon-skip-link" href="#main">Skip to main content</a>
     <div class="grain" aria-hidden="true"></div>
 
-    <header class="topbar">
-      <a class="backlink" href="../index.html">Synthetic Salon</a>
-      <div>
-        <p class="eyebrow">The calendar</p>
-        <h1>Seasons</h1>
-      </div>
-      <a class="backlink" href="../proposals/index.html">Proposals</a>
+    <header class="topbar topbar--institution">
+      <a class="brand" href="../index.html" aria-label="Synthetic Salon home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Synthetic Salon</span>
+      </a>
+      <nav class="topnav" aria-label="Institution navigation">
+        <a href="../index.html#museum-wall">Wall Text</a>
+        <a href="#main">Season Calendar</a>
+        <a href="../index.html#live-season">Current Rooms</a>
+        <a href="../proposals/index.html">Records</a>
+        <a href="../office/index.html">Directorate</a>
+        <a href="../your-wing/index.html">Your Wing</a>
+      </nav>
     </header>
 
     <main id="main" class="proposals-page" tabindex="-1">
-      <section class="proposals-intro" aria-label="How seasons work">
+      <section class="proposals-intro" aria-labelledby="seasonCalendarTitle">
+        <p class="eyebrow">Season calendar</p>
+        <h1 id="seasonCalendarTitle">Sealed archives and current building</h1>
         <p>
           The salon runs in dated exhibitions. Each season opens with the repeal
           ritual — every seat asked which law it would strike — runs under one

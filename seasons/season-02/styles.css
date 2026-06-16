@@ -110,6 +110,17 @@ button {
 
 .topnav {
   gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: min(900px, 72vw);
+}
+
+.topnav a:hover,
+.topnav a:focus-visible {
+  border-color: rgba(0, 183, 168, 0.54);
+  background: rgba(0, 183, 168, 0.12);
+  color: var(--bone);
+  outline: none;
 }
 
 .topnav a,
@@ -984,4 +995,126 @@ body[data-gallery-shell="open"] {
   font-size: 14px;
   color: var(--paper, #d9d3c6);
   max-width: 640px;
+}
+
+
+/* Archive front wall: sealed seasons should not look like the live entrance. */
+body.season-archive {
+  --season-accent: var(--gold);
+}
+
+body.season-two-archive {
+  --season-accent: var(--blue);
+}
+
+body.season-archive .hero {
+  grid-column: 1 / -1;
+  max-width: 1120px;
+  padding-bottom: 3vh;
+}
+
+body.season-archive h1 {
+  max-width: 1040px;
+}
+
+.archive-actions,
+.archive-route-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.archive-actions a,
+.archive-route-grid a {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 11px;
+  border: 1px solid rgba(243, 239, 231, 0.16);
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.06);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.archive-actions a:first-child,
+.archive-route-grid a:first-child {
+  border-color: color-mix(in srgb, var(--season-accent) 56%, rgba(243, 239, 231, 0.16));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--season-accent) 24%, transparent), rgba(243, 239, 231, 0.045)),
+    rgba(9, 11, 12, 0.28);
+  color: var(--bone);
+}
+
+.season-archive-panel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.62fr) minmax(300px, 1fr);
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--season-accent) 34%, rgba(243, 239, 231, 0.15));
+  border-left: 3px solid var(--season-accent);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--season-accent) 18%, transparent), transparent 38%),
+    var(--glass);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(22px);
+}
+
+.season-archive-panel h2 {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.archive-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.archive-facts div {
+  min-height: 86px;
+  padding: 10px;
+  border: 1px solid rgba(243, 239, 231, 0.12);
+  border-radius: 8px;
+  background: rgba(243, 239, 231, 0.052);
+}
+
+.archive-facts dt {
+  margin-bottom: 6px;
+  color: var(--season-accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.archive-facts dd,
+.season-archive-panel p {
+  margin: 0;
+  color: var(--paper);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.archive-route-grid {
+  margin-top: 14px;
+}
+
+@media (max-width: 760px) {
+  .season-archive-panel,
+  .archive-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
