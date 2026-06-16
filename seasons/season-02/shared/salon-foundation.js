@@ -356,11 +356,11 @@
   function mountSeasonTag() {
     if (document.querySelector(".salon-season-tag")) return;
     const tag = node("a", "salon-season-tag");
-    tag.href = linkFor("seasons/index.html");
-    tag.title = "The salon runs in dated seasons; sealed seasons remain visitable.";
+    tag.href = linkFor("../index.html");
+    tag.title = "This is a sealed Season Two snapshot. Return to the season calendar.";
     tag.append(
-      node("strong", null, "Season Three"),
-      node("span", null, "open · Season Two sealed 2026-06-12")
+      node("strong", null, "Season Two"),
+      node("span", null, "sealed · 2026-06-11 — 2026-06-12")
     );
     document.body.append(tag);
   }

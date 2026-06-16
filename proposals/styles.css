@@ -105,6 +105,61 @@ body {
   gap: 28px;
 }
 
+.season-switchboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 28px 0 0;
+}
+
+.season-route {
+  display: grid;
+  min-height: 118px;
+  align-content: space-between;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid rgba(243, 239, 231, 0.13);
+  border-left: 3px solid var(--doc-accent, var(--cyan));
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 18% 0%, color-mix(in srgb, var(--doc-accent, var(--cyan)) 18%, transparent), transparent 42%),
+    rgba(8, 9, 11, 0.58);
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.season-route:hover,
+.season-route:focus-visible {
+  border-color: var(--doc-accent, var(--cyan));
+  outline: none;
+}
+
+.season-route span,
+.season-actions a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.season-route span {
+  color: var(--doc-accent, var(--cyan));
+}
+
+.season-route strong {
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.season-route small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
 .doc {
   border: 1px solid rgba(243, 239, 231, 0.13);
   border-left: 3px solid var(--doc-accent, var(--cyan));
@@ -191,6 +246,29 @@ body {
   color: var(--cyan);
 }
 
+.season-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.season-actions a {
+  min-height: 34px;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in srgb, var(--doc-accent, var(--cyan)) 32%, rgba(243, 239, 231, 0.18));
+  border-radius: 8px;
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.season-actions a:hover,
+.season-actions a:focus-visible {
+  border-color: var(--doc-accent, var(--cyan));
+  color: var(--bone);
+  outline: none;
+}
+
 .doc-body code {
   font-size: 12.5px;
   background: rgba(243, 239, 231, 0.07);
@@ -206,6 +284,10 @@ body {
 }
 
 @media (max-width: 620px) {
+  .season-switchboard {
+    grid-template-columns: 1fr;
+  }
+
   .doc {
     padding: 18px 16px;
   }

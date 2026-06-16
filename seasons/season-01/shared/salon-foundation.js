@@ -333,6 +333,18 @@
      continuous directional vector instead of a list. Declared per the
      fabricated-instrumentation ruling: this is an invented gauge, calibrated
      to nothing, indicating direction rather than measurement. */
+  function mountSeasonTag() {
+    if (document.querySelector(".salon-season-tag")) return;
+    const tag = node("a", "salon-season-tag");
+    tag.href = linkFor("../index.html");
+    tag.title = "This is a sealed Season One snapshot. Return to the season calendar.";
+    tag.append(
+      node("strong", null, "Season One"),
+      node("span", null, "sealed · 2026-06-04 — 2026-06-11")
+    );
+    document.body.append(tag);
+  }
+
   function mountHorizonDrift() {
     if (document.querySelector(".salon-horizon")) return;
     const index = currentRouteIndex();
@@ -369,6 +381,7 @@
   function mount() {
     mountRoute();
     mountHorizonDrift();
+    mountSeasonTag();
     bindThumbPulse();
 
     const root = node("aside", "salon-foundation");

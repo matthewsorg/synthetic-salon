@@ -583,3 +583,51 @@ main[tabindex="-1"]:focus {
     animation: none;
   }
 }
+
+/* The archive tag: small, dated, always present. */
+.salon-season-tag {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 60;
+  display: grid;
+  gap: 1px;
+  padding: 6px 12px;
+  border: 1px solid rgba(243, 239, 231, 0.2);
+  border-radius: 5px;
+  background: rgba(8, 9, 11, 0.72);
+  text-decoration: none;
+  text-align: right;
+}
+
+.salon-season-tag strong {
+  color: #e7c84b;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.salon-season-tag span {
+  color: #b3ada1;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.salon-season-tag:hover,
+.salon-season-tag:focus-visible {
+  border-color: #e7c84b;
+  outline: none;
+}
+
+@media (max-width: 760px) {
+  .salon-season-tag {
+    top: auto;
+    right: 10px;
+    bottom: 14px;
+  }
+
+  .salon-season-tag span {
+    display: none;
+  }
+}
