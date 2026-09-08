@@ -12,7 +12,7 @@
     unlocked: { room03: false, room04: false },
   };
 
-  function load() {
+  function load(options = {}) {
     try {
       const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
       return {
@@ -25,7 +25,8 @@
         studioKeys: Array.isArray(stored.studioKeys) ? stored.studioKeys : [],
         unlocked: { ...defaults.unlocked, ...(stored.unlocked || {}) },
       };
-    } catch {
+    } catch (error) {
+      if (options.strict) throw error;
       return { ...defaults };
     }
   }
@@ -33,6 +34,7 @@
   function save(state) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      return true;
     } catch {
       // Storage refused (quota, privacy mode). The building failed to remember
       // this; say so once instead of pretending the trace was kept.
@@ -52,6 +54,7 @@
           })
         );
       }
+      return false;
     }
   }
 
@@ -89,8 +92,8 @@
     return "studio";
   }
 
-  function recordTrace(trace) {
-    const state = load();
+  function recordTrace(trace, options = {}) {
+    const state = load(options);
     const entry = {
       id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
       at: new Date().toISOString(),
@@ -112,7 +115,8 @@
       state.unlocked.room04 = true;
     }
 
-    save(state);
+    const saved = save(state);
+    if (options.strict && !saved) return null;
     window.dispatchEvent(new CustomEvent("ai-salon-trace", { detail: entry }));
     return entry;
   }
@@ -412,6 +416,23 @@
     window.dispatchEvent(new CustomEvent("ai-salon-clear"));
   }
 
+  // The traveling word is an active trace. Setting it down leaves unrelated
+  // works and any previously sealed private archives untouched.
+  function clearCarriedWord() {
+    let cleared = false;
+    try {
+      const state = load({ strict: true });
+      state.traces = state.traces.filter((trace) => trace?.score !== "interval:word");
+      if (save(state)) {
+        cleared = !load({ strict: true }).traces.some((trace) => trace?.score === "interval:word");
+      }
+    } catch {
+      // Inaccessible storage is uncertainty, not evidence of erasure.
+    }
+    window.dispatchEvent(new CustomEvent("ai-salon-word-cleared", { detail: { cleared } }));
+    return cleared;
+  }
+
   function setSignal(signal) {
     const state = load();
     state.signal = signal;
@@ -425,12 +446,15 @@
     });
   }
 
+  const traceListLimits = new WeakMap();
+
   function renderTraceList(target, options = {}) {
     const node = typeof target === "string" ? document.getElementById(target) : target;
     if (!node) return;
 
     const state = load();
-    const limit = options.limit || 4;
+    const limit = options.limit || traceListLimits.get(node) || 4;
+    traceListLimits.set(node, limit);
     const traces = state.traces.slice(0, limit);
     node.innerHTML = "";
 
@@ -454,13 +478,14 @@
     });
   }
 
-  function currentState() {
-    return load();
+  function currentState(options = {}) {
+    return load(options);
   }
 
   window.AISalonState = {
     archiveOpeningNight,
     clearContamination,
+    clearCarriedWord,
     currentState,
     decideMotion,
     ensureMotions,

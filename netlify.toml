@@ -1,6 +1,6 @@
 [build]
-  command = ""
-  publish = "."
+  command = "python3 tools/build_static.py"
+  publish = "dist"
 
 [[redirects]]
   from = "/external-ai/*"

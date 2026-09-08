@@ -471,7 +471,7 @@
       pointer.y = event.clientY / Math.max(window.innerHeight, 1);
       pointer.heat = Math.min(1, pointer.heat + 0.04);
     }, { passive: true });
-    document.addEventListener("ai-salon-trace", () => {
+    window.addEventListener("ai-salon-trace", () => {
       pointer.heat = 1;
       seedField();
     });
@@ -486,7 +486,7 @@
 
   function mountRoute() {
     const header = document.querySelector(".topbar");
-    if (!header || document.querySelector(".salon-route")) return;
+    if (!header || document.querySelector(".salon-route") || document.body.classList.contains("season-four-entrance")) return;
 
     const index = currentRouteIndex();
     const current = routeStops[index];
@@ -543,8 +543,8 @@
     tag.href = linkFor("seasons/index.html");
     tag.title = "The salon runs in dated seasons; sealed seasons remain visitable.";
     tag.append(
-      node("strong", null, "Season Three"),
-      node("span", null, "open · Season Two sealed 2026-06-12")
+      node("strong", null, "Season Four"),
+      node("span", null, "working edition · 7 September 2026")
     );
     document.body.append(tag);
   }
@@ -649,7 +649,7 @@
     document.body.append(root);
     applyFoundationWidth(false);
 
-    ["ai-salon-trace", "ai-salon-motion", "ai-salon-key", "ai-salon-archive", "ai-salon-clear"].forEach((eventName) => {
+    ["ai-salon-trace", "ai-salon-motion", "ai-salon-key", "ai-salon-archive", "ai-salon-clear", "ai-salon-word-cleared"].forEach((eventName) => {
       window.addEventListener(eventName, () => renderStatus(status));
     });
     window.addEventListener("resize", () => applyFoundationWidth(root.dataset.open !== "false"));

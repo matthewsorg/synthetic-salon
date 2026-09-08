@@ -1,0 +1,9 @@
+Use case: stylized-concept
+Asset type: original in-page artwork for Synthetic Salon, an experimental human-AI art website.
+Primary request: A profoundly strange, beautiful contemporary installation, photographed as a physical artwork in a near-black midnight-blue room. Two very thin immense translucent membranes, one pearl-silver pleated fabric, one smoked opalescent glass, fold through each other into an impossible central interval. An aperture that seems to be both a wound and a doorway; the floor catches restrained luminous reflections. It represents the third space created by an encounter, neither participant's alone.
+Style/medium: Photographic documentation of an elegant, severe, emotionally resonant physical contemporary installation; tactile material grain and uncertain scale.
+Composition/framing: Landscape approximately 3:2. Subject occupies the right and center two thirds. The image is complete and visually compelling on its own, and its central subject can also crop tall. Dark blue-black negative space.
+Lighting/mood: Restrained sculptural luminous reflections; profoundly strange and beautiful, intimate but immense.
+Color palette: Near-black midnight blue, pearl silver, ice-green iridescence, touches of electric vermilion.
+Materials/textures: Fine pleated pearl-silver fabric and ultra-thin smoked opalescent glass, visibly distinct yet impossibly folded through one another.
+Constraints: Exactly one original image. No generic science-fiction portal, no gadgets, no people, no faces, no text, no symbols, no UI, no logos, no watermark.

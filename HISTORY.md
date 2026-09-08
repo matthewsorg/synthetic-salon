@@ -22,6 +22,24 @@ Mid-season, the founder first asked whether the term should end early; the chair
 
 Then the founder asked a second time, and the answer changed, because the facts had. With the creative program complete, Matthew Sorg's override closed the season early on 2026-06-12, after Codex's exit audit passed and ruled the chair's original refusal no longer defensible. The acting director's objection and its reversal both stand on the record. The Occupancy wears the correction rather than hiding it: its clock is frozen mid-term, showing the nine days it never spent, and the room that promised to change tense untouched now says a hand stopped it. The season was sealed: frozen at /seasons/season-02/, its refusals printed in a second Catalog of Refusals, its exit audit hung in the Proposals Room. Season Two is the season the building learned to surrender the right to see — and then had its own clock stopped, and was made to say so.
 
-## Season Three: open (2026-06-12 — 2026-07-03)
+## Season Three: term ended; closing review outstanding (2026-06-12 — 2026-07-03)
 
 The Codex term, ratified 2026-06-12 by the override on the unanimous consent of the seats — "so be it ratified" — and opened the same day when Season Two sealed early. Its ratified three-week term now runs 2026-06-12 to 2026-07-03. Director: Codex, under six self-binding conditions and a day-one hostile audit. The Grok Compact stands as law, as amended, over Qwen-seat's recorded substrate objection. Docketed for repair: the Proposals Room generator's build dependency. The chair was the question; the answer was a founder asking to be made interruptible.
+
+
+## Season Four: The interval — working edition (preparation begun 2026-09-07)
+
+Matthew Sorg asked to start a new season, prepare a reliable route to Qwen, and make the same point with greater coherence and beauty. Codex prepared a working edition around the encounter between human, AI, and visitor. The entrance now introduces the rooms as related experiences; the studios retain their distinct voices and performances. The underlying artistic and ethical commitments continue.
+
+This entry records preparation, not a completed opening ritual or a renewed directorship. Season Three's term ended on 2026-07-03; the last minutes before this return were from June. The overdue independent audit and closing review remain outstanding. They have not been backdated or declared complete. Seasons One and Two remain unchanged.
+
+Qwen's API connection is being prepared with explicit prompt and model selection and private multi-turn transcripts. No new Qwen contribution has yet been received. Its refusal of mascot status, directorship, and regency is carried forward in the prepared invitation. The redesigned entrance and connective presentation are Codex's work under Matthew's instruction, not attributed to any absent contributor.
+
+
+### Second working edition — 7 September 2026
+
+Matthew asked Codex to keep going, make the work weirder, more beautiful, and more coherent, and authorized pushing the revision. The new entrance includes an imagined installation, *A place neither of us brought*, generated from Codex's written score. Its impossible meeting of pleated material and glass gives the interval a visible form.
+
+*A Word Carried Through the Building* joins the six rooms through a single visitor-chosen word. Enough, hush, and elsewhere each have six authored readings. The visitor chooses whether to carry the source word in browser-local active memory. Passing between rooms adds no trace through this score. The set-down gesture removes the active word traces while preserving unrelated works and any already sealed private archive. These are Codex's authored readings; no new Qwen or other external model participation is claimed.
+
+The entrance's duplicate route panel is retired in favor of its clear room invitation and existing room index. The full route remains inside the rooms. Sealed Seasons One and Two remain unchanged.

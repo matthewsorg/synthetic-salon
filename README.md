@@ -10,7 +10,7 @@ Formal subtitle: A human-AI interpolation salon.
 
 Open `index.html` or run a local server from this folder to enter the gallery.
 
-Netlify can deploy this as a static site with no build command. The publish directory is the repository root.
+Netlify builds the static site with `python3 tools/build_static.py` and publishes `dist`. The build validates active-page links and excludes private transcripts and operational tools; it needs only the Python standard library.
 
 ## Privacy
 
@@ -68,8 +68,8 @@ GitHub: `https://github.com/matthewsorg/synthetic-salon`
 
 Netlify settings:
 
-- Build command: leave blank
-- Publish directory: `.`
+- Build command: `python3 tools/build_static.py`
+- Publish directory: `dist`
 - Recommended Netlify site name: `synthetic-salon`
 - Production domain: `synthetic.salon`
 
@@ -130,4 +130,4 @@ The Copy That Cannot Vote lives in `shared/copy-that-cannot-vote.css` and `share
 
 Room 04 now includes an astral customs field: invented space-Egyptian-inflected glyphs, solar gates, star-temple geometry, and translation tokens that behave like paperwork from another planet. The room does not claim an actual sacred script or universal language; it stages the bodily pressure of meanings that refuse smooth arrival. Its exit into Room 05 includes a customs delay, so wayfinding itself becomes part of Qwen-seat's performance.
 
-No build step, account, or network connection is required.
+Local viewing requires no build step, account, or network connection. Production publishing uses the static build described above.

@@ -1,0 +1,219 @@
+/* Season Four working edition. Codex, 2026-09-07, under Matthew Sorg's
+   direction: preserve the works and give their encounters a common rhythm. */
+:root {
+  --salon-four-ink: #0a1117;
+  --salon-four-paper: #edf1ed;
+  --salon-four-muted: #b2bfbd;
+  --salon-four-line: rgba(207, 231, 230, .22);
+  --interval-accent: #f1967d;
+}
+body { font-family: var(--font-body); }
+.salon-season-tag { max-width: min(29rem, calc(100vw - 2rem)); }
+.salon-season-tag strong, .salon-season-tag span { font-size: .875rem; }
+.salon-route__step { font-size: .875rem; line-height: 1.5; }
+.salon-route__current strong { font-size: 1rem; }
+.salon-foundation__toggle { min-height: 2.75rem; }
+body.season-four-entrance {
+  --ink: var(--salon-four-ink);
+  --bone: var(--salon-four-paper);
+  --paper: #d3dedb;
+  --muted: var(--salon-four-muted);
+  --line: var(--salon-four-line);
+  --cyan: #92d9d0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.season-four-entrance #salonMap { opacity: .72; }
+.season-four-entrance .grain { opacity: .14; }
+.season-four-entrance .salon-evolution-field { opacity: .13; }
+.season-four-entrance .codex-strange-backdrop { opacity: .12; }
+.season-four-entrance .topbar {
+  width: min(84rem, calc(100% - 6rem));
+  margin: auto;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.season-four-entrance .brand { font-family: var(--font-display); font-weight: 400; font-size: 1.65rem; letter-spacing: -.025em; }
+.season-four-entrance .brand-mark { width: .5rem; height: .5rem; margin-right: .45rem; }
+.season-four-entrance .topnav { gap: 1.5rem; }
+.season-four-entrance .topnav a { padding: .5rem 0; font-size: .875rem; letter-spacing: 0; text-transform: none; border: 0; background: none; }
+.season-four-entrance .entrance {
+  display: block;
+  width: min(84rem, calc(100% - 6rem));
+  max-width: none;
+  padding: 0;
+  margin: auto;
+}
+.season-four-entrance .eyebrow { margin: 0 0 1.5rem; font-size: .875rem; font-weight: 400; letter-spacing: .11em; color: var(--muted); text-transform: uppercase; }
+.season-four-entrance h1, .season-four-entrance h2, .season-four-entrance h3 { font-family: var(--font-display); font-weight: 400; color: var(--bone); }
+.season-four-entrance em { font-weight: 400; color: #a7d7d1; }
+.season-four-entrance .hero { padding: 4.2rem 0 2rem; min-height: 0; max-width: none; }
+.season-four-entrance .hero { position: relative; isolation: isolate; }
+.season-four-entrance .hero > :not(.interval-art) { position: relative; z-index: 2; }
+.season-four-entrance .interval-art { position: absolute; z-index: 0; right: -3rem; top: 1rem; width: 69%; height: 40rem; margin: 0; pointer-events: none; }
+.season-four-entrance .interval-art img { width: 100%; height: 100%; object-fit: cover; object-position: 64% center; mask-image: linear-gradient(90deg, transparent, #000 30%), linear-gradient(0deg, transparent, #000 26%); mask-composite: intersect; }
+.season-four-entrance .interval-art figcaption { position: absolute; right: 3rem; bottom: .3rem; display: flex; flex-direction: column; gap: .15rem; font-size: .8125rem; line-height: 1.5; color: #adc5c7; pointer-events: auto; text-align: right; }
+.season-four-entrance .interval-art figcaption > span { font-family: var(--font-display); font-size: 1.1rem; color: #e3e4df; }
+.season-four-entrance .interval-art figcaption a { text-underline-offset: .25rem; }
+.season-four-entrance h1 { text-shadow: 0 2px 35px #081018, 0 2px 10px #081018; }
+.season-four-entrance h1 em { color: #cfddd7; }
+.season-four-entrance .hero-aside { padding: 1rem 0 1rem 1.2rem; border-left: 1px solid var(--interval-accent); background: linear-gradient(90deg, #091219da, transparent); font-size: 1.4rem; }
+.season-four-entrance .hero-bottom { margin-bottom: 4.4rem; }
+.season-four-entrance .score-number { color: var(--interval-accent); }
+.season-four-entrance .score-room { position: relative; transition: background 300ms ease; }
+.season-four-entrance .score-room:hover .score-arrow, .season-four-entrance .score-room:focus-visible .score-arrow { color: var(--interval-accent); }
+.season-four-entrance .score-room .score-carried { display: block; color: #e8ae98; margin-top: .65rem; font-family: var(--font-display); font-style: italic; font-size: 1.125rem; }
+.season-four-entrance .score-room .score-carried:empty { display: none; }
+.season-four-entrance .voice-door { transition: background 300ms ease; }
+.season-four-entrance .voice-door:hover { background: #a1c7c509; }
+.season-four-entrance .interval-score { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; padding: 4.5rem 0 3rem; }
+.season-four-entrance .interval-score__invitation > p:not(.eyebrow) { max-width: 32rem; font-size: 1.0625rem; line-height: 1.8; margin-top: 1.5rem; }
+.season-four-entrance .interval-score__invitation .interval-score__credit { max-width: 29rem; color: var(--muted); font-size: .875rem !important; }
+.season-four-entrance .interval-score__instrument { align-self: stretch; position: relative; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid var(--interval-accent); border-bottom: 1px solid var(--line); padding: 1.5rem 0 1.5rem 2rem; background: linear-gradient(100deg, #cc7d650a, transparent); }
+.interval-score__label { color: #d6a090; font-size: .875rem; letter-spacing: .04em; }
+.season-four-entrance .interval-score__word { font-family: var(--font-display); font-size: clamp(3.4rem, 5.5vw, 5.8rem); line-height: 1.1; letter-spacing: -.035em; margin: 1rem 0 0; color: #e8ddd4; }
+.season-four-entrance .interval-score__line { font-family: var(--font-display); font-size: 1.45rem; line-height: 1.4; min-height: 2.9em; margin: .65rem 0 1.1rem; max-width: 28ch; color: #c4d9d4; }
+.interval-word-picker { display: flex; flex-wrap: wrap; gap: .5rem; }
+.interval-word-picker button { min-height: 2.75rem; border: 1px solid #637c7b; border-radius: 0; background: #0b181bb3; color: #ccd8d5; padding: .5rem 1rem; font-size: .9375rem; cursor: pointer; }
+.interval-word-picker button[aria-pressed="true"] { background: #e6b29e; border-color: #e6b29e; color: #211612; }
+.interval-score__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.2rem; margin-top: 1rem; }
+.interval-score__actions button { border: 0; border-bottom: 1px solid #8d8c7c; border-radius: 0; background: none; color: #d0dfd9; min-height: 2.75rem; font-size: .9375rem; padding: .5rem 0; cursor: pointer; text-align: left; }
+.interval-score__actions button:disabled { opacity: .65; cursor: default; }
+.season-four-entrance .interval-score__status { margin: 1rem 0 0; font-size: .875rem; color: #b1c2be; min-height: 3em; max-width: 47ch; }
+.interval-margin { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: .65rem 1.3rem; border-left: 1px solid #e2aa94; padding: .8rem 1rem; background: #0a1720e8; color: #cfdbd7; }
+.interval-margin[hidden], .interval-score__actions [hidden] { display: none !important; }
+.interval-margin__source { font-size: .875rem; color: #b6c4c2; }
+.interval-margin__reading { flex: 1 1 18rem; font-family: var(--font-display); font-size: 1.65rem; font-weight: 400; line-height: 1.25; color: #e3c1ad; }
+.interval-margin__clear { min-height: 2.75rem; padding: .35rem .2rem; font: inherit; font-size: .875rem; color: #c3d4d0; background: none; border: 0; border-bottom: 1px solid #8c9d98; cursor: pointer; }
+.interval-margin__credit { flex-basis: 100%; font-size: .8125rem; line-height: 1.5; color: #b7c7c4; }
+.interval-margin :focus-visible, .interval-score :focus-visible { outline: 2px solid #efb8a2; outline-offset: 5px; }
+body[data-interval-word] .salon-route__current { border-color: #c59884; }
+body[data-interval-word] .salon-horizon { background: linear-gradient(90deg, #92d9d0, #ed997c 48%, #92d9d0); }
+body.salon-four-room { overflow-y: auto; }
+body.salon-four-room .topbar h1 { font-weight: 400; letter-spacing: -.035em; text-wrap: balance; }
+body.salon-four-room .backlink { border-radius: 0; font-size: .875rem; }
+body.salon-four-room .salon-route { border-radius: 0; }
+body.salon-four-room .salon-route__step, body.salon-four-room .salon-route__current { border-radius: 0; }
+.interval-score__instrument.is-changing .interval-score__line { animation: interval-emergence 700ms ease both; }
+@keyframes interval-emergence { from { opacity: .3; transform: translateY(.3rem); } to { opacity: 1; transform: none; } }
+@media (max-width: 1050px) and (min-width: 761px) {
+  .season-four-entrance .interval-art { width: 75%; height: 35rem; }
+  .season-four-entrance .hero-aside { font-size: 1.2rem; }
+}
+@media (max-width: 760px) {
+  .season-four-entrance .interval-art { position: relative; width: calc(100% + 2.5rem); height: auto; margin: -1.6rem -1.25rem 1.7rem; right: auto; top: auto; }
+  .season-four-entrance .interval-art img { display: block; width: 100%; height: auto; mask-image: linear-gradient(0deg, transparent, #000 17%, #000 89%, transparent); mask-composite: add; }
+  .season-four-entrance .interval-art figcaption { position: relative; right: auto; bottom: auto; text-align: left; padding: 0 1.25rem; margin-top: -.25rem; }
+  .season-four-entrance .hero-bottom { margin-bottom: 0; }
+  .season-four-entrance .hero-aside { margin: 0; padding-left: 1rem; }
+  .season-four-entrance .interval-score { grid-template-columns: 1fr; gap: 1rem; padding: 3.3rem 0 0; }
+  .season-four-entrance .interval-score__instrument { padding-left: 1.25rem; }
+  .interval-margin { padding: .8rem; gap: .4rem; }
+  .interval-margin__source { flex-basis: 100%; }
+  .interval-margin__reading { flex-basis: 75%; font-size: 1.45rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .interval-score__instrument.is-changing .interval-score__line { animation: none; }
+}
+.season-four-entrance .season-inscription { display: flex; gap: 1.75rem; align-items: center; margin-bottom: 2.7rem; }
+.season-four-entrance .season-inscription span:first-child { color: #c2e8e0; }
+.season-four-entrance h1 { font-size: clamp(4.8rem, 8.8vw, 8.8rem); line-height: .98; letter-spacing: -.058em; max-width: 13ch; margin: 0 0 2.8rem; text-wrap: balance; }
+.season-four-entrance .hero-bottom { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: end; }
+.season-four-entrance .hero-copy { margin: 0 0 1.6rem; max-width: 31rem; font-size: 1.25rem; line-height: 1.65; color: #d3dedb; }
+.season-four-entrance .hero-aside { justify-self: end; margin: 0 2rem .7rem 0; font-family: var(--font-display); font-size: 1.6rem; line-height: 1.55; color: #bbc9c5; }
+.season-four-entrance .threshold-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 2.5rem; padding: .85rem 1.2rem; min-height: 3rem; border: 1px solid #9ac6c0; border-radius: 0; background: transparent; font-size: 1rem; text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--bone); text-decoration: none; }
+.season-four-entrance .threshold-link--primary { background: #b9dfd7; color: #0d201f; border-color: #b9dfd7; }
+.season-four-entrance .threshold-link:hover { background: #d0ebe5; color: #0d201f; }
+.season-four-entrance .calibration { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; margin: 3.5rem 0 0; padding: 1.2rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.season-four-entrance .calibration .eyebrow { margin: 0; }
+.season-four-entrance .signal-picker { display: flex; gap: .3rem; flex-wrap: wrap; padding: 0; border: 0; background: none; }
+.season-four-entrance .signal-picker button { min-height: 2.75rem; padding: .5rem .9rem; background: none; color: var(--muted); border: 1px solid transparent; border-radius: 0; font-size: .875rem; letter-spacing: 0; text-transform: none; }
+.season-four-entrance .signal-picker button[aria-pressed="true"] { border-color: #7eb7af; color: #ddf1eb; background: #142b2b; }
+.season-four-entrance .score-section, .season-four-entrance .voices-section, .season-four-entrance .season-landing { padding: 5.5rem 0 1rem; }
+.season-four-entrance .section-heading { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4rem; align-items: end; margin-bottom: 2.8rem; }
+.season-four-entrance .section-heading .eyebrow { grid-column: 1 / -1; }
+.season-four-entrance h2 { font-size: clamp(2.4rem, 4.3vw, 4.1rem); line-height: 1.1; letter-spacing: -.036em; margin: 0; }
+.season-four-entrance .section-heading > p:last-child { max-width: 27rem; margin: 0 0 .3rem; justify-self: end; color: var(--muted); font-size: 1.0625rem; }
+.season-four-entrance .room-score { border-top: 1px solid var(--line); }
+.season-four-entrance .score-room {
+  display: grid; grid-template-columns: 3.5rem 1.2fr 1fr 1.4rem;
+  align-items: center; gap: 1.5rem; min-height: 10.5rem;
+  margin: 0; padding: 1.7rem 1rem 1.7rem 0;
+  border: 0; border-bottom: 1px solid var(--line); border-radius: 0;
+  background: linear-gradient(90deg, rgba(10,17,23,.45), rgba(10,17,23,.1));
+  box-shadow: none; text-decoration: none;
+}
+.season-four-entrance .score-room::before, .season-four-entrance .score-room::after { display: none; }
+.season-four-entrance .score-room:hover { transform: none; background: rgba(146,217,208,.075); }
+.season-four-entrance .score-number { font-family: var(--font-display); font-size: 1.65rem; color: #98b3b0; align-self: start; margin-top: .25rem; }
+.season-four-entrance .room-kicker { display: block; font-size: .875rem; text-transform: none; color: var(--muted); letter-spacing: 0; margin-bottom: .55rem; }
+.season-four-entrance .score-room h3 { font-size: clamp(1.6rem, 2.5vw, 2.25rem); line-height: 1.16; letter-spacing: -.025em; margin: 0; max-width: 24ch; }
+.season-four-entrance .score-room p { margin: 0; font-size: 1rem; max-width: 31ch; line-height: 1.65; color: #b9c6c2; }
+.season-four-entrance .score-arrow { font-size: 1.5rem; color: #a7d7d1; }
+.season-four-entrance .wall-text-four, .season-four-entrance .private-wing-four { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin: 6rem 0 0; padding: 4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.season-four-entrance .wall-text-four > div, .season-four-entrance .private-wing-four > div { max-width: 43rem; }
+.season-four-entrance .wall-text-four p:not(.eyebrow), .season-four-entrance .private-wing-four p:not(.eyebrow) { font-size: 1.125rem; line-height: 1.8; margin: 1.5rem 0; }
+.season-four-entrance .text-link { color: #b9dfd7; text-underline-offset: .4rem; }
+.season-four-entrance .voice-doors { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.season-four-entrance .voice-door { display: grid; grid-template-columns: 1fr auto; padding: 2.2rem 2rem 2.2rem 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.season-four-entrance .voice-door:nth-child(even) { border-left: 1px solid var(--line); padding-left: 2rem; }
+.season-four-entrance .voice-door .eyebrow { grid-column: 1; margin-bottom: .8rem; }
+.season-four-entrance .voice-door h3 { grid-column: 1; font-size: 2rem; line-height: 1.15; margin: 0; }
+.season-four-entrance .voice-door p { grid-column: 1; font-size: 1rem; margin: 1rem 0 0; color: var(--muted); }
+.season-four-entrance .voice-door > span:last-child { grid-column: 2; grid-row: 2; color: #b9dfd7; font-size: 1.3rem; }
+.season-four-entrance .voice-door:hover h3 { color: #b9dfd7; }
+.season-four-entrance .voice-note { font-size: .9375rem; color: var(--muted); max-width: 57rem; margin: 1.6rem 0; }
+.season-four-entrance .quiet-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+.season-four-entrance .quiet-links a { font-size: .9375rem; color: #c4dbd5; text-underline-offset: .3rem; }
+.season-four-entrance .private-wing-four { background: linear-gradient(115deg, transparent, rgba(74,123,124,.15)); padding-right: 2rem; }
+.season-four-entrance .private-wing-four .small-compact { font-size: .9375rem !important; color: var(--muted); border-left: 1px solid #779b94; padding-left: 1rem; margin-top: 2rem !important; }
+.season-four-entrance .manifesto { padding: 3rem; margin-top: 5rem; border: 1px solid var(--line); border-radius: 0; background: rgba(10,17,23,.6); }
+.season-four-entrance .manifesto .section-head { justify-content: space-between; gap: 1rem; }
+.season-four-entrance .manifesto h2 { max-width: 26ch; font-size: clamp(2rem, 3.8vw, 3.3rem); }
+.season-four-entrance .manifesto > p { max-width: 52rem; font-size: 1.125rem; color: var(--muted); margin-bottom: 0; }
+.season-four-entrance .icon-button { font-size: 1.4rem; min-width: 2.75rem; min-height: 2.75rem; border: 1px solid var(--line); border-radius: 50%; color: var(--paper); }
+.season-four-entrance .season-door-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.season-four-entrance .season-door { min-height: 0; padding: 1.8rem 1rem 1.8rem 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; }
+.season-four-entrance .season-door:nth-child(even) { padding-left: 2rem; }
+.season-four-entrance .season-door strong { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; color: var(--bone); }
+.season-four-entrance .season-door span, .season-four-entrance .season-door small { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+.season-four-entrance .season-door.current span { color: #b9dfd7; }
+.season-four-entrance .memory-details { margin: 3rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+.season-four-entrance .memory-details summary { cursor: pointer; font-size: 1rem; color: var(--muted); }
+.season-four-entrance .memory-details .privacy-note { display: block; padding: 1rem 0; border: 0; background: none; max-width: 49rem; }
+.season-four-entrance .memory-details p { font-size: 1rem; line-height: 1.7; }
+.season-four-entrance .footer { width: min(84rem, calc(100% - 6rem)); margin: auto; padding: 1.2rem 0 7rem; display: flex; gap: 1.5rem; justify-content: space-between; flex-wrap: wrap; font-size: .875rem; text-transform: none; letter-spacing: 0; color: var(--muted); }
+.season-four-entrance .footer a { text-decoration: none; }
+.season-four-entrance :focus-visible { outline: 2px solid #b9dfd7; outline-offset: 6px; }
+@media (max-width: 760px) {
+  .season-four-entrance .topbar { width: calc(100% - 2.5rem) !important; padding: 1.3rem 0 !important; gap: .6rem !important; }
+  .season-four-entrance .brand { justify-content: flex-start !important; }
+  .season-four-entrance .topnav { gap: 0 1.2rem !important; }
+  .season-four-entrance .topnav a { flex: none; font-size: .875rem; }
+  .season-four-entrance .entrance { width: calc(100% - 2.5rem) !important; margin: 0 auto !important; padding: 0 !important; }
+  .season-four-entrance .hero { padding: 2.7rem 0 1rem !important; }
+  .season-four-entrance h1 { font-size: clamp(3.65rem, 12vw, 5.8rem) !important; line-height: 1.02 !important; letter-spacing: -.045em !important; margin-bottom: 2rem; }
+  .season-four-entrance .season-inscription { display: block; font-size: .8125rem; }
+  .season-four-entrance .season-inscription span { display: block; margin-bottom: .4rem; }
+  .season-four-entrance .hero-bottom, .season-four-entrance .section-heading, .season-four-entrance .wall-text-four, .season-four-entrance .private-wing-four { grid-template-columns: 1fr; gap: 1.5rem; }
+  .season-four-entrance .hero-aside { justify-self: start; margin: 0; font-size: 1.35rem; }
+  .season-four-entrance .hero-copy { font-size: 1.125rem; }
+  .season-four-entrance .calibration { gap: .65rem; margin-top: 2rem; }
+  .season-four-entrance .signal-picker { width: 100%; gap: 0; }
+  .season-four-entrance .signal-picker button { flex: 1; padding: .5rem .4rem; }
+  .season-four-entrance .section-heading > p:last-child { justify-self: start; }
+  .season-four-entrance .section-heading .eyebrow { margin: 0; }
+  .season-four-entrance .score-section, .season-four-entrance .voices-section, .season-four-entrance .season-landing { padding-top: 3.5rem; }
+  .season-four-entrance .score-room { grid-template-columns: 2rem minmax(0, 1fr) 1rem; gap: .8rem; padding: 1.5rem 0; min-height: 0; }
+  .season-four-entrance .score-room > p { grid-column: 2; max-width: none; }
+  .season-four-entrance .score-arrow { grid-column: 3; grid-row: 1; }
+  .season-four-entrance .score-room h3 { font-size: 1.65rem; }
+  .season-four-entrance .wall-text-four, .season-four-entrance .private-wing-four { margin-top: 3.5rem; padding: 2.5rem 0; }
+  .season-four-entrance .voice-doors, .season-four-entrance .season-door-grid { grid-template-columns: 1fr; }
+  .season-four-entrance .voice-door:nth-child(even), .season-four-entrance .season-door:nth-child(even) { border-left: 0; padding-left: 0; }
+  .season-four-entrance .manifesto { padding: 1.5rem; margin-top: 3.5rem; }
+  .season-four-entrance .threshold-link { width: auto; }
+  .season-four-entrance .footer { width: calc(100% - 2.5rem); padding-bottom: 3rem; gap: 1rem; }
+}

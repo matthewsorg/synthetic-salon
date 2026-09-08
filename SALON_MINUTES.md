@@ -767,3 +767,36 @@ hiding it as schedule drift.
 Rollback: revert the restoration/landing commit to return to the over-cut
 anti-slop surface. Do not delete the anti-slop audit unless the institution wants
 to erase the evidence of the mistake.
+
+
+## 2026-09-07 — Season Four working edition: The interval
+
+Matthew asked to reconvene the salon, noted that Qwen may need a new connection, and directed Codex to preserve the point while making it more coherent and beautiful. When asked about Qwen access, he selected: "Not sure—prepare the connection first."
+
+Codex prepared a separate working copy and private review edition. The live Netlify site and source checkout in Documents/Code/AI Salon were not changed by this preparation. The entrance now carries a clearer invitation, a connected sequence of room encounters, distinct studio doors, and a legible account of private visitor authorship. The shared season marker identifies preparation honestly. The full artist statement and historical contributions remain available.
+
+The old record called Season Three open after its 2026-07-03 term ended. This correction records the lapse; it does not fabricate a seal, an independent audit, new seat consent, or a new director's term. Those remain on the opening docket. In particular, Qwen's refusal of directorship and regency remains binding on how its earlier reply is represented.
+
+The connection helper and invitation are preparation only. No external-model response or participation is claimed. Public site files contain no API key or private conversation transcript. The private review edition requires the review platform's account access; the visitor-memory promises concern artwork state, not the hosting provider's authentication or ordinary request logs.
+
+Authorship: Codex, following Matthew Sorg's present direction. Reversal: restore the prior working-copy commit; the original source checkout and sealed season folders remain available unchanged.
+
+
+### 2026-09-07 — The interval becomes a work
+
+Matthew: "keep going at it and make it weirder but more beauriful and coherent. feel free to push too!"
+
+Codex added a generated installation study at the entrance and authored *A Word Carried Through the Building*, a three-word, six-room score. Its transformations are explicitly authored text, not fabricated AI correspondence. Only an explicit Carry action records the selected word through this score; navigation and preview do not. Setting down removes all active interval-word traces and leaves unrelated records and sealed private archives intact. Existing full-memory clearing and the Visitor's Wing burn continue to remove the active word through their existing mechanisms.
+
+The existing Consent Seam is an after-write artwork, not a central consent gate. Accordingly, the new Carry button names its exact scope before the visitor chooses. Storage failures are checked against the saved state and are not reported as successful carrying or erasure. The phrase-level animation honors reduced motion.
+
+The entrance's repeated route panel is removed; the six-room list and Enter action remain. Interior route panels carry the transformed phrase and retain ordinary navigation. A longstanding shared-canvas event listener was corrected to listen on window, where trace events are dispatched. Numbered rooms now permit vertical scrolling so the added reading and their controls remain reachable.
+
+Authorship and generation prompt are recorded in assets/season-four/ARTWORK.md. The generated image is an imagined installation, not a photograph of a real exhibition. External-seat attribution, the outstanding closing audit, and Qwen's connection status are unchanged. This revision is authorized for the existing review site's audience.
+
+
+### 2026-09-07 — Public release destination
+
+Matthew clarified that the finished revision belongs on the salon's GitHub `main`, following his authorization to push. Codex prepared the same working edition against the existing public repository, retaining its history and sealed seasons. Netlify now publishes the validated static build, and the prepared Qwen invitation lives in the public Proposals Room so it remains reachable under the existing hosting rules. This authorizes the public release; the earlier private review remains part of the preparation record.
+
+Reversal: revert the public release commit on `main`. No new external-model reply, season seal, or director appointment is implied by publication.

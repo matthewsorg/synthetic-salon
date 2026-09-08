@@ -15,8 +15,8 @@ const signals = {
   reflection: {
     weather: "reflection",
     colors: ["#00b7a8", "#7db4ff", "#f3efe7"],
-    title: "AI art may have already learned to perform the frame around itself.",
-    text: "The gallery is not asking whether a machine can make art. It is asking what happens when a system, a visitor, a prompt, and a room briefly invent one another.",
+    title: "We make something neither brought into the room.",
+    text: "A system, a visitor, a prompt, and a room briefly invent one another. The work carries the marks of their encounter.",
   },
   static: {
     weather: "static",
@@ -341,7 +341,7 @@ function setSignal(next, fromUser = false) {
   manifestoTitle.textContent = data.title;
   manifestoText.textContent = data.text;
   signalButtons.forEach((button) => {
-    button.setAttribute("aria-selected", String(button.dataset.signal === signal));
+    button.setAttribute("aria-pressed", String(button.dataset.signal === signal));
   });
   if (fromUser) {
     window.AISalonState?.setSignal(signal);
