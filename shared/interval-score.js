@@ -102,11 +102,18 @@
     const instrument = document.querySelector(".interval-score__instrument");
     const cards = [...document.querySelectorAll(".score-room[data-room]")];
     let selected = carriedWord() || "enough";
+    // An empty place lasts only on this page. It keeps no word or new record.
+    let released = false;
     let margin = null;
     let marginSource = null;
     let marginReading = null;
     let marginCredit = null;
     let marginStatus = null;
+    let marginClear = null;
+    let marginEcho = null;
+    let translationPair = null;
+    let translationSource = null;
+    let translationReading = null;
     let selectedPreview = null;
 
     cards.forEach((card) => {
@@ -132,6 +139,7 @@
         marginReading = document.createElement("em");
         marginReading.className = "interval-margin__reading";
         const setDown = document.createElement("button");
+        marginClear = setDown;
         setDown.type = "button";
         setDown.className = "interval-margin__clear";
         setDown.textContent = "Set it down";
@@ -142,6 +150,28 @@
         marginStatus = document.createElement("span");
         marginStatus.className = "interval-margin__credit";
         marginStatus.setAttribute("role", "status");
+        marginEcho = document.createElement("em");
+        marginEcho.className = "interval-margin__echo";
+        marginEcho.textContent = "The glass holds no echo.";
+        if (roomIndex === 4) {
+          translationPair = document.createElement("div");
+          translationPair.className = "interval-translation";
+          translationPair.setAttribute("aria-label", "Source and reading, held together");
+          for (const label of ["What you brought", "What this room offers"]) {
+            const panel = document.createElement("div");
+            const caption = document.createElement("span");
+            caption.className = "interval-translation__label";
+            caption.textContent = label;
+            const text = document.createElement("p");
+            panel.append(caption, text);
+            translationPair.append(panel);
+            if (!translationSource) translationSource = text;
+            else translationReading = text;
+          }
+          marginSource.hidden = true;
+          marginReading.hidden = true;
+          marginCredit.textContent = "The source keeps its place beside the reading. Proposed by Gemini; adapted by Codex. These are authored lines, not live replies. Setting down clears active word traces; sealed private archives keep their copies.";
+        }
         setDown.addEventListener("click", () => {
           if (clear()) {
             render();
@@ -151,13 +181,24 @@
             marginStatus.textContent = "This browser could not confirm that the word was set down. It may still be stored.";
           }
         });
-        margin.append(marginSource, marginReading, setDown, marginCredit, marginStatus);
+        margin.append(marginSource, marginReading);
+        if (translationPair) margin.append(translationPair);
+        margin.append(marginEcho, setDown, marginCredit, marginStatus);
         route.append(margin);
       }
     }
 
     function updatePreview() {
       if (!line || !wordNode) return;
+      if (!selected) {
+        wordNode.textContent = "";
+        line.textContent = "The glass holds no echo.";
+        document.getElementById("intervalPlace").textContent = "An empty place";
+        buttons.forEach((button) => button.setAttribute("aria-pressed", "false"));
+        if (carryButton) carryButton.disabled = true;
+        instrument?.classList.remove("is-changing");
+        return;
+      }
       const current = WORDS[selected];
       wordNode.textContent = selected;
       line.textContent = selectedPreview ? reading(selected, selectedPreview) : current.threshold;
@@ -169,6 +210,8 @@
 
     function render() {
       const kept = carriedWord();
+      if (kept) released = false;
+      instrument?.classList.toggle("is-released", released);
       if (kept) document.body.dataset.intervalWord = kept;
       else delete document.body.dataset.intervalWord;
       if (clearButton) clearButton.hidden = !kept;
@@ -177,14 +220,25 @@
         if (target) target.textContent = kept ? `“${reading(kept, Number(card.dataset.room))}”` : "";
       });
       if (margin) {
-        marginStatus.textContent = "";
-        margin.hidden = !kept;
+        marginStatus.textContent = released ? "The word is no longer carried. Its active traces have been cleared; sealed private archives keep their copies." : "";
+        margin.hidden = !kept && !released;
+        margin.classList.toggle("is-released", released);
+        marginClear.hidden = !kept;
+        marginEcho.hidden = !released;
+        marginCredit.hidden = !kept;
         marginSource.textContent = kept ? `You brought “${kept}”. Here it becomes` : "";
         marginReading.textContent = kept ? reading(kept, roomIndex) : "";
+        if (translationPair) {
+          translationPair.hidden = !kept;
+          translationSource.textContent = kept || "";
+          translationReading.textContent = kept ? reading(kept, roomIndex) : "";
+        }
       }
       if (status) status.textContent = kept
         ? `“${kept}” is being carried in this browser. The rooms will read it differently. Setting it down clears its active traces; sealed private archives keep their copies.`
-        : "Previewing keeps no word. Carrying adds it to this browser’s active exhibition memory.";
+        : released
+          ? "The word is no longer carried. Its active traces have been cleared; sealed private archives keep their copies. Choose a word to preview again."
+          : "Previewing keeps no word. Carrying adds it to this browser’s active exhibition memory.";
       root.AISalonState?.renderTraceList?.("traceList");
       updatePreview();
     }
@@ -193,6 +247,8 @@
       const word = button.dataset.intervalWord;
       if (!Object.prototype.hasOwnProperty.call(WORDS, word)) return;
       selected = word;
+      released = false;
+      render();
       instrument?.classList.remove("is-changing");
       // A single entry animation; reduced motion disables it in CSS.
       if (instrument) { void instrument.offsetWidth; instrument.classList.add("is-changing"); }
@@ -206,11 +262,17 @@
     clearButton?.addEventListener("click", () => {
       const cleared = clear();
       render();
-      if (cleared) carryButton?.focus();
+      if (cleared) buttons[0]?.focus();
       else if (status) status.textContent = "This browser could not confirm that the word was set down. It may still be stored.";
     });
     ["ai-salon-trace", "ai-salon-clear", "ai-salon-archive", "storage", "pageshow"].forEach((event) => root.addEventListener(event, render));
-    root.addEventListener("ai-salon-word-cleared", (event) => { if (event.detail?.cleared) render(); });
+    root.addEventListener("ai-salon-word-cleared", (event) => {
+      if (!event.detail?.cleared) return;
+      selected = null;
+      selectedPreview = null;
+      released = true;
+      render();
+    });
     render();
   }
 

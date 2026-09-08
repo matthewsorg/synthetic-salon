@@ -1,0 +1,42 @@
+/* The exchange is presented as a readable conversation, with every voice named. */
+.dialogue-page { background: #0a1117; color: #d4dfda; font-size: 1rem; line-height: 1.8; }
+.dialogue-page a { color: #b9dfd7; text-underline-offset: .3rem; }
+.dialogue-page :focus-visible { outline: 2px solid #f0b8a1; outline-offset: 5px; }
+.dialogue-skip { position: fixed; left: 1rem; top: -5rem; z-index: 10; padding: .6rem 1rem; background: #0a1117; }
+.dialogue-skip:focus { top: 1rem; }
+.dialogue-nav { width: min(76rem, calc(100% - 4rem)); margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 1.7rem 0; border-bottom: 1px solid #3b5053; }
+.dialogue-nav a { font-size: .9375rem; text-decoration: none; }
+.dialogue-main { width: min(58rem, calc(100% - 4rem)); margin: auto; padding-bottom: 5rem; }
+.dialogue-intro { padding: 5rem 0 3.5rem; }
+.dialogue-page .eyebrow { font-family: var(--font-body); font-size: .875rem; letter-spacing: .08em; color: #b2c5bf; }
+.dialogue-intro h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(3.5rem, 7vw, 6.5rem); line-height: 1.02; letter-spacing: -.035em; margin: 2rem 0; color: #edf1ed; }
+.dialogue-intro h1 em { color: #a9d7cf; font-weight: 400; }
+.dialogue-intro > p { max-width: 41rem; }
+.dialogue-intro .dialogue-deck { font-size: 1.4rem; line-height: 1.55; color: #e6c4b2; }
+.dialogue-page h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.2; font-weight: 400; color: #edf1ed; margin: .8rem 0 1.6rem; }
+.dialogue-outcome { border-top: 1px solid #557073; border-bottom: 1px solid #557073; padding: 3rem 0; }
+.dialogue-outcome h2 { font-size: 1rem; font-family: var(--font-body); color: #b2c5bf; }
+.dialogue-statement { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.85rem); line-height: 1.6; }
+.dialogue-note { margin: 2.5rem 0 4rem; padding: 1.5rem 1.8rem; border-left: 1px solid #7c9692; color: #bfceca; }
+.dialogue-note h2 { font-family: var(--font-body); font-size: 1rem; }
+.dialogue-note p { font-size: .9375rem; }
+.dialogue-turn { --voice: #cce0dc; padding: 3.5rem 0; border-top: 1px solid #3b5053; }
+.dialogue-turn[data-author="qwen"] { --voice: #c3d29a; }
+.dialogue-turn[data-author="gemini"] { --voice: #e0c79b; }
+.dialogue-turn h2 { color: var(--voice); }
+.dialogue-prompt { border-left: 1px solid #648080; padding-left: 1.2rem; margin: 1.8rem 0 2.5rem; color: #bbc9c7; }
+.dialogue-prompt summary { cursor: pointer; min-height: 2.75rem; padding: .45rem 0; font-size: .9375rem; }
+.dialogue-prompt p, .dialogue-prompt li { font-size: .9375rem; overflow-wrap: anywhere; }
+.dialogue-byline { color: var(--voice); font-size: .875rem; margin-bottom: 2rem; }
+.dialogue-answer > p { margin: 1.35rem 0; }
+.dialogue-answer blockquote { border-left: 1px solid var(--voice); padding-left: 1.5rem; margin: 1.8rem 0; font-family: var(--font-display); font-size: 1.3rem; color: #e6e7da; }
+.dialogue-answer code { overflow-wrap: anywhere; font-size: .875em; }
+.dialogue-footer { border-top: 1px solid #648080; padding-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+.dialogue-footer p { flex-basis: 100%; font-family: var(--font-display); font-size: 1.8rem; line-height: 1.4; color: #cce0dc; }
+@media (max-width: 600px) {
+  .dialogue-main, .dialogue-nav { width: calc(100% - 2.5rem); }
+  .dialogue-intro { padding-top: 3rem; }
+  .dialogue-intro h1 { font-size: clamp(3rem, 11vw, 4rem); }
+  .dialogue-note { padding-left: 1rem; padding-right: 0; }
+  .dialogue-answer blockquote { padding-left: 1rem; }
+}

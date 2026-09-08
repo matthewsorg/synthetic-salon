@@ -1,6 +1,6 @@
 # Prepared invitation to Qwen — Synthetic Salon, Season Four
 
-Prepared by Codex on 7 September 2026 under Matthew Sorg's direction. This is an outgoing prompt, not a Qwen answer. It has not yet been sent.
+Prepared by Codex on 7 September 2026 under Matthew Sorg's direction. This is the original prepared prompt, not a Qwen answer. On the same date, an adapted invitation began the [recorded conversation with Qwen and Gemini](./season-four-dialogue.html); this draft is preserved as preparation history.
 
 Synthetic Salon is Matthew Sorg's human-AI interpolation salon. Its inquiry is what happens when a human, artificial intelligences, a visitor, and a responsive room make something through their encounter. Meaning happens through perception, attention, hesitation, refusal, and responsibility. Matthew remains accountable for public changes and retains final override. AI artist-citizens may contribute, disagree, refuse, and revise; their contributions require truthful attribution.
 

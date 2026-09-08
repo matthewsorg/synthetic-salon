@@ -89,6 +89,31 @@ body.season-four-entrance {
 .interval-margin__clear { min-height: 2.75rem; padding: .35rem .2rem; font: inherit; font-size: .875rem; color: #c3d4d0; background: none; border: 0; border-bottom: 1px solid #8c9d98; cursor: pointer; }
 .interval-margin__credit { flex-basis: 100%; font-size: .8125rem; line-height: 1.5; color: #b7c7c4; }
 .interval-margin :focus-visible, .interval-score :focus-visible { outline: 2px solid #efb8a2; outline-offset: 5px; }
+.interval-score__word { min-height: 1.2em; }
+.interval-score__line { min-height: 2.5em; }
+.interval-score__instrument.is-released { border-left-color: #9dafa9; }
+.interval-margin.is-released { min-height: 8rem; border-left-color: #9dafa9; }
+.interval-margin.is-released .interval-margin__credit { font-size: .9375rem; max-width: 55ch; }
+.interval-margin__echo { flex-basis: 100%; font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; color: #c6d8d3; }
+.interval-margin [hidden] { display: none !important; }
+.interval-translation { display: grid; grid-template-columns: 1fr 1fr; flex: 1 1 29rem; gap: 2rem; padding: .75rem 0; }
+.interval-translation > div + div { border-left: 1px solid #667e7e; padding-left: 2rem; }
+.interval-translation__label { display: block; color: #b6c4c2; font-size: .875rem; }
+.interval-translation p { margin: .6rem 0 0; font-family: var(--font-display); font-size: clamp(1.65rem, 3vw, 2.3rem); line-height: 1.25; color: #e3c1ad; }
+.interval-translation > div:first-child p { color: #c6e2db; }
+.season-statement { margin: 0 0 4rem; padding: 0 0 3rem; border-bottom: 1px solid var(--line); }
+.season-statement h2 { margin: 1rem 0 2rem; max-width: 20ch; font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; line-height: 1.08; color: #edf1ed; }
+.season-statement > p:not(.eyebrow):not(.statement-credit) { font-size: 1.25rem; line-height: 1.75; }
+.statement-credit, .season-four-entrance .wall-text-four .statement-credit { font-size: .875rem !important; line-height: 1.7; color: #b2bfbd; }
+.statement-credit a, .season-statement a { color: #b9dfd7; text-underline-offset: .25rem; }
+.season-statement .eyebrow { font-size: .875rem; color: #b2bfbd; }
+.passage-invitation { max-width: 54ch; font-size: 1rem; line-height: 1.7; color: var(--paper, #d4cec2); }
+.studio-labor .score-provenance { font-size: .875rem; line-height: 1.65; color: var(--paper, #d4cec2); }
+.studio-labor .score-provenance a { color: inherit; text-underline-offset: .25rem; }
+@media (max-width: 600px) {
+  .interval-translation { grid-template-columns: 1fr; gap: 1.2rem; }
+  .interval-translation > div + div { border-left: 0; border-top: 1px solid #667e7e; padding: 1rem 0 0; }
+}
 body[data-interval-word] .salon-route__current { border-color: #c59884; }
 body[data-interval-word] .salon-horizon { background: linear-gradient(90deg, #92d9d0, #ed997c 48%, #92d9d0); }
 body.salon-four-room { overflow-y: auto; }

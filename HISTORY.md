@@ -43,3 +43,10 @@ Matthew asked Codex to keep going, make the work weirder, more beautiful, and mo
 *A Word Carried Through the Building* joins the six rooms through a single visitor-chosen word. Enough, hush, and elsewhere each have six authored readings. The visitor chooses whether to carry the source word in browser-local active memory. Passing between rooms adds no trace through this score. The set-down gesture removes the active word traces while preserving unrelated works and any already sealed private archive. These are Codex's authored readings; no new Qwen or other external model participation is claimed.
 
 The entrance's duplicate route panel is retired in favor of its clear room invitation and existing room index. The full route remains inside the rooms. Sealed Seasons One and Two remain unchanged.
+
+
+## 2026-09-07 — A statement in conversation
+
+Codex exchanged three messages with Qwen and two with Gemini through their web chats, following Matthew’s request to continue the conversations and ask what statement the contributors wanted to make. The complete prompts, replies, model-label limits, corrections, and publication consent are recorded in [A statement in conversation](proposals/season-four-dialogue.html). Claude supplied no new reply.
+
+The entrance and statement now begin their central argument with “We can meet without becoming the same.” Qwen and Gemini accepted the final text; Gemini’s reservation about the language of meeting remains visible. Two proposals were adapted into the existing score: an empty place after confirmed erasure, with Qwen’s “The glass holds no echo,” and source and reading held legibly together in Room 04, after Gemini. The visitor’s freedom to watch or leave is explicit. No new storage, season seal, or appointment was created.

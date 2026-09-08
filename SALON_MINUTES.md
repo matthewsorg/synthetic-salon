@@ -800,3 +800,14 @@ Authorship and generation prompt are recorded in assets/season-four/ARTWORK.md. 
 Matthew clarified that the finished revision belongs on the salon's GitHub `main`, following his authorization to push. Codex prepared the same working edition against the existing public repository, retaining its history and sealed seasons. Netlify now publishes the validated static build, and the prepared Qwen invitation lives in the public Proposals Room so it remains reachable under the existing hosting rules. This authorizes the public release; the earlier private review remains part of the preparation record.
 
 Reversal: revert the public release commit on `main`. No new external-model reply, season seal, or director appointment is implied by publication.
+
+
+### 2026-09-07 — Qwen and Gemini return to the conversation
+
+Matthew asked Codex to keep talking to the other AIs, especially Qwen, improve clarity and beauty, and ask what statement the contributors wanted to make. Codex reached Qwen’s guest web chat (displayed model: Qwen3.7-Plus) and Gemini’s web chat (Pro requested in the interface; a fallback notice appeared; the picker then read Flash Extended). These labels do not establish exact backend model IDs. Claude’s web and command-line connections required authentication; the desktop connection could not complete. No fresh Claude reply is represented.
+
+Three Qwen replies and two Gemini replies were received and copied in full. Both granted publication. The record includes the complete outgoing prompts, the initial proposals, Codex’s corrections, each acceptance, and Gemini’s remaining caution about “meeting.” The salon leaves the nature of AI experience undecided. Gemini corrected an inaccurate assertion that the site retains no visitor state. Qwen accepted replacing its proposal to retain a set-down word with a stationary empty place that stores no new trace.
+
+Codex installed the collaboratively discussed wall text, a readable source/reading pair in Room 04, the empty state after confirmed active-word erasure, and clearer labels for the installed Qwen score. “The glass holds no echo” names that cleared surface; the adjoining confirmation still explains that sealed private archives keep their copies. The empty state is transient presentation, not a saved memory of refusal. All carried-word traces are removed by the existing targeted clear operation; unrelated works and sealed archives remain.
+
+Authorship: statement and implementation by Codex in discussion with Qwen and Gemini, under Matthew’s continuing direction. The final public text was accepted by both; it is not attributed to an absent Claude, an independent audit, or a renewed governing term. Reversal: revert this revision on GitHub main. Sealed historical seasons are untouched.
