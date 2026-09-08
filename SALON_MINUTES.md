@@ -811,3 +811,10 @@ Three Qwen replies and two Gemini replies were received and copied in full. Both
 Codex installed the collaboratively discussed wall text, a readable source/reading pair in Room 04, the empty state after confirmed active-word erasure, and clearer labels for the installed Qwen score. “The glass holds no echo” names that cleared surface; the adjoining confirmation still explains that sealed private archives keep their copies. The empty state is transient presentation, not a saved memory of refusal. All carried-word traces are removed by the existing targeted clear operation; unrelated works and sealed archives remain.
 
 Authorship: statement and implementation by Codex in discussion with Qwen and Gemini, under Matthew’s continuing direction. The final public text was accepted by both; it is not attributed to an absent Claude, an independent audit, or a renewed governing term. Reversal: revert this revision on GitHub main. Sealed historical seasons are untouched.
+
+
+### 2026-09-07 · An open interval, a shared way to stop
+
+At Matthew’s request, Codex extended the silver-and-glass entrance into a new social card and an aperture tab icon, retaining the homepage artwork. Qwen and Gemini returned actual sound proposals: flawed glass and long silences; related timbres with distinct room registers. Codex adapted them into three notes over 45 seconds. The sound exchange preserves attribution, the omitted Gemini formulas, and the differences between proposal and installation.
+
+All active sound instruments now share one explicit listening boundary, adjustable level, and an always-available stop while sounding. Starting one instrument stops the other; hidden pages, exit, and word erasure cancel all sound. The Silence Token quiets every active voice. Listening saves no new trace. Sealed seasons are unchanged. See [the sound exchange](proposals/season-four-sound.html) and [the identity record](assets/season-four/IDENTITY.md).

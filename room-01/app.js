@@ -711,9 +711,8 @@ function draw(t) {
 
 function ensureAudio() {
   if (audio) return audio;
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContext) return null;
-  const context = new AudioContext();
+  const context = window.SalonSound?.context();
+  if (!context) return null;
   const gain = context.createGain();
   const osc = context.createOscillator();
   const shimmer = context.createOscillator();
@@ -732,7 +731,7 @@ function ensureAudio() {
   shimmer.connect(shimmerGain);
   shimmerGain.connect(filter);
   filter.connect(gain);
-  gain.connect(context.destination);
+  gain.connect(window.SalonSound.output("room01"));
   osc.start();
   shimmer.start();
   audio = { context, gain, osc, shimmer, shimmerGain, filter };
@@ -744,7 +743,6 @@ async function setDrone(on) {
   if (!checked) return;
   const node = ensureAudio();
   if (!node) return;
-  if (node.context.state === "suspended") await node.context.resume();
   const now = node.context.currentTime;
   const base = scoreKey === "static" ? 96 : scoreKey === "chorus" ? 110 : scoreKey === "wake" ? 74 : 82;
   node.osc.frequency.setTargetAtTime(base, now, 0.5);
@@ -775,9 +773,8 @@ function bell(frequency = 420, gainValue = 0.24) {
   if (!checked) return;
   const node = ensureAudio();
   if (!node) return;
-  if (node.context.state === "suspended") node.context.resume();
   const now = node.context.currentTime;
-  const osc = node.context.createOscillator();
+  const osc = window.SalonSound.track(node.context.createOscillator());
   const gain = node.context.createGain();
   osc.type = "triangle";
   osc.frequency.setValueAtTime(frequency, now);
@@ -785,7 +782,7 @@ function bell(frequency = 420, gainValue = 0.24) {
   gain.gain.linearRampToValueAtTime(gainValue, now + 0.012);
   gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.7);
   osc.connect(gain);
-  gain.connect(node.context.destination);
+  gain.connect(window.SalonSound.output("room01"));
   osc.start(now);
   osc.stop(now + 0.76);
 }
@@ -795,9 +792,8 @@ function gestureTone(x, y, gainValue = 0.08) {
   if (!checked) return;
   const node = ensureAudio();
   if (!node) return;
-  if (node.context.state === "suspended") node.context.resume();
   const now = node.context.currentTime;
-  const osc = node.context.createOscillator();
+  const osc = window.SalonSound.track(node.context.createOscillator());
   const gain = node.context.createGain();
   const filter = node.context.createBiquadFilter();
   const xRatio = x / Math.max(1, size.w);
@@ -811,7 +807,7 @@ function gestureTone(x, y, gainValue = 0.08) {
   gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.24);
   osc.connect(filter);
   filter.connect(gain);
-  gain.connect(node.context.destination);
+  gain.connect(window.SalonSound.output("room01"));
   osc.start(now);
   osc.stop(now + 0.28);
 }
@@ -888,15 +884,16 @@ function bindEvents() {
     el.volatilityOutput.textContent = el.volatilityRange.value;
   });
 
+  window.SalonSound?.register("room01", () => {
+    el.soundToggle.setAttribute("aria-checked", "false");
+    if (audio) { audio.gain.gain.setValueAtTime(0, audio.context.currentTime); audio.shimmerGain.gain.setValueAtTime(0, audio.context.currentTime); }
+  });
   el.soundToggle.addEventListener("click", async () => {
-    const next = el.soundToggle.getAttribute("aria-checked") !== "true";
-    el.soundToggle.setAttribute("aria-checked", String(next));
-    if (next) {
-      await setDrone(running);
-      bell(196, 0.14);
-    } else if (audio) {
-      audio.gain.gain.setTargetAtTime(0, audio.context.currentTime, 0.08);
-    }
+    if (el.soundToggle.getAttribute("aria-checked") === "true") { window.SalonSound?.silence(); return; }
+    if (!(await window.SalonSound?.listen("room01"))) return;
+    el.soundToggle.setAttribute("aria-checked", "true");
+    await setDrone(running);
+    bell(196, 0.14);
   });
 }
 

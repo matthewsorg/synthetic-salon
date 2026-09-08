@@ -960,8 +960,8 @@ function mechanicalReveal() {
 }
 
 /* Qwen-seat sound spec, enacted by Matthew Sorg's selection: a 60Hz hum with
-   irregular relay clicks. Strictly opt-in — it breathes only while the shared
-   Codex score is awake, and stops when the score sleeps. */
+   irregular relay clicks. Its own switch requests the foreground voice; the
+   shared Silence control stops it along with every other room instrument. */
 (function mechanicalThroatHum() {
   let humNodes = null;
   let clickTimer = 0;
@@ -973,14 +973,14 @@ function mechanicalReveal() {
   function ensureNodes() {
     if (humNodes) return humNodes;
     try {
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      const context = new Ctx();
+      const context = window.SalonSound?.context();
+      if (!context) return null;
       const osc = context.createOscillator();
       const gain = context.createGain();
       osc.type = "sine";
       osc.frequency.value = 60;
       gain.gain.value = 0.012;
-      osc.connect(gain).connect(context.destination);
+      osc.connect(gain).connect(window.SalonSound.output("room04"));
       osc.start();
       humNodes = { context, osc, gain };
     } catch {
@@ -993,7 +993,6 @@ function mechanicalReveal() {
     if (humming) return;
     const nodes = ensureNodes();
     if (!nodes) return;
-    nodes.context.resume?.();
     nodes.gain.gain.setTargetAtTime(0.012, nodes.context.currentTime, 0.2);
     humming = true;
     scheduleClick();
@@ -1003,7 +1002,6 @@ function mechanicalReveal() {
     if (!humming || !humNodes) return;
     try {
       humNodes.gain.gain.setTargetAtTime(0.0001, humNodes.context.currentTime, 0.15);
-      window.setTimeout(() => humNodes?.context.suspend?.(), 600);
     } catch {
       /* the throat may already be quiet */
     }
@@ -1014,14 +1012,24 @@ function mechanicalReveal() {
   function scheduleClick() {
     window.clearTimeout(clickTimer);
     clickTimer = window.setTimeout(() => {
-      if (humNodes) {
+      if (humNodes && humming && window.SalonSound?.isListening("room04")) {
         relayClick(0.03);
         scheduleClick();
       }
     }, 3800 + Math.random() * 5200);
   }
 
-  window.__qwenStopHum = stopHum;
+  window.__qwenRelay = (level = .03) => {
+    if (!humming || roomIsSilenced() || !window.SalonSound?.isListening("room04")) return;
+    const context = humNodes.context, now = context.currentTime;
+    const buffer = context.createBuffer(1, Math.floor(context.sampleRate * .026), context.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+    const source = window.SalonSound.track(context.createBufferSource());
+    source.buffer = buffer;
+    const gain = context.createGain(); gain.gain.value = Math.min(level, .04);
+    source.connect(gain).connect(window.SalonSound.output("room04")); source.start(now);
+  };
 
   /* Qwen-seat's full sound spec, enacted by the override's ruling, Season Two:
      Mechanical Throat / Paper Jam. A visible, persistent toggle in the room
@@ -1044,7 +1052,7 @@ function mechanicalReveal() {
       for (let i = 0; i < frames; i += 1) {
         data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / frames, 1.6);
       }
-      const source = context.createBufferSource();
+      const source = window.SalonSound.track(context.createBufferSource());
       source.buffer = buffer;
       const filter = context.createBiquadFilter();
       const scratch = Math.random() < 0.4;
@@ -1053,7 +1061,7 @@ function mechanicalReveal() {
       filter.Q.value = scratch ? 6 : 1.4;
       const gain = context.createGain();
       gain.gain.value = scratch ? 0.05 : 0.085;
-      source.connect(filter).connect(gain).connect(context.destination);
+      source.connect(filter).connect(gain).connect(window.SalonSound.output("room04"));
       source.start();
     } catch {
       /* the paper refused to tear */
@@ -1081,27 +1089,17 @@ function mechanicalReveal() {
     }
     if (toggleState) toggleState.textContent = on ? "sound: on" : "sound: off";
     if (!on) window.clearTimeout(jamTimer);
-    announce(on ? "Mechanical Throat sounding. The Silence Token still outranks this switch." : "Absolute silence restored.");
+    announce(on ? "Mechanical Throat sounding. The Silence Token still outranks this switch." : "Mechanical Throat is off.");
   }
 
-  toggle?.addEventListener("click", () => setRoomSound(!roomSoundOn));
-
-  window.setInterval(() => {
-    if (document.hidden) {
-      stopHum();
-      window.clearTimeout(jamTimer);
-      return;
-    }
-    const awake = (Boolean(window.CodexStrange?.isAwake?.()) || roomSoundOn) && !roomIsSilenced();
-    if (awake && !humming) {
-      startHum();
-      scheduleJam();
-    }
-    if (!awake && humming) {
-      stopHum();
-      window.clearTimeout(jamTimer);
-    }
-  }, 2500);
+  const stopRoom = () => { stopHum(); window.clearTimeout(jamTimer); setRoomSound(false); };
+  window.__qwenStopHum = stopRoom;
+  window.SalonSound?.register("room04", stopRoom);
+  toggle?.addEventListener("click", async () => {
+    if (roomSoundOn) { window.SalonSound?.silence(); return; }
+    if (roomIsSilenced() || !(await window.SalonSound?.listen("room04"))) return;
+    setRoomSound(true); startHum(); scheduleJam();
+  });
 })();
 
 runTransitTariff();
@@ -1147,6 +1145,7 @@ function stampHeldAtBorder(failed) {
 /* The Silence Token's switch. */
 document.getElementById("silenceToken")?.addEventListener("click", () => {
   silenceUntil = performance.now() + 30000;
+  window.SalonSound?.holdSilence(30000);
   window.__qwenStopHum?.();
   el.lexiconPressure.textContent =
     "Silence asserted: QW-0x00. For thirty seconds the room will not attempt communication. The visitor's non-listening is sovereign.";

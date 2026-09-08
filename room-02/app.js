@@ -429,9 +429,8 @@ function draw(t = 0, moving = true) {
 
 function ensureAudio() {
   if (audio) return audio;
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContext) return null;
-  const context = new AudioContext();
+  const context = window.SalonSound?.context();
+  if (!context) return null;
   const drone = context.createOscillator();
   const grain = context.createOscillator();
   const filter = context.createBiquadFilter();
@@ -451,7 +450,7 @@ function ensureAudio() {
   grain.connect(grainGain);
   grainGain.connect(filter);
   filter.connect(gain);
-  gain.connect(context.destination);
+  gain.connect(window.SalonSound.output("room02"));
   drone.start();
   grain.start();
   audio = { context, drone, grain, filter, gain, grainGain };
@@ -461,7 +460,6 @@ function ensureAudio() {
 async function setSound(on) {
   const node = ensureAudio();
   if (!node) return;
-  if (node.context.state === "suspended") await node.context.resume();
   const now = node.context.currentTime;
   node.gain.gain.setTargetAtTime(on ? 0.04 : 0, now, 0.14);
   node.grainGain.gain.setTargetAtTime(on ? 0.012 : 0, now, 0.2);
@@ -484,9 +482,8 @@ function memoryChime(frequency = 260, gainValue = 0.18, duration = 0.7, type = "
   if (!checked) return;
   const node = ensureAudio();
   if (!node) return;
-  if (node.context.state === "suspended") node.context.resume();
   const now = node.context.currentTime;
-  const osc = node.context.createOscillator();
+  const osc = window.SalonSound.track(node.context.createOscillator());
   const gain = node.context.createGain();
   const filter = node.context.createBiquadFilter();
   osc.type = type;
@@ -499,7 +496,7 @@ function memoryChime(frequency = 260, gainValue = 0.18, duration = 0.7, type = "
   gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
   osc.connect(filter);
   filter.connect(gain);
-  gain.connect(node.context.destination);
+  gain.connect(window.SalonSound.output("room02"));
   osc.start(now);
   osc.stop(now + duration + 0.04);
 }
@@ -517,14 +514,17 @@ el.scoreButtons.forEach((button) => {
   button.addEventListener("click", () => runScore(button.dataset.score));
 });
 
+window.SalonSound?.register("room02", () => {
+  el.soundToggle.setAttribute("aria-checked", "false");
+  if (audio) { audio.gain.gain.setValueAtTime(0, audio.context.currentTime); audio.grainGain.gain.setValueAtTime(0, audio.context.currentTime); }
+});
 el.soundToggle.addEventListener("click", async () => {
-  const next = el.soundToggle.getAttribute("aria-checked") !== "true";
-  el.soundToggle.setAttribute("aria-checked", String(next));
-  await setSound(next);
-  if (next) {
-    memoryPulse(size.w * 0.5, size.h * 0.46, palette()[2], 1.2);
-    memoryChime(220, 0.14, 0.62);
-  }
+  if (el.soundToggle.getAttribute("aria-checked") === "true") { window.SalonSound?.silence(); return; }
+  if (!(await window.SalonSound?.listen("room02"))) return;
+  el.soundToggle.setAttribute("aria-checked", "true");
+  await setSound(true);
+  memoryPulse(size.w * 0.5, size.h * 0.46, palette()[2], 1.2);
+  memoryChime(220, 0.14, 0.62);
 });
 
 window.addEventListener("pointermove", (event) => {

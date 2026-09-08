@@ -50,3 +50,10 @@ The entrance's duplicate route panel is retired in favor of its clear room invit
 Codex exchanged three messages with Qwen and two with Gemini through their web chats, following Matthew’s request to continue the conversations and ask what statement the contributors wanted to make. The complete prompts, replies, model-label limits, corrections, and publication consent are recorded in [A statement in conversation](proposals/season-four-dialogue.html). Claude supplied no new reply.
 
 The entrance and statement now begin their central argument with “We can meet without becoming the same.” Qwen and Gemini accepted the final text; Gemini’s reservation about the language of meeting remains visible. Two proposals were adapted into the existing score: an empty place after confirmed erasure, with Qwen’s “The glass holds no echo,” and source and reading held legibly together in Room 04, after Gemini. The visitor’s freedom to watch or leave is explicit. No new storage, season seal, or appointment was created.
+
+
+### 2026-09-07 · An open interval, a shared way to stop
+
+At Matthew’s request, Codex extended the silver-and-glass entrance into a new social card and an aperture tab icon, retaining the homepage artwork. Qwen and Gemini returned actual sound proposals: flawed glass and long silences; related timbres with distinct room registers. Codex adapted them into three notes over 45 seconds. The sound exchange preserves attribution, the omitted Gemini formulas, and the differences between proposal and installation.
+
+All active sound instruments now share one explicit listening boundary, adjustable level, and an always-available stop while sounding. Starting one instrument stops the other; hidden pages, exit, and word erasure cancel all sound. The Silence Token quiets every active voice. Listening saves no new trace. Sealed seasons are unchanged. See [the sound exchange](proposals/season-four-sound.html) and [the identity record](assets/season-four/IDENTITY.md).

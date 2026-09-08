@@ -242,3 +242,42 @@ body.salon-four-room .salon-route__step, body.salon-four-room .salon-route__curr
   .season-four-entrance .threshold-link { width: auto; }
   .season-four-entrance .footer { width: calc(100% - 2.5rem); padding-bottom: 3rem; gap: 1rem; }
 }
+
+/* A quiet listening threshold. The instrument stays in the page; only its
+   emergency stop follows the visitor, and only while sound is requested. */
+.salon-listening {
+  position: relative; z-index: 3; display: grid;
+  grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .6rem 2rem;
+  padding: 1.6rem 0; border-top: 1px solid #415456; border-bottom: 1px solid #415456;
+  color: #d3dedb; font: 1rem/1.6 var(--font-body, sans-serif);
+}
+.salon-listening .salon-listening__title {
+  margin: 0; font: 400 clamp(1.5rem, 2.6vw, 2rem)/1.25 var(--font-display, Georgia, serif);
+  color: #edf1ed; letter-spacing: -.02em;
+}
+.salon-listening > button, .salon-silence {
+  min-height: 2.75rem; padding: .6rem 1.1rem; border: 1px solid #83b1ab;
+  border-radius: 2px; background: #132528; color: #e6eeea;
+  font: 400 .9375rem/1.4 var(--font-body, sans-serif); cursor: pointer;
+  text-transform: none; letter-spacing: 0;
+}
+.salon-listening > button:hover, .salon-silence:hover { background: #203a3b; border-color: #c1d9d1; }
+.salon-listening[data-listening="true"] > button { border-color: #f1967d; }
+.salon-listening .salon-listening__status { grid-column: 1 / -1; margin: .25rem 0; color: #b2bfbd; font-size: .9375rem; }
+.salon-listening details { grid-column: 1 / -1; max-width: 43rem; font-size: .875rem; color: #b2bfbd; }
+.salon-listening summary { width: fit-content; min-height: 2.75rem; padding: .65rem 0; cursor: pointer; color: #c3d8d1; }
+.salon-listening label { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin: .75rem 0; }
+.salon-listening input { accent-color: #a7d7d1; min-height: 2.75rem; width: min(18rem, 100%); margin: 0; }
+.salon-listening details p { margin: .7rem 0; font-size: .875rem; }
+.salon-listening a { color: #c3d8d1; text-underline-offset: .3rem; }
+.salon-listening :focus-visible, .salon-silence:focus-visible { outline: 2px solid #f1967d; outline-offset: 5px; }
+.salon-listening--compact { width: min(60rem, calc(100% - 3rem)); margin: 2rem auto 6rem; padding: 1.5rem; background: #0a1117; box-sizing: border-box; }
+.salon-listening--compact .salon-listening__title { font-size: 1.6rem; }
+.salon-silence { position: fixed; z-index: 100; bottom: max(1.25rem, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); box-shadow: 0 6px 30px #0008; border-color: #f1967d; white-space: nowrap; }
+.salon-silence[hidden] { display: none; }
+.season-four-entrance .brand-mark { width: 1.7rem; height: 1.7rem; border: 0; border-radius: 0; box-shadow: none; background: url('/favicon.svg?v=interval-4') center / contain no-repeat; }
+@media (max-width: 600px) {
+  .salon-listening { grid-template-columns: 1fr; gap: .8rem; }
+  .salon-listening > button { justify-self: start; }
+  .salon-listening--compact { width: calc(100% - 2.5rem); padding: 1.25rem; }
+}

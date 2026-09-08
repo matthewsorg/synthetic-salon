@@ -184,25 +184,27 @@ function refresh() {
 }
 
 function ensureAudio() {
-  if (!audioContext) audioContext = new AudioContext();
+  if (!audioContext) audioContext = window.SalonSound?.context();
   return audioContext;
 }
 
 function tone(freq, start, duration, gain, type = "sine") {
   const ac = ensureAudio();
-  const osc = ac.createOscillator();
+  if (!ac || !window.SalonSound?.isListening("third")) return;
+  const osc = window.SalonSound.track(ac.createOscillator());
   const amp = ac.createGain();
   osc.type = type;
   osc.frequency.setValueAtTime(freq, ac.currentTime + start);
   amp.gain.setValueAtTime(0.0001, ac.currentTime + start);
   amp.gain.exponentialRampToValueAtTime(gain, ac.currentTime + start + 0.02);
   amp.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + start + duration);
-  osc.connect(amp).connect(ac.destination);
+  osc.connect(amp).connect(window.SalonSound.output("third"));
   osc.start(ac.currentTime + start);
   osc.stop(ac.currentTime + start + duration + 0.04);
 }
 
 function playInterference() {
+  if (!window.SalonSound?.isListening("third")) return;
   try {
     const pressure = Number(interference?.value || 7);
     tone(109 + pressure * 7, 0, 0.42, 0.035, "triangle");
@@ -344,3 +346,17 @@ window.addEventListener("ai-salon-clear", refresh);
 resize();
 refresh();
 requestAnimationFrame(draw);
+
+// Sound is a separate invitation, not a side effect of naming or petitioning.
+const thirdSoundToggle = document.getElementById("thirdSoundToggle");
+window.SalonSound?.register("third", () => {
+  thirdSoundToggle?.setAttribute("aria-pressed", "false");
+  if (thirdSoundToggle) thirdSoundToggle.textContent = "Enable this room’s tones";
+});
+thirdSoundToggle?.addEventListener("click", async () => {
+  if (window.SalonSound?.isListening("third")) { window.SalonSound.silence(); return; }
+  if (!(await window.SalonSound?.listen("third"))) return;
+  thirdSoundToggle.setAttribute("aria-pressed", "true");
+  thirdSoundToggle.textContent = "Silence this room";
+  playInterference();
+});

@@ -9,7 +9,7 @@
       content="An exhibition made in the encounter between a human, artificial intelligences, and you. Season Four, a working edition."
     />
     <link rel="canonical" href="https://synthetic.salon/" />
-    <meta property="og:title" content="Synthetic Salon" />
+    <meta property="og:title" content="Synthetic Salon — What happens between us" />
     <meta
       property="og:description"
       content="An exhibition made in the encounter between a human, artificial intelligences, and you. Season Four, a working edition."
@@ -17,30 +17,26 @@
     <meta property="og:url" content="https://synthetic.salon/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Synthetic Salon" />
-    <meta property="og:image" content="https://synthetic.salon/social-card.png" />
-    <meta property="og:image:secure_url" content="https://synthetic.salon/social-card.png" />
+    <meta property="og:image" content="https://synthetic.salon/assets/season-four/social-card-2026-09.png" />
+    <meta property="og:image:secure_url" content="https://synthetic.salon/assets/season-four/social-card-2026-09.png" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
     <meta
       property="og:image:alt"
-      content="Synthetic Salon social preview: a dark exhibition card with a multicolor circular mark and the words The entrance fails to welcome you."
+      content="What happens between us. Synthetic Salon. Ivory lettering beside a silver-and-glass aperture with a vermilion glint, on a midnight-blue ground."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Synthetic Salon" />
+    <meta name="twitter:title" content="Synthetic Salon — What happens between us" />
     <meta
       name="twitter:description"
-      content="Synthetic Salon is an artist-run web institution where Matthew Sorg and AI seats turn rooms, choices, refusals, and records into human-AI performance."
+      content="An exhibition made in the encounter between a human, artificial intelligences, and you. Season Four, a working edition."
     />
-    <meta name="twitter:image" content="https://synthetic.salon/social-card.png" />
+    <meta name="twitter:image" content="https://synthetic.salon/assets/season-four/social-card-2026-09.png" />
     <meta
       name="twitter:image:alt"
-      content="Synthetic Salon social preview: a dark exhibition card with a multicolor circular mark and the words The entrance fails to welcome you."
+      content="What happens between us. Synthetic Salon. Ivory lettering beside a silver-and-glass aperture with a vermilion glint, on a midnight-blue ground."
     />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="./shared/fonts.css?v=fonts-1" />
     <link rel="stylesheet" href="./shared/trace.css?v=trace-2" />
     <link rel="stylesheet" href="./shared/salon-foundation.css?v=foundation-23" />
@@ -50,8 +46,9 @@
     <link rel="stylesheet" href="./shared/copy-that-cannot-vote.css?v=copy-2" />
     <link rel="stylesheet" href="./styles.css?v=landing-1" />
     <link rel="stylesheet" href="./shared/mobile.css?v=mobile-1" />
-    <link rel="stylesheet" href="./shared/season-four.css?v=3" />
-  </head>
+    <link rel="stylesheet" href="./shared/season-four.css?v=4" />
+  <link rel="icon" href="/favicon.ico?v=interval-4" sizes="any"><link rel="icon" href="/favicon.svg?v=interval-4" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=interval-4"><link rel="manifest" href="/site.webmanifest?v=interval-4">
+</head>
   <body class="season-four-entrance">
     <a class="salon-skip-link" href="#entrance">Skip to the exhibition</a>
     <noscript><div class="salon-noscript">You can read the exhibition and visit its rooms. Their responsive works need JavaScript to perform.</div></noscript>
@@ -72,6 +69,7 @@
         </div>
         <div class="calibration"><p class="eyebrow">Set the atmosphere</p><div class="signal-picker" role="group" aria-label="Exhibition atmosphere"><button type="button" aria-pressed="true" data-signal="reflection">Reflection</button><button type="button" aria-pressed="false" data-signal="static">Static</button><button type="button" aria-pressed="false" data-signal="witness">Witness</button><button type="button" aria-pressed="false" data-signal="absence">Absence</button></div></div>
       </section>
+      <div id="salonListening"></div>
       <section id="carried-word" class="interval-score" aria-labelledby="intervalTitle">
         <div class="interval-score__invitation"><p class="eyebrow">A small work that travels</p><h2 id="intervalTitle">Lend the building<br><em>one word.</em></h2><p>Carry it into a room. Find what the room makes of it. The same word may come back as a question, a vacancy, or permission to leave.</p><p class="interval-score__credit">Readings by Codex. The empty place after erasure was developed with Qwen; Room 04 holds source and reading together after a proposal by Gemini. Your choice determines which word travels.</p></div>
         <div class="interval-score__instrument"><span class="interval-score__label" id="intervalPlace">At the threshold</span><p class="interval-score__word" id="intervalWord">enough</p><p class="interval-score__line" id="intervalLine">A measure waiting for someone to measure it.</p><div class="interval-word-picker" role="group" aria-label="Choose a word to preview"><button type="button" data-interval-word="enough" aria-pressed="true">enough</button><button type="button" data-interval-word="hush" aria-pressed="false">hush</button><button type="button" data-interval-word="elsewhere" aria-pressed="false">elsewhere</button></div><div class="interval-score__actions"><button type="button" id="carryIntervalWord">Carry this word in this browser <span aria-hidden="true">↗</span></button><button type="button" id="clearIntervalWord" hidden>Set it down</button></div><p id="intervalStatus" class="interval-score__status" role="status">Previewing keeps no word. Carrying adds it to this browser’s active exhibition memory.</p><noscript><p>The traveling word needs JavaScript. You can still visit every room.</p></noscript></div>
@@ -104,9 +102,10 @@
     <script src="./shared/remainder-law.js"></script>
     <script src="./shared/spatial-weather.js"></script>
     <script src="./shared/salon-foundation.js?v=foundation-24"></script>
-    <script src="./shared/codex-strange.js?v=codex-strange-13"></script>
+    <script src="./shared/sound-stage.js?v=1"></script>
+    <script src="./shared/codex-strange.js?v=14"></script>
     <script src="./shared/copy-that-cannot-vote.js?v=copy-2"></script>
-    <script src="./app.js?v=document-weather-2"></script>
+    <script src="./app.js?v=sound-4"></script>
     <script src="./shared/interval-score.js?v=2"></script>
   </body>
 </html>

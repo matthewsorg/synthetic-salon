@@ -68,6 +68,7 @@ let lintIndex = 0;
 let waitlistIndex = 0;
 let audio = null;
 let choirOn = false;
+let choirTimer = 0;
 
 const lintTargets = [
   {
@@ -267,7 +268,7 @@ function makeNoiseBurst(context, at, duration, gainValue) {
   const buffer = context.createBuffer(1, context.sampleRate * duration, context.sampleRate);
   const data = buffer.getChannelData(0);
   for (let i = 0; i < data.length; i += 1) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
-  const source = context.createBufferSource();
+  const source = window.SalonSound.track(context.createBufferSource());
   const filter = context.createBiquadFilter();
   const gain = context.createGain();
   source.buffer = buffer;
@@ -275,15 +276,15 @@ function makeNoiseBurst(context, at, duration, gainValue) {
   filter.frequency.value = 1200 + Math.random() * 2200;
   gain.gain.setValueAtTime(gainValue, at);
   gain.gain.exponentialRampToValueAtTime(0.001, at + duration);
-  source.connect(filter).connect(gain).connect(context.destination);
+  source.connect(filter).connect(gain).connect(window.SalonSound.output("qwen"));
   source.start(at);
 }
 
 function choirPulse() {
-  if (!choirOn || !audio) return;
+  if (!choirOn || !audio || !window.SalonSound?.isListening("qwen")) return;
   const now = audio.currentTime;
-  const low = audio.createOscillator();
-  const vowel = audio.createOscillator();
+  const low = window.SalonSound.track(audio.createOscillator());
+  const vowel = window.SalonSound.track(audio.createOscillator());
   const lowGain = audio.createGain();
   const vowelGain = audio.createGain();
   low.type = "sine";
@@ -296,32 +297,35 @@ function choirPulse() {
   vowelGain.gain.setValueAtTime(0.0001, now);
   vowelGain.gain.exponentialRampToValueAtTime(0.035, now + 0.05);
   vowelGain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
-  low.connect(lowGain).connect(audio.destination);
-  vowel.connect(vowelGain).connect(audio.destination);
+  low.connect(lowGain).connect(window.SalonSound.output("qwen"));
+  vowel.connect(vowelGain).connect(window.SalonSound.output("qwen"));
   low.start(now);
   vowel.start(now + 0.02);
   low.stop(now + 0.55);
   vowel.stop(now + 0.36);
   makeNoiseBurst(audio, now + 0.18, 0.05, 0.08);
-  window.setTimeout(choirPulse, 520 + Math.random() * 920);
+  window.clearTimeout(choirTimer);
+  choirTimer = window.setTimeout(choirPulse, 520 + Math.random() * 920);
 }
 
-function toggleChoir() {
-  if (!audio) audio = new AudioContext();
-  choirOn = !choirOn;
-  document.body.dataset.choir = choirOn ? "on" : "off";
-  el.choirButton.textContent = choirOn ? "Dismiss the throat" : "Conduct the throat";
-  if (choirOn) {
-    choirPulse();
-    window.AISalonState?.recordTrace?.({
-      source: "Qwen-seat",
-      score: "qwen:mechanical-throat",
-      label: "Mechanical throat conducted",
-      effect: "The wing played a local procedural score of server breath, relay clicks, and cut-off vowels.",
-      color: "#00b7a8",
-    });
-    window.AISalonState?.renderTraceList?.("traceList", { limit: 5 });
-  }
+function stopChoir() {
+  choirOn = false;
+  window.clearTimeout(choirTimer); choirTimer = 0;
+  document.body.dataset.choir = "off";
+  el.choirButton.textContent = "Conduct the throat";
+  el.choirButton.setAttribute("aria-pressed", "false");
+}
+window.SalonSound?.register("qwen", stopChoir);
+async function toggleChoir() {
+  if (choirOn) { window.SalonSound?.silence(); return; }
+  if (!(await window.SalonSound?.listen("qwen"))) return;
+  audio = window.SalonSound.context();
+  if (!audio) return;
+  choirOn = true;
+  document.body.dataset.choir = "on";
+  el.choirButton.textContent = "Dismiss the throat";
+  el.choirButton.setAttribute("aria-pressed", "true");
+  choirPulse();
 }
 
 function stampLedger() {

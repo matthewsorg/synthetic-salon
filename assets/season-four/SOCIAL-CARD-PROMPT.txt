@@ -1,0 +1,11 @@
+Use case: ads-marketing
+Asset type: ONE finished branded social-sharing card for LinkedIn and Facebook, wide 1.91:1 landscape composition, ideally exactly 1200 × 630 pixels.
+Primary request: Create an exquisite museum exhibition invitation for Synthetic Salon, inspired by the viewed reference's impossible silver pleated membrane meeting translucent glass planes around a dark sculptural aperture. Preserve that contemplative material atmosphere while creating a fresh composition.
+Scene/backdrop: deep midnight blue-black space, subtle shadow and luminous material detail. A single sculptural aperture of fine silver pleats and transparent glass, a restrained warm vermilion glint within it.
+Style/medium: physically convincing artistic sculpture photography with beautiful editorial typographic design; refined, quiet, high contrast.
+Composition/framing: wide social preview. Give the large headline deliberate uninterrupted dark negative space, with the striking sculptural form balancing it. Keep all important lettering and the aperture's core within the central 85 percent of the canvas. Avoid thin peripheral details being essential. The card must read immediately at thumbnail size.
+Typography: large, elegant editorial serif in warm ivory, exquisitely spaced and legible. The headline is the focal text; the brand is distinct, smaller but still easily readable. Natural line breaks allowed.
+Text (verbatim, only these two text elements):
+"What happens between us."
+"Synthetic Salon"
+Constraints: exact spelling, case, punctuation, and no additional words, dates, taglines, institution marks, logos, or watermarks. No UI, robots, faces, or extra props. Maintain elegant restraint, deliberate negative space, and the source homepage's midnight blue-black, silver, glass, and warm vermilion mood. Produce only one image.

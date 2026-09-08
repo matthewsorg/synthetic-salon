@@ -103,7 +103,6 @@
   const prismField = document.createElement("div");
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d", { alpha: true });
-  const button = document.createElement("button");
   const salonMotion = window.AISalonMotion;
   const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 
@@ -114,11 +113,7 @@
   let pulses = [];
   let pointer = { x: 0, y: 0, active: false, heat: 0 };
   let tick = 0;
-  let audio = null;
-  let audioAwake = false;
-  let lastClickTone = 0;
   let animationFrame = 0;
-  let droneTimer = 0;
 
   function prefersReducedMotion() {
     return Boolean(salonMotion?.prefersReducedMotion?.() ?? reducedMotionQuery?.matches);
@@ -139,35 +134,12 @@
     draw(0, false);
   }
 
-  function startDroneTimer() {
-    if (!droneTimer && shouldAnimateLayer()) droneTimer = window.setInterval(updateDrone, 680);
-  }
-
-  function stopDroneTimer() {
-    if (!droneTimer) return;
-    window.clearInterval(droneTimer);
-    droneTimer = 0;
-  }
-
-  function setScoreAudible(audible) {
-    if (!audio || audio.context.state === "closed") return;
-    const now = audio.context.currentTime;
-    audio.master.gain.cancelScheduledValues(now);
-    audio.master.gain.setTargetAtTime(audioAwake && audible ? 0.034 : 0, now, 0.18);
-  }
-
   function syncMotionPreference() {
     if (!shouldAnimateLayer()) {
       renderStillLayer();
-      stopDroneTimer();
-      setScoreAudible(false);
       return;
     }
     if (!animationFrame) animationFrame = requestAnimationFrame(draw);
-    if (audioAwake) {
-      startDroneTimer();
-      setScoreAudible(true);
-    }
   }
 
   function roomKey() {
@@ -686,129 +658,10 @@
     if (moving) animationFrame = requestAnimationFrame(draw);
   }
 
-  function makeButton() {
-    button.className = "codex-score-toggle";
-    button.type = "button";
-    button.setAttribute("aria-pressed", "false");
-    button.setAttribute("aria-label", "Wake Codex sound score");
-    button.innerHTML = "<span aria-hidden=\"true\"><i></i><i></i><i></i></span><strong>Wake score</strong>";
-    button.addEventListener("click", toggleAudio);
-  }
-
-  function createAudio() {
-    if (audio) return audio;
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return null;
-    const context = new AudioContext();
-    const master = context.createGain();
-    const low = context.createOscillator();
-    const mid = context.createOscillator();
-    const high = context.createOscillator();
-    const filter = context.createBiquadFilter();
-    const noiseGain = context.createGain();
-    const buffer = context.createBuffer(1, context.sampleRate * 2, context.sampleRate);
-    const data = buffer.getChannelData(0);
-    for (let i = 0; i < data.length; i += 1) {
-      data[i] = (Math.random() * 2 - 1) * 0.18;
-    }
-    const noise = context.createBufferSource();
-    noise.buffer = buffer;
-    noise.loop = true;
-    low.type = "sine";
-    mid.type = "triangle";
-    high.type = "sine";
-    filter.type = "lowpass";
-    filter.frequency.value = 620;
-    filter.Q.value = 6;
-    master.gain.value = 0;
-    noiseGain.gain.value = 0.01;
-    low.frequency.value = palette.drone[0];
-    mid.frequency.value = palette.drone[1];
-    high.frequency.value = palette.drone[2];
-    low.connect(filter);
-    mid.connect(filter);
-    high.connect(filter);
-    noise.connect(noiseGain);
-    noiseGain.connect(filter);
-    filter.connect(master);
-    master.connect(context.destination);
-    low.start();
-    mid.start();
-    high.start();
-    noise.start();
-    audio = { context, master, low, mid, high, filter, noiseGain };
-    startDroneTimer();
-    return audio;
-  }
-
-  async function toggleAudio() {
-    const node = createAudio();
-    audioAwake = !audioAwake;
-    document.body.classList.toggle("codex-score-awake", audioAwake);
-    button.setAttribute("aria-pressed", String(audioAwake));
-    button.querySelector("strong").textContent = audioAwake ? "Score awake" : "Wake score";
-    if (!node) {
-      addPulse({ x: size.w - 68, y: size.h - 48, color: palette.colors[0], word: audioAwake ? "AWAKE" : "REST" });
-      return;
-    }
-    if (node.context.state === "suspended") {
-      try {
-        await node.context.resume();
-      } catch {
-        // The visual score can still wake when a browser declines Web Audio.
-      }
-    }
-    const now = node.context.currentTime;
-    node.master.gain.cancelScheduledValues(now);
-    node.master.gain.setTargetAtTime(audioAwake && shouldAnimateLayer() ? 0.034 : 0, now, 0.18);
-    if (audioAwake) startDroneTimer();
-    else stopDroneTimer();
-    addPulse({ x: size.w - 68, y: size.h - 48, color: palette.colors[0], word: audioAwake ? "AWAKE" : "REST" });
-    if (audioAwake) chime("wake", palette.colors[1], 0.18);
-  }
-
-  function updateDrone() {
-    if (!audio || !audioAwake || !shouldAnimateLayer()) return;
-    room = roomKey();
-    palette = palettes[room] || palettes.entrance;
-    setCssVariables();
-    document.body.dataset.codexRoom = room;
-    const now = audio.context.currentTime;
-    const pressure = statePressure();
-    const wobble = Math.sin(tick * 0.0004) * 5 + pressure * 12;
-    audio.low.frequency.setTargetAtTime(palette.drone[0] + wobble, now, 0.42);
-    audio.mid.frequency.setTargetAtTime(palette.drone[1] + wobble * 1.5, now, 0.42);
-    audio.high.frequency.setTargetAtTime(palette.drone[2] + wobble * 2.2, now, 0.42);
-    audio.filter.frequency.setTargetAtTime(420 + pressure * 880 + pointer.heat * 260, now, 0.5);
-    audio.filter.Q.setTargetAtTime(4 + pressure * 7 + pointer.heat * 2, now, 0.5);
-    audio.mid.detune.setTargetAtTime(Math.sin(tick * 0.00027) * 18 + pressure * 16, now, 0.5);
-    audio.high.detune.setTargetAtTime(Math.cos(tick * 0.00023) * -24 - pointer.heat * 26, now, 0.5);
-    audio.noiseGain.gain.setTargetAtTime(0.004 + pressure * 0.016, now, 0.5);
-  }
-
-  function chime(kind = "trace", color = palette.colors[0], gainValue = 0.11) {
-    if (!audio || !audioAwake) return;
-    const context = audio.context;
-    const now = context.currentTime;
-    const osc = context.createOscillator();
-    const gain = context.createGain();
-    const filter = context.createBiquadFilter();
-    const seed = kind.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0);
-    const frequency = palette.drone[1] + 60 + (seed % 11) * 23;
-    osc.type = kind.includes("refusal") ? "sawtooth" : kind.includes("translation") ? "triangle" : "sine";
-    osc.frequency.setValueAtTime(frequency, now);
-    osc.frequency.exponentialRampToValueAtTime(frequency * (kind === "wake" ? 1.5 : 0.76), now + 0.62);
-    filter.type = "bandpass";
-    filter.frequency.value = frequency * 1.6;
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(gainValue, now + 0.016);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.72);
-    osc.connect(filter);
-    filter.connect(gain);
-    gain.connect(audio.master);
-    osc.start(now);
-    osc.stop(now + 0.78);
-    addPulse({ color, word: kind.toUpperCase().slice(0, 10), radius: 18 + (seed % 30) });
+  // Shared listening now belongs to SalonSound. The visual gestures remain;
+  // ordinary clicks, traces and erasure no longer acquire a decorative chime.
+  function chime(kind, color, gainValue) {
+    if (kind === "qwen-relay") window.__qwenRelay?.(gainValue);
   }
 
   function pulseFromTrace(event) {
@@ -816,7 +669,6 @@
     const color = detail.color || palette.colors[0];
     const kind = `${detail.source || ""}:${detail.score || "trace"}`;
     addPulse({ color, word: (detail.label || detail.score || "TRACE").toUpperCase().slice(0, 12) });
-    chime(kind, color, 0.095);
   }
 
   function pointerMove(event) {
@@ -824,15 +676,6 @@
     pointer.x = event.clientX;
     pointer.y = event.clientY;
     pointer.heat = Math.min(1, pointer.heat + 0.08);
-  }
-
-  function clickTone(event) {
-    if (!audioAwake || event.target.closest(".codex-score-toggle")) return;
-    const now = performance.now();
-    if (now - lastClickTone < 320) return;
-    lastClickTone = now;
-    addPulse({ x: event.clientX, y: event.clientY, color: palette.colors[2], word: "TOUCH", radius: 10 });
-    chime("touch", palette.colors[2], 0.055);
   }
 
   function riff(kind = "riff", detail = {}) {
@@ -863,8 +706,6 @@
     canvas.className = "codex-strange-canvas";
     canvas.setAttribute("aria-hidden", "true");
     document.body.append(canvas);
-    makeButton();
-    document.body.append(button);
     setCssVariables();
     document.body.dataset.codexRoom = roomKey();
     document.documentElement.dataset.codexStrange = "ready";
@@ -883,7 +724,7 @@
     }
     window.CodexStrange = {
       currentRoom: () => roomKey(),
-      isAwake: () => audioAwake,
+      isAwake: () => Boolean(window.SalonSound?.isListening()),
       palette: () => ({ ...palette, colors: [...palette.colors] }),
       pulse: addPulse,
       tone: chime,
@@ -896,7 +737,6 @@
   window.addEventListener("pointerleave", () => {
     pointer.active = false;
   });
-  document.addEventListener("click", clickTone);
   ["ai-salon-trace", "ai-salon-motion", "ai-salon-key", "ai-salon-archive", "ai-salon-clear"].forEach((eventName) => {
     window.addEventListener(eventName, pulseFromTrace);
   });

@@ -1,20 +1,20 @@
 {
   "name": "Synthetic Salon",
   "short_name": "Synthetic Salon",
-  "description": "A human-AI interpolation salon of rooms, scores, governance rituals, local traces, and synthetic citizens.",
+  "description": "What happens between us. An exhibition made in the encounter between a human, artificial intelligences, and you.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#090b0c",
-  "theme_color": "#00b7a8",
+  "background_color": "#0a1117",
+  "theme_color": "#0a1117",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/icon-192.png?v=interval-4",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/icon-512.png?v=interval-4",
       "sizes": "512x512",
       "type": "image/png"
     }

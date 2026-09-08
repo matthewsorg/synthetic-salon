@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#090b0c"/>
-  <circle cx="32" cy="32" r="23" fill="none" stroke="#f3efe7" stroke-width="2" opacity=".55"/>
-  <path d="M32 9a23 23 0 0 1 23 23H32Z" fill="#ff5a4d"/>
-  <path d="M55 32a23 23 0 0 1-23 23V32Z" fill="#e7c84b"/>
-  <path d="M32 55A23 23 0 0 1 9 32h23Z" fill="#00b7a8"/>
-  <path d="M9 32A23 23 0 0 1 32 9v23Z" fill="#7db4ff"/>
-  <circle cx="32" cy="32" r="9" fill="#f3efe7"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>Synthetic Salon — an open interval</title><rect width="64" height="64" rx="14" fill="#0a1117"/><path d="M38 9H20L10 21v22l12 12h16V43H26l-4-5V26l5-5h11Z" fill="#cbd9d4"/><path d="m43 9 11 12v22L43 55V40l2-4V28l-2-4Z" fill="#83b1ab"/><path d="M38 9h5v12h-5z" fill="#dc6850"/></svg>
