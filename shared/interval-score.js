@@ -101,6 +101,16 @@
     const clearButton = document.getElementById("clearIntervalWord");
     const instrument = document.querySelector(".interval-score__instrument");
     const cards = [...document.querySelectorAll(".score-room[data-room]")];
+    const folio = document.getElementById("intervalFolio");
+    const folioSource = document.getElementById("folioSource");
+    const folioReturn = document.getElementById("folioReturn");
+    const folioDistance = document.getElementById("folioDistance");
+    const folioReadings = [...document.querySelectorAll("[data-folio-room]")];
+    folioDistance?.addEventListener("click", () => {
+      const apart = folio?.classList.toggle("is-apart");
+      folioDistance.setAttribute("aria-pressed", String(Boolean(apart)));
+      folioDistance.textContent = apart ? "Bring them closer" : "Give the words room";
+    });
     let selected = carriedWord() || "enough";
     // An empty place lasts only on this page. It keeps no word or new record.
     let released = false;
@@ -189,6 +199,12 @@
     }
 
     function updatePreview() {
+      if (folioSource) folioSource.textContent = selected || "";
+      if (folioReturn) folioReturn.textContent = selected || "";
+      folioReadings.forEach((node) => {
+        node.textContent = selected ? reading(selected, Number(node.dataset.folioRoom)) : "";
+      });
+      folio?.classList.toggle("is-empty", !selected);
       if (!line || !wordNode) return;
       if (!selected) {
         wordNode.textContent = "";

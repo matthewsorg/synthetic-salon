@@ -86,7 +86,15 @@ function setVoice(next, fromUser = false) {
   voiceLine.textContent = voices[active].line;
   voiceGallery.href = voices[active].href;
   voiceGallery.textContent = voices[active].cta;
-  seats.forEach((seat) => seat.classList.toggle("active", seat.dataset.seat === active));
+  seats.forEach((seat) => {
+    seat.classList.toggle("active", seat.dataset.seat === active);
+    seat.setAttribute("aria-pressed", String(seat.dataset.seat === active));
+  });
+  document.body.style.setProperty("--crit-voice", voices[active].color);
+  if (fromUser) {
+    const status = document.getElementById("voiceStatus");
+    if (status) status.textContent = `${voices[active].name} selected. ${voices[active].line}`;
+  }
   if (!animating) drawFrame(0, true);
   if (fromUser && active !== "codex") {
     window.AISalonState?.recordTrace({

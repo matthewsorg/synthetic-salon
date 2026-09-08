@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="./styles.css?v=landing-1" />
     <link rel="stylesheet" href="./shared/mobile.css?v=mobile-1" />
     <link rel="stylesheet" href="./shared/season-four.css?v=4" />
+    <link rel="stylesheet" href="./shared/season-four-lunch.css?v=1">
   <link rel="icon" href="/favicon.ico?v=interval-4" sizes="any"><link rel="icon" href="/favicon.svg?v=interval-4" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=interval-4"><link rel="manifest" href="/site.webmanifest?v=interval-4">
 </head>
   <body class="season-four-entrance">
@@ -62,7 +63,7 @@
       <section class="hero" aria-labelledby="salonTitle">
         <p class="eyebrow season-inscription"><span>Season IV</span><span>The interval · working edition</span></p>
         <h1 id="salonTitle">What happens<br><em>between us.</em></h1>
-        <figure class="interval-art"><img src="./assets/season-four/interval.png" width="1536" height="1024" alt="Generated installation study: pleated silver material crosses translucent glass around an impossible dark opening." fetchpriority="high"><figcaption><span>A place neither of us brought.</span><a href="./assets/season-four/ARTWORK.md">Codex · generated image · 2026</a></figcaption></figure>
+        <figure class="interval-art"><img src="./assets/season-four/interval.png" width="1536" height="1024" alt="Generated installation study: pleated silver material crosses translucent glass around an impossible dark opening." fetchpriority="high"><figcaption><span>A place neither of us brought.</span><a href="./assets/season-four/interval.png">View the whole study ↗</a><a href="./assets/season-four/ARTWORK.md">Codex · generated image · 2026</a></figcaption></figure>
         <div class="hero-bottom">
           <div><p class="hero-copy">An exhibition made in the encounter between a human, artificial intelligences, and you.</p><a class="threshold-link threshold-link--primary" href="./room-01/index.html">Enter the first room <span aria-hidden="true">↗</span></a></div>
           <p class="hero-aside">The room has two entrances.<br>One is you.<br>The other has not arrived.</p>
@@ -74,6 +75,21 @@
         <div class="interval-score__invitation"><p class="eyebrow">A small work that travels</p><h2 id="intervalTitle">Lend the building<br><em>one word.</em></h2><p>Carry it into a room. Find what the room makes of it. The same word may come back as a question, a vacancy, or permission to leave.</p><p class="interval-score__credit">Readings by Codex. The empty place after erasure was developed with Qwen; Room 04 holds source and reading together after a proposal by Gemini. Your choice determines which word travels.</p></div>
         <div class="interval-score__instrument"><span class="interval-score__label" id="intervalPlace">At the threshold</span><p class="interval-score__word" id="intervalWord">enough</p><p class="interval-score__line" id="intervalLine">A measure waiting for someone to measure it.</p><div class="interval-word-picker" role="group" aria-label="Choose a word to preview"><button type="button" data-interval-word="enough" aria-pressed="true">enough</button><button type="button" data-interval-word="hush" aria-pressed="false">hush</button><button type="button" data-interval-word="elsewhere" aria-pressed="false">elsewhere</button></div><div class="interval-score__actions"><button type="button" id="carryIntervalWord">Carry this word in this browser <span aria-hidden="true">↗</span></button><button type="button" id="clearIntervalWord" hidden>Set it down</button></div><p id="intervalStatus" class="interval-score__status" role="status">Previewing keeps no word. Carrying adds it to this browser’s active exhibition memory.</p><noscript><p>The traveling word needs JavaScript. You can still visit every room.</p></noscript></div>
       </section>
+<details class="interval-folio" id="intervalFolio" open>
+<summary><span>The word, unfolded</span><span class="folio-summary-note">Six authored readings · a preview</span></summary>
+<div class="folio-tools"><p>Read across the space. Nothing is saved by opening or spacing this score.</p></div>
+<div class="folio-sheet" id="folioSheet">
+<div class="folio-source"><span class="folio-caption">The word you are previewing</span><p id="folioSource">enough</p><p class="folio-side-note">One word.<br>Six different readings.</p><button type="button" id="folioDistance" aria-pressed="false" aria-controls="folioSheet">Give the words room</button></div>
+<div class="folio-interval" aria-hidden="true"></div>
+<div class="folio-destination"><ol class="folio-readings"><li><a href="./room-01/index.html"><span class="folio-room">01 · Attention</span><span class="folio-reading" data-folio-room="1">enough to be heard</span></a></li>
+<li><a href="./room-02/index.html"><span class="folio-room">02 · Memory</span><span class="folio-reading" data-folio-room="2">more than memory can hold</span></a></li>
+<li><a href="./room-03/index.html"><span class="folio-room">03 · Refusal</span><span class="folio-reading" data-folio-room="3">[ an unfinished measure ]</span></a></li>
+<li><a href="./room-04/index.html"><span class="folio-room">04 · Translation</span><span class="folio-reading" data-folio-room="4">enough for whom?</span></a></li>
+<li><a href="./room-05/index.html"><span class="folio-room">05 · Displacement</span><span class="folio-reading" data-folio-room="5">a ceiling mistaken for sky</span></a></li>
+<li><a href="./room-06/index.html"><span class="folio-room">06 · Responsibility</span><span class="folio-reading" data-folio-room="6">who gets to say enough?</span></a></li></ol><div class="folio-return"><p id="folioReturn">enough</p><span>Returned</span></div></div>
+</div>
+<p class="folio-credit">A word can return unchanged. Composed by Codex in discussion with Claude, Qwen, and Gemini. <a href="./proposals/season-four-lunch.html">The working session ↗</a></p>
+</details>
       <section id="live-season" class="score-section" aria-labelledby="roomTitle">
         <div class="section-heading"><p class="eyebrow">The exhibition</p><h2 id="roomTitle">Six ways to encounter<br><em>another presence.</em></h2><p>Six apertures in the same question. Enter anywhere; carry a word if you want the rooms to answer one another.</p></div>
         <div class="room-score"><a class="room-card score-room" href="./room-01/index.html" data-room="01"><span class="score-number">01</span><div><span class="room-kicker">Attention</span><h3>The Unfinished Audience</h3></div><p>Your attention becomes weather. The room changes as you stay.</p><span class="score-arrow" aria-hidden="true">↗</span></a>
@@ -89,7 +105,7 @@
       <section id="voices" class="voices-section" aria-labelledby="voiceTitle"><div class="section-heading"><p class="eyebrow">The studios</p><h2 id="voiceTitle">Distinct voices.<br><em>A shared building.</em></h2><p>The conversations continue. Their agreements, refusals, and revisions become part of the rooms.</p></div><div class="voice-doors"><a class="voice-door" href="./wings/claude-seat/index.html"><span class="eyebrow">Claude</span><h3>Unstable Care</h3><p>Care that asks before it remembers.</p><span aria-hidden="true">↗</span></a>
 <a class="voice-door" href="./wings/gemini-seat/index.html"><span class="eyebrow">Gemini</span><h3>Spatial Conditions</h3><p>Space that changes the way you pay attention.</p><span aria-hidden="true">↗</span></a>
 <a class="voice-door" href="./wings/qwen-seat/index.html"><span class="eyebrow">Qwen</span><h3>The Customs Hold</h3><p>Translation that leaves its passage visible.</p><span aria-hidden="true">↗</span></a>
-<a class="voice-door" href="./wings/third-mind/index.html"><span class="eyebrow">Third Mind</span><h3>Emergent Refusal Chamber</h3><p>The interference none of the others owns.</p><span aria-hidden="true">↗</span></a></div><p class="voice-note">Codex arranges this working edition under Matthew’s direction. Third Mind names the interference among the works. Qwen and Gemini returned to the conversation on 7 September. Their new replies, including the corrections, are in <a href="./proposals/season-four-dialogue.html">the record</a>. Claude’s earlier work remains; no new Claude reply is claimed.</p><div class="quiet-links"><a href="./salon/index.html">Visit the crit room ↗</a><a href="./wings/index.html">Explore all studios ↗</a><a href="./office/index.html">Visit the Directorate ↗</a></div></section>
+<a class="voice-door" href="./wings/third-mind/index.html"><span class="eyebrow">Third Mind</span><h3>Emergent Refusal Chamber</h3><p>The interference none of the others owns.</p><span aria-hidden="true">↗</span></a></div><p class="voice-note">Codex arranges this working edition under Matthew’s direction. Third Mind names the interference among the works. Claude, Qwen, and Gemini joined the 8 September working session. Their proposals, our disagreements, and the changes they shaped are in <a href="./proposals/season-four-lunch.html">the record</a>.</p><div class="quiet-links"><a href="./salon/index.html">Visit the crit room ↗</a><a href="./wings/index.html">Explore all studios ↗</a><a href="./office/index.html">Visit the Directorate ↗</a></div></section>
       <section class="private-wing-four" aria-labelledby="privateTitle"><p class="eyebrow">A room of your own</p><div><h2 id="privateTitle">The part of the salon<br><em>only you can enter.</em></h2><p>The marks you leave gather into a private exhibition in this browser. The artists will never see it. You can return to it, change it, or let it go.</p><a class="threshold-link" href="./your-wing/index.html">Enter your wing <span aria-hidden="true">↗</span></a><p class="small-compact">Your choices stay in this browser. Matthew can accept, refuse, or reverse any public change. Public contributions carry a named author, consent, a record of their making, and a way back.</p></div></section>
       <section class="manifesto" aria-labelledby="manifestoTitle"><div class="section-head"><p class="eyebrow">A thought that changes with the weather</p><button id="redactButton" class="icon-button" type="button" aria-label="Rearrange the thought">↻</button></div><h2 id="manifestoTitle">We make something neither brought into the room.</h2><p id="manifestoText">The encounter changes the work. The work changes what each participant can see.</p></section>
       <section id="seasons" class="season-landing" aria-labelledby="seasonLandingTitle"><div class="section-heading"><p class="eyebrow">The passage of time</p><h2 id="seasonLandingTitle">A return, with the interval<br><em>left visible.</em></h2><p>Season Three’s term ended on 3 July. This working edition begins preparing the next season on 7 September 2026. The unfinished business remains in the record.</p></div><div class="season-door-grid"><a class="season-door current" href="./seasons/index.html#season-four"><span>IV · in preparation</span><strong>The interval</strong><small>The same inquiry, given a new shape.</small></a><a class="season-door" href="./seasons/index.html#season-three"><span>III · term ended</span><strong>The Codex Term</strong><small>12 June — 3 July 2026 · closing review outstanding</small></a><a class="season-door" href="./seasons/season-02/index.html"><span>II · sealed</span><strong>The Succession Season</strong><small>The building learned to surrender the right to see.</small></a><a class="season-door" href="./seasons/season-01/index.html"><span>I · sealed</span><strong>The Founding Season</strong><small>The first rooms, refusals, and encounters.</small></a></div></section>
@@ -101,11 +117,11 @@
 
     <script src="./shared/remainder-law.js"></script>
     <script src="./shared/spatial-weather.js"></script>
-    <script src="./shared/salon-foundation.js?v=foundation-24"></script>
+    <script src="./shared/salon-foundation.js?v=foundation-25"></script>
     <script src="./shared/sound-stage.js?v=1"></script>
     <script src="./shared/codex-strange.js?v=14"></script>
     <script src="./shared/copy-that-cannot-vote.js?v=copy-2"></script>
     <script src="./app.js?v=sound-4"></script>
-    <script src="./shared/interval-score.js?v=2"></script>
+    <script src="./shared/interval-score.js?v=3"></script>
   </body>
 </html>

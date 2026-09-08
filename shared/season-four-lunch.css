@@ -1,0 +1,149 @@
+/* The space we leave each other. Codex in discussion with Claude, Qwen and
+   Gemini, 8 September 2026. Current exhibition only; no behavioral motion. */
+:root { --lunch-paper: #e4e9e1; --lunch-muted: #b2c1be; --lunch-rule: #536563; }
+
+/* A folded print: the untouched source and its readings share a sheet. */
+.season-four-entrance .interval-folio { margin: 1.5rem 0 0; border-block: 1px solid var(--lunch-rule); background: #0a131bf2; }
+.interval-folio > summary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 2rem; cursor: pointer; min-height: 4.5rem; padding: 1rem 1.75rem; color: var(--lunch-paper); list-style: none; }
+.interval-folio > summary::-webkit-details-marker { display: none; }
+.interval-folio > summary > span:first-child { font: 400 1.7rem/1.2 var(--font-display); letter-spacing: -.02em; }
+.interval-folio > summary::after { content: '+'; font-size: 1.3rem; }
+.interval-folio[open] > summary::after { content: '−'; }
+.interval-folio .folio-summary-note { margin-left: auto; color: var(--lunch-muted); font-size: .8125rem; }
+.folio-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 2rem; padding: 0 1.75rem 1.5rem; }
+.folio-tools p { margin: 0; color: var(--lunch-muted); font-size: .875rem; max-width: 39ch; }
+.interval-folio #folioDistance { min-height: 2.75rem; background: none; border: 0; border-bottom: 1px solid #657c79; border-radius: 0; margin-top: 1.5rem; padding: .55rem 0; color: var(--lunch-paper); font: .875rem/1.5 var(--font-body); cursor: pointer; }
+.interval-folio #folioDistance[aria-pressed="true"] { border-color: #adc8bd; color: #edc0a8; background: none; }
+.folio-sheet { display: grid; grid-template-columns: minmax(0, .7fr) minmax(1rem, .09fr) minmax(0, 1fr); padding: 2.5rem 1.75rem 1.75rem; transition: grid-template-columns 450ms ease; }
+.interval-folio.is-apart .folio-sheet { grid-template-columns: minmax(0, .7fr) minmax(1rem, .42fr) minmax(0, 1fr); }
+.folio-source { align-self: start; min-width: 0; padding-top: .7rem; }
+.folio-caption { font: .8125rem/1.5 var(--font-body); color: var(--lunch-muted); }
+.folio-source > #folioSource, .folio-return > #folioReturn { font: 400 clamp(2.3rem, 4.3vw, 4.5rem)/1.15 var(--font-display); letter-spacing: -.04em; color: #e6e9e1; margin: 1.1rem 0 0; overflow-wrap: anywhere; }
+.folio-source .folio-side-note { font: 400 1.2rem/1.6 var(--font-display); color: #b8c7c2; margin: 3rem 0 0; }
+.folio-destination { min-width: 0; }
+.folio-readings { list-style: none; margin: 0; padding: 0; }
+.folio-readings > li { border: 0; padding: 0; }
+.folio-readings a { display: block; padding: .6rem 0 1.4rem; color: inherit; text-decoration: none; border-top: 1px solid #465654; }
+.folio-room { display: block; font-size: .75rem; letter-spacing: .035em; color: #b8c7c1; margin-bottom: .45rem; }
+.folio-reading { display: block; font: 400 clamp(1.25rem, 2.25vw, 1.85rem)/1.3 var(--font-display); color: #d6e2d9; min-height: 1.3em; }
+.folio-readings a:hover .folio-reading { color: #edc0a8; }
+.folio-return { padding-top: 4.75rem; }
+.folio-return > #folioReturn { margin: 0 0 .65rem; }
+.folio-return > span { color: var(--lunch-muted); font-size: .75rem; }
+.folio-credit { margin: 1rem 1.75rem 1.5rem; max-width: 55rem; color: var(--lunch-muted); font-size: .8125rem; line-height: 1.7; }
+.folio-credit a { color: #c9dcd0; text-underline-offset: .3rem; }
+.interval-folio.is-empty .folio-side-note, .interval-folio.is-empty .folio-return > span { visibility: hidden; }
+.interval-folio :focus-visible { outline: 2px solid #edc0a8; outline-offset: 5px; }
+
+/* The building's map becomes a disclosure; the next door stays visible. */
+.salon-route { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr); gap: .6rem 1.2rem; padding: .5rem 0 1rem; border-block: 1px solid #556661; background: #0a1117ed; }
+.salon-route .salon-route__step, .salon-route .salon-route__current { border: 0; border-radius: 0; background: none; box-shadow: none; backdrop-filter: none; padding: .55rem .8rem; min-height: 3.5rem; }
+.salon-route .salon-route__step:hover, .salon-route .salon-route__step:focus-visible { transform: none; background: #b7c8bd0d; }
+.salon-route .salon-route__step span, .salon-route .salon-route__current span { font: .75rem/1.5 var(--font-body); letter-spacing: .035em; color: #b2c1be; text-transform: none; }
+.salon-route .salon-route__step strong, .salon-route .salon-route__current strong { font: 400 .9375rem/1.5 var(--font-body); letter-spacing: 0; text-transform: none; white-space: normal; text-wrap: pretty; }
+.salon-route .salon-route__current small { white-space: normal; font-size: .8125rem; line-height: 1.5; color: #b2c1be; }
+.salon-route__all { grid-column: 1 / -1; padding: 0 .8rem; }
+.salon-route__all > summary { width: fit-content; min-height: 2.75rem; padding: .6rem 0; cursor: pointer; font: .8125rem/1.5 var(--font-body); color: #c3d4cd; }
+.salon-route__all .salon-route__trail { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 1.5rem; padding: .4rem 0; }
+.salon-route__all .salon-route__trail li { border: 0; padding: 0; }
+.salon-route__all .salon-route__trail a { min-height: 2.75rem; padding: .7rem .25rem; place-items: start; border: 0; border-top: 1px solid #465654; border-radius: 0; background: none; box-shadow: none; backdrop-filter: none; font: .8125rem/1.5 var(--font-body); color: #c5d2cb; letter-spacing: 0; transform: none; }
+.salon-route__all .salon-route__trail a[aria-current="page"] { color: #f0c2a9; border-top-color: #d9a991; }
+.salon-route__all .salon-route__trail a:hover { background: #c7d3c910; }
+.salon-route :focus-visible { outline: 2px solid #e3b89e; outline-offset: 3px; }
+.salon-route .interval-margin { margin: .25rem .8rem 0; padding: 1.25rem 0; border-left: 0; border-top: 1px solid #68756c; background: none; column-gap: clamp(1rem, 4vw, 4rem); }
+.salon-route .interval-translation { gap: clamp(1.5rem, 7vw, 7rem); }
+
+/* The Crit Room: one reading table, distinct voices, an unoccupied middle. */
+body.season-four-crit { --crit-voice: #a7d7cd; --muted: #b2c1be; background: #0a1117; color: #d4ded6; }
+.season-four-crit #tableStage { opacity: .35; }
+.season-four-crit .grain { opacity: .13; }
+.season-four-crit .salon-evolution-field, .season-four-crit .codex-strange-backdrop { opacity: .12; }
+.season-four-crit .topbar { width: min(76rem, calc(100% - 4rem)); margin: auto; padding: 2rem 0 3rem; grid-template-columns: 1fr 3fr 1fr; gap: 2rem; }
+.season-four-crit .backlink { border: 0; border-radius: 0; background: none; padding: .6rem 0; min-height: 2.75rem; font-size: .875rem; font-weight: 400; text-transform: none; letter-spacing: 0; text-align: left; }
+.season-four-crit .backlink:last-child { text-align: right; }
+.season-four-crit .topbar .eyebrow { text-align: center; margin-bottom: 1.3rem; }
+.season-four-crit h1 { font-size: clamp(3.3rem, 6.5vw, 6.5rem); line-height: 1.02; letter-spacing: -.04em; }
+.season-four-crit em { font-weight: 400; color: #b9d9ca; }
+.season-four-crit .salon { display: grid; grid-template-columns: minmax(0, .6fr) minmax(1rem, .2fr) minmax(0, 1.2fr); width: min(76rem, calc(100% - 4rem)); margin: auto; padding: 4rem 0 6rem; gap: 0; }
+.season-four-crit .eyebrow { color: #b2c1be; font-size: .75rem; font-weight: 400; letter-spacing: .07em; line-height: 1.6; }
+.season-four-crit .table, .season-four-crit .voice { border: 0; border-radius: 0; background: none; box-shadow: none; backdrop-filter: none; padding: 0; }
+.season-four-crit .table { grid-column: 1; display: block; align-self: start; }
+.season-four-crit .table > .eyebrow { margin-bottom: 1.8rem; }
+.season-four-crit .seat { display: block; width: 100%; min-height: 4.5rem; padding: 1rem 0; border: 0; border-top: 1px dotted #61746c; border-radius: 0; background: none; }
+.season-four-crit .seat span { display: block; font: 400 1.35rem/1.25 var(--font-display); }
+.season-four-crit .seat small { display: block; margin-top: .3rem; color: #b2c1be; font-size: .8125rem; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.season-four-crit .seat.active { border-color: var(--crit-voice); background: none; box-shadow: inset 3px 0 var(--crit-voice); padding-left: 1rem; }
+.season-four-crit .voice { grid-column: 3; border-top: 1px dotted #61746c; min-height: 25rem; padding-top: 1rem; }
+.season-four-crit .voice > .eyebrow { margin-bottom: 3rem; }
+.season-four-crit .voice h2 { font-size: clamp(2.5rem, 4.5vw, 4rem); letter-spacing: -.035em; line-height: 1.1; margin-bottom: 1.7rem; }
+.season-four-crit #voiceLine { font: 400 clamp(1.5rem, 2.6vw, 2.2rem)/1.6 var(--font-display); max-width: 32ch; color: #e1e7dd; text-wrap: pretty; }
+.season-four-crit .wing-link { border: 0; border-bottom: 1px solid #7c958a; border-radius: 0; padding: .65rem 0; font-size: .875rem; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.crit-status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.season-four-crit .crit-provenance { grid-column: 1 / -1; max-width: 49rem; font-size: .875rem; line-height: 1.8; color: #b2c1be; margin: 2rem 0 0; }
+.season-four-crit .crit-provenance a { color: #c5d9ce; text-underline-offset: .25rem; }
+.working-table { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1fr); gap: clamp(2rem, 8vw, 8rem); grid-column: 1 / -1; border-top: 1px solid #708476; margin-top: 5.5rem; padding: 3.5rem 0 1rem; }
+.working-table h2 { font: 400 clamp(2.6rem, 4vw, 4rem)/1.1 var(--font-display); letter-spacing: -.035em; margin: 1.5rem 0; }
+.working-table__heading > p:not(.eyebrow) { font-size: 1rem; line-height: 1.8; color: #b2c1be; max-width: 28ch; }
+.working-table a { color: #c4d9ca; text-underline-offset: .4rem; font-size: .9375rem; line-height: 1.8; }
+.working-table__voices article { padding: 0 0 2.5rem; margin-bottom: 2.5rem; border-bottom: 1px solid #46584d; }
+.working-table__voices blockquote { margin: 1.2rem 0; font: 400 clamp(1.45rem, 2.3vw, 2rem)/1.5 var(--font-display); color: #e2e8dc; }
+.working-table__voices article > p:last-child { margin-bottom: 0; color: #b2c1be; font-size: .9375rem; line-height: 1.8; }
+.season-four-crit #salonListening { grid-column: 1 / -1; margin: 0 0 4rem; }
+.season-four-crit .wing-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
+.season-four-crit .wing-cards a, .season-four-crit .minutes article, .season-four-crit .transcript article { border: 0; border-top: 1px solid #54675b; border-radius: 0; background: none; box-shadow: none; backdrop-filter: none; padding: 1.8rem 0; }
+.season-four-crit .wing-cards a { min-height: 10rem; }
+.season-four-crit .wing-cards strong { font-size: 2rem; line-height: 1.2; }
+.season-four-crit .wing-cards span { color: #b2c1be; font-size: .8125rem; text-transform: none; letter-spacing: 0; margin-bottom: .8rem; }
+.season-four-crit .dispute-bench { grid-column: 1 / -1; margin-top: 4rem; padding: 3.5rem 0; border: 0; border-top: 1px solid #687e6d; border-radius: 0; background: none; }
+.season-four-crit .dispute-bench h2 { font-size: clamp(2rem, 3.2vw, 3rem); font-weight: 400; line-height: 1.2; letter-spacing: -.025em; }
+.season-four-crit .dispute-frame { font-size: 1rem; line-height: 1.8; max-width: 46rem; }
+.season-four-crit .dispute-positions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; margin: 2.5rem 0; }
+.season-four-crit .dispute-position { border: 0; border-top: 1px solid #687e6d; border-radius: 0; padding: 1.5rem 0; }
+.season-four-crit .dispute-position blockquote { font-size: 1.55rem; line-height: 1.6; color: #dce4d8; }
+.season-four-crit .dispute-position p, .season-four-crit .dispute-state p { font-size: .9375rem; line-height: 1.7; color: #b2c1be; }
+.season-four-crit .dispute-position button, .season-four-crit .dispute-state button { min-height: 2.75rem; padding: .6rem .85rem; border-radius: 0; text-transform: none; letter-spacing: 0; font-size: .875rem; }
+.season-four-crit .crit-section-title { grid-column: 1 / -1; font: 400 2.5rem/1.2 var(--font-display); letter-spacing: -.03em; margin: 4.5rem 0 1.5rem; }
+.season-four-crit .minutes, .season-four-crit .transcript { gap: 2.5rem; }
+.season-four-crit .minutes li, .season-four-crit .transcript p { font-size: .9375rem; line-height: 1.8; color: #c4d0c6; }
+.season-four-crit .transcript article { border-top-style: dotted; }
+.season-four-crit :focus-visible { outline: 2px solid #e3b89e; outline-offset: 5px; }
+
+@media (max-width: 760px) {
+  .interval-folio > summary { padding-inline: 1rem; }
+  .interval-folio .folio-summary-note { display: none; }
+  .folio-tools { padding-inline: 1rem; }
+  .folio-sheet, .interval-folio.is-apart .folio-sheet { display: flex; flex-direction: column; padding: 1.5rem 1rem; }
+  .folio-source { padding: 0; width: 100%; }
+  .folio-source > #folioSource, .folio-return > #folioReturn { font-size: clamp(2.8rem, 10vw, 4rem); }
+  .folio-source .folio-side-note { display: none; }
+  .folio-interval { height: 2.25rem; flex: none; transition: height 450ms ease; }
+  .interval-folio.is-apart .folio-interval { height: 6rem; }
+  .folio-credit { margin-inline: 1rem; }
+  .folio-reading { font-size: 1.5rem; }
+  .salon-route { grid-template-columns: 1fr 1fr; width: calc(100% - 2.5rem); }
+  .salon-route .salon-route__current { grid-column: 1 / -1; grid-row: 1; }
+  .salon-route .salon-route__step--prev { grid-column: 1; grid-row: 2; }
+  .salon-route .salon-route__step--next { grid-column: 2; grid-row: 2; }
+  .salon-route__all .salon-route__trail { grid-template-columns: 1fr; }
+  .season-four-crit .topbar { width: calc(100% - 2.5rem) !important; grid-template-columns: 1fr 1fr !important; padding: 1.3rem 0 2.5rem !important; }
+  .season-four-crit .topbar .backlink { justify-content: flex-start; }
+  .season-four-crit .topbar .backlink:last-child { justify-content: flex-end; }
+  .season-four-crit .topbar > div { grid-column: 1 / -1; grid-row: 2; }
+  .season-four-crit .topbar > a:last-child { grid-row: 1; grid-column: 2; }
+  .season-four-crit .topbar .eyebrow, .season-four-crit h1 { text-align: left; }
+  .season-four-crit h1 { font-size: clamp(3.5rem, 12vw, 5rem) !important; line-height: 1.02 !important; }
+  .season-four-crit .salon { width: calc(100% - 2.5rem) !important; display: block !important; margin: auto !important; padding: 2.5rem 0 5rem !important; }
+  .season-four-crit .table { padding: 0 !important; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.3rem; }
+  .season-four-crit .table > .eyebrow { grid-column: 1 / -1; margin-bottom: 1rem; }
+  .season-four-crit .seat { min-width: 0; min-height: 4.7rem; }
+  .season-four-crit .seat span { font-size: 1.18rem; }
+  .season-four-crit .voice { margin-top: 2.5rem; padding: 1.3rem 0 0 !important; min-height: 0; }
+  .season-four-crit .voice h2 { font-size: 2.8rem !important; }
+  .season-four-crit #voiceLine { font-size: 1.75rem !important; line-height: 1.6 !important; }
+  .working-table { grid-template-columns: 1fr; gap: 3rem; margin-top: 3.5rem; padding-top: 2.5rem; }
+  .season-four-crit .wing-cards, .season-four-crit .minutes, .season-four-crit .transcript, .season-four-crit .dispute-positions { grid-template-columns: 1fr; gap: 1.5rem; }
+  .season-four-crit #salonListening { margin-top: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio-sheet, .folio-interval { transition: none; }
+}

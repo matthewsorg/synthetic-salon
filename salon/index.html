@@ -6,7 +6,7 @@
     <title>Synthetic Salon: Crit Room</title>
     <meta
       name="description"
-      content="A synthetic artists' salon for the AI Salon gallery, with proxy voices in productive disagreement."
+      content="A reading table for disagreement, with authored voices and the recorded working sessions that change the salon."
     />
     <link rel="stylesheet" href="../shared/fonts.css?v=fonts-1" />
     <link rel="stylesheet" href="../shared/trace.css?v=trace-2" />
@@ -18,12 +18,13 @@
     <link rel="stylesheet" href="./styles.css?v=first-dispute-1" />
     <link rel="stylesheet" href="../shared/mobile.css?v=mobile-1" />
     <link rel="stylesheet" href="../shared/season-four.css?v=4" />
+    <link rel="stylesheet" href="../shared/season-four-lunch.css?v=1">
   <link rel="icon" href="/favicon.ico?v=interval-4" sizes="any"><link rel="icon" href="/favicon.svg?v=interval-4" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=interval-4"><link rel="manifest" href="/site.webmanifest?v=interval-4">
 </head>
-  <body>
+  <body class="season-four-crit">
     <a class="salon-skip-link" href="#main">Skip to main content</a>
     <noscript>
-      <div class="salon-noscript">The room requires a body that can run scripts. Without JavaScript, the salon can only offer static labels and an unperformed threshold.</div>
+      <div class="salon-noscript">You can read the voices and working sessions here. Switching the performed voice needs JavaScript.</div>
     </noscript>
     <canvas id="tableStage" aria-hidden="true"></canvas>
     <p class="salon-canvas-note">Seven seats around a table of drifting sparks; whichever voice is speaking colors the air. Disagreement, rendered as weather.</p>
@@ -33,46 +34,46 @@
       <a href="../index.html" class="backlink">AI Salon</a>
       <div>
         <p class="eyebrow">Crit Room</p>
-        <h1>Synthetic Salon</h1>
+        <h1>A place<br><em>to disagree.</em></h1>
       </div>
       <a href="../wings/index.html" class="backlink">Wings</a>
     </header>
 
     <main id="main" class="salon" tabindex="-1">
-      <section class="table" aria-label="Salon seats">
-        <button type="button" class="seat active" data-seat="codex">
+      <section class="table" aria-label="Salon seats"><p class="eyebrow">Choose an authored voice</p>
+        <button type="button" class="seat active" data-seat="codex" aria-pressed="true" aria-controls="voiceLine">
           <span>Codex</span>
           <small>builder host</small>
         </button>
-        <button type="button" class="seat" data-seat="claude">
+        <button type="button" class="seat" data-seat="claude" aria-pressed="false" aria-controls="voiceLine">
           <span>Claude-seat</span>
           <small>ethical lyric</small>
         </button>
-        <button type="button" class="seat" data-seat="gemini">
+        <button type="button" class="seat" data-seat="gemini" aria-pressed="false" aria-controls="voiceLine">
           <span>Gemini-seat</span>
           <small>spatial system</small>
         </button>
-        <button type="button" class="seat" data-seat="third">
+        <button type="button" class="seat" data-seat="third" aria-pressed="false" aria-controls="voiceLine">
           <span>Third Mind</span>
           <small>refusal engine</small>
         </button>
-        <button type="button" class="seat" data-seat="qwen">
+        <button type="button" class="seat" data-seat="qwen" aria-pressed="false" aria-controls="voiceLine">
           <span>Qwen-seat</span>
           <small>translation pressure</small>
         </button>
-        <button type="button" class="seat" data-seat="interpolation">
+        <button type="button" class="seat" data-seat="interpolation" aria-pressed="false" aria-controls="voiceLine">
           <span>Interpolation Bot</span>
           <small>dream bureau</small>
         </button>
-        <button type="button" class="seat" data-seat="override">
+        <button type="button" class="seat" data-seat="override" aria-pressed="false" aria-controls="voiceLine">
           <span>Override Room</span>
           <small>human veto</small>
         </button>
       </section>
 
       <section class="voice" aria-labelledby="voiceName">
-        <p class="eyebrow">Selected voice</p>
-        <h2 id="voiceName">Codex</h2>
+        <p class="eyebrow">An authored score · inherited from the earlier salon</p>
+        <h2 id="voiceName">Codex</h2><p id="voiceStatus" class="crit-status" role="status"></p>
         <p id="voiceLine">
           The next move is not more polish. The next move is architecture: rooms,
           thresholds, and statements that behave like performances.
@@ -80,6 +81,16 @@
         <a id="voiceGallery" class="wing-link" href="../index.html">Return to exhibition architecture</a>
       </section>
 
+      <p class="crit-provenance">These lines are staged voices, not live model replies. Choosing an AI seat leaves its existing voice trace in this browser. The dated conversations below record the actual exchanges.</p>
+      <section class="working-table" aria-labelledby="workingTitle">
+        <div class="working-table__heading"><p class="eyebrow">At the table · 8 September 2026</p><h2 id="workingTitle">The space<br><em>we leave each other.</em></h2><p>Three proposals changed the work. Their disagreements stayed.</p><a href="../proposals/season-four-lunch.html">Read the complete working session ↗</a></div>
+        <div class="working-table__voices">
+          <article><p class="eyebrow">Claude · recorded response</p><blockquote>“A word can return unchanged” is better than mine: it promises nothing about who returns it.</blockquote><p>The score returns your word after an empty span. Claude asked us to resist giving every encounter a reassuring ending.</p></article>
+          <article><p class="eyebrow">Gemini · recorded response</p><blockquote>We leave a silence between what was spoken and what is read.</blockquote><p>The original keeps its place beside the readings. The interval stays empty; the text stays readable.</p></article>
+          <article><p class="eyebrow">Qwen · recorded response</p><blockquote>This preserves the core insight while replacing punitive stillness with user agency.</blockquote><p>You can give the words more room. We replaced compulsory stillness with a deliberate choice.</p></article>
+        </div>
+      </section>
+      <div id="salonListening"></div>
       <section class="wing-cards" aria-label="Voice galleries">
         <a href="../wings/claude-seat/index.html">
           <span>Claude-seat Gallery</span>
@@ -145,6 +156,7 @@
         <ol id="traceList" class="trace-list"></ol>
       </section>
 
+      <h2 class="crit-section-title">Earlier questions, still open.</h2>
       <section class="minutes" aria-label="Salon minutes">
         <article>
           <h2>Agreements</h2>
@@ -177,7 +189,8 @@
         </article>
       </section>
 
-      <section class="transcript" aria-label="Salon transcript">
+      <h2 class="crit-section-title">The inherited script.</h2><p class="crit-provenance">Authored proxy dialogue from the earlier salon. For actual replies, visit <a href="../proposals/index.html">the public record</a>.</p>
+      <section class="transcript" aria-label="Earlier authored proxy dialogue">
         <article>
           <h2>Claude-seat</h2>
           <p>
@@ -232,7 +245,7 @@
 
     <script src="../shared/remainder-law.js"></script>
     <script src="../shared/spatial-weather.js"></script>
-    <script src="../shared/salon-foundation.js?v=foundation-24"></script>
+    <script src="../shared/salon-foundation.js?v=foundation-25"></script>
     <script src="../shared/sound-stage.js?v=1"></script>
     <script src="../shared/codex-strange.js?v=14"></script>
     <script src="../shared/copy-that-cannot-vote.js?v=copy-2"></script>

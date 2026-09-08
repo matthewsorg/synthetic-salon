@@ -516,14 +516,16 @@
       const item = node("li");
       const link = node("a");
       link.href = linkFor(stop.href);
-      link.textContent = stop.mark;
+      link.textContent = `${stop.mark} · ${stop.title}`;
       link.style.setProperty("--route-accent", stop.color);
       if (stopIndex + 1 === index) link.setAttribute("aria-current", "page");
       item.append(link);
       trail.append(item);
     });
 
-    route.append(prevLink, currentNode, nextLink, trail);
+    const allRooms = node("details", "salon-route__all");
+    allRooms.append(node("summary", null, "All rooms"), trail);
+    route.append(prevLink, currentNode, nextLink, allRooms);
     header.insertAdjacentElement("afterend", route);
   }
 

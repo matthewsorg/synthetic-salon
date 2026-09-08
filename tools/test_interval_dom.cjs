@@ -6,6 +6,9 @@ const path = require('node:path');
 const root = process.argv[2] || path.resolve(__dirname, '..');
 const stateSource = fs.readFileSync(root + '/shared/gallery-state.js', 'utf8');
 const scoreSource = fs.readFileSync(root + '/shared/interval-score.js', 'utf8');
+const entranceSource = fs.readFileSync(root + '/index.html', 'utf8');
+const folioMarkup = entranceSource.match(/<details\b[^>]*\bid="intervalFolio"[^>]*>([\s\S]*?)<\/details>/)?.[1];
+assert.ok(folioMarkup, 'The entrance contains the public folio markup');
 class Events {
   constructor() { this.events = {}; }
   addEventListener(type, fn) { (this.events[type] ||= []).push(fn); }
@@ -64,6 +67,30 @@ function environment({ initial = null, room = 0, denyRead = false, denyWrite = f
     add('button', 'carryIntervalWord', '', instrument); add('button', 'clearIntervalWord', '', instrument);
     for (const word of ['enough', 'hush', 'elsewhere']) { const b = add('button', word, '', instrument); b.dataset.intervalWord = word; }
     for (let i = 1; i <= 6; i++) { const card = add('a', 'room' + i, 'score-room'); card.dataset.room = String(i); add('p', '', '', card); }
+    // Use actual public folio text and room identifiers; fake DOM remains network-free.
+    const folio = add('details', 'intervalFolio', 'interval-folio');
+    const distance = add('button', 'folioDistance', '', folio);
+    distance.textContent = 'Give the words room';
+    distance.setAttribute('aria-pressed', 'false');
+    distance.setAttribute('aria-controls', 'folioSheet');
+    const sheet = add('div', 'folioSheet', 'folio-sheet', folio);
+    const source = add('div', '', 'folio-source', sheet);
+    add('span', 'folioPreviewLabel', 'folio-caption', source).textContent = folioMarkup.match(/class="folio-caption">([^<]*)</)?.[1] || '';
+    add('p', 'folioSource', '', source).textContent = folioMarkup.match(/id="folioSource">([^<]*)</)?.[1] || '';
+    add('div', '', 'folio-interval', sheet).setAttribute('aria-hidden', 'true');
+    const destination = add('div', '', 'folio-destination', sheet);
+    const readings = add('ol', '', 'folio-readings', destination);
+    for (const match of folioMarkup.matchAll(/<a href="([^"]+)"><span class="folio-room">([^<]*)<\/span><span class="folio-reading" data-folio-room="(\d+)">([^<]*)<\/span><\/a>/g)) {
+      const item = add('li', '', '', readings), link = add('a', 'folioRoom' + match[3], '', item);
+      link.href = match[1];
+      add('span', 'folioRoomLabel' + match[3], 'folio-room', link).textContent = match[2];
+      const line = add('span', 'folioReading' + match[3], 'folio-reading', link);
+      line.dataset.folioRoom = match[3]; line.textContent = match[4];
+    }
+    const returned = add('div', '', 'folio-return', destination);
+    add('p', 'folioReturn', '', returned).textContent = folioMarkup.match(/id="folioReturn">([^<]*)</)?.[1] || '';
+    add('span', 'folioReturnLabel', '', returned).textContent = folioMarkup.match(/id="folioReturn">[^<]*<\/p><span>([^<]*)</)?.[1] || '';
+
   } else {
     const route = add('nav', 'route', 'salon-route'); add('a', 'next', 'salon-route__step--next', route);
   }
@@ -144,5 +171,119 @@ test('entrance clear places keyboard focus on a usable control', () => {
   const e = environment({ initial: { traces: [word('enough')] } }); e.click('clearIntervalWord');
   assert.ok(!e.doc.activeElement.hidden && !e.doc.activeElement.disabled, 'focus remains on now-hidden Set it down button because Carry is disabled');
 });
+
+const folioLines = e => e.doc.querySelectorAll('[data-folio-room]').map(node => node.textContent);
+const ENOUGH = ['enough to be heard', 'more than memory can hold', '[ an unfinished measure ]', 'enough for whom?', 'a ceiling mistaken for sky', 'who gets to say enough?'];
+const HUSH = ['the room leans closer', 'I remember almost nothing', '[ a silence with an address ]', 'a word still holding its breath', 'the floor rehearses a whisper', 'you may leave the silence unfilled'];
+const ELSEWHERE = ['somewhere a room is listening', 'where you were, almost', '[ the other room declines ]', 'else / where', 'you are the other address', 'the door belongs to you'];
+function assertEmptyFolio(e) {
+  assert.equal(e.get('folioSource').textContent, '');
+  assert.equal(e.get('folioReturn').textContent, '');
+  assert.deepEqual(folioLines(e), ['', '', '', '', '', '']);
+  assert.equal(e.get('intervalFolio').classList.contains('is-empty'), true);
+}
+test('folio identifies a preview and presents exactly six labeled room links', () => {
+  const e = environment();
+  assert.equal(e.get('folioPreviewLabel').textContent, 'The word you are previewing');
+  assert.match(folioMarkup, /Six authored readings · a preview/);
+  assert.deepEqual(e.doc.querySelectorAll('.folio-room').map(node => node.textContent), ['01 · Attention', '02 · Memory', '03 · Refusal', '04 · Translation', '05 · Displacement', '06 · Responsibility']);
+  for (let room = 1; room <= 6; room++) assert.equal(e.get('folioRoom' + room).href, `./room-0${room}/index.html`);
+  assert.deepEqual(folioLines(e), ENOUGH);
+  assert.equal(e.writes(), 0);
+});
+test('all six folio readings follow the chosen preview without storage or history', () => {
+  const e = environment();
+  for (const [seed, expected] of [['hush', HUSH], ['elsewhere', ELSEWHERE], ['enough', ENOUGH]]) {
+    e.click(seed);
+    assert.equal(e.get('folioSource').textContent, seed);
+    assert.deepEqual(folioLines(e), expected);
+  }
+  assert.equal(e.writes(), 0); assert.equal(e.eventLog.length, 0);
+});
+test('the folio returns the exact source word unchanged for every preview', () => {
+  const e = environment();
+  assert.equal(e.get('folioReturnLabel').textContent, 'Returned');
+  for (const seed of ['enough', 'hush', 'elsewhere']) {
+    e.click(seed);
+    assert.equal(e.get('folioReturn').textContent, seed);
+    assert.equal(e.get('folioSource').textContent, seed);
+    assert.notEqual(e.get('folioReturn').textContent, e.get('folioReading6').textContent);
+  }
+  assert.equal(e.writes(), 0);
+});
+test('confirmed erasure immediately empties folio source, six readings and return', () => {
+  const e = environment({ initial: { traces: [word('hush')] } });
+  e.click('clearIntervalWord'); assertEmptyFolio(e);
+  assert.equal(e.saved().traces.length, 0);
+  assert.equal(e.writes(), 1);
+  assert.deepEqual(e.eventLog.map(event => event.type), ['ai-salon-word-cleared']);
+});
+test('room hover and focus after erasure never repopulate the empty folio', () => {
+  const e = environment({ initial: { traces: [word('elsewhere')] } }); e.click('clearIntervalWord');
+  const writes = e.writes(), events = e.eventLog.length;
+  for (let room = 1; room <= 6; room++) {
+    for (const type of ['pointerenter', 'pointerleave', 'focus', 'blur']) {
+      e.get('room' + room).dispatchEvent({ type }); assertEmptyFolio(e);
+    }
+  }
+  assert.equal(e.writes(), writes); assert.equal(e.eventLog.length, events);
+  assert.equal(e.get('carryIntervalWord').disabled, true);
+});
+test('spacing controls change only presentation and keep their pressed state exact', () => {
+  const prior = { traces: [word('hush')], archives: [{ traces: [word('enough')] }] };
+  const e = environment({ initial: prior });
+  e.click('folioDistance');
+  assert.equal(e.get('intervalFolio').classList.contains('is-apart'), true);
+  assert.equal(e.get('folioDistance').getAttribute('aria-pressed'), 'true');
+  assert.equal(e.get('folioDistance').getAttribute('aria-controls'), 'folioSheet');
+  assert.equal(e.get('folioDistance').textContent, 'Bring them closer');
+  assert.deepEqual(folioLines(e), HUSH);
+  e.click('folioDistance');
+  assert.equal(e.get('intervalFolio').classList.contains('is-apart'), false);
+  assert.equal(e.get('folioDistance').getAttribute('aria-pressed'), 'false');
+  assert.equal(e.get('folioDistance').textContent, 'Give the words room');
+  assert.deepEqual(e.saved(), prior); assert.equal(e.writes(), 0); assert.equal(e.eventLog.length, 0);
+});
+test('spacing an empty folio does not restore erased content or record its absence', () => {
+  const e = environment({ initial: { traces: [word('enough')] } }); e.click('clearIntervalWord');
+  const writes = e.writes(), events = e.eventLog.length;
+  e.click('folioDistance'); assertEmptyFolio(e);
+  e.click('folioDistance'); assertEmptyFolio(e);
+  assert.equal(e.writes(), writes); assert.equal(e.eventLog.length, events);
+  assert.equal(e.saved().traces.length, 0);
+});
+test('a different preview never silently replaces the word still being carried', () => {
+  const e = environment({ initial: { traces: [word('hush')] } }); e.click('elsewhere');
+  assert.equal(e.get('folioSource').textContent, 'elsewhere'); assert.equal(e.get('folioReturn').textContent, 'elsewhere');
+  assert.deepEqual(folioLines(e), ELSEWHERE);
+  assert.equal(e.context.SalonIntervalScore.carriedWord(), 'hush');
+  assert.equal(e.saved().traces[0].label, 'hush');
+  assert.match(e.get('intervalStatus').textContent, /“hush” is being carried/);
+  assert.deepEqual(e.doc.querySelectorAll('.score-carried').map(node => node.textContent), HUSH.map(line => `“${line}”`));
+  assert.equal(e.writes(), 0); assert.equal(e.eventLog.length, 0);
+});
+test('a new preview revives the folio after erasure without reviving carrying', () => {
+  const e = environment({ initial: { traces: [word('enough')] } }); e.click('clearIntervalWord');
+  const writes = e.writes(); e.click('hush');
+  assert.equal(e.get('intervalFolio').classList.contains('is-empty'), false);
+  assert.equal(e.get('folioSource').textContent, 'hush'); assert.equal(e.get('folioReturn').textContent, 'hush');
+  assert.deepEqual(folioLines(e), HUSH); assert.equal(e.writes(), writes);
+  assert.equal(e.context.SalonIntervalScore.carriedWord(), null); assert.equal(e.get('carryIntervalWord').disabled, false);
+});
+test('failed erasure leaves the folio visible and reports uncertainty', () => {
+  const e = environment({ initial: { traces: [word('hush')] }, denyWrite: true }); e.click('clearIntervalWord');
+  assert.equal(e.get('folioSource').textContent, 'hush'); assert.equal(e.get('folioReturn').textContent, 'hush');
+  assert.deepEqual(folioLines(e), HUSH); assert.equal(e.get('intervalFolio').classList.contains('is-empty'), false);
+  assert.match(e.get('intervalStatus').textContent, /could not confirm/); assert.equal(e.writes(), 0);
+});
+test('reload preserves neither folio spacing nor a memorial of erasure', () => {
+  const e = environment({ initial: { traces: [word('hush')] } }); e.click('folioDistance'); e.click('clearIntervalWord');
+  const reloaded = e.reload();
+  assert.equal(reloaded.get('intervalFolio').classList.contains('is-apart'), false);
+  assert.equal(reloaded.get('intervalFolio').classList.contains('is-empty'), false);
+  assert.equal(reloaded.get('folioSource').textContent, 'enough'); assert.deepEqual(folioLines(reloaded), ENOUGH);
+  assert.equal(reloaded.writes(), 0);
+});
+
 console.log(`${passed} passed; ${failed} failed. Fake DOM only, no browser/network.`);
 process.exitCode = failed ? 1 : 0;
