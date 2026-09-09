@@ -1,0 +1,9 @@
+Use case: stylized-concept
+Asset type: original landscape installation artwork for the Synthetic Salon online high-art gallery, approximately 1536x1024, landscape 3:2.
+Scene/backdrop: an almost black midnight petrol museum background (#080f16), with a barely present ground plane.
+Subject: one enigmatic sculptural object: a hollow asymmetrical pale ivory ceramic oval/loop with a narrow split open at one side. A restrained vermilion inner cut surface is visible only at this split. A small mirror-polished silver sphere hovers in the hollow center without touching the ceramic.
+Style/medium: crisp, exquisitely resolved art photography of a collectible high-art sculpture, real material weight and an impossible relation; cohesive with a dark silver-and-glass gallery.
+Composition/framing: object centered and occupying 55–65% of the frame height with generous quiet margin on all sides.
+Lighting/mood: soft museum raking light from upper left, a subtle contactless shadow, quiet contemplative mystery.
+Materials/textures: fine ivory ceramic surface grain, restrained vermilion cut edge, mirror-polished silver sphere with subtle physically plausible reflections.
+Constraints: generate exactly one original image. No text, logos, watermark, plinth label, sci-fi UI, stars, neon, vaporwave, or oversaturated gradient. No additional objects. Preserve the dark petrol ground and quiet generous framing.

@@ -147,3 +147,7 @@ body.season-four-crit { --crit-voice: #a7d7cd; --muted: #b2c1be; background: #0a
 @media (prefers-reduced-motion: reduce) {
   .folio-sheet, .folio-interval { transition: none; }
 }
+
+/* The new sculptural encounter offers a second threshold. */
+.object-invitation{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,6vw,90px);align-items:center;margin:90px 0 110px}.object-invitation__image{display:block}.object-invitation img{display:block;width:100%;height:auto}.object-invitation h2{font:400 clamp(38px,5vw,70px)/.98 var(--font-display);letter-spacing:-.03em;margin:20px 0 26px}.object-invitation h2 em{color:#efa48a}.object-invitation p:not(.eyebrow){max-width:340px;color:#b2bfbd}.entrance-still-link{display:block;text-decoration:none;border-top:1px solid var(--salon-four-line);padding:60px 0;margin:40px 0}.entrance-still-link span{display:block;font-size:14px;color:#b2bfbd;margin-bottom:12px}.entrance-still-link strong{font:400 clamp(30px,4vw,48px)/1.2 var(--font-display)}
+@media(max-width:680px){.object-invitation{grid-template-columns:1fr;gap:22px;margin:60px 0}.object-invitation h2{font-size:42px}.object-invitation h2 br:last-child{display:none}}

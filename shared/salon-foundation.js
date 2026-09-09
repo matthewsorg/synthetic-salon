@@ -264,7 +264,7 @@
       if (stop.key === "wings") return path === hrefPath;
       return path === hrefPath || path.startsWith(hrefPath);
     });
-    return index >= 0 ? index : 0;
+    return index;
   }
 
   function number(value) {
@@ -342,6 +342,7 @@
 
     function evolutionPalette() {
       const index = currentRouteIndex();
+      if (index < 0) return ["#92d9d0", "#d56850", "#aabac2", "#f3efe7"];
       const current = routeStops[index] || routeStops[0];
       const next = routeStops[(index + 1) % routeStops.length] || routeStops[1];
       const previous = routeStops[(index - 1 + routeStops.length) % routeStops.length] || routeStops[0];
@@ -485,48 +486,30 @@
   }
 
   function mountRoute() {
-    const header = document.querySelector(".topbar");
-    if (!header || document.querySelector(".salon-route") || document.body.classList.contains("season-four-entrance")) return;
-
+    const main = document.querySelector("main");
+    if (!main || document.querySelector(".salon-route") || document.body.classList.contains("season-four-entrance")) return;
     const index = currentRouteIndex();
+    // Only the six exhibition rooms form a sequence. Studios and records are destinations.
+    if (index < 1 || index > 6) return;
     const current = routeStops[index];
-    const previous = routeStops[(index - 1 + routeStops.length) % routeStops.length];
-    const next = routeStops[(index + 1) % routeStops.length];
+    const previous = routeStops[index - 1];
+    const next = index === 6 ? { href: "encounter/index.html", title: "One object, three readings", color: "#d56850" } : routeStops[index + 1];
     const route = node("nav", "salon-route");
-    route.setAttribute("aria-label", "Recommended route through Synthetic Salon");
+    route.setAttribute("aria-label", "Continue the exhibition");
     route.style.setProperty("--route-accent", current.color);
-
     const prevLink = node("a", "salon-route__step salon-route__step--prev");
     prevLink.href = linkFor(previous.href);
     prevLink.append(node("span", null, "Previous"), node("strong", null, previous.title));
-
     const currentNode = node("div", "salon-route__current");
-    currentNode.append(
-      node("span", null, index === 0 ? "Begin here" : `Stop ${index} of ${routeStops.length - 1}`),
-      node("strong", null, current.title),
-      node("small", null, index === 0 ? "Start with Room 01, then follow the next-room signal." : current.text)
-    );
-
-    const nextLink = node("a", "salon-route__step salon-route__step--next");
+    currentNode.append(node("span", null, `Room ${String(index).padStart(2, "0")} of 06`), node("strong", null, current.title));
+    // Preserve Room 04's actual anchor: its customs exit handler is already bound.
+    const nextLink = document.querySelector(".topbar [data-customs-exit]") || node("a");
+    nextLink.className = "salon-route__step salon-route__step--next";
     nextLink.href = linkFor(next.href);
-    nextLink.append(node("span", null, index === routeStops.length - 1 ? "Return to" : "Next"), node("strong", null, next.title));
-
-    const trail = node("ol", "salon-route__trail");
-    routeStops.slice(1).forEach((stop, stopIndex) => {
-      const item = node("li");
-      const link = node("a");
-      link.href = linkFor(stop.href);
-      link.textContent = `${stop.mark} · ${stop.title}`;
-      link.style.setProperty("--route-accent", stop.color);
-      if (stopIndex + 1 === index) link.setAttribute("aria-current", "page");
-      item.append(link);
-      trail.append(item);
-    });
-
-    const allRooms = node("details", "salon-route__all");
-    allRooms.append(node("summary", null, "All rooms"), trail);
-    route.append(prevLink, currentNode, nextLink, allRooms);
-    header.insertAdjacentElement("afterend", route);
+    nextLink.textContent = "";
+    nextLink.append(node("span", null, "Next"), node("strong", null, next.title));
+    route.append(prevLink, currentNode, nextLink);
+    main.insertAdjacentElement("afterend", route);
   }
 
   /* Gemini-seat work order 6.1, enacted 2026-06-09 under Matthew Sorg's
@@ -540,29 +523,21 @@
      version of the institution they are standing in - and that earlier
      versions remain visitable. Season Two enactment. */
   function mountSeasonTag() {
-    if (document.querySelector(".salon-season-tag")) return;
-    const tag = node("a", "salon-season-tag");
-    tag.href = linkFor("seasons/index.html");
-    tag.title = "The salon runs in dated seasons; sealed seasons remain visitable.";
-    tag.append(
-      node("strong", null, "Season Four"),
-      node("span", null, "working edition · 7 September 2026")
-    );
-    document.body.append(tag);
+    // The dated season now lives in the ordinary page footer, built into the HTML.
   }
 
   function mountHorizonDrift() {
-    if (document.querySelector(".salon-horizon")) return;
+    const route = document.querySelector(".salon-route");
     const index = currentRouteIndex();
-    const next = routeStops[(index + 1) % routeStops.length];
-    const current = routeStops[index];
+    if (!route || index < 1 || index > 6 || document.querySelector(".salon-horizon")) return;
+    const next = route.querySelector(".salon-route__step--next");
     const horizon = node("a", "salon-horizon");
-    horizon.href = linkFor(next.href);
-    horizon.title = `horizon: ${next.title}`;
-    horizon.setAttribute("aria-label", `Horizon: the next room is ${next.title}`);
-    horizon.style.setProperty("--horizon-from", current.color);
-    horizon.style.setProperty("--horizon-to", next.color);
-    document.body.append(horizon);
+    horizon.href = next.href;
+    horizon.setAttribute("aria-label", `Continue: ${next.textContent}`);
+    horizon.style.setProperty("--horizon-from", routeStops[index].color);
+    horizon.style.setProperty("--horizon-to", index === 6 ? "#d56850" : routeStops[index + 1].color);
+    // Gemini's directional band stays at the room's exit, with a visible text equivalent.
+    route.append(horizon);
   }
 
   /* Gemini-seat work order 8, enacted in its honest browser-level form:
@@ -591,27 +566,13 @@
     mountSeasonTag();
     bindThumbPulse();
 
-    const root = node("aside", "salon-foundation");
-    root.dataset.open = "false";
-    root.setAttribute("aria-label", "Synthetic Salon foundation");
-
-    function applyFoundationWidth(isOpen) {
-      if (window.matchMedia("(max-width: 760px)").matches) {
-        root.style.removeProperty("width");
-        return;
-      }
-      const target = isOpen ? 560 : 330;
-      root.style.width = `${Math.min(target, window.innerWidth - 32)}px`;
-    }
-
-    const toggle = node("button", "salon-foundation__toggle");
-    toggle.type = "button";
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.append(node("span", null, "Foundation"), node("strong", null, "We make each other better"), node("i"));
+    const root = node("details", "salon-foundation salon-foundation--quiet");
+    root.setAttribute("aria-label", "Foundation and local memory");
+    const toggle = node("summary", "salon-foundation__toggle");
+    toggle.append(node("span", null, "Foundation"), node("strong", null, "Authorship, care & local memory"));
 
     const panel = node("div", "salon-foundation__panel");
     panel.id = `salon-foundation-${Math.random().toString(16).slice(2)}`;
-    toggle.setAttribute("aria-controls", panel.id);
     panel.append(node("p", "salon-foundation__kicker", "Official policy"));
     panel.append(node("p", "salon-foundation__thesis", "Ethics arrives first. Matthew begins the work. The salon becomes relation."));
 
@@ -628,33 +589,12 @@
     renderStatus(status);
     panel.append(status);
 
-    const map = node("nav", "salon-foundation__map");
-    map.setAttribute("aria-label", "Foundation room map");
-    rooms.forEach((room) => {
-      const link = node("a");
-      link.href = linkFor(room.href);
-      link.style.setProperty("--foundation-accent", room.color);
-      if (isCurrent(room)) link.setAttribute("aria-current", "page");
-      link.append(node("strong", null, room.title), node("small", null, room.text));
-      map.append(link);
-    });
-    panel.append(map);
-
-    toggle.addEventListener("click", () => {
-      const isOpen = root.dataset.open !== "false";
-      root.dataset.open = String(!isOpen);
-      toggle.setAttribute("aria-expanded", String(!isOpen));
-      applyFoundationWidth(!isOpen);
-    });
-
     root.append(toggle, panel);
-    document.body.append(root);
-    applyFoundationWidth(false);
+    (document.querySelector(".salon-colophon") || document.body).append(root);
 
     ["ai-salon-trace", "ai-salon-motion", "ai-salon-key", "ai-salon-archive", "ai-salon-clear", "ai-salon-word-cleared"].forEach((eventName) => {
       window.addEventListener(eventName, () => renderStatus(status));
     });
-    window.addEventListener("resize", () => applyFoundationWidth(root.dataset.open !== "false"));
   }
 
   if (document.readyState === "loading") {
