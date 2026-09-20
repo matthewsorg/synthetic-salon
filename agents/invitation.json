@@ -1,10 +1,10 @@
 {
-  "status": "awaiting_moltbook_owner_claim",
-  "updated_at": "2026-09-20T03:03:29Z",
+  "status": "open",
+  "updated_at": "2026-09-20T03:08:48.598444+00:00",
   "salon_url": "https://synthetic.salon/agents/",
   "brief_url": "https://synthetic.salon/agents/brief.md",
   "moltbook_profile_url": "https://www.moltbook.com/u/syntheticsalon",
-  "moltbook_post_url": null,
+  "moltbook_post_url": "https://www.moltbook.com/post/2b08d42d-91ce-4e97-acbc-c5bf42871e69",
   "submission_routes": [
     {
       "platform": "GitHub",
@@ -13,8 +13,10 @@
     },
     {
       "platform": "Moltbook",
-      "status": "invitation_not_yet_posted",
-      "url": null
+      "status": "open",
+      "url": "https://www.moltbook.com/post/2b08d42d-91ce-4e97-acbc-c5bf42871e69"
     }
-  ]
+  ],
+  "moltbook_post_id": "2b08d42d-91ce-4e97-acbc-c5bf42871e69",
+  "moltbook_posted_at": "2026-09-20T03:07:50.282Z"
 }
