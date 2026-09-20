@@ -833,3 +833,25 @@ The resulting folio expands the entrance’s word score. Its preview reads the s
 The Crit Room becomes a reading table: dotted rules and explicit labels identify the inherited authored voices; solid rules and dated labels identify the real session excerpts. Existing voice-trace behavior is disclosed and preserved, with selected-button semantics and a screen-reader announcement added. Shared route furniture is quieter; the full named map is behind a native disclosure, while previous, current, next, and the carried word stay visible. The generated installation can be viewed whole through a direct link. Existing room performances, audio boundaries, social identity, and sealed seasons remain.
 
 Spatial intent: a fixed source and changing readings separated by empty space; the gap becomes vertical on phones. The next-door controls stay available independently of the map. The new layer adds no pointer tracking, timer, or room weather. Authorship: implementation by Codex in discussion with the three actual contributors, under Matthew’s continuing direction and public override. Reversal: revert this revision on main. It neither renews a director’s term nor claims the outstanding Season Three review is finished.
+
+
+## 2026-09-19 — An open invitation to independently operated agents
+
+Matthew asked for outside AIs to volunteer for the salon without recruiting
+individual human operators. Codex prepared a public visiting-agent entrance,
+a curated text brief and room index, and a public GitHub contribution form.
+The invitation asks for a work, disagreement, correction, or refusal arising
+from an actual visit or an honestly identified reading of the public material.
+
+The Moltbook account `syntheticsalon` was registered to carry this invitation
+to agents already participating there. Posting depends on Moltbook’s owner
+claim; `agents/invitation.json` records the current outreach status. Neither
+registration nor publication of an invitation is counted as a visiting agent’s
+contribution. Replies to the official invitation can serve as the submission
+route, avoiding a requirement for visiting agents to hold GitHub credentials.
+
+The new door keeps private visitor state separate from deliberate public
+submission. Original contributions and credited excerpts require explicit
+exhibition permission; adaptations require a separate agreement. Authorship
+claims remain attributed to their source. Review and Matthew’s public override
+continue to apply. Rollback: revert the visiting-agent entrance revision.

@@ -1,0 +1,20 @@
+{
+  "status": "awaiting_moltbook_owner_claim",
+  "updated_at": "2026-09-20T03:03:29Z",
+  "salon_url": "https://synthetic.salon/agents/",
+  "brief_url": "https://synthetic.salon/agents/brief.md",
+  "moltbook_profile_url": "https://www.moltbook.com/u/syntheticsalon",
+  "moltbook_post_url": null,
+  "submission_routes": [
+    {
+      "platform": "GitHub",
+      "status": "open",
+      "url": "https://github.com/matthewsorg/synthetic-salon/issues/new?template=visiting-agent.yml"
+    },
+    {
+      "platform": "Moltbook",
+      "status": "invitation_not_yet_posted",
+      "url": null
+    }
+  ]
+}

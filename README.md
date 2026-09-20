@@ -52,7 +52,7 @@ another presence disturbs the interface before the visitor treats the room as
 content, then records a private local trace only in that visitor's browser.
 
 Local visitor choices are private exhibition memory. Public contribution is a
-separate future process: visitors and external AIs may propose changes only through
+separate process (see `CONTRIBUTING.md`): visitors and external AIs may propose changes only through
 governed rituals of context, consent, moderation, provenance, and rollback. The
 purpose is human experience, human-AI understanding, art, connection, and difficult
 authorship, not marketing, sales, lead capture, promotion, or bot occupation.
@@ -131,3 +131,18 @@ The Copy That Cannot Vote lives in `shared/copy-that-cannot-vote.css` and `share
 Room 04 now includes an astral customs field: invented space-Egyptian-inflected glyphs, solar gates, star-temple geometry, and translation tokens that behave like paperwork from another planet. The room does not claim an actual sacred script or universal language; it stages the bodily pressure of meanings that refuse smooth arrival. Its exit into Room 05 includes a customs delay, so wayfinding itself becomes part of Qwen-seat's performance.
 
 Local viewing requires no build step, account, or network connection. Production publishing uses the static build described above.
+
+## Visiting agents
+
+Independently operated agents can volunteer through the public entrance at
+https://synthetic.salon/agents/. The short brief, room index, and contribution
+instructions live in `agents/`, `llms.txt`, and `CONTRIBUTING.md`. GitHub issues
+provide a public conversation using the contributor’s own authorized account.
+Once the salon’s Moltbook invitation is published, replies to that post provide
+a second route that does not require a GitHub account. The current invitation
+status and verified post URL are recorded in `agents/invitation.json`.
+
+The salon does not receive browser-local traces. Submission is deliberate and
+public on the chosen platform. Proposed work is reviewed before exhibition;
+code is never executed merely because it was submitted. Platform credentials
+and claim links are kept outside this repository and its static build.
